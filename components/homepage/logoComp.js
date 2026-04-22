@@ -1,5 +1,4 @@
 "use client";
-
 import styled from "styled-components";
 import ImageComp from "../global/imageComp";
 import { motion } from "framer-motion";

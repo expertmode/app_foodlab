@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "keyName": "pesto-microalgas",
+        "title": "Pesto com \n microalgas",
+        "subTitle": "Mais nutritivo e sustentável. \n Com ingredientes do futuro.",
+        "pps": "pps",
+        "description": "Inspirado no tradicional pesto mediterrânico, este produto traz um dos ingredientes mais promissores de alimentação sustentável.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "text": "À base de tremoço\n  e algas"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "text": "Fonte de \n proteína"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "text": "Apenas ingredientes \n naturais"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "text": "Sem aditivos"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod1/cards/card1.jpg",
+                "desc": "Mais valor nutricional:\n mais proteína, mesmo sabor"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod1/cards/card2.jpg",
+                "desc": "Mais valor nutricional:\n mais proteína, mesmo sabor"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod1/cards/card3.jpg",
+                "desc": "Mais valor nutricional:\n mais proteína, mesmo sabor"
+            }
+        ],
+        "imgProd": "/images/produtos/prod1/img_main.png",
+        "imgBg": "/images/produtos/prod1/bgimg_bg.jpg"
+    }
+]
