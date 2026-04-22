@@ -1,4 +1,4 @@
-import { Boldonse, DM_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import MainLayoutComp from "@/components/global/mainLayoutComp";
 
@@ -8,15 +8,14 @@ const dm_sans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const boldonse = Boldonse({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-boldonse",
-});
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${dm_sans.variable} ${boldonse.variable}`}>
+    <html lang="en" className={`${dm_sans.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet" />
+      </head>
       <body>
         <MainLayoutComp>
           {children}
@@ -25,3 +24,9 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// .boldonse-regular {
+//   font-family: "Boldonse", system-ui;
+//   font-weight: 400;
+//   font-style: normal;
+

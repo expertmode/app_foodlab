@@ -27,6 +27,7 @@ const CenterBox = styled.div`
     display: flex;
     position: absolute;
     bottom: 10vh;
+    z-index: 15;
 `;
 
 const ButtonBox = styled(motion.div)`

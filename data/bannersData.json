@@ -1,0 +1,28 @@
+{
+    "banners": [
+        {
+            "id": 1,
+            "type": 1,
+            "image": "/images/bg1.jpg",
+            "text1": "Já imaginaste",
+            "text2": "um pesto",
+            "text3": "com algas?"
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "image": "/images/bg2.jpg",
+            "text1": "um hshahjsjsf",
+            "text2": "ds owari",
+            "text3": "jfn tnspr?"
+        },
+        {
+            "id": 3,
+            "type": 1,
+            "image": "/images/bg3.jpg",
+            "text1": "pw ygsbditopd",
+            "text2": "cd shepv",
+            "text3": "wsb qpjfe?"
+        }
+    ]
+}

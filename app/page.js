@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import LogoComp from "@/components/global/homepage/logoComp";
-import ButtonComp from "@/components/global/buttonComp";
+import LogoComp from "@/components/homepage/logoComp";
+import ButtonComp from "@/components/homepage/buttonComp";
 import data from "@/data/generalData.json";
+import BannersData from "@/data/bannersData.json";
+import BannersMain from "@/components/homepage/banners/bannersMain";
 
 export const metadata = {
   title: "FoodLab",
@@ -13,6 +15,7 @@ export default function Home() {
     <HomeBox>
       <LogoComp />
       <ButtonComp title={data.homePage.buttonTitle} link={data.homePage.buttonLink} />
+      <BannersMain array={BannersData.banners} />
     </HomeBox>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import ImageComp from "../imageComp";
+import ImageComp from "../global/imageComp";
 import { motion } from "framer-motion";
 
 export default function LogoComp(props) {
@@ -23,6 +23,7 @@ const LogoBox = styled.div`
     position: absolute;
     top: 48px;
     width: 292px;
+    z-index: 15;
 `;
 
 const AnimatedImage = styled(motion.div)`
