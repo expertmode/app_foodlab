@@ -15,5 +15,5 @@ const MainBox = styled.div`
     flex-direction: column;
     align-items: center;
     width: 1080px;
-    height: 1920px;
+    
 `;

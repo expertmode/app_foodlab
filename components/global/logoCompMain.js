@@ -43,6 +43,7 @@ const HeaderBox = styled(motion.div)`
     background-color: white;
     overflow: hidden;
     gap: 48px;
+    z-index: 20;
 `;
 
 const LogoBox = styled(motion.div)`

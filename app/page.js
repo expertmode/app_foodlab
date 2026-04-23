@@ -26,5 +26,5 @@ const HomeBox = styled.div`
   position: relative;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 1920px;
 `;

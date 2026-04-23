@@ -4,7 +4,7 @@
         "keyName": "pesto-microalgas",
         "title": "Pesto com \n microalgas",
         "subTitle": "Mais nutritivo e sustentável. \n Com ingredientes do futuro.",
-        "pps": "pps",
+        "pps": "Aqui será o texto com a info PPS",
         "description": "Inspirado no tradicional pesto mediterrânico, este produto traz um dos ingredientes mais promissores de alimentação sustentável.",
         "pictos": [
             {
@@ -45,7 +45,8 @@
                 "desc": "Mais valor nutricional:\n mais proteína, mesmo sabor"
             }
         ],
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod1/img_main.png",
-        "imgBg": "/images/produtos/prod1/bgimg_bg.jpg"
+        "imgBg": "/images/produtos/prod1/img_bg.jpg"
     }
 ]
