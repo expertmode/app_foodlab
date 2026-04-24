@@ -28,7 +28,8 @@ export default function ProdPictos({ data }) {
         <MainBox
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
         >
             {data.pictos.map((picto, index) => (
                 <PictoItem key={index} variants={itemVariants}>
