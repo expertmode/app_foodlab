@@ -4,7 +4,7 @@ import ImageComp from "../global/imageComp";
 export default function ProdSliderCard({ desc, img }) {
     return (
         <CardBox>
-            <ImageBox img={img} />
+            <ImageBox $img={img} />
             <Text>{desc}</Text>
         </CardBox>
     )
@@ -25,7 +25,7 @@ const ImageBox = styled.div`
     display: flex;
     width: 100%;
     height: 448px;
-    background-image: url(${(props) => props.img});
+    background-image: url(${(props) => props.$img});
     background-size: cover;
     background-position: center;
 `;

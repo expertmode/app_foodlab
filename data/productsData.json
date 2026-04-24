@@ -47,6 +47,7 @@
         ],
         "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod1/img_main.png",
-        "imgBg": "/images/produtos/prod1/img_bg.jpg"
+        "imgBg": "/images/produtos/prod1/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod1/bottom_img.png"
     }
 ]

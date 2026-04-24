@@ -5,6 +5,7 @@ import ProdBanner from "@/components/productDetail/prodBanner";
 import ProdTitleBox from "@/components/productDetail/prodTitleBox";
 import ProdPictos from "@/components/productDetail/prodPictos";
 import ProdSliderMain from "@/components/productDetail/prodSliderMain";
+import ProdDescription from "@/components/productDetail/prodDescription";
 
 export function generateStaticParams() {
     return data.map((product) => ({
@@ -31,6 +32,7 @@ export default async function ProductDetail({ params }) {
             <ProdTitleBox data={product} />
             <ProdPictos data={product} />
             <ProdSliderMain data={product} />
+            <ProdDescription data={product} />
         </MainBox>
     );
 }

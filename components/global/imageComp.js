@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function ImageComp(props) {
+export default function ImageComp({ image }) {
     return (
-        <ImgBox src={props.image} alt="" />
+        <ImgBox src={image} alt="" />
     )
 };
 

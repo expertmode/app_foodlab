@@ -24,7 +24,7 @@ export default function BannerTypeOne({ data }) {
                         {prevImage !== data.image && (
                             <BannerImage
                                 key={`prev-image`}
-                                image={prevImage}
+                                $image={prevImage}
                                 initial={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 1 }}
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -35,7 +35,7 @@ export default function BannerTypeOne({ data }) {
 
                     {/* Imagem nova - já visível desde o início (por baixo) */}
                     <BannerImage
-                        image={data.image}
+                        $image={data.image}
                         style={{ zIndex: 1, opacity: 1 }}
                     />
 
@@ -89,7 +89,7 @@ const BannerImage = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(${props => props.image});
+    background-image: url(${props => props.$image});
     background-size: cover;
     background-position: center;
 `;

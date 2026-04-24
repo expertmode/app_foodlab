@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ProdSliderCard from "./prodSliderCard";
+import ImageComp from "../global/imageComp";
 
 export default function ProdSliderMain({ data }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,6 +69,9 @@ export default function ProdSliderMain({ data }) {
                     />
                 ))}
             </DotsContainer>
+            <TriangleBox>
+                <ImageComp image={"/images/produtos/triangle.png"} />
+            </TriangleBox>
         </SliderMainBox>
     )
 };
@@ -130,4 +134,10 @@ const Dot = styled.button`
     &:hover {
         background-color: ${(props) => (props.$isActive ? "#005E81" : "#999")};
     }
+`;
+
+const TriangleBox = styled.div`
+    display: flex;
+    width: 100%;
+    background-color: #fff;
 `;
