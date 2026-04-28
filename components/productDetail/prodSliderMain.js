@@ -54,9 +54,11 @@ export default function ProdSliderMain({ data }) {
                     }}
                 >
                     {data.infoCards.map((card, index) => (
-                        <CardWrapper key={index}>
-                            <ProdSliderCard desc={card.desc} img={card.image} />
-                        </CardWrapper>
+                        card.image && (
+                            <CardWrapper key={index}>
+                                <ProdSliderCard desc={card.desc} img={card.image} />
+                            </CardWrapper>
+                        )
                     ))}
                 </SliderContent>
             </SliderContainer>

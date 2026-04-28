@@ -6,6 +6,7 @@ import ProdTitleBox from "@/components/productDetail/prodTitleBox";
 import ProdPictos from "@/components/productDetail/prodPictos";
 import ProdSliderMain from "@/components/productDetail/prodSliderMain";
 import ProdDescription from "@/components/productDetail/prodDescription";
+import ButtonBack from "@/components/productDetail/buttonBack";
 
 export function generateStaticParams() {
     return data.map((product) => ({
@@ -27,6 +28,9 @@ export default async function ProductDetail({ params }) {
 
     return (
         <MainBox>
+            <ButtonBackWrapper>
+                <ButtonBack link="/produtos" title="Voltar" />
+            </ButtonBackWrapper>
             <LogoCompMain />
             <ProdBanner data={product} />
             <ProdTitleBox data={product} />
@@ -44,4 +48,22 @@ const MainBox = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+`;
+
+const ButtonBackWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 64px;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: calc(50vh - 40px);
+  pointer-events: none;
+  z-index: 50;
+
+  > * {
+    pointer-events: auto;
+    position: sticky;
+    top: calc(50vh - 40px);
+  }
 `;

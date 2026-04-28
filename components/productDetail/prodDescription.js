@@ -13,12 +13,14 @@ export default function ProdDescription({ data }) {
             >
                 {data.description}
             </DescText>
-            <ImagesMainBox>
-                <CircleBox />
-                <ImgBox>
-                    <ImageComp image={data.bottomImg} />
-                </ImgBox>
-            </ImagesMainBox>
+            {data.bottomImg && (
+                <ImagesMainBox>
+                    <CircleBox />
+                    <ImgBox>
+                        <ImageComp image={data.bottomImg} />
+                    </ImgBox>
+                </ImagesMainBox>
+            )}
         </MainBox>
     )
 };

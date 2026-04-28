@@ -18,14 +18,14 @@ const CardBox = styled.div`
     border-radius: 48px;
     background-color: #fff;
     gap: 40px;
-    padding-bottom: 40px;
+    padding: 0 24px 40px 24px;
 `;
 
 const ImageBox = styled.div`
     display: flex;
     width: 100%;
     height: 448px;
-    background-image: url(${(props) => props.$img});
+    background-image: ${(props) => props.$img ? `url(${props.$img})` : 'none'};
     background-size: cover;
     background-position: center;
 `;

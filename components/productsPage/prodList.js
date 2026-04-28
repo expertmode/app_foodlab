@@ -12,7 +12,7 @@ export default function ProdList() {
                 {products.map((product) => (
                     <ProductCard key={product.id}>
                         <Link href={`/produtos/${product.keyName}`}>
-                            <ProductImage src={product.imgProd} alt={product.title} />
+                            {product.imgProd && <ProductImage src={product.imgProd} alt={product.title} />}
                             <ProductTitle>{product.title}</ProductTitle>
                         </Link>
                     </ProductCard>

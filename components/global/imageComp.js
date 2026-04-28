@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export default function ImageComp({ image }) {
+    if (!image) return null;
+
     return (
         <ImgBox src={image} alt="" />
     )

@@ -3,11 +3,13 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 export default function ButtonBack(props) {
-    return (
+    const containerRef = useRef(null);
 
-        <CenterBox>
+    return (
+        <CenterBox ref={containerRef}>
             <Link href={props.link}>
                 <ButtonBox
                     initial={{ opacity: 0, y: 20 }}
@@ -25,10 +27,10 @@ export default function ButtonBack(props) {
 
 const CenterBox = styled.div`
     display: flex;
-    position: absolute;
-    top: 228px;
+    position: fixed;
+    top: 100px;
     right: 64px;
-    z-index: 15;
+    z-index: 50;
 `;
 
 const ButtonBox = styled(motion.div)`

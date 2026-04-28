@@ -32,9 +32,11 @@ export default function ProdPictos({ data }) {
             viewport={{ once: true, amount: 0.2 }}
         >
             {data.pictos.map((picto, index) => (
-                <PictoItem key={index} variants={itemVariants}>
-                    <ProdPictoCard text={picto.text} img={picto.image} />
-                </PictoItem>
+                picto.image && (
+                    <PictoItem key={index} variants={itemVariants}>
+                        <ProdPictoCard text={picto.text} img={picto.image} />
+                    </PictoItem>
+                )
             ))}
         </MainBox>
     )

@@ -4,49 +4,49 @@
         "keyName": "pesto-com-microalgas",
         "partner": "MC",
         "title": "Pesto com microalgas",
-        "subTitle": "Mais nutritivo e sustentável. Com ingredientes do futuro.",
-        "pps": "PPS 14 - Local sea ingredients",
-        "description": "Inspirado no pesto mediterrânico, combina sabor clássico com inovação. As microalgas e o tremoço criam uma alternativa vegetal nutritiva e sustentável.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Pesto com microalgas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod1/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
-                "text": "Sem aditivos"
+                "image": "/images/produtos/prod1/pictos/picto2.jpg",
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
-                "text": "Apenas ingredientes naturais"
+                "image": "/images/produtos/prod1/pictos/picto3.jpg",
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 4,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
-                "text": "Com microalgas"
+                "image": "/images/produtos/prod1/pictos/picto4.jpg",
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod1/cards/card1.jpg",
-                "desc": "À base de tremoço, uma leguminosa nutritiva e sustentável"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod1/cards/card2.jpg",
-                "desc": "Com microalgas (Chlorella vulgaris 4,5% e Tetraselmis chuii 0,25%)"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod1/cards/card3.jpg",
-                "desc": "Perfil nutricional melhorado, com maior densidade proteica"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "um clássico italiano, reinventado à portuguesa",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod1/img_main.png",
         "imgBg": "/images/produtos/prod1/img_bg.jpg",
         "bottomImg": "/images/produtos/prod1/bottom_img.png",
@@ -56,13 +56,13 @@
         "id": 2,
         "keyName": "hamburguer-de-pescado-e-vegetais",
         "partner": "MC",
-        "title": "Hamburguer \n de pescado e vegetais",
-        "subTitle": "",
-        "pps": "PPS 14 - Local sea ingredients",
-        "description": "",
+        "title": "Hamburguer de pescado e vegetais",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Hamburguer de pescado e vegetais reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod2/img_main.png",
         "imgBg": "/images/produtos/prod2/img_bg.jpg",
         "bottomImg": "/images/produtos/prod2/bottom_img.png",
@@ -72,13 +72,13 @@
         "id": 3,
         "keyName": "esparregado-com-algas",
         "partner": "MC",
-        "title": "Esparregado \n com algas",
-        "subTitle": "",
-        "pps": "PPS 14 - Local sea ingredients",
-        "description": "",
+        "title": "Esparregado com algas",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Esparregado com algas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod3/img_main.png",
         "imgBg": "/images/produtos/prod3/img_bg.jpg",
         "bottomImg": "/images/produtos/prod3/bottom_img.png",
@@ -88,13 +88,13 @@
         "id": 4,
         "keyName": "crackers-com-algas",
         "partner": "MC",
-        "title": "Crackers \n com algas",
-        "subTitle": "",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "",
+        "title": "Crackers com algas",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Crackers com algas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod4/img_main.png",
         "imgBg": "/images/produtos/prod4/img_bg.jpg",
         "bottomImg": "/images/produtos/prod4/bottom_img.png",
@@ -104,13 +104,13 @@
         "id": 5,
         "keyName": "pouch-de-fruta-e-proteina",
         "partner": "MC",
-        "title": "Pouch de fruta \n e proteina",
-        "subTitle": "",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "",
+        "title": "Pouch de fruta e proteina",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Pouch de fruta e proteina reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod5/img_main.png",
         "imgBg": "/images/produtos/prod5/img_bg.jpg",
         "bottomImg": "/images/produtos/prod5/bottom_img.png",
@@ -120,13 +120,13 @@
         "id": 6,
         "keyName": "bebidas-vegetais-e-alternativas-ao-iogurte",
         "partner": "MC",
-        "title": "Bebidas vegetais e alternativas \n ao iogurte",
-        "subTitle": "",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "",
+        "title": "Bebidas vegetais e alternativas ao iogurte",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Bebidas vegetais e alternativas ao iogurte reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod6/img_main.png",
         "imgBg": "/images/produtos/prod6/img_bg.jpg",
         "bottomImg": "/images/produtos/prod6/bottom_img.png",
@@ -137,12 +137,12 @@
         "keyName": "alternativa-ao-queijo-curado",
         "partner": "MC",
         "title": "Alternativa ao queijo curado",
-        "subTitle": "",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Alternativa ao queijo curado reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod7/img_main.png",
         "imgBg": "/images/produtos/prod7/img_bg.jpg",
         "bottomImg": "/images/produtos/prod7/bottom_img.png",
@@ -153,12 +153,12 @@
         "keyName": "creme-de-barrar-avela-sem-palma",
         "partner": "MC",
         "title": "Creme de barrar avelã sem palma",
-        "subTitle": "",
-        "pps": "PPS 4 - Healthier and functional food",
-        "description": "",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Creme de barrar avelã sem palma reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod8/img_main.png",
         "imgBg": "/images/produtos/prod8/img_bg.jpg",
         "bottomImg": "/images/produtos/prod8/bottom_img.png",
@@ -169,12 +169,12 @@
         "keyName": "cereais-de-pequeno-almoco-mais-equilibrados",
         "partner": "MC",
         "title": "Cereais de pequeno almoço mais equilibrados",
-        "subTitle": "",
-        "pps": "PPS 4 - Healthier and functional food",
-        "description": "",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Cereais de pequeno almoço mais equilibrados reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod9/img_main.png",
         "imgBg": "/images/produtos/prod9/img_bg.jpg",
         "bottomImg": "/images/produtos/prod9/bottom_img.png",
@@ -184,13 +184,13 @@
         "id": 10,
         "keyName": "gelado-com-reducao-de-acucar",
         "partner": "MC",
-        "title": "Gelado \n com redução \n de açúcar",
-        "subTitle": "",
-        "pps": "PPS 4 - Healthier and functional food",
-        "description": "",
+        "title": "Gelado com redução de açúcar",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Gelado com redução de açúcar reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod10/img_main.png",
         "imgBg": "/images/produtos/prod10/img_bg.jpg",
         "bottomImg": "/images/produtos/prod10/bottom_img.png",
@@ -200,13 +200,13 @@
         "id": 11,
         "keyName": "manteiga-magra",
         "partner": "MC",
-        "title": "Manteiga \n Magra",
-        "subTitle": "",
-        "pps": "PPS 2 - Clean label food products",
-        "description": "",
+        "title": "Manteiga Magra",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Manteiga Magra reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod11/img_main.png",
         "imgBg": "/images/produtos/prod11/img_bg.jpg",
         "bottomImg": "/images/produtos/prod11/bottom_img.png",
@@ -216,10 +216,10 @@
         "id": 12,
         "keyName": "preparado-de-fruta",
         "partner": "MC",
-        "title": "Preparado \n de fruta",
-        "subTitle": "",
-        "pps": "PPS 2 - Clean label food products",
-        "description": "",
+        "title": "Preparado de fruta",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Preparado de fruta reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [
             {
@@ -228,7 +228,7 @@
                 "desc": "Desenvolvido para iogurte, mas aplicavel em varios produtos"
             }
         ],
-        "sliderTitle": "",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod12/img_main.png",
         "imgBg": "/images/produtos/prod12/img_bg.jpg",
         "bottomImg": "/images/produtos/prod12/bottom_img.png",
@@ -238,50 +238,50 @@
         "id": 13,
         "keyName": "beetpesto-pesto-de-beterraba",
         "partner": "TAGUSVALLEY",
-        "title": "BeetPesto \n(Pesto de Beterraba)",
-        "subTitle": "Sabor intenso e autêntico, com \n valorização de ingredientes",
-        "pps": "PPS 33 - Pre-industrialization technologies",
-        "description": "Valorizando beterraba fora do padrão e aplicando a tecnologia HPP, resulta um produto sustentável com frescura e qualidade assegurada, com cor e sabor marcante.",
+        "title": "BeetPesto (Pesto de Beterraba)",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "BeetPesto (Pesto de Beterraba) reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod13/pictos/picto1.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod13/pictos/picto2.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod13/pictos/picto3.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 4,
                 "image": "/images/produtos/prod13/pictos/picto4.jpg",
-                "text": "Base vegetal (?)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod13/cards/card1.jpg",
-                "desc": "Produzido com beterraba não conforme para venda em fresco, reduzindo desperdício"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod13/cards/card2.jpg",
-                "desc": "Processado por HPP \n(High Pressure Processing), preservando frescura e nutrientes"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod13/cards/card3.jpg",
-                "desc": "Perfil sensorial distintivo, \n com cor e sabor intensos"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Sabor diferenciado, com tecnologia que preserva a naturalidade",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod13/img_main.png",
         "imgBg": "/images/produtos/prod13/img_bg.jpg",
         "bottomImg": "/images/produtos/prod13/bottom_img.png",
@@ -292,44 +292,44 @@
         "keyName": "preparado-em-po-para-bebidas",
         "partner": "TAGUSVALLEY",
         "title": "Preparado em pó para bebidas",
-        "subTitle": "Bebidas práticas e naturais, \n prontas em segundos",
-        "pps": "PPS 33 - Pre-industrialization technologies",
-        "description": "Damos uma segunda vida às frutas. Com estes preparados liofilizados que preservam o melhor das frutas, cria bebidas - de smoothie a sangria - práticas e cheias de sabor.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Preparado em pó para bebidas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod14/pictos/picto1.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod14/pictos/picto2.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod14/pictos/picto3.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod14/cards/card1.jpg",
-                "desc": "Redução do desperdício através da valorização de fruta de menor valor comercial"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod14/cards/card2.jpg",
-                "desc": "Produzido a partir de fruta liofilizada, preservando sabor e nutrientes"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod14/cards/card3.jpg",
-                "desc": "Conveniencia: prática, leve e \n fácil de armazenar"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Natural, pronto em segundos - smoothie ou sangria? \n Tu é que escolhes",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod14/img_main.png",
         "imgBg": "/images/produtos/prod14/img_bg.jpg",
         "bottomImg": "/images/produtos/prod14/bottom_img.png",
@@ -340,44 +340,44 @@
         "keyName": "gelados-com-soro-de-leite",
         "partner": "TAGUSVALLEY",
         "title": "Gelados com Soro de Leite",
-        "subTitle": "Cremosos e inovadores, \n com aproveitamento inteligente",
-        "pps": "PPS 33 - Pre-industrialization technologies",
-        "description": "Whey não é só para batidos. Aqui vira gelado: cremoso, saboroso e sem desperdício.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Gelados com Soro de Leite reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod15/pictos/picto1.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod15/pictos/picto2.jpg",
-                "text": "Ingredientes simples"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod15/pictos/picto3.jpg",
-                "text": "Sabores diferenciados"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod15/cards/card1.jpg",
-                "desc": "Valorização de soro de leite, reduzindo desperdício"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod15/cards/card2.jpg",
-                "desc": "Elevada incorporação de soro de leite em (30–50%)"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod15/cards/card3.jpg",
-                "desc": "Sabores diferenciadores: abóbora e amêndoa"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Menos desperdício, mais cremosidade",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod15/img_main.png",
         "imgBg": "/images/produtos/prod15/img_bg.jpg",
         "bottomImg": "/images/produtos/prod15/bottom_img.png",
@@ -388,44 +388,44 @@
         "keyName": "snacks-desidratados",
         "partner": "TAGUSVALLEY",
         "title": "Snacks Desidratados",
-        "subTitle": "Crocantes, naturais e \n sem desperdício",
-        "pps": "PPS 33 - Pre-industrialization technologies",
-        "description": "Transformamos excedentes em snacks crocantes e cheios de sabor. Uma nova forma de aproveitar melhor cada ingrediente.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Snacks Desidratados reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod16/pictos/picto1.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod16/pictos/picto2.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod16/pictos/picto3.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod16/cards/card1.jpg",
-                "desc": "Redução do desperdício, a partir de subprodutos (pomace de pera, vegetais)"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod16/cards/card2.jpg",
-                "desc": "Liofilizados com textura leve e crocante"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod16/cards/card3.jpg",
-                "desc": "Versatilidade: snack ou topping"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Nada se perde, \n tudo vira snack",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod16/img_main.png",
         "imgBg": "/images/produtos/prod16/img_bg.jpg",
         "bottomImg": "/images/produtos/prod16/bottom_img.png",
@@ -436,49 +436,49 @@
         "keyName": "complemento-proteico-vegetal",
         "partner": "TAGUSVALLEY",
         "title": "Complemento Proteico Vegetal",
-        "subTitle": "Proteína vegetal, \n prática e sustentável",
-        "pps": "PPS 33 - Pre-industrialization technologies",
-        "description": "Aproveitamos ingredientes muitas vezes esquecidos para criar uma fonte de proteína vegetal prática e sustentável, fácil de integrar no dia a dia. ",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Complemento Proteico Vegetal reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod17/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod17/pictos/picto2.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod17/pictos/picto3.jpg",
-                "text": "Apenas ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 4,
                 "image": "/images/produtos/prod17/pictos/picto4.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod17/cards/card1.jpg",
-                "desc": "Base de tremoço e subprodutos vegetais valorizados - batata-doce e talo de brócolo"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod17/cards/card2.jpg",
-                "desc": "Alternativa vegetal com perfil nutricional equilibrado"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod17/cards/card3.jpg",
-                "desc": "Versatilidade: como forma de temperar e reforçar a tua refeição, ou como um spread prático"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Reforçar, misturar, barrar — tu decides",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod17/img_main.png",
         "imgBg": "/images/produtos/prod17/img_bg.jpg",
         "bottomImg": "/images/produtos/prod17/bottom_img.png",
@@ -489,44 +489,44 @@
         "keyName": "compal-africa",
         "partner": "Sumol Compal",
         "title": "Compal África",
-        "subTitle": "Bebidas de fruta com textura rica e natural - Manga, Tropical, Manga Calabaceira",
-        "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
-        "description": "Combinamos sumo de fruta com polpa de maçã para criar bebidas de textura rica e sabor natural. Mais corpo, mais fibra e uma experiência diferenciadora.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Compal África reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod18/pictos/picto1.jpg",
-                "text": "Fonte de fibra"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod18/pictos/picto2.jpg",
-                "text": "Sem corantes"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod18/pictos/picto3.jpg",
-                "text": "Sem conservantes"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod18/cards/card1.jpg",
-                "desc": "Textura polposa mesmo com teor de fruta moderado (23–34%)"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod18/cards/card2.jpg",
-                "desc": "Uso de polpa de maçã para melhorar corpo e consistência"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod18/cards/card3.jpg",
-                "desc": "Gama variada com perfis de sabor diferenciados"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Sabor natural, textura surpreendente ",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod18/img_main.png",
         "imgBg": "/images/produtos/prod18/img_bg.jpg",
         "bottomImg": "/images/produtos/prod18/bottom_img.png",
@@ -536,40 +536,40 @@
         "id": 19,
         "keyName": "compal-fresh-mix-de-frutas",
         "partner": "Sumol Compal",
-        "title": "Compal Fresh \n Mix de Frutas",
-        "subTitle": "Leve, refrescante e \n com toque natural de fruta",
-        "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
-        "description": "Sumo de fruta e polpa de maçã combinam-se para criar uma bebida leve, com textura suave e sabor natural. Uma opção refrescante para o dia a dia.",
+        "title": "Compal Fresh Mix de Frutas",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Compal Fresh Mix de Frutas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod19/pictos/picto1.jpg",
-                "text": "Sem corantes"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod19/pictos/picto2.jpg",
-                "text": "Sem conservantes"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod19/cards/card1.jpg",
-                "desc": "Textura ligeiramente polposa com teor de fruta moderado (23–34%)"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod19/cards/card2.jpg",
-                "desc": "Uso de polpa de maçã para conferir suavidade e corpo"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod19/cards/card3.jpg",
-                "desc": "Combinação de vários frutos para um sabor equilibrado"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Leve na textura, \n rico no sabor",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod19/img_main.png",
         "imgBg": "/images/produtos/prod19/img_bg.jpg",
         "bottomImg": "/images/produtos/prod19/bottom_img.png",
@@ -580,39 +580,39 @@
         "keyName": "creme-crocante-de-chocolate-com-proteina-de-inseto",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Creme Crocante de Chocolate com Proteína de Inseto",
-        "subTitle": "Cremoso, crocante e com \n proteína alternativa sustentável",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "Exploramos novas fontes de proteína para criar um creme de chocolate surpreendente. A proteína de inseto traz sustentabilidade, sem comprometer a textura e o prazer.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Creme Crocante de Chocolate com Proteína de Inseto reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod20/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod20/pictos/picto2.jpg",
-                "text": "Proteína de inseto"
+                "text": "Rico em \n proteína vegetal"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod20/cards/card1.jpg",
-                "desc": "Com proteína texturizada de inseto, alternativa mais sustentável face a proteínas animais convencionais"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod20/cards/card2.jpg",
-                "desc": "Combinação de textura cremosa com crocância"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod20/cards/card3.jpg",
-                "desc": "Aplicação versátil em coberturas e recheios de pastelaria"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "O futuro da proteína \n já sabe a chocolate",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod20/img_main.png",
         "imgBg": "/images/produtos/prod20/img_bg.jpg",
         "bottomImg": "/images/produtos/prod20/bottom_img.png",
@@ -623,44 +623,44 @@
         "keyName": "pasta-vegetal-moldavel",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Pasta Vegetal Moldável",
-        "subTitle": "Nutrição equilibrada com textura \n adaptada e máxima versatilidade",
-        "pps": "PPS 4 - Healthier and functional food",
-        "description": "Pensada para quem valoriza facilidade, sabor e bem-estar ao longo do tempo. Molda, cozinha e desfruta de uma refeição nutritiva e apetecível.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Pasta Vegetal Moldável reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod21/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod21/pictos/picto2.jpg",
-                "text": "Rica em fibra"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod21/pictos/picto3.jpg",
-                "text": "Base vegetal"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod21/cards/card1.jpg",
-                "desc": "Perfil nutricional ajustado às necessidades do adulto sénior - Reforço em proteína e fibra"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod21/cards/card2.jpg",
-                "desc": "Textura adaptada para facilitar mastigação e ingestão"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod21/cards/card3.jpg",
-                "desc": "Alta versatilidade: moldável em bolinhos, croquetes ou burgers"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Molda, prepara, \n nutre",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod21/img_main.png",
         "imgBg": "/images/produtos/prod21/img_bg.jpg",
         "bottomImg": "/images/produtos/prod21/bottom_img.png",
@@ -671,34 +671,34 @@
         "keyName": "creme-de-caramelo-salgado",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Creme de Caramelo Salgado",
-        "subTitle": "Sabor intenso,  \n receita mais limpa",
-        "pps": "PPS 2 - Clean label food products",
-        "description": "Caramelo salgado com tudo o que importa — sabor, textura e qualidade — sem necessidade de conservantes. Desenvolvido para responder às novas exigências do mercado, sem comprometer a experiência.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Creme de Caramelo Salgado reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod22/pictos/picto1.jpg",
-                "text": "Sem conservantes"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod22/cards/card1.jpg",
-                "desc": "Desenvolvido sem utilização de conservantes químicos"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod22/cards/card2.jpg",
-                "desc": "À base de água, textura cremosa ideal para recheios de pastelaria"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod22/cards/card3.jpg",
-                "desc": "Adaptado a novos processos de fabrico mais exigentes"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Sabor a sério, sem \n complicações",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod22/img_main.png",
         "imgBg": "/images/produtos/prod22/img_bg.jpg",
         "bottomImg": "/images/produtos/prod22/bottom_img.png",
@@ -709,44 +709,44 @@
         "keyName": "maioneses-de-nova-geracao",
         "partner": "Casa Mendes Gonçalves",
         "title": "Maioneses de Nova Geração",
-        "subTitle": "Ingredientes naturais e diferenciadores, sabores surpreendentes - Mar, Coentrada, Cebola Roxa",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "Reinventamos a maionese com ingredientes naturais e inovadores. Entre microalgas, extratos de levedura e vegetais, com perfis de sabor autênticos, criamos experiências mais ricas, equilibradas e surpreendentes.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Maioneses de Nova Geração reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod23/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod23/pictos/picto2.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod23/pictos/picto3.jpg",
-                "text": "Com microalgas e extrato de levedura"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod23/cards/card1.jpg",
-                "desc": "Enriquecidas com microalgas (Chlorella vulgaris), fonte de proteína e micronutrientes"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod23/cards/card2.jpg",
-                "desc": "Uso de extrato de proteína de levedura como intensificador natural de sabor"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod23/cards/card3.jpg",
-                "desc": "Presença de compostos fenólicos (na variante de cebola roxa)"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "O clássico, repensado com upgrades naturais",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod23/img_main.png",
         "imgBg": "/images/produtos/prod23/img_bg.jpg",
         "bottomImg": "/images/produtos/prod23/bottom_img.png",
@@ -756,40 +756,40 @@
         "id": 24,
         "keyName": "maionese-picante",
         "partner": "Casa Mendes Gonçalves",
-        "title": "Maionese \n Picante",
-        "subTitle": "Picante intenso \n com origem natural",
-        "pps": "PPS 24 - By-product valorization",
-        "description": "Do jalapeño fermentado nasce um picante intenso e natural. Uma nova forma de dar sabor, aproveitando melhor cada ingrediente.",
+        "title": "Maionese Picante",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Maionese Picante reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod24/pictos/picto1.jpg",
-                "text": "Com extratos naturais"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod24/pictos/picto2.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod24/cards/card1.jpg",
-                "desc": "Incorporação de oleorresina natural de jalapeño"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod24/cards/card2.jpg",
-                "desc": "Valorização de subprodutos da fermentação"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod24/cards/card3.jpg",
-                "desc": "Alternativa natural para intensificação de sabor"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Intensidade \n que fica",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod24/img_main.png",
         "imgBg": "/images/produtos/prod24/img_bg.jpg",
         "bottomImg": "/images/produtos/prod24/bottom_img.png",
@@ -800,34 +800,34 @@
         "keyName": "molhos-circulares",
         "partner": "Casa Mendes Gonçalves",
         "title": "Molhos Circulares",
-        "subTitle": "Mais sabor, menos desperdício - \n Ketchup & Barbecue",
-        "pps": "PPS 24 - By-product valorization",
-        "description": "Purgas? Basicamente, molho que ainda tem muito para dar. Fermentamos e complementamos — o sabor mantém-se, o desperdício não.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Molhos Circulares reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod25/pictos/picto1.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod25/cards/card1.jpg",
-                "desc": "Valorização de correntes secundárias de produção - incorporação até 40% de purgas"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod25/cards/card2.jpg",
-                "desc": "Uso de fermentação como alternativa natural de conservação"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod25/cards/card3.jpg",
-                "desc": "Manutenção do perfil sensorial dos molhos clássicos"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Dar nova vida nunca soube tão bem",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod25/img_main.png",
         "imgBg": "/images/produtos/prod25/img_bg.jpg",
         "bottomImg": "/images/produtos/prod25/bottom_img.png",
@@ -838,44 +838,44 @@
         "keyName": "paes-proteicos",
         "partner": "MORE CoLAB",
         "title": "Pães Proteicos",
-        "subTitle": "Três opções proteicas: ervilha, \n microalgas e cereais",
-        "pps": "PPS 2 - Clean label food products",
-        "description": "Reformulámos o pão do dia a dia para responder às novas necessidades nutricionais. Com mais proteína, mais fibra e ingredientes alternativos, é uma evolução simples com impacto real.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Pães Proteicos reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod26/pictos/picto1.jpg",
-                "text": "Fonte e Alto teor de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod26/pictos/picto2.jpg",
-                "text": "Fonte e rico em fibra"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod26/pictos/picto3.jpg",
-                "text": "Com micoralgas e proteinas vegetais"
+                "text": "Rico em \n proteína vegetal"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod26/cards/card1.jpg",
-                "desc": "Mantém o perfil sensorial tradicional"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod26/cards/card2.jpg",
-                "desc": "Naturalmente enriquecida em proteína e fibra, com redução de hidratos de carbono"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod26/cards/card3.jpg",
-                "desc": "Incorporação de fontes proteicas vegetais, entre proteina de ervilha, Chlorella vulgaris Honey e cereais"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Mais proteína, mais fibra, com ingredientes de nova geração",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod26/img_main.png",
         "imgBg": "/images/produtos/prod26/img_bg.jpg",
         "bottomImg": "/images/produtos/prod26/bottom_img.png",
@@ -886,39 +886,39 @@
         "keyName": "bola-de-carne-low-carb",
         "partner": "MORE CoLAB",
         "title": "Bola de carne Low Carb",
-        "subTitle": "Tradição reinventada, com \n menos hidratos e mais proteína",
-        "pps": "PPS 2 - Clean label food products",
-        "description": "A bola de carne tradicional, agora com menos hidratos e mais proteína e fibra. Mantém o sabor de sempre, mas adaptada a um estilo de vida mais equilibrado.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Bola de carne Low Carb reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod27/pictos/picto1.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod27/pictos/picto2.jpg",
-                "text": "Rico em fibra"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod27/cards/card1.jpg",
-                "desc": "Formulação low carb com redução de hidratos de carbono"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod27/cards/card2.jpg",
-                "desc": "Naturalmente enriquecida em proteína e fibra"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod27/cards/card3.jpg",
-                "desc": "Mantém o perfil sensorial tradicional"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "A bola de sempre, mais leve e nutritiva",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod27/img_main.png",
         "imgBg": "/images/produtos/prod27/img_bg.jpg",
         "bottomImg": "/images/produtos/prod27/bottom_img.png",
@@ -928,45 +928,45 @@
         "id": 28,
         "keyName": "snack-de-castanha-cozida-a-vapor",
         "partner": "AGROAGUIAR - AGROINDÚSTRIA SA",
-        "title": "Snack de Castanha \n Cozida a Vapor",
-        "subTitle": "Natural, nutritivo e \n pronto a consumir",
-        "pps": "PPS 30 - Sustainable fruit and vegetable food products",
-        "description": "Castanha como deve ser: simples, natural e cheia de sabor. Cozida a vapor e pronta a consumir, é o snack tradicional adaptado ao ritmo do dia a dia.",
+        "title": "Snack de Castanha Cozida a Vapor",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Snack de Castanha Cozida a Vapor reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod28/pictos/picto1.jpg",
-                "text": "Rico em fibra"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod28/pictos/picto2.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod28/pictos/picto3.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod28/cards/card1.jpg",
-                "desc": "Cozida a vapor para preservar sabor e textura"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod28/cards/card2.jpg",
-                "desc": "Elevada durabilidade sem comprometer a qualidade"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod28/cards/card3.jpg",
-                "desc": "Snack nutritivo e conveniente, pronto a consumir"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Só castanha. \n E está tudo dito.",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod28/img_main.png",
         "imgBg": "/images/produtos/prod28/img_bg.jpg",
         "bottomImg": "/images/produtos/prod28/bottom_img.png",
@@ -977,39 +977,39 @@
         "keyName": "mix-de-frutos-tropicais-ultracongelados",
         "partner": "AGROAGUIAR - AGROINDÚSTRIA SA",
         "title": "Mix de Frutos Tropicais Ultracongelados",
-        "subTitle": "Fruta pronta a usar, \n com frescura preservada",
-        "pps": "PPS 30 - Sustainable fruit and vegetable food products",
-        "description": "Selecionamos frutos tropicais e ultracongelamos no momento certo para preservar frescura e sabor. Uma solução prática para ter fruta pronta a usar em qualquer altura.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Mix de Frutos Tropicais Ultracongelados reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod29/pictos/picto1.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod29/pictos/picto2.jpg",
-                "text": "Ingredientes naturais"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod29/cards/card1.jpg",
-                "desc": "Ultracongelação para preservar sabor e valor nutricional"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod29/cards/card2.jpg",
-                "desc": "Mistura de frutos tropicais pronta a usar"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod29/cards/card3.jpg",
-                "desc": "Solução prática para smoothies, sobremesas e snacks"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Tropical, prático, sempre pronto",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod29/img_main.png",
         "imgBg": "/images/produtos/prod29/img_bg.jpg",
         "bottomImg": "/images/produtos/prod29/bottom_img.png",
@@ -1017,52 +1017,52 @@
     },
     {
         "id": 30,
-        "keyName": "cereais-de-pequeno-almoco-mais-equilibrados1",
+        "keyName": "cereais-de-pequeno-almoco-mais-queilibrados",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
-        "title": "Cereais de Pequeno-Almoço mais equilibrados",
-        "subTitle": "Ingredientes valorizados, receita repensada,\n sabor garantido",
-        "pps": "PPS 24 - By-product valorization",
-        "description": "Aproveitamos melhor os cereais e outros ingredientes para criar um pequeno-almoço mais equilibrado. Sem adições desnecessárias, com nutrição pensada para o dia a dia.",
+        "title": "Cereais de Pequeno-Almoço mais queilibrados",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Cereais de Pequeno-Almoço mais queilibrados reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod30/pictos/picto1.jpg",
-                "text": "Sem açúcares adicionados"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod30/pictos/picto2.jpg",
-                "text": "Sem corantes"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod30/pictos/picto3.jpg",
-                "text": "Sem conservantes"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 4,
                 "image": "/images/produtos/prod30/pictos/picto4.jpg",
-                "text": "Rico em fibra"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod30/cards/card1.jpg",
-                "desc": "Desenvolvidos com coprodutos da moagem de cereais e de outras indústrias, reduzindo desperdício alimentar"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod30/cards/card2.jpg",
-                "desc": "Sem adição de açúcares, corantes ou conservantes"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod30/cards/card3.jpg",
-                "desc": "Perfil nutricional diferenciado, com foco em fibra e equilíbrio"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Começa bem o dia, sem extras",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod30/img_main.png",
         "imgBg": "/images/produtos/prod30/img_bg.jpg",
         "bottomImg": "/images/produtos/prod30/bottom_img.png",
@@ -1073,49 +1073,49 @@
         "keyName": "brioche-biologico-com-microalgas",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
         "title": "Brioche Biológico com Microalgas",
-        "subTitle": "Com trigo biológico português \n e um toque de inovação natural",
-        "pps": "PPS 23 - Organic flour 100% produced in Portugal",
-        "description": "Do trigo biológico português nasce um brioche que combina tradição com inovação. As microalgas trazem um valor nutricional adicional, mantendo o sabor e a simplicidade de sempre.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Brioche Biológico com Microalgas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod31/pictos/picto1.jpg",
-                "text": "Biológico"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod31/pictos/picto2.jpg",
-                "text": "Fonte de proteína"
+                "text": "Rico em \n proteína vegetal"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod31/pictos/picto3.jpg",
-                "text": "Sem aditivos"
+                "text": "Sem aditivos \n artificiais"
             },
             {
                 "id": 4,
                 "image": "/images/produtos/prod31/pictos/picto4.jpg",
-                "text": "Com microalgas"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod31/cards/card1.jpg",
-                "desc": "Com farinha biológica de trigo português do Alentejo"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod31/cards/card2.jpg",
-                "desc": "Incorporação de microalgas como fonte natural de proteína"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod31/cards/card3.jpg",
-                "desc": "Perfil nutricional diferenciado com ingredientes naturais, sem aditivos artificiais"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Brioche, mas mais português e nutritivo",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod31/img_main.png",
         "imgBg": "/images/produtos/prod31/img_bg.jpg",
         "bottomImg": "/images/produtos/prod31/bottom_img.png",
@@ -1126,39 +1126,39 @@
         "keyName": "gama-sem-gluten-plant-based",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
         "title": "Gama Sem Glúten & Plant-Based",
-        "subTitle": "Do pão ao bolo de arroz e à farinha \n para panar - sem glúten",
-        "pps": "PPS 6 - Free from products ",
-        "description": "Reimaginamos produtos do dia a dia para quem procura opções sem glúten. Do pão ao bolo de arroz e à farinha funcional, criamos alternativas mais equilibradas e versáteis, sem complicar.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Gama Sem Glúten & Plant-Based reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod32/pictos/picto1.jpg",
-                "text": "Sem glúten"
+                "text": "Fonte de \n nutrientes"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod32/pictos/picto2.jpg",
-                "text": "Base vegetal"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod32/cards/card1.jpg",
-                "desc": "Pão sem glúten com redução de teor de gordura e açúcar"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod32/cards/card2.jpg",
-                "desc": "Bolo de arroz tradicional adaptado, sem glúten e com leguminosas"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod32/cards/card3.jpg",
-                "desc": "Farinha de arroz texturizada como alternativa ao pão ralado"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Alternativas que fazem sentido",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod32/img_main.png",
         "imgBg": "/images/produtos/prod32/img_bg.jpg",
         "bottomImg": "/images/produtos/prod32/bottom_img.png",
@@ -1169,34 +1169,34 @@
         "keyName": "vieira-chef-bolacha-moida",
         "partner": "Vieira de Castro ",
         "title": "Vieira Chef - Bolacha Moída",
-        "subTitle": "Bolacha moída pronta a usar, \n na dose certa",
-        "pps": "PPS 24 - By-product valorization",
-        "description": "Pensada para facilitar a cozinha, esta bolacha moída está pronta a usar e na medida certa. Menos preparação, menos desperdício e mais tempo para criar.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Vieira Chef - Bolacha Moída reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod33/pictos/picto1.jpg",
-                "text": "Redução de desperdício (ou economia circular)"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod33/cards/card1.jpg",
-                "desc": "Formato pronto a usar, sem necessidade de preparação"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod33/cards/card2.jpg",
-                "desc": "Dose ajustada às receitas mais comuns, reduzindo o desperdicio"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod33/cards/card3.jpg",
-                "desc": "Nos tipos de bolacha Maria, Milenium e Digestive para as diferentes receitas"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Menos tempo, mais sobremesas",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod33/img_main.png",
         "imgBg": "/images/produtos/prod33/img_bg.jpg",
         "bottomImg": "/images/produtos/prod33/bottom_img.png",
@@ -1207,34 +1207,34 @@
         "keyName": "bolacha-maria-com-azeite",
         "partner": "Vieira de Castro ",
         "title": "Bolacha Maria com Azeite",
-        "subTitle": "O clássico de sempre, com um toque \n mais equilibrado",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "A Maria que conheces, agora com azeite. Igual no sabor, diferente na forma de fazer.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Bolacha Maria com Azeite reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod34/pictos/picto1.jpg",
-                "text": "Baixo teor de gordura saturada"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod34/cards/card1.jpg",
-                "desc": "Uso de azeite como alternativa a outras gorduras"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod34/cards/card2.jpg",
-                "desc": "Perfil mais equilibrado com baixo teor de gordura saturada"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod34/cards/card3.jpg",
-                "desc": "Mantém o sabor e textura típicos da bolacha Maria"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Maria, ainda mais \n à portuguesa",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod34/img_main.png",
         "imgBg": "/images/produtos/prod34/img_bg.jpg",
         "bottomImg": "/images/produtos/prod34/bottom_img.png",
@@ -1245,34 +1245,34 @@
         "keyName": "amendoa-plant-based-com-kiwi",
         "partner": "Vieira de Castro ",
         "title": "Amêndoa Plant-Based com Kiwi",
-        "subTitle": "Premium e de base vegetal? \n Irresistivel",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "Juntámos amêndoa, chocolate de base vegetal e kiwi para criar uma combinação inesperada. Entre o doce e o ácido, nasce uma experiência diferente, pensada para surpreender.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Amêndoa Plant-Based com Kiwi reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod35/pictos/picto1.jpg",
-                "text": "Base vegetal"
+                "text": "Fonte de \n nutrientes"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod35/cards/card1.jpg",
-                "desc": "Proposta de amêndoa premium com chocolate de base vegetal"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod35/cards/card2.jpg",
-                "desc": "Inclusão de kiwi e sementes de kiwi para contraste de sabor e textura"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod35/cards/card3.jpg",
-                "desc": "Perfil sensorial diferenciado: doce, ácido e crocante"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Doce, ácido, crocante - experiencia que promete",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod35/img_main.png",
         "imgBg": "/images/produtos/prod35/img_bg.jpg",
         "bottomImg": "/images/produtos/prod35/bottom_img.png",
@@ -1283,28 +1283,28 @@
         "keyName": "gama-picks",
         "partner": "Vieira de Castro ",
         "title": "Gama Picks",
-        "subTitle": "Snack Clássico, Hot & Spicy ou Country — tu escolhes",
-        "pps": "PPS 13 - Novel and nutritious ingredients",
-        "description": "Há dias para o clássico, outros para o picante e outros ainda para algo mais intenso. Ideal para petiscar a solo ou para partilhar sem pensar duas vezes.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Gama Picks reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod36/cards/card1.jpg",
-                "desc": "Três perfis de sabor distintos: Clássico, Hot & Spicy e Country"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod36/cards/card2.jpg",
-                "desc": "Textura crocante e consistente"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod36/cards/card3.jpg",
-                "desc": "Formato prático para consumo imediato"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Fino, crocante e snackable",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod36/img_main.png",
         "imgBg": "/images/produtos/prod36/img_bg.jpg",
         "bottomImg": "/images/produtos/prod36/bottom_img.png",
@@ -1315,34 +1315,34 @@
         "keyName": "gama-de-refeicoes-prontas",
         "partner": "D'Avó Indústria de Produtos Alimentares, S.A.",
         "title": "Gama de Refeições Prontas",
-        "subTitle": "Do caril à feijoada -  aquecer e comer!",
-        "pps": "PPS 13 - Novel and nutritious ingredients & PPS 17 - Traditional and local foods",
-        "description": "Da cozinha tradicional aos sabores mais exóticos, de base vegetal ou com carne, reunimos uma gama de refeições prontas para diferentes momentos. É só aquecer e desfrutar.",
+        "subTitle": "O sabor que já conheces,\nagora reinventado com um toque inovador.",
+        "pps": "Uma alternativa moderna, pensada para quem procura mais valor nutricional sem abdicar do prazer de comer bem.",
+        "description": "Gama de Refeições Prontas reinventado para uma alimentação mais equilibrada e consciente, combinando sabor, nutrição e inovação em cada utilização.",
         "pictos": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod37/pictos/picto1.jpg",
-                "text": "Alto teor de proteína"
+                "text": "Rico em \n proteína vegetal"
             }
         ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod37/cards/card1.jpg",
-                "desc": "Gama variada de 7 receitas, caril, jardineira, feijoada e outros pratos tradicionais"
+                "desc": "Mais nutrição em cada utilização,\n sem comprometer o sabor"
             },
             {
                 "id": 2,
                 "image": "/images/produtos/prod37/cards/card2.jpg",
-                "desc": "Receitas com carne e opções à base de leguminosas - inspirados na cozinha tradicional nacional e internacional"
+                "desc": "Desenvolvido com foco na sustentabilidade\n e no futuro da alimentação"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod37/cards/card3.jpg",
-                "desc": "Solução prática: pronta a aquecer e consumir"
+                "desc": "Versátil e fácil de usar:\n ideal para refeições do dia a dia"
             }
         ],
-        "sliderTitle": "Sabor caseiro, sem o trabalho",
+        "sliderTitle": "Um clássico \n reinventado",
         "imgProd": "/images/produtos/prod37/img_main.png",
         "imgBg": "/images/produtos/prod37/img_bg.jpg",
         "bottomImg": "/images/produtos/prod37/bottom_img.png",

@@ -15,17 +15,17 @@
             },
             {
                 "id": 2,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "image": "/images/produtos/prod1/pictos/picto2.jpg",
                 "text": "Sem aditivos"
             },
             {
                 "id": 3,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "image": "/images/produtos/prod1/pictos/picto3.jpg",
                 "text": "Apenas ingredientes naturais"
             },
             {
                 "id": 4,
-                "image": "/images/produtos/prod1/pictos/picto1.jpg",
+                "image": "/images/produtos/prod1/pictos/picto4.jpg",
                 "text": "Com microalgas"
             }
         ],
@@ -56,7 +56,7 @@
         "id": 2,
         "keyName": "hamburguer-de-pescado-e-vegetais",
         "partner": "MC",
-        "title": "Hamburguer \n de pescado e vegetais",
+        "title": "Hamburguer de pescado e vegetais",
         "subTitle": "",
         "pps": "PPS 14 - Local sea ingredients",
         "description": "",
@@ -72,7 +72,7 @@
         "id": 3,
         "keyName": "esparregado-com-algas",
         "partner": "MC",
-        "title": "Esparregado \n com algas",
+        "title": "Esparregado com algas",
         "subTitle": "",
         "pps": "PPS 14 - Local sea ingredients",
         "description": "",
@@ -88,7 +88,7 @@
         "id": 4,
         "keyName": "crackers-com-algas",
         "partner": "MC",
-        "title": "Crackers \n com algas",
+        "title": "Crackers com algas",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "",
@@ -104,7 +104,7 @@
         "id": 5,
         "keyName": "pouch-de-fruta-e-proteina",
         "partner": "MC",
-        "title": "Pouch de fruta \n e proteina",
+        "title": "Pouch de fruta e proteina",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "",
@@ -120,7 +120,7 @@
         "id": 6,
         "keyName": "bebidas-vegetais-e-alternativas-ao-iogurte",
         "partner": "MC",
-        "title": "Bebidas vegetais e alternativas \n ao iogurte",
+        "title": "Bebidas vegetais e alternativas ao iogurte",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "",
@@ -184,7 +184,7 @@
         "id": 10,
         "keyName": "gelado-com-reducao-de-acucar",
         "partner": "MC",
-        "title": "Gelado \n com redução \n de açúcar",
+        "title": "Gelado com redução de açúcar",
         "subTitle": "",
         "pps": "PPS 4 - Healthier and functional food",
         "description": "",
@@ -200,7 +200,7 @@
         "id": 11,
         "keyName": "manteiga-magra",
         "partner": "MC",
-        "title": "Manteiga \n Magra",
+        "title": "Manteiga Magra",
         "subTitle": "",
         "pps": "PPS 2 - Clean label food products",
         "description": "",
@@ -216,7 +216,7 @@
         "id": 12,
         "keyName": "preparado-de-fruta",
         "partner": "MC",
-        "title": "Preparado \n de fruta",
+        "title": "Preparado de fruta",
         "subTitle": "",
         "pps": "PPS 2 - Clean label food products",
         "description": "",
@@ -238,8 +238,8 @@
         "id": 13,
         "keyName": "beetpesto-pesto-de-beterraba",
         "partner": "TAGUSVALLEY",
-        "title": "BeetPesto \n(Pesto de Beterraba)",
-        "subTitle": "Sabor intenso e autêntico, com \n valorização de ingredientes",
+        "title": "BeetPesto (Pesto de Beterraba)",
+        "subTitle": "Sabor intenso e autêntico, com valorização de ingredientes",
         "pps": "PPS 33 - Pre-industrialization technologies",
         "description": "Valorizando beterraba fora do padrão e aplicando a tecnologia HPP, resulta um produto sustentável com frescura e qualidade assegurada, com cor e sabor marcante.",
         "pictos": [
@@ -273,12 +273,12 @@
             {
                 "id": 2,
                 "image": "/images/produtos/prod13/cards/card2.jpg",
-                "desc": "Processado por HPP \n(High Pressure Processing), preservando frescura e nutrientes"
+                "desc": "Processado por HPP (High Pressure Processing), preservando frescura e nutrientes"
             },
             {
                 "id": 3,
                 "image": "/images/produtos/prod13/cards/card3.jpg",
-                "desc": "Perfil sensorial distintivo, \n com cor e sabor intensos"
+                "desc": "Perfil sensorial distintivo, com cor e sabor intensos"
             }
         ],
         "sliderTitle": "Sabor diferenciado, com tecnologia que preserva a naturalidade",
@@ -292,7 +292,7 @@
         "keyName": "preparado-em-po-para-bebidas",
         "partner": "TAGUSVALLEY",
         "title": "Preparado em pó para bebidas",
-        "subTitle": "Bebidas práticas e naturais, \n prontas em segundos",
+        "subTitle": "Bebidas práticas e naturais, prontas em segundos",
         "pps": "PPS 33 - Pre-industrialization technologies",
         "description": "Damos uma segunda vida às frutas. Com estes preparados liofilizados que preservam o melhor das frutas, cria bebidas - de smoothie a sangria - práticas e cheias de sabor.",
         "pictos": [
@@ -326,10 +326,10 @@
             {
                 "id": 3,
                 "image": "/images/produtos/prod14/cards/card3.jpg",
-                "desc": "Conveniencia: prática, leve e \n fácil de armazenar"
+                "desc": "Conveniencia: prática, leve e fácil de armazenar"
             }
         ],
-        "sliderTitle": "Natural, pronto em segundos - smoothie ou sangria? \n Tu é que escolhes",
+        "sliderTitle": "Natural, pronto em segundos - smoothie ou sangria? Tu é que escolhes",
         "imgProd": "/images/produtos/prod14/img_main.png",
         "imgBg": "/images/produtos/prod14/img_bg.jpg",
         "bottomImg": "/images/produtos/prod14/bottom_img.png",
@@ -340,7 +340,7 @@
         "keyName": "gelados-com-soro-de-leite",
         "partner": "TAGUSVALLEY",
         "title": "Gelados com Soro de Leite",
-        "subTitle": "Cremosos e inovadores, \n com aproveitamento inteligente",
+        "subTitle": "Cremosos e inovadores, com aproveitamento inteligente",
         "pps": "PPS 33 - Pre-industrialization technologies",
         "description": "Whey não é só para batidos. Aqui vira gelado: cremoso, saboroso e sem desperdício.",
         "pictos": [
@@ -388,7 +388,7 @@
         "keyName": "snacks-desidratados",
         "partner": "TAGUSVALLEY",
         "title": "Snacks Desidratados",
-        "subTitle": "Crocantes, naturais e \n sem desperdício",
+        "subTitle": "Crocantes, naturais e sem desperdício",
         "pps": "PPS 33 - Pre-industrialization technologies",
         "description": "Transformamos excedentes em snacks crocantes e cheios de sabor. Uma nova forma de aproveitar melhor cada ingrediente.",
         "pictos": [
@@ -425,7 +425,7 @@
                 "desc": "Versatilidade: snack ou topping"
             }
         ],
-        "sliderTitle": "Nada se perde, \n tudo vira snack",
+        "sliderTitle": "Nada se perde, tudo vira snack",
         "imgProd": "/images/produtos/prod16/img_main.png",
         "imgBg": "/images/produtos/prod16/img_bg.jpg",
         "bottomImg": "/images/produtos/prod16/bottom_img.png",
@@ -436,7 +436,7 @@
         "keyName": "complemento-proteico-vegetal",
         "partner": "TAGUSVALLEY",
         "title": "Complemento Proteico Vegetal",
-        "subTitle": "Proteína vegetal, \n prática e sustentável",
+        "subTitle": "Proteína vegetal, prática e sustentável",
         "pps": "PPS 33 - Pre-industrialization technologies",
         "description": "Aproveitamos ingredientes muitas vezes esquecidos para criar uma fonte de proteína vegetal prática e sustentável, fácil de integrar no dia a dia. ",
         "pictos": [
@@ -536,8 +536,8 @@
         "id": 19,
         "keyName": "compal-fresh-mix-de-frutas",
         "partner": "Sumol Compal",
-        "title": "Compal Fresh \n Mix de Frutas",
-        "subTitle": "Leve, refrescante e \n com toque natural de fruta",
+        "title": "Compal Fresh Mix de Frutas",
+        "subTitle": "Leve, refrescante e com toque natural de fruta",
         "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
         "description": "Sumo de fruta e polpa de maçã combinam-se para criar uma bebida leve, com textura suave e sabor natural. Uma opção refrescante para o dia a dia.",
         "pictos": [
@@ -569,7 +569,7 @@
                 "desc": "Combinação de vários frutos para um sabor equilibrado"
             }
         ],
-        "sliderTitle": "Leve na textura, \n rico no sabor",
+        "sliderTitle": "Leve na textura, rico no sabor",
         "imgProd": "/images/produtos/prod19/img_main.png",
         "imgBg": "/images/produtos/prod19/img_bg.jpg",
         "bottomImg": "/images/produtos/prod19/bottom_img.png",
@@ -580,7 +580,7 @@
         "keyName": "creme-crocante-de-chocolate-com-proteina-de-inseto",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Creme Crocante de Chocolate com Proteína de Inseto",
-        "subTitle": "Cremoso, crocante e com \n proteína alternativa sustentável",
+        "subTitle": "Cremoso, crocante e com proteína alternativa sustentável",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "Exploramos novas fontes de proteína para criar um creme de chocolate surpreendente. A proteína de inseto traz sustentabilidade, sem comprometer a textura e o prazer.",
         "pictos": [
@@ -612,7 +612,7 @@
                 "desc": "Aplicação versátil em coberturas e recheios de pastelaria"
             }
         ],
-        "sliderTitle": "O futuro da proteína \n já sabe a chocolate",
+        "sliderTitle": "O futuro da proteína já sabe a chocolate",
         "imgProd": "/images/produtos/prod20/img_main.png",
         "imgBg": "/images/produtos/prod20/img_bg.jpg",
         "bottomImg": "/images/produtos/prod20/bottom_img.png",
@@ -623,7 +623,7 @@
         "keyName": "pasta-vegetal-moldavel",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Pasta Vegetal Moldável",
-        "subTitle": "Nutrição equilibrada com textura \n adaptada e máxima versatilidade",
+        "subTitle": "Nutrição equilibrada com textura adaptada e máxima versatilidade",
         "pps": "PPS 4 - Healthier and functional food",
         "description": "Pensada para quem valoriza facilidade, sabor e bem-estar ao longo do tempo. Molda, cozinha e desfruta de uma refeição nutritiva e apetecível.",
         "pictos": [
@@ -660,7 +660,7 @@
                 "desc": "Alta versatilidade: moldável em bolinhos, croquetes ou burgers"
             }
         ],
-        "sliderTitle": "Molda, prepara, \n nutre",
+        "sliderTitle": "Molda, prepara, nutre",
         "imgProd": "/images/produtos/prod21/img_main.png",
         "imgBg": "/images/produtos/prod21/img_bg.jpg",
         "bottomImg": "/images/produtos/prod21/bottom_img.png",
@@ -671,7 +671,7 @@
         "keyName": "creme-de-caramelo-salgado",
         "partner": "Decorgel - Produtos Alimentares",
         "title": "Creme de Caramelo Salgado",
-        "subTitle": "Sabor intenso,  \n receita mais limpa",
+        "subTitle": "Sabor intenso,  receita mais limpa",
         "pps": "PPS 2 - Clean label food products",
         "description": "Caramelo salgado com tudo o que importa — sabor, textura e qualidade — sem necessidade de conservantes. Desenvolvido para responder às novas exigências do mercado, sem comprometer a experiência.",
         "pictos": [
@@ -698,7 +698,7 @@
                 "desc": "Adaptado a novos processos de fabrico mais exigentes"
             }
         ],
-        "sliderTitle": "Sabor a sério, sem \n complicações",
+        "sliderTitle": "Sabor a sério, sem complicações",
         "imgProd": "/images/produtos/prod22/img_main.png",
         "imgBg": "/images/produtos/prod22/img_bg.jpg",
         "bottomImg": "/images/produtos/prod22/bottom_img.png",
@@ -756,8 +756,8 @@
         "id": 24,
         "keyName": "maionese-picante",
         "partner": "Casa Mendes Gonçalves",
-        "title": "Maionese \n Picante",
-        "subTitle": "Picante intenso \n com origem natural",
+        "title": "Maionese Picante",
+        "subTitle": "Picante intenso com origem natural",
         "pps": "PPS 24 - By-product valorization",
         "description": "Do jalapeño fermentado nasce um picante intenso e natural. Uma nova forma de dar sabor, aproveitando melhor cada ingrediente.",
         "pictos": [
@@ -789,7 +789,7 @@
                 "desc": "Alternativa natural para intensificação de sabor"
             }
         ],
-        "sliderTitle": "Intensidade \n que fica",
+        "sliderTitle": "Intensidade que fica",
         "imgProd": "/images/produtos/prod24/img_main.png",
         "imgBg": "/images/produtos/prod24/img_bg.jpg",
         "bottomImg": "/images/produtos/prod24/bottom_img.png",
@@ -800,7 +800,7 @@
         "keyName": "molhos-circulares",
         "partner": "Casa Mendes Gonçalves",
         "title": "Molhos Circulares",
-        "subTitle": "Mais sabor, menos desperdício - \n Ketchup & Barbecue",
+        "subTitle": "Mais sabor, menos desperdício - Ketchup & Barbecue",
         "pps": "PPS 24 - By-product valorization",
         "description": "Purgas? Basicamente, molho que ainda tem muito para dar. Fermentamos e complementamos — o sabor mantém-se, o desperdício não.",
         "pictos": [
@@ -838,7 +838,7 @@
         "keyName": "paes-proteicos",
         "partner": "MORE CoLAB",
         "title": "Pães Proteicos",
-        "subTitle": "Três opções proteicas: ervilha, \n microalgas e cereais",
+        "subTitle": "Três opções proteicas: ervilha, microalgas e cereais",
         "pps": "PPS 2 - Clean label food products",
         "description": "Reformulámos o pão do dia a dia para responder às novas necessidades nutricionais. Com mais proteína, mais fibra e ingredientes alternativos, é uma evolução simples com impacto real.",
         "pictos": [
@@ -886,7 +886,7 @@
         "keyName": "bola-de-carne-low-carb",
         "partner": "MORE CoLAB",
         "title": "Bola de carne Low Carb",
-        "subTitle": "Tradição reinventada, com \n menos hidratos e mais proteína",
+        "subTitle": "Tradição reinventada, com menos hidratos e mais proteína",
         "pps": "PPS 2 - Clean label food products",
         "description": "A bola de carne tradicional, agora com menos hidratos e mais proteína e fibra. Mantém o sabor de sempre, mas adaptada a um estilo de vida mais equilibrado.",
         "pictos": [
@@ -928,8 +928,8 @@
         "id": 28,
         "keyName": "snack-de-castanha-cozida-a-vapor",
         "partner": "AGROAGUIAR - AGROINDÚSTRIA SA",
-        "title": "Snack de Castanha \n Cozida a Vapor",
-        "subTitle": "Natural, nutritivo e \n pronto a consumir",
+        "title": "Snack de Castanha Cozida a Vapor",
+        "subTitle": "Natural, nutritivo e pronto a consumir",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
         "description": "Castanha como deve ser: simples, natural e cheia de sabor. Cozida a vapor e pronta a consumir, é o snack tradicional adaptado ao ritmo do dia a dia.",
         "pictos": [
@@ -966,7 +966,7 @@
                 "desc": "Snack nutritivo e conveniente, pronto a consumir"
             }
         ],
-        "sliderTitle": "Só castanha. \n E está tudo dito.",
+        "sliderTitle": "Só castanha. E está tudo dito.",
         "imgProd": "/images/produtos/prod28/img_main.png",
         "imgBg": "/images/produtos/prod28/img_bg.jpg",
         "bottomImg": "/images/produtos/prod28/bottom_img.png",
@@ -977,7 +977,7 @@
         "keyName": "mix-de-frutos-tropicais-ultracongelados",
         "partner": "AGROAGUIAR - AGROINDÚSTRIA SA",
         "title": "Mix de Frutos Tropicais Ultracongelados",
-        "subTitle": "Fruta pronta a usar, \n com frescura preservada",
+        "subTitle": "Fruta pronta a usar, com frescura preservada",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
         "description": "Selecionamos frutos tropicais e ultracongelamos no momento certo para preservar frescura e sabor. Uma solução prática para ter fruta pronta a usar em qualquer altura.",
         "pictos": [
@@ -1017,10 +1017,10 @@
     },
     {
         "id": 30,
-        "keyName": "cereais-de-pequeno-almoco-mais-equilibrados1",
+        "keyName": "cereais-de-pequeno-almoco-mais-queilibrados",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
-        "title": "Cereais de Pequeno-Almoço mais equilibrados",
-        "subTitle": "Ingredientes valorizados, receita repensada,\n sabor garantido",
+        "title": "Cereais de Pequeno-Almoço mais queilibrados",
+        "subTitle": "Ingredientes valorizados, receita repensada, sabor garantido",
         "pps": "PPS 24 - By-product valorization",
         "description": "Aproveitamos melhor os cereais e outros ingredientes para criar um pequeno-almoço mais equilibrado. Sem adições desnecessárias, com nutrição pensada para o dia a dia.",
         "pictos": [
@@ -1073,7 +1073,7 @@
         "keyName": "brioche-biologico-com-microalgas",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
         "title": "Brioche Biológico com Microalgas",
-        "subTitle": "Com trigo biológico português \n e um toque de inovação natural",
+        "subTitle": "Com trigo biológico português e um toque de inovação natural",
         "pps": "PPS 23 - Organic flour 100% produced in Portugal",
         "description": "Do trigo biológico português nasce um brioche que combina tradição com inovação. As microalgas trazem um valor nutricional adicional, mantendo o sabor e a simplicidade de sempre.",
         "pictos": [
@@ -1126,7 +1126,7 @@
         "keyName": "gama-sem-gluten-plant-based",
         "partner": "GERMEN - MOAGEM DE CEREAIS, S.A.",
         "title": "Gama Sem Glúten & Plant-Based",
-        "subTitle": "Do pão ao bolo de arroz e à farinha \n para panar - sem glúten",
+        "subTitle": "Do pão ao bolo de arroz e à farinha para panar - sem glúten",
         "pps": "PPS 6 - Free from products ",
         "description": "Reimaginamos produtos do dia a dia para quem procura opções sem glúten. Do pão ao bolo de arroz e à farinha funcional, criamos alternativas mais equilibradas e versáteis, sem complicar.",
         "pictos": [
@@ -1169,7 +1169,7 @@
         "keyName": "vieira-chef-bolacha-moida",
         "partner": "Vieira de Castro ",
         "title": "Vieira Chef - Bolacha Moída",
-        "subTitle": "Bolacha moída pronta a usar, \n na dose certa",
+        "subTitle": "Bolacha moída pronta a usar, na dose certa",
         "pps": "PPS 24 - By-product valorization",
         "description": "Pensada para facilitar a cozinha, esta bolacha moída está pronta a usar e na medida certa. Menos preparação, menos desperdício e mais tempo para criar.",
         "pictos": [
@@ -1207,7 +1207,7 @@
         "keyName": "bolacha-maria-com-azeite",
         "partner": "Vieira de Castro ",
         "title": "Bolacha Maria com Azeite",
-        "subTitle": "O clássico de sempre, com um toque \n mais equilibrado",
+        "subTitle": "O clássico de sempre, com um toque mais equilibrado",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "A Maria que conheces, agora com azeite. Igual no sabor, diferente na forma de fazer.",
         "pictos": [
@@ -1234,7 +1234,7 @@
                 "desc": "Mantém o sabor e textura típicos da bolacha Maria"
             }
         ],
-        "sliderTitle": "Maria, ainda mais \n à portuguesa",
+        "sliderTitle": "Maria, ainda mais à portuguesa",
         "imgProd": "/images/produtos/prod34/img_main.png",
         "imgBg": "/images/produtos/prod34/img_bg.jpg",
         "bottomImg": "/images/produtos/prod34/bottom_img.png",
@@ -1245,7 +1245,7 @@
         "keyName": "amendoa-plant-based-com-kiwi",
         "partner": "Vieira de Castro ",
         "title": "Amêndoa Plant-Based com Kiwi",
-        "subTitle": "Premium e de base vegetal? \n Irresistivel",
+        "subTitle": "Premium e de base vegetal? Irresistivel",
         "pps": "PPS 13 - Novel and nutritious ingredients",
         "description": "Juntámos amêndoa, chocolate de base vegetal e kiwi para criar uma combinação inesperada. Entre o doce e o ácido, nasce uma experiência diferente, pensada para surpreender.",
         "pictos": [
