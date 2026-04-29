@@ -3,5 +3,9 @@
         "teaser": "Saiba mais sobre o futuro da alimentação!",
         "buttonTitle": "Lista de produtos",
         "buttonLink": "/produtos"
+    },
+    "prodListPage": {
+        "bannerText": "Explora as nossas \n inovações",
+        "buttonText": "Filtrar"
     }
 }

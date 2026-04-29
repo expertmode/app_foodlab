@@ -1,0 +1,95 @@
+================================================================================
+                    INSTRUÇÕES DE DEPLOY - WINDOWS
+================================================================================
+
+PARTE 1: INSTALAÇÃO NA MÁQUINA WINDOWS
+================================================================================
+
+O que instalar:
+1. Node.js (versão LTS)
+   - Descarrega de: https://nodejs.org/
+   - Instala normalmente (next, next, finish)
+   - Isto instala automaticamente o npm também
+
+Como verificar se funcionou:
+- Abre Command Prompt (cmd.exe)
+- Digita: node -v
+- Digita: npm -v
+- Se aparecer versões, está tudo bem
+
+================================================================================
+PARTE 2: CLONAR E CONFIGURAR O PROJETO
+================================================================================
+
+1. Abre Command Prompt na pasta onde queres o projeto
+2. Corre:
+   git clone <URL-DO-REPOSITORIO>
+   cd foodlab
+
+3. Instala as dependências:
+   npm install
+
+4. Faz build:
+   npm run build
+
+5. Inicia:
+   npm start
+
+6. Abre browser:
+   http://localhost:3000
+
+Pronto! O projeto está a funcionar.
+
+================================================================================
+PARTE 3: FULLSCREEN (SEM BARRAS DO BROWSER)
+================================================================================
+
+Se queres que abra em fullscreen sem nenhumas barras:
+
+1. Instala Electron:
+   npm install electron --save-dev
+
+2. Cria um ficheiro chamado "electron.js" na raiz do projeto (ao lado de package.json)
+
+3. Coloca isto dentro do electron.js:
+
+---
+const { app, BrowserWindow } = require('electron');
+
+app.on('ready', () => {
+    const win = new BrowserWindow({ 
+        fullscreen: true,
+        width: 1080,
+        height: 1920
+    });
+    win.loadURL('http://localhost:3000');
+});
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') app.quit();
+});
+---
+
+4. Depois executa em Command Prompt:
+   npm start (em uma janela de cmd)
+   electron electron.js (noutra janela de cmd)
+
+Pronto! Abre em fullscreen.
+
+================================================================================
+RESUMO RÁPIDO
+================================================================================
+
+Instalação única (primeira vez):
+1. Instala Node.js
+2. npm install
+3. npm run build
+
+Cada vez que queres iniciar:
+- npm start (e abre http://localhost:3000)
+
+Se quer fullscreen:
+- npm start (numa janela)
+- electron electron.js (noutra janela)
+
+================================================================================

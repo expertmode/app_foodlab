@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import LogoCompMain from "@/components/global/logoCompMain";
 import ProdList from "@/components/productsPage/prodList";
+import ProdFooter from "@/components/productsPage/prodFooter";
+import ProdListBanner from "@/components/productsPage/prodListBanner";
 
 export const metadata = {
     title: "Lista de Produtos",
@@ -11,7 +13,9 @@ export default function Produtos() {
     return (
         <MainBox>
             <LogoCompMain />
+            <ProdListBanner />
             <ProdList />
+            <ProdFooter />
         </MainBox>
     );
 };

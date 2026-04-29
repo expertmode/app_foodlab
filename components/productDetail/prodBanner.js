@@ -17,6 +17,7 @@ export default function ProdBanner({ data }) {
                 </Image>
             </BannerImageBox>
             <ProdImgBox
+                $imgSize={data.imgSize}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 12, duration: 0.15, delay: 0.2 }}
@@ -39,7 +40,7 @@ const BannerMainBox = styled.div`
 
 const BannerImageBox = styled.div`
     width: 110%;
-    height: 840px;
+    height: 696px;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -53,7 +54,7 @@ const Image = styled(motion.div)`
 
 const ProdImgBox = styled(motion.div)`
     display: flex;
-    width: 288px;
+    width: ${props => props.$imgSize || '288px'};
     position: absolute;
     bottom: 24px;
     left: 64px;

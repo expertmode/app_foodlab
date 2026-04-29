@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import data from "../../data/productsData.json";
+import ProdCard from "./prodCard";
 
 export default function ProdList() {
     const products = data;
@@ -10,12 +11,14 @@ export default function ProdList() {
         <ProdListContainer>
             <Grid>
                 {products.map((product) => (
-                    <ProductCard key={product.id}>
-                        <Link href={`/produtos/${product.keyName}`}>
-                            {product.imgProd && <ProductImage src={product.imgProd} alt={product.title} />}
-                            <ProductTitle>{product.title}</ProductTitle>
-                        </Link>
-                    </ProductCard>
+                    // <ProductCardOld key={product.id}>
+                    //     <Link href={`/produtos/${product.keyName}`}>
+                    //         {product.imgProd && <ProductImage src={product.imgProd} alt={product.title} />}
+                    //         <ProductTitle>{product.title}</ProductTitle>
+                    //     </Link>
+                    // </ProductCardOld>
+                    <ProdCard key={product.id} product={product} />
+
                 ))}
             </Grid>
         </ProdListContainer>
@@ -24,10 +27,10 @@ export default function ProdList() {
 
 const ProdListContainer = styled.div`
     width: 100%;
-    margin-top: 400px;
     padding: 0 40px 40px 40px;
     display: flex;
     justify-content: center;
+    background-color: #f0f0eb;
 `;
 
 const Grid = styled.div`
@@ -38,7 +41,7 @@ const Grid = styled.div`
     width: 100%;
 `;
 
-const ProductCard = styled.div`
+const ProductCardOld = styled.div`
     display: flex;
     flex-direction: column;
     cursor: pointer;

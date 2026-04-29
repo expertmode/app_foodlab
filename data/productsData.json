@@ -50,7 +50,8 @@
         "imgProd": "/images/produtos/prod1/img_main.png",
         "imgBg": "/images/produtos/prod1/img_bg.jpg",
         "bottomImg": "/images/produtos/prod1/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 2,
@@ -66,7 +67,8 @@
         "imgProd": "/images/produtos/prod2/img_main.png",
         "imgBg": "/images/produtos/prod2/img_bg.jpg",
         "bottomImg": "/images/produtos/prod2/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 3,
@@ -82,7 +84,8 @@
         "imgProd": "/images/produtos/prod3/img_main.png",
         "imgBg": "/images/produtos/prod3/img_bg.jpg",
         "bottomImg": "/images/produtos/prod3/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 4,
@@ -98,7 +101,8 @@
         "imgProd": "/images/produtos/prod4/img_main.png",
         "imgBg": "/images/produtos/prod4/img_bg.jpg",
         "bottomImg": "/images/produtos/prod4/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 5,
@@ -114,7 +118,8 @@
         "imgProd": "/images/produtos/prod5/img_main.png",
         "imgBg": "/images/produtos/prod5/img_bg.jpg",
         "bottomImg": "/images/produtos/prod5/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 6,
@@ -130,7 +135,8 @@
         "imgProd": "/images/produtos/prod6/img_main.png",
         "imgBg": "/images/produtos/prod6/img_bg.jpg",
         "bottomImg": "/images/produtos/prod6/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 7,
@@ -146,7 +152,8 @@
         "imgProd": "/images/produtos/prod7/img_main.png",
         "imgBg": "/images/produtos/prod7/img_bg.jpg",
         "bottomImg": "/images/produtos/prod7/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 8,
@@ -162,7 +169,8 @@
         "imgProd": "/images/produtos/prod8/img_main.png",
         "imgBg": "/images/produtos/prod8/img_bg.jpg",
         "bottomImg": "/images/produtos/prod8/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 9,
@@ -178,7 +186,8 @@
         "imgProd": "/images/produtos/prod9/img_main.png",
         "imgBg": "/images/produtos/prod9/img_bg.jpg",
         "bottomImg": "/images/produtos/prod9/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 10,
@@ -194,7 +203,8 @@
         "imgProd": "/images/produtos/prod10/img_main.png",
         "imgBg": "/images/produtos/prod10/img_bg.jpg",
         "bottomImg": "/images/produtos/prod10/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 11,
@@ -210,7 +220,8 @@
         "imgProd": "/images/produtos/prod11/img_main.png",
         "imgBg": "/images/produtos/prod11/img_bg.jpg",
         "bottomImg": "/images/produtos/prod11/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 12,
@@ -232,7 +243,8 @@
         "imgProd": "/images/produtos/prod12/img_main.png",
         "imgBg": "/images/produtos/prod12/img_bg.jpg",
         "bottomImg": "/images/produtos/prod12/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 13,
@@ -285,7 +297,8 @@
         "imgProd": "/images/produtos/prod13/img_main.png",
         "imgBg": "/images/produtos/prod13/img_bg.jpg",
         "bottomImg": "/images/produtos/prod13/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 14,
@@ -333,7 +346,8 @@
         "imgProd": "/images/produtos/prod14/img_main.png",
         "imgBg": "/images/produtos/prod14/img_bg.jpg",
         "bottomImg": "/images/produtos/prod14/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 15,
@@ -381,7 +395,8 @@
         "imgProd": "/images/produtos/prod15/img_main.png",
         "imgBg": "/images/produtos/prod15/img_bg.jpg",
         "bottomImg": "/images/produtos/prod15/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 16,
@@ -429,7 +444,8 @@
         "imgProd": "/images/produtos/prod16/img_main.png",
         "imgBg": "/images/produtos/prod16/img_bg.jpg",
         "bottomImg": "/images/produtos/prod16/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 17,
@@ -482,7 +498,8 @@
         "imgProd": "/images/produtos/prod17/img_main.png",
         "imgBg": "/images/produtos/prod17/img_bg.jpg",
         "bottomImg": "/images/produtos/prod17/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 18,
@@ -530,7 +547,8 @@
         "imgProd": "/images/produtos/prod18/img_main.png",
         "imgBg": "/images/produtos/prod18/img_bg.jpg",
         "bottomImg": "/images/produtos/prod18/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 19,
@@ -573,7 +591,8 @@
         "imgProd": "/images/produtos/prod19/img_main.png",
         "imgBg": "/images/produtos/prod19/img_bg.jpg",
         "bottomImg": "/images/produtos/prod19/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 20,
@@ -616,7 +635,8 @@
         "imgProd": "/images/produtos/prod20/img_main.png",
         "imgBg": "/images/produtos/prod20/img_bg.jpg",
         "bottomImg": "/images/produtos/prod20/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 21,
@@ -664,7 +684,8 @@
         "imgProd": "/images/produtos/prod21/img_main.png",
         "imgBg": "/images/produtos/prod21/img_bg.jpg",
         "bottomImg": "/images/produtos/prod21/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 22,
@@ -702,7 +723,8 @@
         "imgProd": "/images/produtos/prod22/img_main.png",
         "imgBg": "/images/produtos/prod22/img_bg.jpg",
         "bottomImg": "/images/produtos/prod22/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 23,
@@ -750,7 +772,8 @@
         "imgProd": "/images/produtos/prod23/img_main.png",
         "imgBg": "/images/produtos/prod23/img_bg.jpg",
         "bottomImg": "/images/produtos/prod23/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": "400px"
     },
     {
         "id": 24,
@@ -793,7 +816,8 @@
         "imgProd": "/images/produtos/prod24/img_main.png",
         "imgBg": "/images/produtos/prod24/img_bg.jpg",
         "bottomImg": "/images/produtos/prod24/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 25,
@@ -831,7 +855,8 @@
         "imgProd": "/images/produtos/prod25/img_main.png",
         "imgBg": "/images/produtos/prod25/img_bg.jpg",
         "bottomImg": "/images/produtos/prod25/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 26,
@@ -879,7 +904,8 @@
         "imgProd": "/images/produtos/prod26/img_main.png",
         "imgBg": "/images/produtos/prod26/img_bg.jpg",
         "bottomImg": "/images/produtos/prod26/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 27,
@@ -922,7 +948,8 @@
         "imgProd": "/images/produtos/prod27/img_main.png",
         "imgBg": "/images/produtos/prod27/img_bg.jpg",
         "bottomImg": "/images/produtos/prod27/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 28,
@@ -970,7 +997,8 @@
         "imgProd": "/images/produtos/prod28/img_main.png",
         "imgBg": "/images/produtos/prod28/img_bg.jpg",
         "bottomImg": "/images/produtos/prod28/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 29,
@@ -1013,7 +1041,8 @@
         "imgProd": "/images/produtos/prod29/img_main.png",
         "imgBg": "/images/produtos/prod29/img_bg.jpg",
         "bottomImg": "/images/produtos/prod29/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 30,
@@ -1066,7 +1095,8 @@
         "imgProd": "/images/produtos/prod30/img_main.png",
         "imgBg": "/images/produtos/prod30/img_bg.jpg",
         "bottomImg": "/images/produtos/prod30/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 31,
@@ -1162,7 +1192,8 @@
         "imgProd": "/images/produtos/prod32/img_main.png",
         "imgBg": "/images/produtos/prod32/img_bg.jpg",
         "bottomImg": "/images/produtos/prod32/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 33,
@@ -1200,7 +1231,8 @@
         "imgProd": "/images/produtos/prod33/img_main.png",
         "imgBg": "/images/produtos/prod33/img_bg.jpg",
         "bottomImg": "/images/produtos/prod33/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 34,
@@ -1238,7 +1270,8 @@
         "imgProd": "/images/produtos/prod34/img_main.png",
         "imgBg": "/images/produtos/prod34/img_bg.jpg",
         "bottomImg": "/images/produtos/prod34/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 35,
@@ -1276,7 +1309,8 @@
         "imgProd": "/images/produtos/prod35/img_main.png",
         "imgBg": "/images/produtos/prod35/img_bg.jpg",
         "bottomImg": "/images/produtos/prod35/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 36,
@@ -1308,7 +1342,8 @@
         "imgProd": "/images/produtos/prod36/img_main.png",
         "imgBg": "/images/produtos/prod36/img_bg.jpg",
         "bottomImg": "/images/produtos/prod36/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     },
     {
         "id": 37,
@@ -1346,6 +1381,7 @@
         "imgProd": "/images/produtos/prod37/img_main.png",
         "imgBg": "/images/produtos/prod37/img_bg.jpg",
         "bottomImg": "/images/produtos/prod37/bottom_img.png",
-        "filter": []
+        "filter": [],
+        "imgSize": ""
     }
 ]
