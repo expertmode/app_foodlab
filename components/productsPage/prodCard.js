@@ -1,12 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
 export default function ProdCard({ product }) {
+    const [imageSrc, setImageSrc] = useState(product.imgProd || "/images/produtos/geral.png");
+
+    const handleImageError = () => {
+        setImageSrc("/images/produtos/geral.png");
+    };
+
     return (
         <CardMainBox>
             <CardImgArea>
                 <CircleBox />
-                <ImageBox src={product.imgProd || "/images/produtos/geral.png"} alt="produto" onError={(e) => { e.target.src = "/images/produtos/geral.png" }} />
+                <ImageBox
+                    src={imageSrc}
+                    alt="produto"
+                    onError={handleImageError}
+                />
             </CardImgArea>
         </CardMainBox>
     )
@@ -25,7 +36,6 @@ const CardImgArea = styled.div`
     align-items: center;
     justify-content: center;
     aspect-ratio: 1 / 1.2;
-    /* background-color: pink; */
 `;
 
 const ImageBox = styled.img`
@@ -44,4 +54,4 @@ const CircleBox = styled.div`
     aspect-ratio: 1 / 1;
     border-radius: 1000px;
     background-color: #fff;
-`;  
+`;

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "name": "Tudo",
+        "icon": "/images/icons/tudo.svg"
+    },
+    {
+        "id": 1,
+        "name": "Mar",
+        "icon": "/images/icons/mar.svg"
+    },
+    {
+        "id": 2,
+        "name": "Inovação",
+        "icon": "/images/icons/inovacao.svg"
+    },
+    {
+        "id": 3,
+        "name": "Sustentabilidade",
+        "icon": "/images/icons/sustentabilidade.svg"
+    },
+    {
+        "id": 4,
+        "name": "Saúde",
+        "icon": "/images/icons/saude.svg"
+    },
+    {
+        "id": 5,
+        "name": "Vegetal",
+        "icon": "/images/icons/vegetal.svg"
+    },
+    {
+        "id": 6,
+        "name": "Tradicional",
+        "icon": "/images/icons/tradicional.svg"
+    }
+]

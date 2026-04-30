@@ -10,17 +10,19 @@ export default function ButtonFilter(props) {
 
     return (
         <CenterBox ref={containerRef}>
-            {/* <Link href={props.link}> */}
             <ButtonBox
+                onClick={props.onClickFilter}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                    backgroundColor: props.isOpen ? "#00749e" : "#FFB40F"
+                }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                whileHover={{ backgroundColor: "#00749e" }}
                 whileTap={{ scale: 0.95, transition: { type: "spring", stiffness: 400, damping: 17 } }}
             >
-                {props.title}
+                {props.isOpen ? "Fechar" : props.title}
             </ButtonBox>
-            {/* </Link> */}
         </CenterBox>
     )
 };
@@ -28,7 +30,7 @@ export default function ButtonFilter(props) {
 const CenterBox = styled.div`
     display: flex;
     position: absolute;
-    bottom: 176px;
+    top: 560px;
     z-index: 20;
 `;
 
