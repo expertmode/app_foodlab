@@ -65,7 +65,7 @@ const BannerMainBox = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    min-height: ${props => props.$isOpen ? '1200px' : '744px'};
+    min-height: ${props => props.$isOpen ? '1360px' : '744px'};
     position: relative;
     overflow: visible;
     transition: min-height 0.3s ease;

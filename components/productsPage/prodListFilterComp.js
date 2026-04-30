@@ -1,26 +1,63 @@
 import styled from "styled-components";
 import data from "@/data/filtersData.json";
+import { motion } from "framer-motion";
 import ProdListFilterCard from "./prodListFilterCard";
+import { useFilter } from "@/contexts/FilterContext";
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.4 },
+    },
+};
 
 export default function ProdListFilterComp({ isOpen }) {
+    const { setSelectedFilterId } = useFilter();
+
+    const handleCardClick = (id) => {
+        setSelectedFilterId(id);
+    };
+
     return (
-        <FilterScrollContainer>
+        <FilterScrollContainer
+            variants={containerVariants}
+            initial="hidden"
+            animate={isOpen ? "visible" : "hidden"}
+        >
             {data.map((item) => (
-
-                <ProdListFilterCard key={item.id} icon={item.icon} title={item.name} />
-
+                <CardCont
+                    key={item.id}
+                    variants={itemVariants}
+                    onClick={() => handleCardClick(item.id)}
+                    style={{ cursor: 'pointer' }}
+                >
+                    <ProdListFilterCard id={item.id} icon={item.icon} title={item.name} />
+                </CardCont>
             ))}
         </FilterScrollContainer>
     )
 };
 
-const FilterScrollContainer = styled.div`
+const FilterScrollContainer = styled(motion.div)`
     display: flex;
-    gap: 16px;
+    gap: 24px;
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
-    padding: 0 24px 20px 24px;
+    padding: 0 24px 80px 24px;
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
@@ -43,7 +80,7 @@ const FilterScrollContainer = styled.div`
     }
 `;
 
-const CardCont = styled.div`
+const CardCont = styled(motion.div)`
     width: 248px;
     flex-shrink: 0;
 `;

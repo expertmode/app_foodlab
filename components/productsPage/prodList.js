@@ -3,22 +3,35 @@ import styled from "styled-components";
 import Link from "next/link";
 import data from "../../data/productsData.json";
 import ProdCard from "./prodCard";
+import { useFilter } from "@/contexts/FilterContext";
+
+const filterMap = {
+    0: null, // Todos os produtos
+    1: [14],
+    2: [13, 33],
+    3: [24, 30],
+    4: [4, 6],
+    5: [2, 3, 22],
+    6: [17],
+};
 
 export default function ProdList() {
-    const products = data;
+    const { selectedFilterId } = useFilter();
+
+    const filterCodes = filterMap[selectedFilterId];
+
+    const filteredProducts = filterCodes === null
+        ? data
+        : data.filter((product) => {
+            const ppsCodeArray = Array.isArray(product.ppsCode) ? product.ppsCode : [product.ppsCode];
+            return ppsCodeArray.some((code) => filterCodes.includes(code));
+        });
 
     return (
         <ProdListContainer>
             <Grid>
-                {products.map((product) => (
-                    // <ProductCardOld key={product.id}>
-                    //     <Link href={`/produtos/${product.keyName}`}>
-                    //         {product.imgProd && <ProductImage src={product.imgProd} alt={product.title} />}
-                    //         <ProductTitle>{product.title}</ProductTitle>
-                    //     </Link>
-                    // </ProductCardOld>
+                {filteredProducts.map((product) => (
                     <ProdCard key={product.id} product={product} />
-
                 ))}
             </Grid>
         </ProdListContainer>

@@ -1,14 +1,26 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import ImageComp from "../global/imageComp";
+import { useFilter } from "../../contexts/FilterContext";
 
 export default function ProdListFilterCard(props) {
+    const { selectedFilterId } = useFilter();
+    const isSelected = selectedFilterId === props.id;
+
     return (
         <CardBox>
-            <IconBox>
-                <IconImg>
+            <IconBoxMotion
+                $isSelected={isSelected}
+                animate={{
+                    backgroundColor: isSelected ? "#005E81" : "#fff",
+                    borderColor: "#005E81",
+                }}
+                transition={{ duration: 0.3 }}
+            >
+                <IconImg $isSelected={isSelected}>
                     <ImageComp image={props.icon} />
                 </IconImg>
-            </IconBox>
+            </IconBoxMotion>
             <Title>{props.title}</Title>
         </CardBox>
     );
@@ -16,13 +28,13 @@ export default function ProdListFilterCard(props) {
 
 const CardBox = styled.div`
     display: flex;
-    width: 248px;
+    width: 224px;
     flex-direction: column;
     gap: 24px;
     flex-shrink: 0;
 `;
 
-const IconBox = styled.div`
+const IconBoxMotion = styled(motion.div)`
     display: flex;
     width: 100%;
     justify-content: center;
@@ -30,13 +42,19 @@ const IconBox = styled.div`
     aspect-ratio: 1 / 1;
     border-radius: 1000px;
     background-color: #fff;
-    border: 2px solid #005E81;
+    border: 5px solid #005E81;
     cursor: pointer;
 `;
 
 const IconImg = styled.div`
     display: flex;
     width: 35%;
+
+    ${(props) =>
+        props.$isSelected &&
+        `
+        filter: brightness(0) invert(1);
+    `}
 `;
 
 const Title = styled.p`

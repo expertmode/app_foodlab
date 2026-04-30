@@ -6,6 +6,7 @@
         "title": "Pesto com microalgas",
         "subTitle": "Mais nutritivo e sustentável. Com ingredientes do futuro.",
         "pps": "PPS 14 - Local sea ingredients",
+        "ppsCode": [14],
         "description": "Inspirado no pesto mediterrânico, combina sabor clássico com inovação. As microalgas e o tremoço criam uma alternativa vegetal nutritiva e sustentável.",
         "pictos": [
             {
@@ -60,6 +61,7 @@
         "title": "Hamburguer \n de pescado e vegetais",
         "subTitle": "",
         "pps": "PPS 14 - Local sea ingredients",
+        "ppsCode": [14],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -77,6 +79,7 @@
         "title": "Esparregado \n com algas",
         "subTitle": "",
         "pps": "PPS 14 - Local sea ingredients",
+        "ppsCode": [14],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -94,6 +97,7 @@
         "title": "Crackers \n com algas",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -111,6 +115,7 @@
         "title": "Pouch de fruta \n e proteina",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -128,6 +133,7 @@
         "title": "Bebidas vegetais e alternativas \n ao iogurte",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -145,6 +151,7 @@
         "title": "Alternativa ao queijo curado",
         "subTitle": "",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -162,6 +169,7 @@
         "title": "Creme de barrar avelã sem palma",
         "subTitle": "",
         "pps": "PPS 4 - Healthier and functional food",
+        "ppsCode": [4],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -179,6 +187,7 @@
         "title": "Cereais de pequeno almoço mais equilibrados",
         "subTitle": "",
         "pps": "PPS 4 - Healthier and functional food",
+        "ppsCode": [4],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -196,6 +205,7 @@
         "title": "Gelado \n com redução \n de açúcar",
         "subTitle": "",
         "pps": "PPS 4 - Healthier and functional food",
+        "ppsCode": [4],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -213,6 +223,7 @@
         "title": "Manteiga \n Magra",
         "subTitle": "",
         "pps": "PPS 2 - Clean label food products",
+        "ppsCode": [2],
         "description": "",
         "pictos": [],
         "infoCards": [],
@@ -230,6 +241,7 @@
         "title": "Preparado \n de fruta",
         "subTitle": "",
         "pps": "PPS 2 - Clean label food products",
+        "ppsCode": [2],
         "description": "",
         "pictos": [],
         "infoCards": [
@@ -253,6 +265,7 @@
         "title": "BeetPesto \n(Pesto de Beterraba)",
         "subTitle": "Sabor intenso e autêntico, com \n valorização de ingredientes",
         "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [33],
         "description": "Valorizando beterraba fora do padrão e aplicando a tecnologia HPP, resulta um produto sustentável com frescura e qualidade assegurada, com cor e sabor marcante.",
         "pictos": [
             {
@@ -307,6 +320,7 @@
         "title": "Preparado em pó para bebidas",
         "subTitle": "Bebidas práticas e naturais, \n prontas em segundos",
         "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [33],
         "description": "Damos uma segunda vida às frutas. Com estes preparados liofilizados que preservam o melhor das frutas, cria bebidas - de smoothie a sangria - práticas e cheias de sabor.",
         "pictos": [
             {
@@ -356,6 +370,7 @@
         "title": "Gelados com Soro de Leite",
         "subTitle": "Cremosos e inovadores, \n com aproveitamento inteligente",
         "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [33],
         "description": "Whey não é só para batidos. Aqui vira gelado: cremoso, saboroso e sem desperdício.",
         "pictos": [
             {
@@ -405,6 +420,7 @@
         "title": "Snacks Desidratados",
         "subTitle": "Crocantes, naturais e \n sem desperdício",
         "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [33],
         "description": "Transformamos excedentes em snacks crocantes e cheios de sabor. Uma nova forma de aproveitar melhor cada ingrediente.",
         "pictos": [
             {
@@ -454,6 +470,7 @@
         "title": "Complemento Proteico Vegetal",
         "subTitle": "Proteína vegetal, \n prática e sustentável",
         "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [33],
         "description": "Aproveitamos ingredientes muitas vezes esquecidos para criar uma fonte de proteína vegetal prática e sustentável, fácil de integrar no dia a dia. ",
         "pictos": [
             {
@@ -508,6 +525,7 @@
         "title": "Compal África",
         "subTitle": "Bebidas de fruta com textura rica e natural - Manga, Tropical, Manga Calabaceira",
         "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
+        "ppsCode": [3],
         "description": "Combinamos sumo de fruta com polpa de maçã para criar bebidas de textura rica e sabor natural. Mais corpo, mais fibra e uma experiência diferenciadora.",
         "pictos": [
             {
@@ -557,6 +575,7 @@
         "title": "Compal Fresh \n Mix de Frutas",
         "subTitle": "Leve, refrescante e \n com toque natural de fruta",
         "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
+        "ppsCode": [3],
         "description": "Sumo de fruta e polpa de maçã combinam-se para criar uma bebida leve, com textura suave e sabor natural. Uma opção refrescante para o dia a dia.",
         "pictos": [
             {
@@ -601,6 +620,7 @@
         "title": "Creme Crocante de Chocolate com Proteína de Inseto",
         "subTitle": "Cremoso, crocante e com \n proteína alternativa sustentável",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "Exploramos novas fontes de proteína para criar um creme de chocolate surpreendente. A proteína de inseto traz sustentabilidade, sem comprometer a textura e o prazer.",
         "pictos": [
             {
@@ -645,6 +665,7 @@
         "title": "Pasta Vegetal Moldável",
         "subTitle": "Nutrição equilibrada com textura \n adaptada e máxima versatilidade",
         "pps": "PPS 4 - Healthier and functional food",
+        "ppsCode": [4],
         "description": "Pensada para quem valoriza facilidade, sabor e bem-estar ao longo do tempo. Molda, cozinha e desfruta de uma refeição nutritiva e apetecível.",
         "pictos": [
             {
@@ -694,6 +715,7 @@
         "title": "Creme de Caramelo Salgado",
         "subTitle": "Sabor intenso,  \n receita mais limpa",
         "pps": "PPS 2 - Clean label food products",
+        "ppsCode": [2],
         "description": "Caramelo salgado com tudo o que importa — sabor, textura e qualidade — sem necessidade de conservantes. Desenvolvido para responder às novas exigências do mercado, sem comprometer a experiência.",
         "pictos": [
             {
@@ -733,6 +755,7 @@
         "title": "Maioneses de Nova Geração",
         "subTitle": "Ingredientes naturais e diferenciadores, sabores surpreendentes - Mar, Coentrada, Cebola Roxa",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "Reinventamos a maionese com ingredientes naturais e inovadores. Entre microalgas, extratos de levedura e vegetais, com perfis de sabor autênticos, criamos experiências mais ricas, equilibradas e surpreendentes.",
         "pictos": [
             {
@@ -782,6 +805,7 @@
         "title": "Maionese \n Picante",
         "subTitle": "Picante intenso \n com origem natural",
         "pps": "PPS 24 - By-product valorization",
+        "ppsCode": [24],
         "description": "Do jalapeño fermentado nasce um picante intenso e natural. Uma nova forma de dar sabor, aproveitando melhor cada ingrediente.",
         "pictos": [
             {
@@ -826,6 +850,7 @@
         "title": "Molhos Circulares",
         "subTitle": "Mais sabor, menos desperdício - \n Ketchup & Barbecue",
         "pps": "PPS 24 - By-product valorization",
+        "ppsCode": [24],
         "description": "Purgas? Basicamente, molho que ainda tem muito para dar. Fermentamos e complementamos — o sabor mantém-se, o desperdício não.",
         "pictos": [
             {
@@ -865,6 +890,7 @@
         "title": "Pães Proteicos",
         "subTitle": "Três opções proteicas: ervilha, \n microalgas e cereais",
         "pps": "PPS 2 - Clean label food products",
+        "ppsCode": [2],
         "description": "Reformulámos o pão do dia a dia para responder às novas necessidades nutricionais. Com mais proteína, mais fibra e ingredientes alternativos, é uma evolução simples com impacto real.",
         "pictos": [
             {
@@ -914,6 +940,7 @@
         "title": "Bola de carne Low Carb",
         "subTitle": "Tradição reinventada, com \n menos hidratos e mais proteína",
         "pps": "PPS 2 - Clean label food products",
+        "ppsCode": [2],
         "description": "A bola de carne tradicional, agora com menos hidratos e mais proteína e fibra. Mantém o sabor de sempre, mas adaptada a um estilo de vida mais equilibrado.",
         "pictos": [
             {
@@ -958,6 +985,7 @@
         "title": "Snack de Castanha \n Cozida a Vapor",
         "subTitle": "Natural, nutritivo e \n pronto a consumir",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
+        "ppsCode": [30],
         "description": "Castanha como deve ser: simples, natural e cheia de sabor. Cozida a vapor e pronta a consumir, é o snack tradicional adaptado ao ritmo do dia a dia.",
         "pictos": [
             {
@@ -1007,6 +1035,7 @@
         "title": "Mix de Frutos Tropicais Ultracongelados",
         "subTitle": "Fruta pronta a usar, \n com frescura preservada",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
+        "ppsCode": [30],
         "description": "Selecionamos frutos tropicais e ultracongelamos no momento certo para preservar frescura e sabor. Uma solução prática para ter fruta pronta a usar em qualquer altura.",
         "pictos": [
             {
@@ -1051,6 +1080,7 @@
         "title": "Cereais de Pequeno-Almoço mais equilibrados",
         "subTitle": "Ingredientes valorizados, receita repensada,\n sabor garantido",
         "pps": "PPS 24 - By-product valorization",
+        "ppsCode": [24],
         "description": "Aproveitamos melhor os cereais e outros ingredientes para criar um pequeno-almoço mais equilibrado. Sem adições desnecessárias, com nutrição pensada para o dia a dia.",
         "pictos": [
             {
@@ -1105,6 +1135,7 @@
         "title": "Brioche Biológico com Microalgas",
         "subTitle": "Com trigo biológico português \n e um toque de inovação natural",
         "pps": "PPS 23 - Organic flour 100% produced in Portugal",
+        "ppsCode": [23],
         "description": "Do trigo biológico português nasce um brioche que combina tradição com inovação. As microalgas trazem um valor nutricional adicional, mantendo o sabor e a simplicidade de sempre.",
         "pictos": [
             {
@@ -1158,6 +1189,7 @@
         "title": "Gama Sem Glúten & Plant-Based",
         "subTitle": "Do pão ao bolo de arroz e à farinha \n para panar - sem glúten",
         "pps": "PPS 6 - Free from products ",
+        "ppsCode": [6],
         "description": "Reimaginamos produtos do dia a dia para quem procura opções sem glúten. Do pão ao bolo de arroz e à farinha funcional, criamos alternativas mais equilibradas e versáteis, sem complicar.",
         "pictos": [
             {
@@ -1202,6 +1234,7 @@
         "title": "Vieira Chef - Bolacha Moída",
         "subTitle": "Bolacha moída pronta a usar, \n na dose certa",
         "pps": "PPS 24 - By-product valorization",
+        "ppsCode": [24],
         "description": "Pensada para facilitar a cozinha, esta bolacha moída está pronta a usar e na medida certa. Menos preparação, menos desperdício e mais tempo para criar.",
         "pictos": [
             {
@@ -1241,6 +1274,7 @@
         "title": "Bolacha Maria com Azeite",
         "subTitle": "O clássico de sempre, com um toque \n mais equilibrado",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "A Maria que conheces, agora com azeite. Igual no sabor, diferente na forma de fazer.",
         "pictos": [
             {
@@ -1280,6 +1314,7 @@
         "title": "Amêndoa Plant-Based com Kiwi",
         "subTitle": "Premium e de base vegetal? \n Irresistivel",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "Juntámos amêndoa, chocolate de base vegetal e kiwi para criar uma combinação inesperada. Entre o doce e o ácido, nasce uma experiência diferente, pensada para surpreender.",
         "pictos": [
             {
@@ -1319,6 +1354,7 @@
         "title": "Gama Picks",
         "subTitle": "Snack Clássico, Hot & Spicy ou Country — tu escolhes",
         "pps": "PPS 13 - Novel and nutritious ingredients",
+        "ppsCode": [13],
         "description": "Há dias para o clássico, outros para o picante e outros ainda para algo mais intenso. Ideal para petiscar a solo ou para partilhar sem pensar duas vezes.",
         "pictos": [],
         "infoCards": [
@@ -1352,6 +1388,7 @@
         "title": "Gama de Refeições Prontas",
         "subTitle": "Do caril à feijoada -  aquecer e comer!",
         "pps": "PPS 13 - Novel and nutritious ingredients & PPS 17 - Traditional and local foods",
+        "ppsCode": [13, 17],
         "description": "Da cozinha tradicional aos sabores mais exóticos, de base vegetal ou com carne, reunimos uma gama de refeições prontas para diferentes momentos. É só aquecer e desfrutar.",
         "pictos": [
             {
