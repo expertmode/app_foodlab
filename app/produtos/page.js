@@ -8,6 +8,7 @@ export const metadata = {
 }
 
 export default async function Produtos() {
-    const [products, filters] = await Promise.all([readProducts(), readFilters()]);
+    const [allProducts, filters] = await Promise.all([readProducts(), readFilters()]);
+    const products = allProducts.filter((p) => !p.hidden);
     return <ProdutosContent products={products} filters={filters} />;
 }

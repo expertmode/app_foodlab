@@ -29,6 +29,25 @@ export default function AdminIndex() {
         );
     });
 
+    const toggleHidden = async (e, p) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const newHidden = !p.hidden;
+        // optimistic update
+        setProducts((arr) => arr.map((x) => x.id === p.id ? { ...x, hidden: newHidden } : x));
+        try {
+            await fetch(`/api/admin/products/${p.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ hidden: newHidden }),
+            });
+        } catch (err) {
+            // revert on failure
+            setProducts((arr) => arr.map((x) => x.id === p.id ? { ...x, hidden: p.hidden } : x));
+            alert('Erro: ' + err.message);
+        }
+    };
+
     const handleCreate = async () => {
         if (!newTitle.trim()) return;
         setBusy(true);
@@ -72,7 +91,14 @@ export default function AdminIndex() {
 
             <Grid>
                 {visible.map((p) => (
-                    <Card key={p.id} href={`/admin/produtos/${p.id}`}>
+                    <Card key={p.id} href={`/admin/produtos/${p.id}`} $hidden={p.hidden}>
+                        <VisToggle
+                            onClick={(e) => toggleHidden(e, p)}
+                            $on={!p.hidden}
+                            title={p.hidden ? 'Escondido — clica para publicar' : 'Visível — clica para esconder'}
+                        >
+                            {p.hidden ? '🚫 Escondido' : '👁 Visível'}
+                        </VisToggle>
                         <Thumb style={{ backgroundImage: `url(${p.imgProd}?t=${Date.now()})` }} />
                         <Info>
                             <Pid>#{p.id}</Pid>
@@ -289,11 +315,30 @@ const Card = styled(Link)`
     text-decoration: none;
     color: inherit;
     transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    opacity: ${(p) => (p.$hidden ? 0.45 : 1)};
 
     &:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
+`;
+
+const VisToggle = styled.button`
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 5;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid ${(p) => (p.$on ? '#2a7' : '#c0392b')};
+    background: ${(p) => (p.$on ? '#fff' : '#fff5f5')};
+    color: ${(p) => (p.$on ? '#2a7' : '#c0392b')};
+    cursor: pointer;
+
+    &:hover { background: ${(p) => (p.$on ? '#e6f7ec' : '#ffeaea')}; }
 `;
 
 const Thumb = styled.div`
