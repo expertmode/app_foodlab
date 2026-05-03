@@ -1,5 +1,5 @@
 // Service Worker — cache para modo quiosque/offline
-const VERSION = 'foodlab-v1';
+const VERSION = 'foodlab-v2';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const STATIC_CACHE = `${VERSION}-static`;
 const IMAGE_CACHE = `${VERSION}-images`;
@@ -39,9 +39,9 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Images: cache-first
+    // Images: stale-while-revalidate — serve cache instantly but refresh in background
     if (request.destination === 'image' || url.pathname.startsWith('/images/')) {
-        event.respondWith(cacheFirst(request, IMAGE_CACHE));
+        event.respondWith(staleWhileRevalidate(request, IMAGE_CACHE));
         return;
     }
 
