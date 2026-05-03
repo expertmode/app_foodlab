@@ -8,15 +8,13 @@ export default function ProdCard({ product }) {
     return (
         <CardMainBox href={`/produtos/${product.keyName}`}>
             <CardImgArea>
+                <CircleBox />
                 {!hidden && (
-                    <>
-                        <CircleBox />
-                        <ImageBox
-                            src={product.imgProd}
-                            alt={product.title || "produto"}
-                            onError={() => setHidden(true)}
-                        />
-                    </>
+                    <ImageBox
+                        src={product.imgProd}
+                        alt={product.title || "produto"}
+                        onError={() => setHidden(true)}
+                    />
                 )}
             </CardImgArea>
             <CardTitle>{product.title}</CardTitle>
