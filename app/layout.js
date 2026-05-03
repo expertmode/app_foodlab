@@ -5,6 +5,7 @@ import KioskGuard from "@/components/global/kioskGuard";
 import PwaRegister from "@/components/global/pwaRegister";
 import WarmupCache from "@/components/global/warmupCache";
 import AutoRefresh from "@/components/global/autoRefresh";
+import VersionPoller from "@/components/global/versionPoller";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <PwaRegister />
         <WarmupCache />
         <AutoRefresh />
+        <VersionPoller />
         <MainLayoutComp>
           {children}
         </MainLayoutComp>

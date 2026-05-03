@@ -6,6 +6,7 @@ import { cardPrompt, productPrompt, aspectFor, formatFor, clean } from '@/lib/im
 import { generateImage } from '@/lib/replicate';
 import { backupImage } from '@/lib/imageBackup';
 import { optimizeImage } from '@/lib/imageOptimize';
+import { bumpVersion } from '@/lib/version';
 
 export async function POST(req) {
     try {
@@ -50,6 +51,7 @@ export async function POST(req) {
         await backupImage(abs);
         await fs.writeFile(abs, buf);
         await optimizeImage(abs);
+        await bumpVersion();
 
         return NextResponse.json({ ok: true, path: outPath, prompt, ts: Date.now() });
     } catch (e) {

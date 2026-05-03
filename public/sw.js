@@ -1,5 +1,5 @@
 // Service Worker — cache para modo quiosque/offline
-const VERSION = 'foodlab-v2';
+const VERSION = 'foodlab-v3';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const STATIC_CACHE = `${VERSION}-static`;
 const IMAGE_CACHE = `${VERSION}-images`;
@@ -26,6 +26,17 @@ self.addEventListener('activate', (event) => {
         ),
     );
     self.clients.claim();
+});
+
+// Mensagens vindas das páginas
+self.addEventListener('message', async (event) => {
+    if (event.data?.type === 'FORCE_REFRESH_ALL') {
+        // Limpar todas as caches e mandar todos os clientes recarregar
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+        const clients = await self.clients.matchAll({ type: 'window' });
+        for (const c of clients) c.postMessage({ type: 'FORCE_RELOAD' });
+    }
 });
 
 self.addEventListener('fetch', (event) => {

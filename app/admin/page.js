@@ -76,6 +76,10 @@ export default function AdminIndex() {
                 <Link href="/admin/filtros"><MiniLink>Filtros</MiniLink></Link>
                 <Link href="/admin/icons"><MiniLink>Ícones</MiniLink></Link>
                 <a href="/api/admin/download-all"><MiniDownload>↓ .zip</MiniDownload></a>
+                <MiniLink onClick={async () => {
+                    const r = await fetch('/api/admin/bump-version', { method: 'POST' });
+                    if (r.ok) alert('Quiosques vão recarregar nos próximos 30s');
+                }}>↻ Refrescar quiosques</MiniLink>
                 <InstallButton label="Instalar" />
                 <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
             </Header>

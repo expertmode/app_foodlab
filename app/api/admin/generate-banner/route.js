@@ -5,6 +5,7 @@ import { getBanner, updateBanner } from '@/lib/banners';
 import { generateImage } from '@/lib/replicate';
 import { backupImage } from '@/lib/imageBackup';
 import { optimizeImage } from '@/lib/imageOptimize';
+import { bumpVersion } from '@/lib/version';
 
 export async function POST(req) {
     try {
@@ -37,6 +38,7 @@ export async function POST(req) {
         await optimizeImage(abs);
 
         const updated = await updateBanner(bannerId, { image: '/' + rel });
+        await bumpVersion();
         return NextResponse.json({ ok: true, banner: updated });
     } catch (e) {
         return NextResponse.json({ error: e.message }, { status: 500 });
