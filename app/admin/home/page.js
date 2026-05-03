@@ -399,9 +399,12 @@ const Btns = styled.div`
     display: flex;
     gap: 6px;
     margin-top: 4px;
+    align-items: stretch;
 
     button, label > span {
-        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 6px 12px;
         border: 1px solid #005E81;
         background: #fff;
@@ -410,7 +413,12 @@ const Btns = styled.div`
         font-size: 12px;
         cursor: pointer;
         font-weight: 600;
+        line-height: 1.2;
+        height: 32px;
+        box-sizing: border-box;
     }
+
+    label { display: inline-flex; }
 `;
 
 const DangerBtn = styled.button`

@@ -185,12 +185,12 @@ const IconWrap = styled.div`
 const IconImg = styled.div`
     width: 80px;
     height: 80px;
-    background-color: #005E81;
-    background-size: 50%;
+    background-color: #fff;
+    background-size: 55%;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    border: 2px solid #005E81;
+    border: 3px solid #005E81;
 `;
 
 const Fields = styled.div`
