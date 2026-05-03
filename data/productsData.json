@@ -6,7 +6,9 @@
         "title": "Pesto com microalgas",
         "subTitle": "Mais nutritivo e sustentável. Com ingredientes do futuro.",
         "pps": "PPS 14 - Local sea ingredients",
-        "ppsCode": [14],
+        "ppsCode": [
+            14
+        ],
         "description": "Inspirado no pesto mediterrânico, combina sabor clássico com inovação. As microalgas e o tremoço criam uma alternativa vegetal nutritiva e sustentável.",
         "pictos": [
             {
@@ -59,13 +61,57 @@
         "keyName": "hamburguer-de-pescado-e-vegetais",
         "partner": "MC",
         "title": "Hamburguer \n de pescado e vegetais",
-        "subTitle": "",
+        "subTitle": "Do mar à terra, pensado para todos",
         "pps": "PPS 14 - Local sea ingredients",
-        "ppsCode": [14],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            14
+        ],
+        "description": "Criados para responder às necessidades das famílias, estes hambúrgueres juntam pescado valorizado, leguminosas e hortícolas numa solução prática, saborosa e equilibrada.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod2/pictos/picto1.jpg",
+                "text": "Rico em proteína de peixe e vegetal"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod2/pictos/picto2.jpg",
+                "text": "Com leguminosas e hortícolas incorporados"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod2/pictos/picto3.jpg",
+                "text": "Produzido com aproveitamento de pescado"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod2/cards/card1.jpg",
+                "desc": "Valorização de aparas de pescado, promovendo economia circular e redução de desperdício"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod2/cards/card2.jpg",
+                "desc": "Conceito híbrido: combinação de proteína animal e vegetal"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod2/cards/card3.jpg",
+                "desc": "Perfil nutricional otimizado para crianças"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod2/cards/card4.jpg",
+                "desc": "Integração “invisível” de hortícolas para maior aceitação infantil"
+            },
+            {
+                "id": 5,
+                "image": "/images/produtos/prod2/cards/card5.jpg",
+                "desc": "Solução prática que alia conveniência, saúde e sustentabilidade"
+            }
+        ],
+        "sliderTitle": "O sabor que faz crescer: para miúdos e graúdos",
         "imgProd": "/images/produtos/prod2/img_main.png",
         "imgBg": "/images/produtos/prod2/img_bg.jpg",
         "bottomImg": "/images/produtos/prod2/bottom_img.png",
@@ -77,13 +123,52 @@
         "keyName": "esparregado-com-algas",
         "partner": "MC",
         "title": "Esparregado \n com algas",
-        "subTitle": "",
+        "subTitle": "Mais verde, mais nutritivo, com um toque do mar",
         "pps": "PPS 14 - Local sea ingredients",
-        "ppsCode": [14],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            14
+        ],
+        "description": "Inspirado no esparregado tradicional, este produto reinventa uma receita clássica ao integrar algas, trazendo o mar para o prato de forma natural. Uma combinação simples e inovadora que aumenta o valor nutricional e reforça a ligação entre terra e oceano.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod3/pictos/picto1.jpg",
+                "text": "Rico em fibra"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod3/pictos/picto2.jpg",
+                "text": "Com algas"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod3/pictos/picto3.jpg",
+                "text": "Receita tradicional com inovação marinha"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod3/cards/card1.jpg",
+                "desc": "Incorporação de algas, enriquecendo o perfil nutricional"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod3/cards/card2.jpg",
+                "desc": "Combinação de recursos terrestres e marinhos"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod3/cards/card3.jpg",
+                "desc": "Receita tradicional reinventada"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod3/cards/card4.jpg",
+                "desc": "Alternativa mais nutritiva e sustentável"
+            }
+        ],
+        "sliderTitle": "O esparregado de sempre, reinventado com o poder do mar",
         "imgProd": "/images/produtos/prod3/img_main.png",
         "imgBg": "/images/produtos/prod3/img_bg.jpg",
         "bottomImg": "/images/produtos/prod3/bottom_img.png",
@@ -95,13 +180,47 @@
         "keyName": "crackers-com-algas",
         "partner": "MC",
         "title": "Crackers \n com algas",
-        "subTitle": "",
+        "subTitle": "Com Chlorella, na versão clássica ou verde",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            13
+        ],
+        "description": "Parecem crackers de sempre, mas vão mais longe. Com ou sem impacto visual, são uma forma simples de inovar no snack — com microalgas que trazem um verdadeiro boost nutricional e proteico.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod4/pictos/picto1.jpg",
+                "text": "Fonte de proteína"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod4/pictos/picto2.jpg",
+                "text": "Ingredientes naturais"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod4/pictos/picto3.jpg",
+                "text": "Com microalgas"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod4/cards/card1.jpg",
+                "desc": "Incorporação de microalgas (chlorella) como fonte natural de proteína"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod4/cards/card2.jpg",
+                "desc": "Sabor típico de crackers, versão tradicional e com coloração verde"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod4/cards/card3.jpg",
+                "desc": "Forma prática de integrar microalgas na alimentação"
+            }
+        ],
+        "sliderTitle": "O snack de sempre, com um upgrade natural",
         "imgProd": "/images/produtos/prod4/img_main.png",
         "imgBg": "/images/produtos/prod4/img_bg.jpg",
         "bottomImg": "/images/produtos/prod4/bottom_img.png",
@@ -113,13 +232,52 @@
         "keyName": "pouch-de-fruta-e-proteina",
         "partner": "MC",
         "title": "Pouch de fruta \n e proteina",
-        "subTitle": "",
+        "subTitle": "Maçã e okara on-the-go",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            13
+        ],
+        "description": "Com fruta, proteína vegetal, este snack transforma valor escondido em nutrição prática. Fácil de levar, um snack simples, nutritivo e pronto a acompanhar o teu ritmo.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod5/pictos/picto1.jpg",
+                "text": "Fonte de proteína"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod5/pictos/picto2.jpg",
+                "text": "Fonte de fibra"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod5/pictos/picto3.jpg",
+                "text": "Redução de desperdício (ou economia circular)"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod5/pictos/picto4.jpg",
+                "text": "base vegetal (?)"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod5/cards/card1.jpg",
+                "desc": "Produzido a partir de pomace de maçã (coproduto da indústria de sumos) e okara de arroz (subproduto da industria de bebidas vegetais)"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod5/cards/card2.jpg",
+                "desc": "Formato prático para consumo em qualquer momento"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod5/cards/card3.jpg",
+                "desc": "Natural e com teor de proteina e fibra equilibrado"
+            }
+        ],
+        "sliderTitle": "Proteína e sustentabilidade, onde quer que vás",
         "imgProd": "/images/produtos/prod5/img_main.png",
         "imgBg": "/images/produtos/prod5/img_bg.jpg",
         "bottomImg": "/images/produtos/prod5/bottom_img.png",
@@ -131,13 +289,42 @@
         "keyName": "bebidas-vegetais-e-alternativas-ao-iogurte",
         "partner": "MC",
         "title": "Bebidas vegetais e alternativas \n ao iogurte",
-        "subTitle": "",
+        "subTitle": "À base de leguminosas, com proteína para vários momentos do dia",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            13
+        ],
+        "description": "Exploramos o potencial das leguminosas para criar alternativas vegetais com mais proteína. Entre bebidas e opções tipo iogurte, são soluções versáteis para diferentes momentos do dia.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod6/pictos/picto1.jpg",
+                "text": "Fonte de proteína"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod6/pictos/picto2.jpg",
+                "text": "Base vegetal"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod6/cards/card1.jpg",
+                "desc": "Desenvolvidas a partir de leguminosas como grão-de-bico, lentilha vermelha e isolados proteicos"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod6/cards/card2.jpg",
+                "desc": "Versatilidade do consumo: pequeno almoço, lanche, cozinhar"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod6/cards/card3.jpg",
+                "desc": "Contribuem para diversificação de fontes proteicas"
+            }
+        ],
+        "sliderTitle": "Mais proteína, novas alternativas",
         "imgProd": "/images/produtos/prod6/img_main.png",
         "imgBg": "/images/produtos/prod6/img_bg.jpg",
         "bottomImg": "/images/produtos/prod6/bottom_img.png",
@@ -149,13 +336,31 @@
         "keyName": "alternativa-ao-queijo-curado",
         "partner": "MC",
         "title": "Alternativa ao queijo curado",
-        "subTitle": "",
+        "subTitle": "Clássico, ervas ou paprika — à base de gão-de-bico e tremoço",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
-        "description": "",
+        "ppsCode": [
+            13
+        ],
+        "description": "Inspirado no queijo curado tradicional, recriamos o processo com base vegetal. A fermentação e a cura trazem aroma e carácter, enquanto as leguminosas garantem uma alternativa rica e sustentável.",
         "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod7/cards/card1.jpg",
+                "desc": "Valorização de leguminosas com foco em sustentabilidade e teor proteico, produzido a partir de grão-de-bico e tremoço"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod7/cards/card2.jpg",
+                "desc": "Processo de fermentação e cura inspirado no queijo tradicional"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod7/cards/card3.jpg",
+                "desc": "Desenvolvimento de aromas típicos através de culturas específicas"
+            }
+        ],
+        "sliderTitle": "Tradição reinventada, com fermentação e cura",
         "imgProd": "/images/produtos/prod7/img_main.png",
         "imgBg": "/images/produtos/prod7/img_bg.jpg",
         "bottomImg": "/images/produtos/prod7/bottom_img.png",
@@ -167,13 +372,42 @@
         "keyName": "creme-de-barrar-avela-sem-palma",
         "partner": "MC",
         "title": "Creme de barrar avelã sem palma",
-        "subTitle": "",
+        "subTitle": "O sabor que conheces, com uma escolha mais consciente",
         "pps": "PPS 4 - Healthier and functional food",
-        "ppsCode": [4],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            4
+        ],
+        "description": "Reformulámos o creme de avelã e cacau, mantendo a cremosidade e o sabor de sempre. Aqui, trocámos o óleo de palma — sem mexer no que realmente importa para uma escolha mais consciente.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod8/pictos/picto1.jpg",
+                "text": "Sem óleo de palma"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod8/cards/card1.jpg",
+                "desc": "Substituição do óleo de palma por sistemas lipídicos alternativos de melhor desempenho ambiental"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod8/cards/card2.jpg",
+                "desc": "Utilização de oleogeis à base de óleo e lecitina de girassol"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod8/cards/card3.jpg",
+                "desc": "Manutenção da textura, espalhabilidade e estabilidade típicas do produto"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod8/cards/card4.jpg",
+                "desc": "Possibilidade de incorporação de compostos funcionais (ex.: fitoesteróis vegetais, beta-caroteno, resveratrol)"
+            }
+        ],
+        "sliderTitle": "Menos impacto, mesmo sabor",
         "imgProd": "/images/produtos/prod8/img_main.png",
         "imgBg": "/images/produtos/prod8/img_bg.jpg",
         "bottomImg": "/images/produtos/prod8/bottom_img.png",
@@ -185,13 +419,42 @@
         "keyName": "cereais-de-pequeno-almoco-mais-equilibrados",
         "partner": "MC",
         "title": "Cereais de pequeno almoço mais equilibrados",
-        "subTitle": "",
+        "subTitle": "Cacau proteico e fruta & vegetais — sem açúcares adicionados",
         "pps": "PPS 4 - Healthier and functional food",
-        "ppsCode": [4],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            4
+        ],
+        "description": "Reimaginámos os cereais de pequeno-almoço para diferentes necessidades. Do cacau proteico para o adulto ativo, às opções com fruta e vegetais apelativas para os mais pequenos, combinamos sabor, cor e fibra — ao pequeno-almoço ou para snack ao longo do dia.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod9/pictos/picto1.jpg",
+                "text": "Sem açúcares adicionados"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod9/pictos/picto2.jpg",
+                "text": "Rico em fibra"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod9/cards/card1.jpg",
+                "desc": "Formulações sem adição de açúcares"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod9/cards/card2.jpg",
+                "desc": "Versão cacau inclui grão-de-bico e trigo sarraceno, que o torna fonte de proteina e xarope de yacon com presença de frutooligossacarídeos (FOS), fibra prebiótica"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod9/cards/card3.jpg",
+                "desc": "Versão frutas e vegetais apresenta doçura natural da fruta e cores apelativas"
+            }
+        ],
+        "sliderTitle": "Doçura leve, valor real",
         "imgProd": "/images/produtos/prod9/img_main.png",
         "imgBg": "/images/produtos/prod9/img_bg.jpg",
         "bottomImg": "/images/produtos/prod9/bottom_img.png",
@@ -203,13 +466,31 @@
         "keyName": "gelado-com-reducao-de-acucar",
         "partner": "MC",
         "title": "Gelado \n com redução \n de açúcar",
-        "subTitle": "",
+        "subTitle": "Menos açúcar, mesma frescura e sabor",
         "pps": "PPS 4 - Healthier and functional food",
-        "ppsCode": [4],
-        "description": "",
+        "ppsCode": [
+            4
+        ],
+        "description": "Estamos a reduzir o açúcar sem mexer no que importa: o sabor. Com novas abordagens, como o uso de taumatina, pretendemos manter a indulgência enquanto damos um passo para um perfil mais equilibrado.",
         "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod10/cards/card1.jpg",
+                "desc": "Redução do teor de açúcar mantendo o perfil sensorial"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod10/cards/card2.jpg",
+                "desc": "Utilização de taumatina, proteína com poder adoçante"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod10/cards/card3.jpg",
+                "desc": "Estratégia de reformulação gradual para produtos mais equilibrados"
+            }
+        ],
+        "sliderTitle": "Doce na medida certa",
         "imgProd": "/images/produtos/prod10/img_main.png",
         "imgBg": "/images/produtos/prod10/img_bg.jpg",
         "bottomImg": "/images/produtos/prod10/bottom_img.png",
@@ -221,13 +502,62 @@
         "keyName": "manteiga-magra",
         "partner": "MC",
         "title": "Manteiga \n Magra",
-        "subTitle": "",
+        "subTitle": "Simples na receita, leve no dia a dia",
         "pps": "PPS 2 - Clean label food products",
-        "ppsCode": [2],
-        "description": "",
-        "pictos": [],
-        "infoCards": [],
-        "sliderTitle": "",
+        "ppsCode": [
+            2
+        ],
+        "description": "Pensada para quem procura opções mais leves sem abdicar do sabor, esta manteiga aposta numa formulação simples e natural. Sem amidos modificados, oferece cremosidade e prazer, com uma abordagem mais equilibrada e transparente.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod11/pictos/picto1.jpg",
+                "text": "Teor reduzido de gordura"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod11/pictos/picto2.jpg",
+                "text": "Sem amido modificado"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod11/pictos/picto3.jpg",
+                "text": "Lista de ingredientes simples"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod11/pictos/picto4.jpg",
+                "text": "Sabor a manteiga"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod11/cards/card1.jpg",
+                "desc": "Formulação sem amidos modificados (clean label)"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod11/cards/card2.jpg",
+                "desc": "Redução de gordura"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod11/cards/card3.jpg",
+                "desc": "Lista de ingredientes curta"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod11/cards/card4.jpg",
+                "desc": "Alternativa mais leve às manteigas tradicionais"
+            },
+            {
+                "id": 5,
+                "image": "/images/produtos/prod11/cards/card5.jpg",
+                "desc": "Equilíbrio entre indulgência e nutrição"
+            }
+        ],
+        "sliderTitle": "Toda a cremosidade da manteiga, agora mais leve e mais simples",
         "imgProd": "/images/produtos/prod11/img_main.png",
         "imgBg": "/images/produtos/prod11/img_bg.jpg",
         "bottomImg": "/images/produtos/prod11/bottom_img.png",
@@ -239,19 +569,57 @@
         "keyName": "preparado-de-fruta",
         "partner": "MC",
         "title": "Preparado \n de fruta",
-        "subTitle": "",
+        "subTitle": "Versatilidade natural para criar sem limites",
         "pps": "PPS 2 - Clean label food products",
-        "ppsCode": [2],
-        "description": "",
-        "pictos": [],
+        "ppsCode": [
+            2
+        ],
+        "description": "Desenvolvido para responder à crescente procura por soluções naturais e flexíveis, este preparado de fruta combina simplicidade e inovação. Sem sorbato de potássio, oferece uma base versátil que se adapta a diferentes aplicações, permitindo criar produtos saborosos e saudáveis.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod12/pictos/picto1.jpg",
+                "text": "Sem sorbato de potássio"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod12/pictos/picto2.jpg",
+                "text": "À base de fruta"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod12/pictos/picto3.jpg",
+                "text": "Lista de ingredientes simples"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod12/pictos/picto4.jpg",
+                "text": "Solução versátil para diferentes aplicações"
+            }
+        ],
         "infoCards": [
             {
                 "id": 1,
                 "image": "/images/produtos/prod12/cards/card1.jpg",
-                "desc": "Desenvolvido para iogurte, mas aplicavel em varios produtos"
+                "desc": "Formulação clean label, sem conservantes artificiais"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod12/cards/card2.jpg",
+                "desc": "Elevada versatilidade tecnológica e sensorial"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod12/cards/card3.jpg",
+                "desc": "Perfil natural que acompanha as tendências de consumo"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod12/cards/card4.jpg",
+                "desc": "Solução adaptável a diferentes conceitos de produto"
             }
         ],
-        "sliderTitle": "",
+        "sliderTitle": "Uma base, múltiplas possibilidades",
         "imgProd": "/images/produtos/prod12/img_main.png",
         "imgBg": "/images/produtos/prod12/img_bg.jpg",
         "bottomImg": "/images/produtos/prod12/bottom_img.png",
@@ -265,7 +633,9 @@
         "title": "BeetPesto \n(Pesto de Beterraba)",
         "subTitle": "Sabor intenso e autêntico, com \n valorização de ingredientes",
         "pps": "PPS 33 - Pre-industrialization technologies",
-        "ppsCode": [33],
+        "ppsCode": [
+            33
+        ],
         "description": "Valorizando beterraba fora do padrão e aplicando a tecnologia HPP, resulta um produto sustentável com frescura e qualidade assegurada, com cor e sabor marcante.",
         "pictos": [
             {
@@ -320,7 +690,9 @@
         "title": "Preparado em pó para bebidas",
         "subTitle": "Bebidas práticas e naturais, \n prontas em segundos",
         "pps": "PPS 33 - Pre-industrialization technologies",
-        "ppsCode": [33],
+        "ppsCode": [
+            33
+        ],
         "description": "Damos uma segunda vida às frutas. Com estes preparados liofilizados que preservam o melhor das frutas, cria bebidas - de smoothie a sangria - práticas e cheias de sabor.",
         "pictos": [
             {
@@ -370,7 +742,9 @@
         "title": "Gelados com Soro de Leite",
         "subTitle": "Cremosos e inovadores, \n com aproveitamento inteligente",
         "pps": "PPS 33 - Pre-industrialization technologies",
-        "ppsCode": [33],
+        "ppsCode": [
+            33
+        ],
         "description": "Whey não é só para batidos. Aqui vira gelado: cremoso, saboroso e sem desperdício.",
         "pictos": [
             {
@@ -420,7 +794,9 @@
         "title": "Snacks Desidratados",
         "subTitle": "Crocantes, naturais e \n sem desperdício",
         "pps": "PPS 33 - Pre-industrialization technologies",
-        "ppsCode": [33],
+        "ppsCode": [
+            33
+        ],
         "description": "Transformamos excedentes em snacks crocantes e cheios de sabor. Uma nova forma de aproveitar melhor cada ingrediente.",
         "pictos": [
             {
@@ -470,7 +846,9 @@
         "title": "Complemento Proteico Vegetal",
         "subTitle": "Proteína vegetal, \n prática e sustentável",
         "pps": "PPS 33 - Pre-industrialization technologies",
-        "ppsCode": [33],
+        "ppsCode": [
+            33
+        ],
         "description": "Aproveitamos ingredientes muitas vezes esquecidos para criar uma fonte de proteína vegetal prática e sustentável, fácil de integrar no dia a dia. ",
         "pictos": [
             {
@@ -525,7 +903,9 @@
         "title": "Compal África",
         "subTitle": "Bebidas de fruta com textura rica e natural - Manga, Tropical, Manga Calabaceira",
         "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
-        "ppsCode": [3],
+        "ppsCode": [
+            3
+        ],
         "description": "Combinamos sumo de fruta com polpa de maçã para criar bebidas de textura rica e sabor natural. Mais corpo, mais fibra e uma experiência diferenciadora.",
         "pictos": [
             {
@@ -575,7 +955,9 @@
         "title": "Compal Fresh \n Mix de Frutas",
         "subTitle": "Leve, refrescante e \n com toque natural de fruta",
         "pps": "PPS 3 - Fruit-& vegetable-based drink solutions",
-        "ppsCode": [3],
+        "ppsCode": [
+            3
+        ],
         "description": "Sumo de fruta e polpa de maçã combinam-se para criar uma bebida leve, com textura suave e sabor natural. Uma opção refrescante para o dia a dia.",
         "pictos": [
             {
@@ -620,7 +1002,9 @@
         "title": "Creme Crocante de Chocolate com Proteína de Inseto",
         "subTitle": "Cremoso, crocante e com \n proteína alternativa sustentável",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
+        "ppsCode": [
+            13
+        ],
         "description": "Exploramos novas fontes de proteína para criar um creme de chocolate surpreendente. A proteína de inseto traz sustentabilidade, sem comprometer a textura e o prazer.",
         "pictos": [
             {
@@ -665,7 +1049,9 @@
         "title": "Pasta Vegetal Moldável",
         "subTitle": "Nutrição equilibrada com textura \n adaptada e máxima versatilidade",
         "pps": "PPS 4 - Healthier and functional food",
-        "ppsCode": [4],
+        "ppsCode": [
+            4
+        ],
         "description": "Pensada para quem valoriza facilidade, sabor e bem-estar ao longo do tempo. Molda, cozinha e desfruta de uma refeição nutritiva e apetecível.",
         "pictos": [
             {
@@ -715,7 +1101,9 @@
         "title": "Creme de Caramelo Salgado",
         "subTitle": "Sabor intenso,  \n receita mais limpa",
         "pps": "PPS 2 - Clean label food products",
-        "ppsCode": [2],
+        "ppsCode": [
+            2
+        ],
         "description": "Caramelo salgado com tudo o que importa — sabor, textura e qualidade — sem necessidade de conservantes. Desenvolvido para responder às novas exigências do mercado, sem comprometer a experiência.",
         "pictos": [
             {
@@ -755,7 +1143,9 @@
         "title": "Maioneses de Nova Geração",
         "subTitle": "Ingredientes naturais e diferenciadores, sabores surpreendentes - Mar, Coentrada, Cebola Roxa",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
+        "ppsCode": [
+            13
+        ],
         "description": "Reinventamos a maionese com ingredientes naturais e inovadores. Entre microalgas, extratos de levedura e vegetais, com perfis de sabor autênticos, criamos experiências mais ricas, equilibradas e surpreendentes.",
         "pictos": [
             {
@@ -805,7 +1195,9 @@
         "title": "Maionese \n Picante",
         "subTitle": "Picante intenso \n com origem natural",
         "pps": "PPS 24 - By-product valorization",
-        "ppsCode": [24],
+        "ppsCode": [
+            24
+        ],
         "description": "Do jalapeño fermentado nasce um picante intenso e natural. Uma nova forma de dar sabor, aproveitando melhor cada ingrediente.",
         "pictos": [
             {
@@ -850,7 +1242,9 @@
         "title": "Molhos Circulares",
         "subTitle": "Mais sabor, menos desperdício - \n Ketchup & Barbecue",
         "pps": "PPS 24 - By-product valorization",
-        "ppsCode": [24],
+        "ppsCode": [
+            24
+        ],
         "description": "Purgas? Basicamente, molho que ainda tem muito para dar. Fermentamos e complementamos — o sabor mantém-se, o desperdício não.",
         "pictos": [
             {
@@ -890,7 +1284,9 @@
         "title": "Pães Proteicos",
         "subTitle": "Três opções proteicas: ervilha, \n microalgas e cereais",
         "pps": "PPS 2 - Clean label food products",
-        "ppsCode": [2],
+        "ppsCode": [
+            2
+        ],
         "description": "Reformulámos o pão do dia a dia para responder às novas necessidades nutricionais. Com mais proteína, mais fibra e ingredientes alternativos, é uma evolução simples com impacto real.",
         "pictos": [
             {
@@ -940,7 +1336,9 @@
         "title": "Bola de carne Low Carb",
         "subTitle": "Tradição reinventada, com \n menos hidratos e mais proteína",
         "pps": "PPS 2 - Clean label food products",
-        "ppsCode": [2],
+        "ppsCode": [
+            2
+        ],
         "description": "A bola de carne tradicional, agora com menos hidratos e mais proteína e fibra. Mantém o sabor de sempre, mas adaptada a um estilo de vida mais equilibrado.",
         "pictos": [
             {
@@ -985,7 +1383,9 @@
         "title": "Snack de Castanha \n Cozida a Vapor",
         "subTitle": "Natural, nutritivo e \n pronto a consumir",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
-        "ppsCode": [30],
+        "ppsCode": [
+            30
+        ],
         "description": "Castanha como deve ser: simples, natural e cheia de sabor. Cozida a vapor e pronta a consumir, é o snack tradicional adaptado ao ritmo do dia a dia.",
         "pictos": [
             {
@@ -1035,7 +1435,9 @@
         "title": "Mix de Frutos Tropicais Ultracongelados",
         "subTitle": "Fruta pronta a usar, \n com frescura preservada",
         "pps": "PPS 30 - Sustainable fruit and vegetable food products",
-        "ppsCode": [30],
+        "ppsCode": [
+            30
+        ],
         "description": "Selecionamos frutos tropicais e ultracongelamos no momento certo para preservar frescura e sabor. Uma solução prática para ter fruta pronta a usar em qualquer altura.",
         "pictos": [
             {
@@ -1080,7 +1482,9 @@
         "title": "Cereais de Pequeno-Almoço mais equilibrados",
         "subTitle": "Ingredientes valorizados, receita repensada,\n sabor garantido",
         "pps": "PPS 24 - By-product valorization",
-        "ppsCode": [24],
+        "ppsCode": [
+            24
+        ],
         "description": "Aproveitamos melhor os cereais e outros ingredientes para criar um pequeno-almoço mais equilibrado. Sem adições desnecessárias, com nutrição pensada para o dia a dia.",
         "pictos": [
             {
@@ -1135,7 +1539,9 @@
         "title": "Brioche Biológico com Microalgas",
         "subTitle": "Com trigo biológico português \n e um toque de inovação natural",
         "pps": "PPS 23 - Organic flour 100% produced in Portugal",
-        "ppsCode": [23],
+        "ppsCode": [
+            23
+        ],
         "description": "Do trigo biológico português nasce um brioche que combina tradição com inovação. As microalgas trazem um valor nutricional adicional, mantendo o sabor e a simplicidade de sempre.",
         "pictos": [
             {
@@ -1189,7 +1595,9 @@
         "title": "Gama Sem Glúten & Plant-Based",
         "subTitle": "Do pão ao bolo de arroz e à farinha \n para panar - sem glúten",
         "pps": "PPS 6 - Free from products ",
-        "ppsCode": [6],
+        "ppsCode": [
+            6
+        ],
         "description": "Reimaginamos produtos do dia a dia para quem procura opções sem glúten. Do pão ao bolo de arroz e à farinha funcional, criamos alternativas mais equilibradas e versáteis, sem complicar.",
         "pictos": [
             {
@@ -1234,7 +1642,9 @@
         "title": "Vieira Chef - Bolacha Moída",
         "subTitle": "Bolacha moída pronta a usar, \n na dose certa",
         "pps": "PPS 24 - By-product valorization",
-        "ppsCode": [24],
+        "ppsCode": [
+            24
+        ],
         "description": "Pensada para facilitar a cozinha, esta bolacha moída está pronta a usar e na medida certa. Menos preparação, menos desperdício e mais tempo para criar.",
         "pictos": [
             {
@@ -1274,7 +1684,9 @@
         "title": "Bolacha Maria com Azeite",
         "subTitle": "O clássico de sempre, com um toque \n mais equilibrado",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
+        "ppsCode": [
+            13
+        ],
         "description": "A Maria que conheces, agora com azeite. Igual no sabor, diferente na forma de fazer.",
         "pictos": [
             {
@@ -1314,7 +1726,9 @@
         "title": "Amêndoa Plant-Based com Kiwi",
         "subTitle": "Premium e de base vegetal? \n Irresistivel",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
+        "ppsCode": [
+            13
+        ],
         "description": "Juntámos amêndoa, chocolate de base vegetal e kiwi para criar uma combinação inesperada. Entre o doce e o ácido, nasce uma experiência diferente, pensada para surpreender.",
         "pictos": [
             {
@@ -1354,7 +1768,9 @@
         "title": "Gama Picks",
         "subTitle": "Snack Clássico, Hot & Spicy ou Country — tu escolhes",
         "pps": "PPS 13 - Novel and nutritious ingredients",
-        "ppsCode": [13],
+        "ppsCode": [
+            13
+        ],
         "description": "Há dias para o clássico, outros para o picante e outros ainda para algo mais intenso. Ideal para petiscar a solo ou para partilhar sem pensar duas vezes.",
         "pictos": [],
         "infoCards": [
@@ -1388,7 +1804,10 @@
         "title": "Gama de Refeições Prontas",
         "subTitle": "Do caril à feijoada -  aquecer e comer!",
         "pps": "PPS 13 - Novel and nutritious ingredients & PPS 17 - Traditional and local foods",
-        "ppsCode": [13, 17],
+        "ppsCode": [
+            13,
+            17
+        ],
         "description": "Da cozinha tradicional aos sabores mais exóticos, de base vegetal ou com carne, reunimos uma gama de refeições prontas para diferentes momentos. É só aquecer e desfrutar.",
         "pictos": [
             {
@@ -1418,6 +1837,594 @@
         "imgProd": "/images/produtos/prod37/img_main.png",
         "imgBg": "/images/produtos/prod37/img_bg.jpg",
         "bottomImg": "/images/produtos/prod37/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 38,
+        "keyName": "queijos-regionais-alentejanos",
+        "partner": "Queijos Santiago",
+        "title": "Queijos Regionais Alentejanos",
+        "subTitle": "Ovelha, cabra ou com ervas — o Alentejo em formato prático",
+        "pps": "PPS 17 - Traditional and local foods",
+        "ppsCode": [
+            17
+        ],
+        "description": "O sabor do Alentejo em formato merendeira. Pequenos no tamanho, mas fiéis à tradição — com o cuidado e carácter de um bom queijo regional, com diferentes perfis de sabor.",
+        "pictos": [],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod38/cards/card1.jpg",
+                "desc": "Formato compacto (90g), alinhado com consumo individual prático"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod38/cards/card2.jpg",
+                "desc": "Variedade de perfis: ovelha, cabra e versão com ervas (manjericão e tomilho)"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod38/cards/card3.jpg",
+                "desc": "Produzidos com base em tradição e ingredientes regionais"
+            }
+        ],
+        "sliderTitle": "Pequeno no tamanho, grande no sabor",
+        "imgProd": "/images/produtos/prod38/img_main.png",
+        "imgBg": "/images/produtos/prod38/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod38/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 39,
+        "keyName": "tabua-de-degustacao-de-queijos",
+        "partner": "Queijos Santiago",
+        "title": "Tábua de Degustação de queijos",
+        "subTitle": "Mistura ou clássicos — vários queijos numa só tábua",
+        "pps": "PPS 17 - Traditional and local foods",
+        "ppsCode": [
+            17
+        ],
+        "description": "Uma tábua pronta a usar, com diferentes queijos para explorar. Da embalagem à mesa, simplifica a degustação e transforma qualquer momento numa experiência mais completa.",
+        "pictos": [],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod39/cards/card1.jpg",
+                "desc": "Formato pioneiro que combina diferentes queijos numa única embalagem, pensada para corte e apresentação"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod39/cards/card2.jpg",
+                "desc": "Seleção de queijos com diferentes leites e perfis de sabor"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod39/cards/card3.jpg",
+                "desc": "Solução que alia conveniência, degustação, apresentação e experimentação"
+            }
+        ],
+        "sliderTitle": "Abrir, cortar, servir",
+        "imgProd": "/images/produtos/prod39/img_main.png",
+        "imgBg": "/images/produtos/prod39/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod39/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 40,
+        "keyName": "yeastive-extratos-proteicos-de-levedura",
+        "partner": "Proenol - Indústria Biotecnológica SA",
+        "title": "Yeastive - Extratos Proteicos de Levedura",
+        "subTitle": "Para ligar, emulsionar e estruturar, de sabor neutro ou ligeiramente umami",
+        "pps": "PPS5 - Yeast Proteins derivatives for food and beverage",
+        "ppsCode": [
+            5
+        ],
+        "description": "Desenvolvido para responder às exigências da formulação moderna, combina funcionalidade e proteína numa única solução. Uma alternativa versátil que simplifica receitas e amplia possibilidades.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod40/pictos/picto1.jpg",
+                "text": "ingredientes naturais"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod40/cards/card1.jpg",
+                "desc": "Elevado teor proteico (>70%) de origem de levedura"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod40/cards/card2.jpg",
+                "desc": "Propriedades multifuncionais: emulsificação, ligação e gelificação"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod40/cards/card3.jpg",
+                "desc": "Alternativa vegetal ao ovo em diversas aplicações"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod40/cards/card4.jpg",
+                "desc": "Contributo para simplificação de formulações: Testado em maionese, grissinis e gelados"
+            }
+        ],
+        "sliderTitle": "Um ingrediente, múltiplas funções",
+        "imgProd": "/images/produtos/prod40/img_main.png",
+        "imgBg": "/images/produtos/prod40/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod40/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 41,
+        "keyName": "flavouryeast-proteina-de-levedura-hidrolisada",
+        "partner": "Proenol - Indústria Biotecnológica SA",
+        "title": "Flavouryeast - Proteína de Levedura Hidrolisada",
+        "subTitle": "Intensifica o sabor, reduz o sal",
+        "pps": "PPS5 - Yeast Proteins derivatives for food and beverage",
+        "ppsCode": [
+            5
+        ],
+        "description": "Uma solução que realça o sabor de forma natural. Com perfil umami e tostado, permite reduzir o sal sem perder intensidade.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod41/pictos/picto1.jpg",
+                "text": "ingredientes naturais"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod41/cards/card1.jpg",
+                "desc": "Proteína de levedura hidrolisada com perfil umami e tostado"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod41/cards/card2.jpg",
+                "desc": "Atua como intensificador natural de sabor, redusindo o sal e sendo alternativa ao glutamato monossódico (MSG)"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod41/cards/card3.jpg",
+                "desc": "Versátil em diversas aplicações alimentares"
+            }
+        ],
+        "sliderTitle": "Umami que faz a diferença",
+        "imgProd": "/images/produtos/prod41/img_main.png",
+        "imgBg": "/images/produtos/prod41/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod41/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 42,
+        "keyName": "wall-y-paredes-de-levedura",
+        "partner": "Proenol - Indústria Biotecnológica SA",
+        "title": "Wall-Y - Paredes de Levedura",
+        "subTitle": "Textura e estabilidade, com perfil neutro",
+        "pps": "PPS5 - Yeast Proteins derivatives for food and beverage",
+        "ppsCode": [
+            5
+        ],
+        "description": "Uma solução funcional que atua na textura e estabilidade sem interferir no sabor. Ideal para aplicações onde a estrutura importa, mas o perfil sensorial deve manter-se intacto.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod42/pictos/picto1.jpg",
+                "text": "ingredientes naturais"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod42/pictos/picto2.jpg",
+                "text": "fonte de fibra"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod42/cards/card1.jpg",
+                "desc": "Paredes de levedura com propriedades texturizantes"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod42/cards/card2.jpg",
+                "desc": "Contribuem para estabilização de emulsões, testado em maioneses, permitindo clean label"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod42/cards/card3.jpg",
+                "desc": "Perfil neutro em aroma e sabor, sendo fonte de fibra"
+            }
+        ],
+        "sliderTitle": "Estrutura sem interferir no sabor",
+        "imgProd": "/images/produtos/prod42/img_main.png",
+        "imgBg": "/images/produtos/prod42/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod42/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 43,
+        "keyName": "smoothie-still-fruta-vegetais",
+        "partner": "TAGUSVALLEY",
+        "title": "Smoothie Still - Fruta & Vegetais",
+        "subTitle": "Mastigável, com probióticos e frescura preservada",
+        "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [
+            33
+        ],
+        "description": "Não é um smoothie qualquer. Com uma textura que se mastiga e ingredientes que fazem mais, traz uma nova forma de consumir fruta e vegetais.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod43/pictos/picto1.jpg",
+                "text": "ingredientes naturais"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod43/pictos/picto2.jpg",
+                "text": "sem aditivos"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod43/cards/card1.jpg",
+                "desc": "Textura mastigável que diferencia da categoria tradicional"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod43/cards/card2.jpg",
+                "desc": "Processado por altas pressões hidrostáticas (HPP), preservando frescura"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod43/cards/card3.jpg",
+                "desc": "Combinação de fruta e vegetais e incorporação de probióticos, com foco em experiência e funcionalidade"
+            }
+        ],
+        "sliderTitle": "Bebe. Mastiga. Repete.",
+        "imgProd": "/images/produtos/prod43/img_main.png",
+        "imgBg": "/images/produtos/prod43/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod43/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 44,
+        "keyName": "bolachas-com-soro-de-leite-maca-e-cenoura",
+        "partner": "TAGUSVALLEY",
+        "title": "Bolachas com Soro de Leite, Maçã e Cenoura",
+        "subTitle": "Ingredientes valorizados, com sabor e textura surpreendentes",
+        "pps": "PPS 33 - Pre-industrialization technologies",
+        "ppsCode": [
+            33
+        ],
+        "description": "Reaproveitamos ingredientes com potencial para criar bolachas cheias de sabor. Uma abordagem mais consciente que transforma o que sobra em algo que apetece.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod44/pictos/picto1.jpg",
+                "text": "ingredientes naturais"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod44/pictos/picto2.jpg",
+                "text": "Redução de desperdício (ou economia circular)"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod44/cards/card1.jpg",
+                "desc": "Valorização de subprodutos da indústria alimentar - bagaço de maçã, cenoura e soro de leite"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod44/cards/card2.jpg",
+                "desc": "Desenvolvimento com foco em sustentabilidade e eficiência de recursos"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod44/cards/card3.jpg",
+                "desc": "Manutenção de sabor e textura típicos de bolacha"
+            }
+        ],
+        "sliderTitle": "Mais valor em cada bolacha",
+        "imgProd": "/images/produtos/prod44/img_main.png",
+        "imgBg": "/images/produtos/prod44/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod44/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 45,
+        "keyName": "salada-refeicao-proteina",
+        "partner": "Vitacress",
+        "title": "Salada Refeição Proteina +",
+        "subTitle": "Naturalmente rica",
+        "pps": "PPS 30 - Sustainable fruit and vegetable food products",
+        "ppsCode": [
+            30
+        ],
+        "description": "Uma refeição pensada para dar resposta às necessidades do dia a dia. Rica em proteína e minerais essenciais, ajuda a manter energia e suporte muscular — sem complicações.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod45/pictos/picto1.jpg",
+                "text": "Rica em proteína"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod45/pictos/picto2.jpg",
+                "text": "Fonte de magnésio"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod45/pictos/picto3.jpg",
+                "text": "Fonte de potássio"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod45/cards/card1.jpg",
+                "desc": "27g de proteína por porção, contribuindo para a manutenção da massa muscular"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod45/cards/card2.jpg",
+                "desc": "Fonte de magnésio, ajudando a reduzir o cansaço e a fadiga"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod45/cards/card3.jpg",
+                "desc": "Fonte de potássio, apoiando o funcionamento muscular"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod45/cards/card4.jpg",
+                "desc": "Refeição prática com foco em energia e desempenho"
+            }
+        ],
+        "sliderTitle": "Proteína que alimenta o teu dia",
+        "imgProd": "/images/produtos/prod45/img_main.png",
+        "imgBg": "/images/produtos/prod45/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod45/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 46,
+        "keyName": "salada-refeicao-mare",
+        "partner": "Vitacress",
+        "title": "Salada Refeição Maré",
+        "subTitle": "Massa, atum e ovo",
+        "pps": "PPS 30 - Sustainable fruit and vegetable food products",
+        "ppsCode": [
+            30
+        ],
+        "description": "Uma combinação simples que funciona sempre. Massa, atum e ovo juntam-se numa refeição prática, rica em proteína e pronta a acompanhar o teu ritmo.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod46/pictos/picto1.jpg",
+                "text": "Rica em proteína"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod46/cards/card1.jpg",
+                "desc": "Refeição equilibrada e pronta a consumir\nSolução prática para consumo fora de casa"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod46/cards/card2.jpg",
+                "desc": "Perfil nutricional focado em saciedade e energia"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod46/cards/card3.jpg",
+                "desc": "Receita inspirada em sabores familiares"
+            }
+        ],
+        "sliderTitle": "Proteica e pronta a levar",
+        "imgProd": "/images/produtos/prod46/img_main.png",
+        "imgBg": "/images/produtos/prod46/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod46/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 47,
+        "keyName": "saladas-funcionais-veggie-balance-veggie-power",
+        "partner": "Vitacress",
+        "title": "Saladas Funcionais - Veggie Balance & Veggie Power",
+        "subTitle": "Já lavadas, prontas a usar, com benefícios específicos",
+        "pps": "PPS 30 - Sustainable fruit and vegetable food products",
+        "ppsCode": [
+            30
+        ],
+        "description": "Mais do que uma salada, uma escolha com propósito. Folhas selecionadas pelo seu valor nutricional, prontas a usar e pensadas para apoiar diferentes necessidades do dia a dia.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod47/pictos/picto1.jpg",
+                "text": "Rico em folato"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod47/pictos/picto2.jpg",
+                "text": "ingredientes naturais"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod47/cards/card1.jpg",
+                "desc": "Seleção de folhas com perfis nutricionais específicos"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod47/cards/card2.jpg",
+                "desc": "Veggie Balance: rico em folato e fonte de potássio"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod47/cards/card3.jpg",
+                "desc": "Veggie Power: rico em folato e fonte de vitamina C"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod47/cards/card4.jpg",
+                "desc": "Prontas a usar,versáteis para saladas ou incorporação em receitas"
+            }
+        ],
+        "sliderTitle": "Saladas que cuidam",
+        "imgProd": "/images/produtos/prod47/img_main.png",
+        "imgBg": "/images/produtos/prod47/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod47/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 48,
+        "keyName": "somersby-pear-0-0",
+        "partner": "Super Bock Group",
+        "title": "Somersby Pear 0,0%",
+        "subTitle": "A primeira sidra sem álcool produzida em Portugal",
+        "pps": "PPS 16 - Fermented beverage",
+        "ppsCode": [
+            16
+        ],
+        "description": "A experiência Somersby, agora sem álcool. Mantém o sabor fresco e frutado da sidra, abrindo espaço a novos momentos de consumo.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod48/pictos/picto1.jpg",
+                "text": "0,0% álcool"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod48/cards/card1.jpg",
+                "desc": "Primeira sidra 0,0% produzida em Portugal"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod48/cards/card2.jpg",
+                "desc": "Preservação do perfil sensorial típico da sidra"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod48/cards/card3.jpg",
+                "desc": "Alinhada com estilos de vida que privilegiam moderação e a novos momentos de consumo"
+            }
+        ],
+        "sliderTitle": "Sidra sem limites",
+        "imgProd": "/images/produtos/prod48/img_main.png",
+        "imgBg": "/images/produtos/prod48/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod48/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 49,
+        "keyName": "super-bock-0-0-lata",
+        "partner": "Super Bock Group",
+        "title": "Super Bock 0,0% - Lata",
+        "subTitle": "Sem álcool, com toda a conveniência da lata",
+        "pps": "PPS 27 - Sustainable beverage packaging",
+        "ppsCode": [
+            27
+        ],
+        "description": "A Super Bock 0,0% ganha ainda mais praticidade no formato lata. Fácil de levar, rápida de consumir e pronta para acompanhar qualquer momento — sem álcool, sem complicações.",
+        "pictos": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod49/pictos/picto1.jpg",
+                "text": "0,0% álcool"
+            }
+        ],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod49/cards/card1.jpg",
+                "desc": "Tecnologia de produção que preserva o perfil da cerveja sem álcool"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod49/cards/card2.jpg",
+                "desc": "Formato lata, leve e fácil de transportar"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod49/cards/card3.jpg",
+                "desc": "Embalagem reciclável, alinhada com práticas sustentáveis"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod49/cards/card4.jpg",
+                "desc": "Solução prática para consumo em diferentes ocasiões"
+            }
+        ],
+        "sliderTitle": "Sempre pronta, em qualquer momento",
+        "imgProd": "/images/produtos/prod49/img_main.png",
+        "imgBg": "/images/produtos/prod49/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod49/bottom_img.png",
+        "filter": [],
+        "imgSize": ""
+    },
+    {
+        "id": 50,
+        "keyName": "super-bock-a-pressao-sistema-portatil",
+        "partner": "Super Bock Group",
+        "title": "Super Bock à Pressão - Sistema Portátil",
+        "subTitle": "A experiência de fino, em qualquer lugar",
+        "pps": "PPS 19 - Self-pouring beverage package with digital interactivity",
+        "ppsCode": [
+            19
+        ],
+        "description": "Levámos a experiência do fino para fora do balcão. Com um sistema portátil e autónomo, é possível servir cerveja à pressão com qualidade, onde quer que estejas.",
+        "pictos": [],
+        "infoCards": [
+            {
+                "id": 1,
+                "image": "/images/produtos/prod50/cards/card1.jpg",
+                "desc": "Sistema portátil e autónomo, sem necessidade de eletricidade"
+            },
+            {
+                "id": 2,
+                "image": "/images/produtos/prod50/cards/card2.jpg",
+                "desc": "Tecnologia “sem fios” para maior flexibilidade de uso"
+            },
+            {
+                "id": 3,
+                "image": "/images/produtos/prod50/cards/card3.jpg",
+                "desc": "Formato de barril otimizado para conservação e serviço"
+            },
+            {
+                "id": 4,
+                "image": "/images/produtos/prod50/cards/card4.jpg",
+                "desc": "Design 100% português"
+            },
+            {
+                "id": 5,
+                "image": "/images/produtos/prod50/cards/card5.jpg",
+                "desc": "Solução reutilizável, alinhada com sustentabilidade"
+            }
+        ],
+        "sliderTitle": "Leva o fino contigo",
+        "imgProd": "/images/produtos/prod50/img_main.png",
+        "imgBg": "/images/produtos/prod50/img_bg.jpg",
+        "bottomImg": "/images/produtos/prod50/bottom_img.png",
         "filter": [],
         "imgSize": ""
     }

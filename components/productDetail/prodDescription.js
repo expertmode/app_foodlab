@@ -15,10 +15,9 @@ export default function ProdDescription({ data }) {
             </DescText>
             {data.bottomImg && (
                 <ImagesMainBox>
-                    <CircleBox />
-                    <ImgBox>
+                    <CircleImage>
                         <ImageComp image={data.bottomImg} />
-                    </ImgBox>
+                    </CircleImage>
                 </ImagesMainBox>
             )}
         </MainBox>
@@ -30,6 +29,7 @@ const MainBox = styled.div`
     flex-direction: column;
     width: 100%;
     margin-top: 96px;
+    padding-bottom: 96px;
 `;
 
 const DescText = styled(motion.p)`
@@ -42,28 +42,23 @@ const DescText = styled(motion.p)`
     color: #005E81;
 `;
 
-const CircleBox = styled.div`
-    border-radius: 1000px;
-    width: 754px;
-    aspect-ratio: 1/1;
-    background-color: #f0f0eb;
-    position: absolute;
-    bottom: -400px;
-    left: -48px;
-`;
-
-const ImgBox = styled.div`
-    display: flex;
-    width: 576px;
-    position: absolute;
-    bottom: -128px;
-    left: 0;
-    transform: rotate(18deg);
-`;
-
 const ImagesMainBox = styled.div`
     width: 100%;
-    height: 480px;
+    padding: 64px 0;
+    display: flex;
+    justify-content: center;
+`;
+
+const CircleImage = styled.div`
+    width: 600px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
-    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 `;

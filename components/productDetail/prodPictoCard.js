@@ -22,7 +22,14 @@ const CardBox = styled.div`
 
 const ImageBox = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    aspect-ratio: 1;
     border-radius: 500px;
+    background-color: #005E81;
+    padding: 28px;
+    box-sizing: border-box;
     overflow: hidden;
 `;
 

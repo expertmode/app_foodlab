@@ -1,12 +1,21 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import MainLayoutComp from "@/components/global/mainLayoutComp";
+import KioskGuard from "@/components/global/kioskGuard";
+import PwaRegister from "@/components/global/pwaRegister";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
 });
+
+export const metadata = {
+  title: "Foodlab",
+  manifest: "/manifest.json",
+  themeColor: "#005E81",
+  viewport: { width: "device-width", initialScale: 1, maximumScale: 1, userScalable: false },
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -17,6 +26,8 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <KioskGuard />
+        <PwaRegister />
         <MainLayoutComp>
           {children}
         </MainLayoutComp>

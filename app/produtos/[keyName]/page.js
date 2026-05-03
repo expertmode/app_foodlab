@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import data from "../../../data/productsData.json";
+import { readProducts } from "@/lib/products";
 import LogoCompMain from "@/components/global/logoCompMain";
 import ProdBanner from "@/components/productDetail/prodBanner";
 import ProdTitleBox from "@/components/productDetail/prodTitleBox";
@@ -8,15 +8,10 @@ import ProdSliderMain from "@/components/productDetail/prodSliderMain";
 import ProdDescription from "@/components/productDetail/prodDescription";
 import ButtonBack from "@/components/productDetail/buttonBack";
 
-export function generateStaticParams() {
-    return data.map((product) => ({
-        keyName: product.keyName,
-    }));
-}
-
 export default async function ProductDetail({ params }) {
     const { keyName } = await params;
-    const product = data.find((p) => p.keyName === keyName);
+    const products = await readProducts();
+    const product = products.find((p) => p.keyName === keyName);
 
     if (!product) {
         return (
@@ -47,7 +42,7 @@ const MainBox = styled.div`
   position: relative;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 `;
 
 const ButtonBackWrapper = styled.div`

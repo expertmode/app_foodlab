@@ -1,28 +1,27 @@
 'use client';
 import styled from "styled-components";
 import Link from "next/link";
-import data from "../../data/productsData.json";
 import ProdCard from "./prodCard";
 import { useFilter } from "@/contexts/FilterContext";
 
 const filterMap = {
     0: null, // Todos os produtos
     1: [14],
-    2: [13, 33],
-    3: [24, 30],
+    2: [13, 33, 5, 19],
+    3: [24, 30, 27],
     4: [4, 6],
     5: [2, 3, 22],
-    6: [17],
+    6: [17, 16],
 };
 
-export default function ProdList() {
+export default function ProdList({ products = [] }) {
     const { selectedFilterId } = useFilter();
 
     const filterCodes = filterMap[selectedFilterId];
 
     const filteredProducts = filterCodes === null
-        ? data
-        : data.filter((product) => {
+        ? products
+        : products.filter((product) => {
             const ppsCodeArray = Array.isArray(product.ppsCode) ? product.ppsCode : [product.ppsCode];
             return ppsCodeArray.some((code) => filterCodes.includes(code));
         });
@@ -40,7 +39,7 @@ export default function ProdList() {
 
 const ProdListContainer = styled.div`
     width: 100%;
-    padding: 0 40px 40px 40px;
+    padding: 0 40px 88px 40px;
     display: flex;
     justify-content: center;
     background-color: #f0f0eb;

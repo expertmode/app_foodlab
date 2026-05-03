@@ -6,13 +6,13 @@ import ProdFooter from "@/components/productsPage/prodFooter";
 import ProdListBanner from "@/components/productsPage/prodListBanner";
 import { FilterProvider } from "@/contexts/FilterContext";
 
-export default function ProdutosContent() {
+export default function ProdutosContent({ products }) {
     return (
         <FilterProvider>
             <MainBox>
                 <LogoCompMain />
                 <ProdListBanner />
-                <ProdList />
+                <ProdList products={products} />
                 <ProdFooter />
             </MainBox>
         </FilterProvider>

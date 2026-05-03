@@ -10,23 +10,26 @@ export default function ProdCard({ product }) {
     };
 
     return (
-        <CardMainBox>
+        <CardMainBox href={`/produtos/${product.keyName}`}>
             <CardImgArea>
                 <CircleBox />
                 <ImageBox
                     src={imageSrc}
-                    alt="produto"
+                    alt={product.title || "produto"}
                     onError={handleImageError}
                 />
             </CardImgArea>
+            <CardTitle>{product.title}</CardTitle>
         </CardMainBox>
     )
 };
 
-const CardMainBox = styled.div`
+const CardMainBox = styled(Link)`
     display: flex;
     flex-direction: column;
     width: 100%;
+    text-decoration: none;
+    cursor: pointer;
 `;
 
 const CardImgArea = styled.div`
@@ -54,4 +57,13 @@ const CircleBox = styled.div`
     aspect-ratio: 1 / 1;
     border-radius: 1000px;
     background-color: #fff;
+`;
+
+const CardTitle = styled.h3`
+    margin: 16px 0 0 0;
+    color: #005E81;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    white-space: pre-wrap;
 `;

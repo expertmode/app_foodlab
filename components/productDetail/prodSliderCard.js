@@ -18,7 +18,7 @@ const CardBox = styled.div`
     border-radius: 48px;
     background-color: #fff;
     gap: 40px;
-    padding: 0 24px 40px 24px;
+    padding-bottom: 40px;
 `;
 
 const ImageBox = styled.div`
@@ -34,6 +34,7 @@ const Text = styled.p`
     font-size: 40px;
     font-weight: 600;
     margin: 0;
+    padding: 0 24px;
     text-align: center;
     white-space: pre-line;
     color: #005E81;

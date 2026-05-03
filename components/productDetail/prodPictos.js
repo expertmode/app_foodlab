@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import ProdPictoCard from "./prodPictoCard";
+import { getPictoIcon } from "./pictoIcons";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,11 +33,9 @@ export default function ProdPictos({ data }) {
             viewport={{ once: true, amount: 0.2 }}
         >
             {data.pictos.map((picto, index) => (
-                picto.image && (
-                    <PictoItem key={index} variants={itemVariants}>
-                        <ProdPictoCard text={picto.text} img={picto.image} />
-                    </PictoItem>
-                )
+                <PictoItem key={index} variants={itemVariants}>
+                    <ProdPictoCard text={picto.text} img={getPictoIcon(picto.text)} />
+                </PictoItem>
             ))}
         </MainBox>
     )

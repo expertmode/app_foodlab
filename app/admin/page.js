@@ -1,0 +1,398 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import styled from 'styled-components';
+import InstallButton from '@/components/global/installButton';
+
+export default function AdminIndex() {
+    const router = useRouter();
+    const [products, setProducts] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [showHelp, setShowHelp] = useState(false);
+    const [creating, setCreating] = useState(false);
+    const [newTitle, setNewTitle] = useState('');
+    const [newPartner, setNewPartner] = useState('');
+    const [busy, setBusy] = useState(false);
+
+    useEffect(() => {
+        fetch('/api/admin/products').then((r) => r.json()).then(setProducts);
+    }, []);
+
+    const visible = products.filter((p) => {
+        if (!filter) return true;
+        const q = filter.toLowerCase();
+        return (
+            String(p.id).includes(q) ||
+            (p.title || '').toLowerCase().includes(q) ||
+            (p.partner || '').toLowerCase().includes(q)
+        );
+    });
+
+    const handleCreate = async () => {
+        if (!newTitle.trim()) return;
+        setBusy(true);
+        try {
+            const r = await fetch('/api/admin/products', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: newTitle, partner: newPartner }),
+            });
+            const data = await r.json();
+            if (!r.ok) throw new Error(data.error || 'erro');
+            router.push(`/admin/produtos/${data.id}`);
+        } catch (e) {
+            alert('Erro ao criar: ' + e.message);
+            setBusy(false);
+        }
+    };
+
+    return (
+        <Wrap>
+            <Header>
+                <h1>Admin — Produtos</h1>
+                <input
+                    type="text"
+                    placeholder="Filtrar por id, título, parceiro…"
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                />
+                <Count>{visible.length} / {products.length}</Count>
+                <InstallButton label="Instalar app" />
+                <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
+            </Header>
+
+            <Grid>
+                {visible.map((p) => (
+                    <Card key={p.id} href={`/admin/produtos/${p.id}`}>
+                        <Thumb style={{ backgroundImage: `url(${p.imgProd}?t=${Date.now()})` }} />
+                        <Info>
+                            <Pid>#{p.id}</Pid>
+                            <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
+                            <Partner>{p.partner}</Partner>
+                            <Stats>
+                                {p.pictos?.length || 0} pictos · {p.infoCards?.length || 0} cards
+                            </Stats>
+                        </Info>
+                    </Card>
+                ))}
+                <NewCard onClick={() => setCreating(true)}>
+                    <Plus>+</Plus>
+                    <NewLabel>Novo produto</NewLabel>
+                </NewCard>
+            </Grid>
+
+            {creating && (
+                <ModalBackdrop onClick={() => !busy && setCreating(false)}>
+                    <ModalCard onClick={(e) => e.stopPropagation()}>
+                        <h3>Novo produto</h3>
+                        <Field>
+                            <label>Título</label>
+                            <input
+                                autoFocus
+                                value={newTitle}
+                                onChange={(e) => setNewTitle(e.target.value)}
+                                placeholder="Ex: Pesto com microalgas"
+                            />
+                        </Field>
+                        <Field>
+                            <label>Parceiro</label>
+                            <input
+                                value={newPartner}
+                                onChange={(e) => setNewPartner(e.target.value)}
+                                placeholder="Ex: MC, TAGUSVALLEY, …"
+                            />
+                        </Field>
+                        <ModalNote>
+                            Vai ser criado com o próximo id disponível e redirecionas para a página de edição
+                            onde podes preencher subtítulo, descrição, pictos, cards e gerar imagens.
+                        </ModalNote>
+                        <ModalActions>
+                            <CancelBtn disabled={busy} onClick={() => setCreating(false)}>Cancelar</CancelBtn>
+                            <ConfirmBtn disabled={busy || !newTitle.trim()} onClick={handleCreate}>
+                                {busy ? 'A criar…' : 'Criar'}
+                            </ConfirmBtn>
+                        </ModalActions>
+                    </ModalCard>
+                </ModalBackdrop>
+            )}
+
+            {showHelp && (
+                <ModalBackdrop onClick={() => setShowHelp(false)}>
+                    <ModalCard onClick={(e) => e.stopPropagation()}>
+                        <HeaderRow>
+                            <h3>Como usar este admin</h3>
+                            <CloseBtn onClick={() => setShowHelp(false)}>×</CloseBtn>
+                        </HeaderRow>
+                        <Help>
+                            <h4>Lista de produtos</h4>
+                            <ul>
+                                <li><b>Filtro</b>: filtra por id, título ou parceiro.</li>
+                                <li><b>Clicar num cartão</b>: abre a página de edição completa.</li>
+                                <li><b>Cartão "+"</b>: cria um produto novo com todos os campos vazios prontos a preencher.</li>
+                            </ul>
+                            <h4>Página de edição</h4>
+                            <ul>
+                                <li><b>Texto</b>: editas título, subtítulo, descrição, PPS, parceiro, frase destaque. Carrega <i>Guardar alterações</i> no fim.</li>
+                                <li><b>Imagens principais</b> (img_main, img_bg, bottom_img):
+                                    <ul>
+                                        <li><b>Gerar</b> — abre popup com o prompt automático (editável) + área para arrastar imagens de referência. Apenas a 1ª referência é usada (limite Flux Dev).</li>
+                                        <li><b>Upload</b> — escolhes ficheiro local (substitui a imagem actual).</li>
+                                        <li><b>Drag & Drop</b> — arrasta uma imagem para cima da preview.</li>
+                                    </ul>
+                                </li>
+                                <li><b>Cards (slider)</b>: o mesmo, mais o texto editável.</li>
+                                <li><b>Pictos</b>: só texto editável — o ícone SVG é mapeado automaticamente conforme as palavras-chave do texto.</li>
+                            </ul>
+                            <h4>Gerar com referência</h4>
+                            <ul>
+                                <li>No popup, adicionas 1+ imagens com <b>+ Adicionar</b>. Só a primeira é usada como base.</li>
+                                <li><b>Fidelidade</b>: 0.30 = ignora bastante a referência / 0.95 = quase cópia. Recomendo 0.6–0.8.</li>
+                            </ul>
+                            <h4>Custos</h4>
+                            <ul>
+                                <li>Cada geração custa ~$0.025 (flux-dev, default) ou ~$0.003 (flux-schnell — não suporta imagens de referência).</li>
+                                <li>O saldo gere-se em <a href="https://replicate.com/account/billing" target="_blank" rel="noreferrer">replicate.com/account/billing</a>.</li>
+                            </ul>
+                        </Help>
+                    </ModalCard>
+                </ModalBackdrop>
+            )}
+        </Wrap>
+    );
+}
+
+const Wrap = styled.div`
+    width: 100%;
+    max-width: 1400px;
+    padding: 32px;
+    box-sizing: border-box;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+`;
+
+const Header = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    h1 { margin: 0; color: #005E81; flex: 0 0 auto; }
+    input {
+        flex: 1;
+        padding: 10px 14px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+`;
+
+const Count = styled.span`
+    color: #666;
+    font-size: 14px;
+`;
+
+const HelpBtn = styled.button`
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #005E81;
+    background: #fff;
+    color: #005E81;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover { background: #005E81; color: #fff; }
+`;
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+`;
+
+const Card = styled(Link)`
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+`;
+
+const Thumb = styled.div`
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #f5f5f0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+`;
+
+const Info = styled.div`
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+`;
+
+const Pid = styled.div`
+    color: #999;
+    font-size: 11px;
+`;
+
+const Title = styled.div`
+    color: #005E81;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.3;
+`;
+
+const Partner = styled.div`
+    color: #666;
+    font-size: 12px;
+`;
+
+const Stats = styled.div`
+    color: #999;
+    font-size: 11px;
+    margin-top: 4px;
+`;
+
+const NewCard = styled.button`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    background: #fff;
+    border: 2px dashed #005E81;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #005E81;
+    transition: background 0.15s;
+
+    &:hover { background: #f0f8fb; }
+`;
+
+const Plus = styled.div`
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 300;
+`;
+
+const NewLabel = styled.div`
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+`;
+
+const ModalBackdrop = styled.div`
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+`;
+
+const ModalCard = styled.div`
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h3 { margin: 0; color: #005E81; }
+`;
+
+const HeaderRow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const CloseBtn = styled.button`
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #999;
+    cursor: pointer;
+
+    &:hover { color: #333; }
+`;
+
+const Field = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label { font-size: 12px; color: #666; font-weight: 600; }
+    input {
+        font-family: inherit;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+`;
+
+const ModalNote = styled.p`
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+`;
+
+const ModalActions = styled.div`
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+`;
+
+const CancelBtn = styled.button`
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+`;
+
+const ConfirmBtn = styled.button`
+    padding: 10px 18px;
+    border: none;
+    background: #005E81;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:disabled { opacity: 0.5; cursor: wait; }
+`;
+
+const Help = styled.div`
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+
+    h4 { color: #005E81; margin: 16px 0 8px 0; }
+    ul { margin: 0; padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    a { color: #005E81; }
+`;

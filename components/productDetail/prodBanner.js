@@ -50,6 +50,14 @@ const BannerImageBox = styled.div`
 const Image = styled(motion.div)`
     display: flex;
     width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 `;
 
 const ProdImgBox = styled(motion.div)`
