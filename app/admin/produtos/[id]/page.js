@@ -340,11 +340,13 @@ function HistoryModal({ label, targetPath, onClose, onRestored }) {
     const [versions, setVersions] = useState(null);
     const [busy, setBusy] = useState(false);
 
-    useEffect(() => {
+    const reload = () => {
         fetch(`/api/admin/versions?path=${encodeURIComponent(targetPath)}`)
             .then((r) => r.json())
             .then(setVersions);
-    }, [targetPath]);
+    };
+
+    useEffect(() => { reload(); }, [targetPath]);
 
     const restore = async (from) => {
         if (!confirm('Restaurar esta versão? A actual fica guardada como nova versão.')) return;
@@ -363,6 +365,22 @@ function HistoryModal({ label, targetPath, onClose, onRestored }) {
         }
     };
 
+    const remove = async (versionPath) => {
+        if (!confirm('Apagar esta versão definitivamente?')) return;
+        setBusy(true);
+        try {
+            const r = await fetch('/api/admin/versions/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ path: versionPath }),
+            });
+            if (!r.ok) throw new Error(await r.text());
+            reload();
+        } catch (e) {
+            alert('Erro a apagar: ' + e.message);
+        } finally { setBusy(false); }
+    };
+
     return (
         <ModalBackdrop onClick={() => !busy && onClose()}>
             <ModalCard onClick={(e) => e.stopPropagation()}>
@@ -370,19 +388,43 @@ function HistoryModal({ label, targetPath, onClose, onRestored }) {
                     <h3>Histórico — {label}</h3>
                     <CloseBtn onClick={onClose}>×</CloseBtn>
                 </ModalHeader>
+                <ExplainBox>
+                    <strong>Como funciona o histórico</strong>
+                    <ul>
+                        <li>Cada vez que clicas <b>✨ Gerar</b>, <b>↻</b> ou <b>⬆ Upload</b>, a imagem actual é guardada automaticamente aqui antes de ser substituída.</li>
+                        <li>Para <b>experimentar variações</b>: clica <b>↻</b> várias vezes — cada gera uma nova com o mesmo prompt e a anterior fica neste histórico.</li>
+                        <li>Para <b>restaurar</b>: clica numa versão. A actual passa para o histórico, a antiga volta ao site.</li>
+                        <li>Para <b>apagar</b>: clica no <b>×</b> em cima da versão (irreversível). A actual nunca pode ser apagada — só substituída.</li>
+                        <li>Para <b>refinar</b> em vez de gerar do zero: usa <b>✨ Gerar</b> → "⟳ Usar actual" para usar a actual como referência + ajustar prompt.</li>
+                    </ul>
+                </ExplainBox>
                 {versions === null && <p>A carregar…</p>}
                 {versions && versions.length === 0 && (
-                    <p style={{ color: '#666', fontSize: 13 }}>Sem versões anteriores. Cada vez que gerares ou fizeres upload, a imagem actual é guardada aqui.</p>
+                    <p style={{ color: '#666', fontSize: 13 }}>Sem versões anteriores ainda.</p>
                 )}
                 {versions && versions.length > 0 && (
-                    <VersionsGrid>
-                        {versions.map((v) => (
-                            <Version key={v.path} onClick={() => !busy && restore(v.path)} title={`Restaurar ${new Date(v.ts).toLocaleString()}`}>
-                                <VersionThumb style={{ backgroundImage: `url(${v.path})` }} />
-                                <VersionDate>{new Date(v.ts).toLocaleString()}</VersionDate>
-                            </Version>
-                        ))}
-                    </VersionsGrid>
+                    <>
+                        <VersionsGrid>
+                            {versions.map((v) => (
+                                <Version key={v.path} title={`Restaurar ${new Date(v.ts).toLocaleString()}`}>
+                                    <VersionThumb
+                                        style={{ backgroundImage: `url(${v.path})` }}
+                                        onClick={() => !busy && restore(v.path)}
+                                    />
+                                    <VersionFooter>
+                                        <VersionDate>{new Date(v.ts).toLocaleString()}</VersionDate>
+                                        <DeleteBtn
+                                            disabled={busy}
+                                            onClick={(e) => { e.stopPropagation(); remove(v.path); }}
+                                            title="Apagar esta versão"
+                                        >
+                                            ×
+                                        </DeleteBtn>
+                                    </VersionFooter>
+                                </Version>
+                            ))}
+                        </VersionsGrid>
+                    </>
                 )}
             </ModalCard>
         </ModalBackdrop>
@@ -933,7 +975,52 @@ const VersionThumb = styled.div`
 const VersionDate = styled.div`
     font-size: 11px;
     color: #666;
-    text-align: center;
+    flex: 1;
+`;
+
+const VersionFooter = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+`;
+
+const DeleteBtn = styled.button`
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c0392b;
+    background: #fff;
+    color: #c0392b;
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover { background: #c0392b; color: #fff; }
+    &:disabled { opacity: 0.5; cursor: wait; }
+`;
+
+const ExplainBox = styled.div`
+    background: #f0f8fb;
+    border-left: 3px solid #005E81;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+
+    strong {
+        display: block;
+        color: #005E81;
+        margin-bottom: 6px;
+        font-size: 13px;
+    }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin-bottom: 4px; }
+    b { color: #005E81; }
 `;
 
 const Path = styled.div`
