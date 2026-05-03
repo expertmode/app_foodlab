@@ -3,28 +3,21 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function ProdCard({ product }) {
-    const candidates = [
-        product.imgProd,
-        product.bottomImg,
-        product.imgBg,
-        "/images/produtos/geral.png",
-    ].filter(Boolean);
-    const [idx, setIdx] = useState(0);
-    const imageSrc = candidates[idx];
-
-    const handleImageError = () => {
-        if (idx < candidates.length - 1) setIdx(idx + 1);
-    };
+    const [hidden, setHidden] = useState(!product.imgProd);
 
     return (
         <CardMainBox href={`/produtos/${product.keyName}`}>
             <CardImgArea>
-                <CircleBox />
-                <ImageBox
-                    src={imageSrc}
-                    alt={product.title || "produto"}
-                    onError={handleImageError}
-                />
+                {!hidden && (
+                    <>
+                        <CircleBox />
+                        <ImageBox
+                            src={product.imgProd}
+                            alt={product.title || "produto"}
+                            onError={() => setHidden(true)}
+                        />
+                    </>
+                )}
             </CardImgArea>
             <CardTitle>{product.title}</CardTitle>
         </CardMainBox>
