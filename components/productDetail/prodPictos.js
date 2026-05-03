@@ -42,13 +42,19 @@ export default function ProdPictos({ data }) {
 };
 
 const MainBox = styled(motion.div)`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: #f0f0eb;
     width: 100%;
     padding: 128px 44px;
     gap: 32px;
     box-sizing: border-box;
+
+    > * {
+        flex: 0 0 calc(25% - 24px);
+        max-width: calc(25% - 24px);
+    }
 `;
 
 const PictoItem = styled(motion.div)`

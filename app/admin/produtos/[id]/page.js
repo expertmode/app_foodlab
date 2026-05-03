@@ -39,6 +39,48 @@ export default function ProductAdmin({ params }) {
         });
     };
 
+    const addCard = () => {
+        const cards = p.infoCards || [];
+        const nextId = (cards.reduce((m, c) => Math.max(m, c.id || 0), 0)) + 1;
+        setP({
+            ...p,
+            infoCards: [...cards, {
+                id: nextId,
+                image: `/images/produtos/prod${p.id}/cards/card${nextId}.jpg`,
+                desc: '',
+            }],
+        });
+    };
+
+    const removeCard = (cardId) => {
+        if (!confirm('Remover este card?')) return;
+        setP({
+            ...p,
+            infoCards: (p.infoCards || []).filter((c) => c.id !== cardId),
+        });
+    };
+
+    const addPicto = () => {
+        const pictos = p.pictos || [];
+        const nextId = (pictos.reduce((m, pi) => Math.max(m, pi.id || 0), 0)) + 1;
+        setP({
+            ...p,
+            pictos: [...pictos, {
+                id: nextId,
+                image: `/images/produtos/prod${p.id}/pictos/picto${nextId}.jpg`,
+                text: '',
+            }],
+        });
+    };
+
+    const removePicto = (pictoId) => {
+        if (!confirm('Remover este picto?')) return;
+        setP({
+            ...p,
+            pictos: (p.pictos || []).filter((pi) => pi.id !== pictoId),
+        });
+    };
+
     const save = async () => {
         setSaving(true);
         try {
@@ -193,20 +235,33 @@ export default function ProductAdmin({ params }) {
                                 value={c.desc || ''}
                                 onChange={(e) => updateCard(c.id, 'desc', e.target.value)}
                             />
+                            <RemoveItemBtn onClick={() => removeCard(c.id)}>Remover card</RemoveItemBtn>
                         </Field>
                     </CardEdit>
                 ))}
+                <AddItemBtn onClick={addCard}>+ Adicionar card</AddItemBtn>
             </Section>
 
             <Section>
                 <h2>Pictos ({p.pictos?.length || 0})</h2>
-                <Note>Os pictos usam SVGs partilhados — apenas o texto é editável (ícone é mapeado automaticamente).</Note>
+                <Note>
+                    Os pictos usam SVGs partilhados — apenas o texto é editável (o ícone é mapeado automaticamente por palavras-chave).
+                    {(p.pictos?.length || 0) > 4 && (
+                        <strong style={{ color: '#c0392b', display: 'block', marginTop: 4 }}>
+                            ⚠️ Mais de 4 pictos: o layout do site mostra 4 por linha, os restantes aparecem na linha seguinte centrados.
+                        </strong>
+                    )}
+                </Note>
                 {p.pictos?.map((pi) => (
-                    <Field key={pi.id}>
-                        <label>picto{pi.id}</label>
-                        <input value={pi.text || ''} onChange={(e) => updatePicto(pi.id, 'text', e.target.value)} />
-                    </Field>
+                    <PictoRow key={pi.id}>
+                        <Field $flex={1}>
+                            <label>picto{pi.id}</label>
+                            <input value={pi.text || ''} onChange={(e) => updatePicto(pi.id, 'text', e.target.value)} />
+                        </Field>
+                        <RemoveItemBtn onClick={() => removePicto(pi.id)}>Remover</RemoveItemBtn>
+                    </PictoRow>
                 ))}
+                <AddItemBtn onClick={addPicto}>+ Adicionar picto</AddItemBtn>
             </Section>
         </Wrap>
     );
@@ -434,6 +489,43 @@ const CardEdit = styled.div`
     background: #f9f9f7;
     border-radius: 8px;
     margin-bottom: 12px;
+`;
+
+const PictoRow = styled.div`
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 8px 0;
+`;
+
+const AddItemBtn = styled.button`
+    margin-top: 12px;
+    padding: 8px 16px;
+    border: 2px dashed #005E81;
+    background: #fff;
+    color: #005E81;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+
+    &:hover { background: #f0f8fb; }
+`;
+
+const RemoveItemBtn = styled.button`
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 4px 10px;
+    border: 1px solid #c0392b;
+    background: #fff;
+    color: #c0392b;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &:hover { background: #c0392b; color: #fff; }
 `;
 
 const ImgWrap = styled.div`
