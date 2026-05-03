@@ -4,6 +4,7 @@ import path from 'node:path';
 import { getBanner, updateBanner } from '@/lib/banners';
 import { generateImage } from '@/lib/replicate';
 import { backupImage } from '@/lib/imageBackup';
+import { optimizeImage } from '@/lib/imageOptimize';
 
 export async function POST(req) {
     try {
@@ -33,6 +34,7 @@ export async function POST(req) {
         const abs = path.join(process.cwd(), 'public', rel);
         await fs.mkdir(path.dirname(abs), { recursive: true });
         await fs.writeFile(abs, buf);
+        await optimizeImage(abs);
 
         const updated = await updateBanner(bannerId, { image: '/' + rel });
         return NextResponse.json({ ok: true, banner: updated });

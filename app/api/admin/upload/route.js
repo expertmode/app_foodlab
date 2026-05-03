@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { backupImage } from '@/lib/imageBackup';
+import { optimizeImage } from '@/lib/imageOptimize';
 
 export async function POST(req) {
     try {
@@ -21,6 +22,8 @@ export async function POST(req) {
         await backupImage(abs);
         const buf = Buffer.from(await file.arrayBuffer());
         await fs.writeFile(abs, buf);
+        // Skip optimization for SVGs (sharp would rasterize them)
+        if (!safeRel.endsWith('.svg')) await optimizeImage(abs);
         return NextResponse.json({ ok: true, path: '/' + safeRel, ts: Date.now() });
     } catch (e) {
         return NextResponse.json({ error: e.message }, { status: 500 });

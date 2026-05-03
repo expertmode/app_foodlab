@@ -5,6 +5,7 @@ import { getProduct } from '@/lib/products';
 import { cardPrompt, productPrompt, aspectFor, formatFor, clean } from '@/lib/imagePrompts';
 import { generateImage } from '@/lib/replicate';
 import { backupImage } from '@/lib/imageBackup';
+import { optimizeImage } from '@/lib/imageOptimize';
 
 export async function POST(req) {
     try {
@@ -48,6 +49,7 @@ export async function POST(req) {
         await fs.mkdir(path.dirname(abs), { recursive: true });
         await backupImage(abs);
         await fs.writeFile(abs, buf);
+        await optimizeImage(abs);
 
         return NextResponse.json({ ok: true, path: outPath, prompt, ts: Date.now() });
     } catch (e) {
