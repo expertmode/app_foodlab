@@ -155,7 +155,25 @@ export default function AdminIndex() {
                             <h4>Gerar com referência</h4>
                             <ul>
                                 <li>No popup, adicionas 1+ imagens com <b>+ Adicionar</b>. Só a primeira é usada como base.</li>
+                                <li><b>⟳ Usar actual</b>: usa a imagem actualmente publicada como referência — útil para refinar.</li>
                                 <li><b>Fidelidade</b>: 0.30 = ignora bastante a referência / 0.95 = quase cópia. Recomendo 0.6–0.8.</li>
+                            </ul>
+                            <h4>Versões e iteração</h4>
+                            <ul>
+                                <li>Cada vez que geras ou fazes upload, a imagem anterior fica guardada automaticamente.</li>
+                                <li>O botão <b>⟲</b> em cada imagem mostra o histórico — clica numa versão antiga para a restaurar.</li>
+                                <li>Workflow recomendado para iterar: Geras imagem <b>A</b> → não gostas → no novo "Gerar" clicas <b>⟳ Usar actual</b> e ajustas o prompt → a nova <b>B</b> é uma variação refinada de A.</li>
+                                <li>Se a B for pior, abre o histórico (⟲) e restaura a A.</li>
+                            </ul>
+                            <h4>Limitações actuais</h4>
+                            <ul>
+                                <li>Só faz <i>image-to-image</i> simples (uma referência inteira + prompt). Não suporta:
+                                    <ul>
+                                        <li><b>Inpainting</b>: pintar máscara sobre a parte a mudar e regenerar só essa área (ex.: trocar só o fundo, manter o produto).</li>
+                                        <li><b>ControlNet</b>: condicionar a geração por edges, profundidade ou pose da imagem original (manter a forma exacta, variar texturas).</li>
+                                    </ul>
+                                    Ambos são possíveis via Replicate (~$0.05–0.10/imagem) mas exigem UI de máscara/upload extra. Pode ser adicionado quando precisares.
+                                </li>
                             </ul>
                             <h4>Custos</h4>
                             <ul>
