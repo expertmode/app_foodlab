@@ -51,6 +51,16 @@ export default function AdminIndex() {
         <Wrap>
             <Header>
                 <h1>Admin — Produtos</h1>
+                <Spacer />
+                <Link href="/" target="_blank"><MiniLink>Ver site ↗</MiniLink></Link>
+                <Link href="/admin/home"><MiniLink>Banners</MiniLink></Link>
+                <Link href="/admin/filtros"><MiniLink>Filtros</MiniLink></Link>
+                <Link href="/admin/icons"><MiniLink>Ícones</MiniLink></Link>
+                <a href="/api/admin/download-all"><MiniDownload>↓ .zip</MiniDownload></a>
+                <InstallButton label="Instalar" />
+                <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
+            </Header>
+            <FilterRow>
                 <input
                     type="text"
                     placeholder="Filtrar por id, título, parceiro…"
@@ -58,11 +68,7 @@ export default function AdminIndex() {
                     onChange={(e) => setFilter(e.target.value)}
                 />
                 <Count>{visible.length} / {products.length}</Count>
-                <Link href="/admin/home"><HomeLink>Banners da Home</HomeLink></Link>
-                <a href="/api/admin/download-all"><DownloadLink>↓ Imagens (.zip)</DownloadLink></a>
-                <InstallButton label="Instalar app" />
-                <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
-            </Header>
+            </FilterRow>
 
             <Grid>
                 {visible.map((p) => (
@@ -175,10 +181,23 @@ const Wrap = styled.div`
 const Header = styled.div`
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
 
-    h1 { margin: 0; color: #005E81; flex: 0 0 auto; }
+    h1 { margin: 0; color: #005E81; flex: 0 0 auto; font-size: 22px; }
+`;
+
+const Spacer = styled.div`
+    flex: 1;
+`;
+
+const FilterRow = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+
     input {
         flex: 1;
         padding: 10px 14px;
@@ -191,45 +210,46 @@ const Header = styled.div`
 const Count = styled.span`
     color: #666;
     font-size: 14px;
+    white-space: nowrap;
 `;
 
 const HelpBtn = styled.button`
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: 2px solid #005E81;
+    border: 1.5px solid #005E81;
     background: #fff;
     color: #005E81;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
 
     &:hover { background: #005E81; color: #fff; }
 `;
 
-const HomeLink = styled.span`
+const MiniLink = styled.span`
     display: inline-block;
-    padding: 10px 16px;
-    border: 2px solid #005E81;
+    padding: 6px 10px;
+    border: 1.5px solid #005E81;
     background: #fff;
     color: #005E81;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 11px;
     cursor: pointer;
 
     &:hover { background: #005E81; color: #fff; }
 `;
 
-const DownloadLink = styled.span`
+const MiniDownload = styled.span`
     display: inline-block;
-    padding: 10px 16px;
-    border: 2px solid #FFB40F;
+    padding: 6px 10px;
+    border: 1.5px solid #FFB40F;
     background: #fff;
-    color: #FFB40F;
-    border-radius: 8px;
+    color: #b88200;
+    border-radius: 6px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 11px;
     cursor: pointer;
 
     &:hover { background: #FFB40F; color: #fff; }

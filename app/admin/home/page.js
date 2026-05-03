@@ -3,11 +3,119 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+function BannerGenerator({ bannerId, initialPrompt, onClose, onDone }) {
+    const [prompt, setPrompt] = useState(
+        initialPrompt
+            ? `Hyperrealistic editorial food photography, panoramic 16:9 banner image evoking "${initialPrompt}", warm natural lighting, painterly textures, deep colors, no text, no logos, fills frame edge to edge`
+            : 'Hyperrealistic editorial food photography, panoramic 16:9 banner with fresh ingredients, warm natural light, painterly composition, no text, no logos',
+    );
+    const [refs, setRefs] = useState([]);
+    const [strength, setStrength] = useState(0.7);
+    const [busy, setBusy] = useState(false);
+
+    const addRefs = (files) => {
+        if (!files || !files.length) return;
+        Array.from(files).forEach((file) => {
+            const reader = new FileReader();
+            reader.onload = () => setRefs((r) => [...r, reader.result]);
+            reader.readAsDataURL(file);
+        });
+    };
+
+    const submit = async () => {
+        setBusy(true);
+        try {
+            const r = await fetch('/api/admin/generate-banner', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    bannerId,
+                    prompt,
+                    referenceImage: refs[0] || undefined,
+                    referenceStrength: refs[0] ? strength : undefined,
+                }),
+            });
+            const data = await r.json();
+            if (!r.ok) throw new Error(data.error || 'erro');
+            onDone();
+        } catch (e) {
+            alert('Erro a gerar: ' + e.message);
+            setBusy(false);
+        }
+    };
+
+    return (
+        <ModalBackdrop onClick={() => !busy && onClose()}>
+            <ModalCard onClick={(e) => e.stopPropagation()}>
+                <h3>Gerar imagem do banner</h3>
+                <small>Aspect 16:9 (panorâmico). Custo aprox. $0.025 com flux-dev.</small>
+                <textarea
+                    rows={6}
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    style={{ fontFamily: 'inherit', padding: 12, border: '1px solid #ccc', borderRadius: 6, fontSize: 13 }}
+                />
+                <div>
+                    <label htmlFor="ref-input">
+                        <input
+                            id="ref-input"
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            style={{ display: 'none' }}
+                            onChange={(e) => addRefs(e.target.files)}
+                        />
+                        <RefAdd>+ Imagens de referência</RefAdd>
+                    </label>
+                </div>
+                {refs.length > 0 && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                        {refs.map((src, i) => (
+                            <div key={i} style={{
+                                width: 80, height: 60,
+                                backgroundImage: `url(${src})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                borderRadius: 6,
+                                border: i === 0 ? '2px solid #005E81' : '1px solid #ccc',
+                                cursor: 'pointer',
+                            }} onClick={() => setRefs((r) => r.filter((_, j) => j !== i))} title="Clica para remover" />
+                        ))}
+                    </div>
+                )}
+                {refs.length > 0 && (
+                    <div style={{ fontSize: 12, color: '#666' }}>
+                        Fidelidade à 1ª referência: {strength.toFixed(2)}
+                        <input
+                            type="range"
+                            min="0.3"
+                            max="0.95"
+                            step="0.05"
+                            value={strength}
+                            onChange={(e) => setStrength(parseFloat(e.target.value))}
+                            style={{ width: '100%' }}
+                        />
+                    </div>
+                )}
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
+                    <button disabled={busy} onClick={onClose} style={{ padding: '8px 16px', border: '1px solid #ccc', background: '#fff', borderRadius: 6, cursor: 'pointer' }}>
+                        Cancelar
+                    </button>
+                    <button disabled={busy || !prompt.trim()} onClick={submit} style={{ padding: '8px 16px', border: 'none', background: '#005E81', color: '#fff', borderRadius: 6, fontWeight: 600, cursor: 'pointer' }}>
+                        {busy ? 'A gerar…' : 'Gerar agora'}
+                    </button>
+                </div>
+            </ModalCard>
+        </ModalBackdrop>
+    );
+}
+
 export default function HomeAdmin() {
     const [banners, setBanners] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [picker, setPicker] = useState(null); // { bannerId } when picking from product
+    const [generator, setGenerator] = useState(null); // { bannerId } when generating
 
     const reload = async () => {
         const [b, p] = await Promise.all([
@@ -95,6 +203,7 @@ export default function HomeAdmin() {
                                 <label>Imagem</label>
                                 <small>{b.image || '(vazio)'}</small>
                                 <Btns>
+                                    <button onClick={() => setGenerator({ bannerId: b.id })}>✨ Gerar com IA</button>
                                     <label>
                                         <input
                                             type="file"
@@ -144,6 +253,15 @@ export default function HomeAdmin() {
                     </BannerRow>
                 ))}
             </List>
+
+            {generator && (
+                <BannerGenerator
+                    bannerId={generator.bannerId}
+                    initialPrompt={(banners.find((b) => b.id === generator.bannerId) || {}).text2 || ''}
+                    onClose={() => setGenerator(null)}
+                    onDone={() => { setGenerator(null); reload(); }}
+                />
+            )}
 
             {picker && (
                 <ModalBackdrop onClick={() => setPicker(null)}>
@@ -392,4 +510,17 @@ const CloseBtn = styled.button`
     background: #fff;
     border-radius: 6px;
     cursor: pointer;
+`;
+
+const RefAdd = styled.span`
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px dashed #005E81;
+    border-radius: 6px;
+    color: #005E81;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover { background: #f0f8fb; }
 `;

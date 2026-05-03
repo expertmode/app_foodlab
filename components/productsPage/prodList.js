@@ -4,27 +4,12 @@ import Link from "next/link";
 import ProdCard from "./prodCard";
 import { useFilter } from "@/contexts/FilterContext";
 
-const filterMap = {
-    0: null, // Todos os produtos
-    1: [14],
-    2: [13, 33, 5, 19],
-    3: [24, 30, 27],
-    4: [4, 6],
-    5: [2, 3, 22],
-    6: [17, 16],
-};
-
 export default function ProdList({ products = [] }) {
     const { selectedFilterId } = useFilter();
 
-    const filterCodes = filterMap[selectedFilterId];
-
-    const filteredProducts = filterCodes === null
+    const filteredProducts = selectedFilterId === 0
         ? products
-        : products.filter((product) => {
-            const ppsCodeArray = Array.isArray(product.ppsCode) ? product.ppsCode : [product.ppsCode];
-            return ppsCodeArray.some((code) => filterCodes.includes(code));
-        });
+        : products.filter((p) => Array.isArray(p.filter) && p.filter.includes(selectedFilterId));
 
     return (
         <ProdListContainer>

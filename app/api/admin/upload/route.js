@@ -11,7 +11,8 @@ export async function POST(req) {
             return NextResponse.json({ error: 'file and path required' }, { status: 400 });
         }
         const safeRel = String(targetPath).replace(/^\/+/, '').replace(/\.\.+/g, '');
-        if (!safeRel.startsWith('images/produtos/') && !safeRel.startsWith('images/banners/')) {
+        const allowedPrefixes = ['images/produtos/', 'images/banners/', 'images/icons/', 'images/pictos/'];
+        if (!allowedPrefixes.some((prefix) => safeRel.startsWith(prefix))) {
             return NextResponse.json({ error: 'invalid path' }, { status: 400 });
         }
         const abs = path.join(process.cwd(), 'public', safeRel);

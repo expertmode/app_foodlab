@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import data from "@/data/filtersData.json";
 import { motion } from "framer-motion";
 import ProdListFilterCard from "./prodListFilterCard";
 import { useFilter } from "@/contexts/FilterContext";
@@ -24,7 +23,7 @@ const itemVariants = {
     },
 };
 
-export default function ProdListFilterComp({ isOpen }) {
+export default function ProdListFilterComp({ isOpen, filters = [] }) {
     const { setSelectedFilterId } = useFilter();
 
     const handleCardClick = (id) => {
@@ -37,7 +36,7 @@ export default function ProdListFilterComp({ isOpen }) {
             initial="hidden"
             animate={isOpen ? "visible" : "hidden"}
         >
-            {data.map((item) => (
+            {filters.map((item) => (
                 <CardCont
                     key={item.id}
                     variants={itemVariants}
