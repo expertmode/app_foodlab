@@ -2,6 +2,8 @@ import ProdutosContent from "./content";
 import { readProducts } from "@/lib/products";
 import { readFilters } from "@/lib/filters";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
     title: "Lista de Produtos",
     description: "",

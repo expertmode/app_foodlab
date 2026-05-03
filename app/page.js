@@ -5,6 +5,8 @@ import data from "@/data/generalData.json";
 import BannersMain from "@/components/homepage/banners/bannersMain";
 import { readBanners } from "@/lib/banners";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "FoodLab",
   description: "",

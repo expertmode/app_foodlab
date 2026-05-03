@@ -8,6 +8,8 @@ import ProdSliderMain from "@/components/productDetail/prodSliderMain";
 import ProdDescription from "@/components/productDetail/prodDescription";
 import ButtonBack from "@/components/productDetail/buttonBack";
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProductDetail({ params }) {
     const { keyName } = await params;
     const products = await readProducts();

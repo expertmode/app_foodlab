@@ -97,7 +97,7 @@ export default function AdminIndex() {
                             $on={!p.hidden}
                             title={p.hidden ? 'Escondido — clica para publicar' : 'Visível — clica para esconder'}
                         >
-                            {p.hidden ? '🚫 Escondido' : '👁 Visível'}
+                            {p.hidden ? 'Escondido' : 'Visível'}
                         </VisToggle>
                         <Thumb style={{ backgroundImage: `url(${p.imgProd}?t=${Date.now()})` }} />
                         <Info>
