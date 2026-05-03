@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { getBanner, updateBanner } from '@/lib/banners';
 import { generateImage } from '@/lib/replicate';
+import { backupImage } from '@/lib/imageBackup';
 
 export async function POST(req) {
     try {
@@ -21,6 +22,12 @@ export async function POST(req) {
             referenceImage,
             referenceStrength,
         });
+
+        // Backup previous banner image if exists
+        if (banner.image) {
+            const prevAbs = path.join(process.cwd(), 'public', banner.image.replace(/^\//, ''));
+            await backupImage(prevAbs);
+        }
 
         const rel = `images/banners/banner-${bannerId}-${Date.now()}.jpg`;
         const abs = path.join(process.cwd(), 'public', rel);

@@ -193,6 +193,7 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('img_main', null, prompt, ref, refS)}
                         onUpload={(f) => upload('img_main', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=img_main`).then(r => r.json())).prompt}
+                        onRestore={() => setBump((b) => b + 1)}
                     />
                     <ImageBlock
                         label="img_bg (banner)"
@@ -202,6 +203,7 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('img_bg', null, prompt, ref, refS)}
                         onUpload={(f) => upload('img_bg', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=img_bg`).then(r => r.json())).prompt}
+                        onRestore={() => setBump((b) => b + 1)}
                     />
                     <ImageBlock
                         label="bottom_img"
@@ -211,6 +213,7 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('bottom_img', null, prompt, ref, refS)}
                         onUpload={(f) => upload('bottom_img', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=bottom_img`).then(r => r.json())).prompt}
+                        onRestore={() => setBump((b) => b + 1)}
                     />
                 </Row>
             </Section>
@@ -227,6 +230,7 @@ export default function ProductAdmin({ params }) {
                             onGenerate={(prompt, ref, refS) => generate('card', c.id, prompt, ref, refS)}
                             onUpload={(f) => upload('card', f, c.id)}
                             fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=card&cardId=${c.id}`).then(r => r.json())).prompt}
+                            onRestore={() => setBump((b) => b + 1)}
                         />
                         <Field $flex={1}>
                             <label>Texto do card</label>
@@ -267,9 +271,10 @@ export default function ProductAdmin({ params }) {
     );
 }
 
-function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt }) {
+function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, onRestore }) {
     const [drag, setDrag] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const [historyOpen, setHistoryOpen] = useState(false);
 
     return (
         <ImgWrap>
@@ -300,6 +305,7 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt }
                     />
                     <span>Upload</span>
                 </label>
+                <button disabled={busy} onClick={() => setHistoryOpen(true)} title="Versões anteriores">⟲</button>
             </Btns>
             <Path>{path}</Path>
 
@@ -307,6 +313,8 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt }
                 <GenerateModal
                     label={label}
                     fetchPrompt={fetchPrompt}
+                    currentImagePath={path}
+                    cb={cb}
                     onClose={() => setModalOpen(false)}
                     onConfirm={(prompt, refs, strength) => {
                         onGenerate(prompt, refs[0] || undefined, refs[0] ? strength : undefined);
@@ -314,11 +322,73 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt }
                     }}
                 />
             )}
+
+            {historyOpen && (
+                <HistoryModal
+                    label={label}
+                    targetPath={path}
+                    onClose={() => setHistoryOpen(false)}
+                    onRestored={() => { onRestore?.(); setHistoryOpen(false); }}
+                />
+            )}
         </ImgWrap>
     );
 }
 
-function GenerateModal({ label, fetchPrompt, onClose, onConfirm }) {
+function HistoryModal({ label, targetPath, onClose, onRestored }) {
+    const [versions, setVersions] = useState(null);
+    const [busy, setBusy] = useState(false);
+
+    useEffect(() => {
+        fetch(`/api/admin/versions?path=${encodeURIComponent(targetPath)}`)
+            .then((r) => r.json())
+            .then(setVersions);
+    }, [targetPath]);
+
+    const restore = async (from) => {
+        if (!confirm('Restaurar esta versão? A actual fica guardada como nova versão.')) return;
+        setBusy(true);
+        try {
+            const r = await fetch('/api/admin/restore', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ from, to: targetPath }),
+            });
+            if (!r.ok) throw new Error(await r.text());
+            onRestored();
+        } catch (e) {
+            alert('Erro: ' + e.message);
+            setBusy(false);
+        }
+    };
+
+    return (
+        <ModalBackdrop onClick={() => !busy && onClose()}>
+            <ModalCard onClick={(e) => e.stopPropagation()}>
+                <ModalHeader>
+                    <h3>Histórico — {label}</h3>
+                    <CloseBtn onClick={onClose}>×</CloseBtn>
+                </ModalHeader>
+                {versions === null && <p>A carregar…</p>}
+                {versions && versions.length === 0 && (
+                    <p style={{ color: '#666', fontSize: 13 }}>Sem versões anteriores. Cada vez que gerares ou fizeres upload, a imagem actual é guardada aqui.</p>
+                )}
+                {versions && versions.length > 0 && (
+                    <VersionsGrid>
+                        {versions.map((v) => (
+                            <Version key={v.path} onClick={() => !busy && restore(v.path)} title={`Restaurar ${new Date(v.ts).toLocaleString()}`}>
+                                <VersionThumb style={{ backgroundImage: `url(${v.path})` }} />
+                                <VersionDate>{new Date(v.ts).toLocaleString()}</VersionDate>
+                            </Version>
+                        ))}
+                    </VersionsGrid>
+                )}
+            </ModalCard>
+        </ModalBackdrop>
+    );
+}
+
+function GenerateModal({ label, fetchPrompt, currentImagePath, cb, onClose, onConfirm }) {
     const [prompt, setPrompt] = useState('');
     const [loading, setLoading] = useState(true);
     const [refs, setRefs] = useState([]); // array of data URLs
@@ -338,6 +408,19 @@ function GenerateModal({ label, fetchPrompt, onClose, onConfirm }) {
             reader.onload = () => setRefs((r) => [...r, reader.result]);
             reader.readAsDataURL(file);
         });
+    };
+
+    const useCurrentAsRef = async () => {
+        if (!currentImagePath) return;
+        try {
+            const res = await fetch(cb ? cb(currentImagePath) : currentImagePath);
+            const blob = await res.blob();
+            const reader = new FileReader();
+            reader.onload = () => setRefs((r) => [...r, reader.result]);
+            reader.readAsDataURL(blob);
+        } catch (e) {
+            alert('Não consegui carregar a imagem actual: ' + e.message);
+        }
     };
 
     const removeRef = (idx) => setRefs((r) => r.filter((_, i) => i !== idx));
@@ -380,6 +463,11 @@ function GenerateModal({ label, fetchPrompt, onClose, onConfirm }) {
                             />
                             <RefAdd>+ Adicionar</RefAdd>
                         </label>
+                        {currentImagePath && (
+                            <RefAdd onClick={useCurrentAsRef} title="Refinar a partir da imagem actual">
+                                ⟳ Usar actual
+                            </RefAdd>
+                        )}
                     </RefList>
                     {refs.length > 0 && (
                         <RefSlider>
@@ -800,6 +888,40 @@ const ConfirmBtn = styled.button`
     font-size: 14px;
 
     &:disabled { opacity: 0.5; cursor: wait; }
+`;
+
+const VersionsGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+`;
+
+const Version = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+
+    &:hover { border-color: #005E81; }
+`;
+
+const VersionThumb = styled.div`
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #f5f5f0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+`;
+
+const VersionDate = styled.div`
+    font-size: 11px;
+    color: #666;
+    text-align: center;
 `;
 
 const Path = styled.div`

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { backupImage } from '@/lib/imageBackup';
 
 export async function POST(req) {
     try {
@@ -17,6 +18,7 @@ export async function POST(req) {
         }
         const abs = path.join(process.cwd(), 'public', safeRel);
         await fs.mkdir(path.dirname(abs), { recursive: true });
+        await backupImage(abs);
         const buf = Buffer.from(await file.arrayBuffer());
         await fs.writeFile(abs, buf);
         return NextResponse.json({ ok: true, path: '/' + safeRel, ts: Date.now() });

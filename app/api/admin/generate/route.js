@@ -4,6 +4,7 @@ import path from 'node:path';
 import { getProduct } from '@/lib/products';
 import { cardPrompt, productPrompt, aspectFor, formatFor, clean } from '@/lib/imagePrompts';
 import { generateImage } from '@/lib/replicate';
+import { backupImage } from '@/lib/imageBackup';
 
 export async function POST(req) {
     try {
@@ -45,6 +46,7 @@ export async function POST(req) {
 
         const abs = path.join(process.cwd(), 'public', outPath);
         await fs.mkdir(path.dirname(abs), { recursive: true });
+        await backupImage(abs);
         await fs.writeFile(abs, buf);
 
         return NextResponse.json({ ok: true, path: outPath, prompt, ts: Date.now() });
