@@ -3,10 +3,17 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function ProdCard({ product }) {
-    const [imageSrc, setImageSrc] = useState(product.imgProd || "/images/produtos/geral.png");
+    const candidates = [
+        product.imgProd,
+        product.bottomImg,
+        product.imgBg,
+        "/images/produtos/geral.png",
+    ].filter(Boolean);
+    const [idx, setIdx] = useState(0);
+    const imageSrc = candidates[idx];
 
     const handleImageError = () => {
-        setImageSrc("/images/produtos/geral.png");
+        if (idx < candidates.length - 1) setIdx(idx + 1);
     };
 
     return (
