@@ -295,15 +295,16 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, 
                 {!path && <NoImg>sem imagem</NoImg>}
             </DropZone>
             <Btns>
-                <button disabled={busy} onClick={() => setModalOpen(true)}>Gerar</button>
-                <label>
+                <button disabled={busy} onClick={() => setModalOpen(true)} title="Abrir modal de geração">✨ Gerar</button>
+                <button disabled={busy} onClick={() => onGenerate()} title="Regenerar com o mesmo prompt automático (variação)">↻</button>
+                <label title="Upload de ficheiro local">
                     <input
                         type="file"
                         accept="image/*"
                         style={{ display: 'none' }}
                         onChange={(e) => onUpload(e.target.files?.[0])}
                     />
-                    <span>Upload</span>
+                    <span>⬆ Upload</span>
                 </label>
                 <button disabled={busy} onClick={() => setHistoryOpen(true)} title="Versões anteriores">⟲</button>
             </Btns>
@@ -667,22 +668,33 @@ const NoImg = styled.div`
 
 const Btns = styled.div`
     display: flex;
-    gap: 6px;
+    gap: 4px;
+    align-items: stretch;
 
     button, label > span {
-        flex: 1;
-        text-align: center;
-        padding: 6px 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 8px;
+        height: 30px;
         font-size: 12px;
+        line-height: 1;
         border: 1px solid #005E81;
         border-radius: 6px;
         background: #fff;
         color: #005E81;
         cursor: pointer;
         font-weight: 600;
+        white-space: nowrap;
+        box-sizing: border-box;
     }
     button:disabled { opacity: 0.5; cursor: wait; }
-    label { display: flex; flex: 1; }
+    label { display: inline-flex; flex: 0 0 auto; }
+
+    /* Botões com texto ficam flex 1, botões só com ícone ficam compactos */
+    > button:first-child { flex: 1; }
+    > label { flex: 1; }
+    > label > span { width: 100%; }
 `;
 
 const PromptBox = styled.textarea`
