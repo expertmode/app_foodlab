@@ -13,7 +13,7 @@ export default async function ProductDetail({ params }) {
     const products = await readProducts();
     const product = products.find((p) => p.keyName === keyName);
 
-    if (!product || product.hidden) {
+    if (!product) {
         return (
             <MainBox>
                 <div>Produto não encontrado</div>
