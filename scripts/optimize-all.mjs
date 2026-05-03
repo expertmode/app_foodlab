@@ -33,11 +33,11 @@ async function optimize(abs) {
 
         let outBuffer;
         if (ext === 'jpg' || ext === 'jpeg') {
-            outBuffer = await pipeline.jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+            outBuffer = await pipeline.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
         } else if (ext === 'png') {
-            outBuffer = await pipeline.png({ compressionLevel: 9, palette: true }).toBuffer();
+            outBuffer = await pipeline.png({ compressionLevel: 9 }).toBuffer();
         } else if (ext === 'webp') {
-            outBuffer = await pipeline.webp({ quality: 82 }).toBuffer();
+            outBuffer = await pipeline.webp({ quality: 88 }).toBuffer();
         }
 
         if (outBuffer.length < original.length) {
