@@ -2,20 +2,21 @@ import styled from "styled-components";
 import LogoComp from "@/components/homepage/logoComp";
 import ButtonComp from "@/components/homepage/buttonComp";
 import data from "@/data/generalData.json";
-import BannersData from "@/data/bannersData.json";
 import BannersMain from "@/components/homepage/banners/bannersMain";
+import { readBanners } from "@/lib/banners";
 
 export const metadata = {
   title: "FoodLab",
   description: "",
 }
 
-export default function Home() {
+export default async function Home() {
+  const banners = await readBanners();
   return (
     <HomeBox>
       <LogoComp />
       <ButtonComp title={data.homePage.buttonTitle} link={data.homePage.buttonLink} />
-      <BannersMain array={BannersData.banners} />
+      <BannersMain array={banners} />
     </HomeBox>
   );
 }

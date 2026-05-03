@@ -58,6 +58,8 @@ export default function AdminIndex() {
                     onChange={(e) => setFilter(e.target.value)}
                 />
                 <Count>{visible.length} / {products.length}</Count>
+                <Link href="/admin/home"><HomeLink>Banners da Home</HomeLink></Link>
+                <a href="/api/admin/download-all"><DownloadLink>↓ Imagens (.zip)</DownloadLink></a>
                 <InstallButton label="Instalar app" />
                 <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
             </Header>
@@ -203,6 +205,34 @@ const HelpBtn = styled.button`
     cursor: pointer;
 
     &:hover { background: #005E81; color: #fff; }
+`;
+
+const HomeLink = styled.span`
+    display: inline-block;
+    padding: 10px 16px;
+    border: 2px solid #005E81;
+    background: #fff;
+    color: #005E81;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+
+    &:hover { background: #005E81; color: #fff; }
+`;
+
+const DownloadLink = styled.span`
+    display: inline-block;
+    padding: 10px 16px;
+    border: 2px solid #FFB40F;
+    background: #fff;
+    color: #FFB40F;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+
+    &:hover { background: #FFB40F; color: #fff; }
 `;
 
 const Grid = styled.div`
