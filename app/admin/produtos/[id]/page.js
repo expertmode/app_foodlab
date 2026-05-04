@@ -1,5 +1,5 @@
 'use client';
-import { use, useEffect, useState } from 'react';
+import { use, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -182,40 +182,33 @@ export default function ProductAdmin({ params }) {
                 <h2>Imagens principais</h2>
                 <Row>
                     <Field $flex={1}>
+                        <PreviewLabel>Pré-visualização (arrasta a imagem para posicionar)</PreviewLabel>
+                        <PreviewCanvas
+                            scale={p.imgScale ?? 1}
+                            offsetX={p.imgOffsetX ?? 0}
+                            offsetY={p.imgOffsetY ?? 0}
+                            imgSrc={cb(p.imgProd)}
+                            onChange={(x, y) => {
+                                setP({ ...p, imgOffsetX: x, imgOffsetY: y });
+                            }}
+                        />
+                    </Field>
+                    <Field $flex={1}>
                         <label>Escala: {(p.imgScale ?? 1).toFixed(2)}×</label>
-                        <input
-                            type="range"
-                            min="0.5"
-                            max="2"
-                            step="0.05"
+                        <input type="range" min="0.5" max="2" step="0.05"
                             value={p.imgScale ?? 1}
-                            onChange={(e) => updateField('imgScale', parseFloat(e.target.value))}
-                        />
-                    </Field>
-                    <Field $flex={1}>
-                        <label>Deslocar X: {p.imgOffsetX ?? 0}%</label>
-                        <input
-                            type="range"
-                            min="-50"
-                            max="50"
-                            step="1"
+                            onChange={(e) => updateField('imgScale', parseFloat(e.target.value))} />
+                        <label style={{ marginTop: 12 }}>Deslocar X: {p.imgOffsetX ?? 0}%</label>
+                        <input type="range" min="-50" max="50" step="1"
                             value={p.imgOffsetX ?? 0}
-                            onChange={(e) => updateField('imgOffsetX', parseInt(e.target.value, 10))}
-                        />
-                    </Field>
-                    <Field $flex={1}>
-                        <label>Deslocar Y: {p.imgOffsetY ?? 0}% {(p.imgOffsetY ?? 0) > 0 ? '(↑)' : (p.imgOffsetY ?? 0) < 0 ? '(↓)' : ''}</label>
-                        <input
-                            type="range"
-                            min="-50"
-                            max="50"
-                            step="1"
+                            onChange={(e) => updateField('imgOffsetX', parseInt(e.target.value, 10))} />
+                        <label style={{ marginTop: 12 }}>Deslocar Y: {p.imgOffsetY ?? 0}% {(p.imgOffsetY ?? 0) > 0 ? '(↑)' : (p.imgOffsetY ?? 0) < 0 ? '(↓)' : ''}</label>
+                        <input type="range" min="-50" max="50" step="1"
                             value={p.imgOffsetY ?? 0}
-                            onChange={(e) => updateField('imgOffsetY', parseInt(e.target.value, 10))}
-                        />
+                            onChange={(e) => updateField('imgOffsetY', parseInt(e.target.value, 10))} />
+                        <small style={{ color: '#999', marginTop: 8 }}>Aplica-se em simultâneo ao detalhe (banner) e à listagem. Carrega "Guardar alterações".</small>
                     </Field>
                 </Row>
-                <small style={{ color: '#999' }}>Aplica-se ao img_main no detalhe e na listagem. Carrega "Guardar alterações".</small>
                 <Row>
                     <ImageBlock
                         label="img_main (PNG transparente)"
@@ -504,6 +497,51 @@ function HistoryModal({ label, productId, kind, cardId, onClose, onRestored }) {
                 )}
             </ModalCard>
         </ModalBackdrop>
+    );
+}
+
+function PreviewCanvas({ scale, offsetX, offsetY, imgSrc, onChange }) {
+    const ref = useRef(null);
+    const [dragging, setDragging] = useState(false);
+    const start = useRef({ x: 0, y: 0, ox: 0, oy: 0, w: 0, h: 0 });
+
+    const onPointerDown = (e) => {
+        const rect = ref.current?.getBoundingClientRect();
+        if (!rect) return;
+        start.current = { x: e.clientX, y: e.clientY, ox: offsetX, oy: offsetY, w: rect.width, h: rect.height };
+        setDragging(true);
+        e.target.setPointerCapture?.(e.pointerId);
+    };
+    const onPointerMove = (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - start.current.x;
+        const dy = e.clientY - start.current.y;
+        const dPctX = (dx / start.current.w) * 100;
+        const dPctY = (dy / start.current.h) * 100;
+        const nx = Math.max(-50, Math.min(50, Math.round(start.current.ox + dPctX)));
+        const ny = Math.max(-50, Math.min(50, Math.round(start.current.oy - dPctY))); // y invertido
+        onChange(nx, ny);
+    };
+    const onPointerUp = () => setDragging(false);
+
+    return (
+        <PreviewWrap ref={ref}>
+            <PreviewCircle />
+            {imgSrc && (
+                <PreviewImg
+                    src={imgSrc}
+                    draggable={false}
+                    $scale={scale}
+                    $offsetX={offsetX}
+                    $offsetY={offsetY}
+                    $dragging={dragging}
+                    onPointerDown={onPointerDown}
+                    onPointerMove={onPointerMove}
+                    onPointerUp={onPointerUp}
+                    onPointerCancel={onPointerUp}
+                />
+            )}
+        </PreviewWrap>
     );
 }
 
@@ -850,6 +888,48 @@ const Btns = styled.div`
     > button:first-child { flex: 1; }
     > label { flex: 1; }
     > label > span { width: 100%; }
+`;
+
+const PreviewLabel = styled.div`
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 6px;
+`;
+
+const PreviewWrap = styled.div`
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    background: #f0f0eb;
+    border-radius: 12px;
+    overflow: hidden;
+    user-select: none;
+`;
+
+const PreviewCircle = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #fff;
+`;
+
+const PreviewImg = styled.img`
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    height: auto;
+    z-index: 10;
+    object-fit: contain;
+    transform: translate(calc(-50% + ${(p) => p.$offsetX ?? 0}%), ${(p) => -(p.$offsetY ?? 0)}%) scale(${(p) => p.$scale ?? 1});
+    transform-origin: bottom center;
+    cursor: ${(p) => (p.$dragging ? 'grabbing' : 'grab')};
+    touch-action: none;
 `;
 
 const PromptBox = styled.textarea`
