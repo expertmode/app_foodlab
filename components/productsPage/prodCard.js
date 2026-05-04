@@ -14,6 +14,7 @@ export default function ProdCard({ product }) {
                         src={product.imgProd}
                         alt={product.title || "produto"}
                         onError={() => setHidden(true)}
+                        $scale={product.imgScale ?? 1}
                     />
                 )}
             </CardImgArea>
@@ -46,6 +47,8 @@ const ImageBox = styled.img`
     height: auto;
     z-index: 10;
     object-fit: contain;
+    transform: scale(${(p) => p.$scale ?? 1});
+    transform-origin: bottom center;
 `;
 
 const CircleBox = styled.div`

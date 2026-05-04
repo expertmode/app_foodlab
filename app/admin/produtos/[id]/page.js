@@ -180,6 +180,18 @@ export default function ProductAdmin({ params }) {
 
             <Section>
                 <h2>Imagens principais</h2>
+                <Field>
+                    <label>Escala do img_main (banner do detalhe + cartão da listagem): {(p.imgScale ?? 1).toFixed(2)}×</label>
+                    <input
+                        type="range"
+                        min="0.5"
+                        max="2"
+                        step="0.05"
+                        value={p.imgScale ?? 1}
+                        onChange={(e) => updateField('imgScale', parseFloat(e.target.value))}
+                    />
+                    <small style={{ color: '#999' }}>Carrega "Guardar alterações" no fim para aplicar.</small>
+                </Field>
                 <Row>
                     <ImageBlock
                         label="img_main (PNG transparente)"

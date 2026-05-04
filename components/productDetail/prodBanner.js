@@ -18,6 +18,7 @@ export default function ProdBanner({ data }) {
             </BannerImageBox>
             <ProdImgBox
                 $imgSize={data.imgSize}
+                $imgScale={data.imgScale}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 12, duration: 0.15, delay: 0.2 }}
@@ -63,6 +64,8 @@ const Image = styled(motion.div)`
 const ProdImgBox = styled(motion.div)`
     display: flex;
     width: ${props => props.$imgSize || '420px'};
+    transform: scale(${props => props.$imgScale ?? 1});
+    transform-origin: bottom left;
     position: absolute;
     bottom: 24px;
     left: 64px;
