@@ -65,7 +65,7 @@ const Image = styled(motion.div)`
 
 const ProdImgBox = styled(motion.div)`
     display: flex;
-    width: ${props => props.$imgSize || '420px'};
+    width: ${props => props.$imgSize || '560px'};
     transform: translate(${props => props.$offsetX ?? 0}%, ${props => -(props.$offsetY ?? 0)}%) scale(${props => props.$imgScale ?? 1});
     transform-origin: bottom left;
     position: absolute;
