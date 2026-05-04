@@ -18,9 +18,9 @@ export default function ProdBanner({ data }) {
             </BannerImageBox>
             <ProdImgBox
                 $imgSize={data.imgSize}
-                $imgScale={data.imgScaleDetail ?? data.imgScale}
-                $offsetX={data.imgOffsetXDetail ?? data.imgOffsetX}
-                $offsetY={data.imgOffsetYDetail ?? data.imgOffsetY}
+                $imgScale={data.imgScaleDetail ?? 1}
+                $offsetX={data.imgOffsetXDetail ?? 0}
+                $offsetY={data.imgOffsetYDetail ?? 0}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 12, duration: 0.15, delay: 0.2 }}
@@ -65,7 +65,7 @@ const Image = styled(motion.div)`
 
 const ProdImgBox = styled(motion.div)`
     display: flex;
-    width: ${props => props.$imgSize || '560px'};
+    width: ${props => props.$imgSize || '420px'};
     transform: translate(${props => props.$offsetX ?? 0}%, ${props => -(props.$offsetY ?? 0)}%) scale(${props => props.$imgScale ?? 1});
     transform-origin: bottom left;
     position: absolute;
