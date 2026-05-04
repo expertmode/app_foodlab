@@ -55,5 +55,5 @@ const OtherLogoBox = styled(motion.div)`
     display: flex;
     width: 304px;
     height: fit-content;
-    /* align-items: center; */
+    margin-left: auto;
 `;
