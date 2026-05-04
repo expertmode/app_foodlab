@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import sharp from 'sharp';
 import { getBanner, updateBanner } from '@/lib/banners';
 import { generateImage } from '@/lib/replicate';
-import { backupImage } from '@/lib/imageBackup';
-import { optimizeImage } from '@/lib/imageOptimize';
+import { putBlob, contentTypeFor } from '@/lib/blob';
 import { bumpVersion } from '@/lib/version';
+
+async function optimizeBuffer(buffer) {
+    return sharp(buffer)
+        .rotate()
+        .resize({ width: 2048, withoutEnlargement: true })
+        .jpeg({ quality: 88, mozjpeg: true })
+        .toBuffer();
+}
 
 export async function POST(req) {
     try {
@@ -16,7 +22,7 @@ export async function POST(req) {
         const banner = await getBanner(bannerId);
         if (!banner) return NextResponse.json({ error: 'banner not found' }, { status: 404 });
 
-        const buf = await generateImage({
+        const rawBuf = await generateImage({
             prompt,
             aspectRatio: '16:9',
             outputFormat: 'jpg',
@@ -24,20 +30,18 @@ export async function POST(req) {
             referenceImage,
             referenceStrength,
         });
+        const buf = await optimizeBuffer(rawBuf);
+        const key = `banners/banner-${bannerId}.jpg`;
+        const url = await putBlob(key, buf, contentTypeFor(key));
 
-        // Backup previous banner image if exists
-        if (banner.image) {
-            const prevAbs = path.join(process.cwd(), 'public', banner.image.replace(/^\//, ''));
-            await backupImage(prevAbs);
-        }
+        // Push old image into versions array
+        const versions = Array.isArray(banner.versions) ? banner.versions : [];
+        if (banner.image) versions.unshift({ url: banner.image, ts: Date.now() });
 
-        const rel = `images/banners/banner-${bannerId}-${Date.now()}.jpg`;
-        const abs = path.join(process.cwd(), 'public', rel);
-        await fs.mkdir(path.dirname(abs), { recursive: true });
-        await fs.writeFile(abs, buf);
-        await optimizeImage(abs);
-
-        const updated = await updateBanner(bannerId, { image: '/' + rel });
+        const updated = await updateBanner(bannerId, {
+            image: url,
+            versions: versions.slice(0, 30),
+        });
         await bumpVersion();
         return NextResponse.json({ ok: true, banner: updated });
     } catch (e) {

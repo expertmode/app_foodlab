@@ -1,32 +1,73 @@
 import { NextResponse } from 'next/server';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { backupImage } from '@/lib/imageBackup';
-import { optimizeImage } from '@/lib/imageOptimize';
+import sharp from 'sharp';
+import { putBlob, contentTypeFor } from '@/lib/blob';
+import { getProduct, updateProduct } from '@/lib/products';
 import { bumpVersion } from '@/lib/version';
+
+async function optimizeBuffer(buffer, ext) {
+    if (!['jpg','jpeg','png','webp'].includes(ext)) return buffer;
+    let pipeline = sharp(buffer).rotate().resize({ width: 2048, withoutEnlargement: true });
+    if (ext === 'jpg' || ext === 'jpeg') return pipeline.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+    if (ext === 'png') return pipeline.png({ compressionLevel: 9 }).toBuffer();
+    if (ext === 'webp') return pipeline.webp({ quality: 88 }).toBuffer();
+    return buffer;
+}
 
 export async function POST(req) {
     try {
         const form = await req.formData();
         const file = form.get('file');
         const targetPath = form.get('path');
-        if (!file || !targetPath) {
-            return NextResponse.json({ error: 'file and path required' }, { status: 400 });
+        const productId = form.get('productId');
+        const kind = form.get('kind');
+        const cardId = form.get('cardId');
+
+        if (!file) return NextResponse.json({ error: 'file required' }, { status: 400 });
+
+        const ext = (file.name || 'image.jpg').split('.').pop().toLowerCase();
+        const rawBuf = Buffer.from(await file.arrayBuffer());
+        const buf = ext === 'svg' ? rawBuf : await optimizeBuffer(rawBuf, ext);
+
+        // Build blob key
+        let key;
+        if (productId && kind) {
+            const baseFolder = `produtos/prod${productId}`;
+            if (kind === 'card') key = `${baseFolder}/cards/card${cardId}.${ext}`;
+            else if (kind === 'img_main') key = `${baseFolder}/img_main.${ext}`;
+            else if (kind === 'img_bg') key = `${baseFolder}/img_bg.${ext}`;
+            else if (kind === 'bottom_img') key = `${baseFolder}/bottom_img.${ext}`;
+        } else if (targetPath) {
+            const safeRel = String(targetPath).replace(/^\/+/, '').replace(/\.\.+/g, '');
+            key = safeRel.replace(/^images\//, '');
         }
-        const safeRel = String(targetPath).replace(/^\/+/, '').replace(/\.\.+/g, '');
-        const allowedPrefixes = ['images/produtos/', 'images/banners/', 'images/icons/', 'images/pictos/'];
-        if (!allowedPrefixes.some((prefix) => safeRel.startsWith(prefix))) {
-            return NextResponse.json({ error: 'invalid path' }, { status: 400 });
+        if (!key) return NextResponse.json({ error: 'key not derivable' }, { status: 400 });
+
+        const url = await putBlob(key, buf, contentTypeFor(key));
+
+        // Update product DB if context given
+        if (productId && kind) {
+            const p = await getProduct(productId);
+            if (p) {
+                if (kind === 'card') {
+                    const cards = (p.infoCards || []).map((c) => {
+                        if (c.id !== Number(cardId)) return c;
+                        const versions = Array.isArray(c.versions) ? c.versions : [];
+                        if (c.image) versions.unshift({ url: c.image, ts: Date.now() });
+                        return { ...c, image: url, versions: versions.slice(0, 30) };
+                    });
+                    await updateProduct(p.id, { infoCards: cards });
+                } else {
+                    const fileKey = kind === 'img_main' ? 'imgProd' : kind === 'img_bg' ? 'imgBg' : 'bottomImg';
+                    const versionsKey = `${fileKey}Versions`;
+                    const versions = Array.isArray(p[versionsKey]) ? p[versionsKey] : [];
+                    if (p[fileKey]) versions.unshift({ url: p[fileKey], ts: Date.now() });
+                    await updateProduct(p.id, { [fileKey]: url, [versionsKey]: versions.slice(0, 30) });
+                }
+            }
         }
-        const abs = path.join(process.cwd(), 'public', safeRel);
-        await fs.mkdir(path.dirname(abs), { recursive: true });
-        await backupImage(abs);
-        const buf = Buffer.from(await file.arrayBuffer());
-        await fs.writeFile(abs, buf);
-        // Skip optimization for SVGs (sharp would rasterize them)
-        if (!safeRel.endsWith('.svg')) await optimizeImage(abs);
+
         await bumpVersion();
-        return NextResponse.json({ ok: true, path: '/' + safeRel, ts: Date.now() });
+        return NextResponse.json({ ok: true, url, path: url, ts: Date.now() });
     } catch (e) {
         return NextResponse.json({ error: e.message }, { status: 500 });
     }

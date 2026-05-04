@@ -108,6 +108,7 @@ export default function ProductAdmin({ params }) {
             const data = await r.json();
             if (!r.ok) throw new Error(data.error || 'erro');
             setBump((b) => b + 1);
+            await reload();
         } catch (e) {
             alert('Erro a gerar: ' + e.message);
         } finally { setBusy((b) => ({ ...b, [key]: false })); }
@@ -116,23 +117,18 @@ export default function ProductAdmin({ params }) {
     const upload = async (kind, file, cardId) => {
         if (!file) return;
         const key = kind === 'card' ? `card-${cardId}` : kind;
-        const path =
-            kind === 'card'
-                ? p.infoCards.find((c) => c.id === cardId)?.image
-                : kind === 'img_main' ? p.imgProd
-                    : kind === 'img_bg' ? p.imgBg
-                        : kind === 'bottom_img' ? p.bottomImg
-                            : null;
-        if (!path) return;
         setBusy({ ...busy, [key]: true });
         try {
             const fd = new FormData();
             fd.append('file', file);
-            fd.append('path', path);
+            fd.append('productId', String(p.id));
+            fd.append('kind', kind);
+            if (cardId) fd.append('cardId', String(cardId));
             const r = await fetch('/api/admin/upload', { method: 'POST', body: fd });
             const data = await r.json();
             if (!r.ok) throw new Error(data.error || 'erro');
             setBump((b) => b + 1);
+            await reload();
         } catch (e) {
             alert('Erro upload: ' + e.message);
         } finally { setBusy((b) => ({ ...b, [key]: false })); }
@@ -193,7 +189,9 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('img_main', null, prompt, ref, refS)}
                         onUpload={(f) => upload('img_main', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=img_main`).then(r => r.json())).prompt}
-                        onRestore={() => setBump((b) => b + 1)}
+                        onRestore={() => { setBump((b) => b + 1); reload(); }}
+                        productId={p.id}
+                        kind="img_main"
                     />
                     <ImageBlock
                         label="img_bg (banner)"
@@ -203,7 +201,9 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('img_bg', null, prompt, ref, refS)}
                         onUpload={(f) => upload('img_bg', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=img_bg`).then(r => r.json())).prompt}
-                        onRestore={() => setBump((b) => b + 1)}
+                        onRestore={() => { setBump((b) => b + 1); reload(); }}
+                        productId={p.id}
+                        kind="img_bg"
                     />
                     <ImageBlock
                         label="bottom_img"
@@ -213,7 +213,9 @@ export default function ProductAdmin({ params }) {
                         onGenerate={(prompt, ref, refS) => generate('bottom_img', null, prompt, ref, refS)}
                         onUpload={(f) => upload('bottom_img', f)}
                         fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=bottom_img`).then(r => r.json())).prompt}
-                        onRestore={() => setBump((b) => b + 1)}
+                        onRestore={() => { setBump((b) => b + 1); reload(); }}
+                        productId={p.id}
+                        kind="bottom_img"
                     />
                 </Row>
             </Section>
@@ -230,7 +232,10 @@ export default function ProductAdmin({ params }) {
                             onGenerate={(prompt, ref, refS) => generate('card', c.id, prompt, ref, refS)}
                             onUpload={(f) => upload('card', f, c.id)}
                             fetchPrompt={async () => (await fetch(`/api/admin/prompt?productId=${p.id}&kind=card&cardId=${c.id}`).then(r => r.json())).prompt}
-                            onRestore={() => setBump((b) => b + 1)}
+                            onRestore={() => { setBump((b) => b + 1); reload(); }}
+                            productId={p.id}
+                            kind="card"
+                            cardId={c.id}
                         />
                         <Field $flex={1}>
                             <label>Texto do card</label>
@@ -271,7 +276,7 @@ export default function ProductAdmin({ params }) {
     );
 }
 
-function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, onRestore }) {
+function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, onRestore, productId, kind, cardId }) {
     const [drag, setDrag] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [historyOpen, setHistoryOpen] = useState(false);
@@ -327,7 +332,9 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, 
             {historyOpen && (
                 <HistoryModal
                     label={label}
-                    targetPath={path}
+                    productId={productId}
+                    kind={kind}
+                    cardId={cardId}
                     onClose={() => setHistoryOpen(false)}
                     onRestored={() => { onRestore?.(); setHistoryOpen(false); }}
                 />
@@ -336,26 +343,28 @@ function ImageBlock({ label, path, cb, busy, onGenerate, onUpload, fetchPrompt, 
     );
 }
 
-function HistoryModal({ label, targetPath, onClose, onRestored }) {
+function HistoryModal({ label, productId, kind, cardId, onClose, onRestored }) {
     const [versions, setVersions] = useState(null);
     const [busy, setBusy] = useState(false);
 
     const reload = () => {
-        fetch(`/api/admin/versions?path=${encodeURIComponent(targetPath)}`)
+        const q = new URLSearchParams({ productId: String(productId), kind });
+        if (cardId) q.set('cardId', String(cardId));
+        fetch(`/api/admin/versions?${q.toString()}`)
             .then((r) => r.json())
             .then(setVersions);
     };
 
-    useEffect(() => { reload(); }, [targetPath]);
+    useEffect(() => { reload(); }, [productId, kind, cardId]);
 
-    const restore = async (from) => {
+    const restore = async (url) => {
         if (!confirm('Restaurar esta versão? A actual fica guardada como nova versão.')) return;
         setBusy(true);
         try {
             const r = await fetch('/api/admin/restore', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ from, to: targetPath }),
+                body: JSON.stringify({ productId, kind, cardId, url }),
             });
             if (!r.ok) throw new Error(await r.text());
             onRestored();
@@ -365,14 +374,14 @@ function HistoryModal({ label, targetPath, onClose, onRestored }) {
         }
     };
 
-    const remove = async (versionPath) => {
+    const remove = async (url) => {
         if (!confirm('Apagar esta versão definitivamente?')) return;
         setBusy(true);
         try {
             const r = await fetch('/api/admin/versions/delete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ path: versionPath }),
+                body: JSON.stringify({ productId, kind, cardId, url }),
             });
             if (!r.ok) throw new Error(await r.text());
             reload();
@@ -406,16 +415,16 @@ function HistoryModal({ label, targetPath, onClose, onRestored }) {
                     <>
                         <VersionsGrid>
                             {versions.map((v) => (
-                                <Version key={v.path} title={`Restaurar ${new Date(v.ts).toLocaleString()}`}>
+                                <Version key={v.url} title={`Restaurar ${new Date(v.ts).toLocaleString()}`}>
                                     <VersionThumb
-                                        style={{ backgroundImage: `url(${v.path})` }}
-                                        onClick={() => !busy && restore(v.path)}
+                                        style={{ backgroundImage: `url(${v.url})` }}
+                                        onClick={() => !busy && restore(v.url)}
                                     />
                                     <VersionFooter>
                                         <VersionDate>{new Date(v.ts).toLocaleString()}</VersionDate>
                                         <DeleteBtn
                                             disabled={busy}
-                                            onClick={(e) => { e.stopPropagation(); remove(v.path); }}
+                                            onClick={(e) => { e.stopPropagation(); remove(v.url); }}
                                             title="Apagar esta versão"
                                         >
                                             ×
