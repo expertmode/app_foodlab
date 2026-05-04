@@ -165,8 +165,8 @@ const TextThree = styled(motion.p)`
 `;
 
 const TextFour = styled(motion.p)`
-    margin: 32px 0 0 0;
-    font-size: 60px;
+    margin: 96px 0 0 0;
+    font-size: 36px;
     color: #FFFFFF;
     text-align: center;
     z-index: 10;
@@ -174,7 +174,8 @@ const TextFour = styled(motion.p)`
     max-width: 90%;
     overflow-wrap: anywhere;
     word-break: break-word;
-    font-family: "PolySans Media", "Boldonse", system-ui;
+    font-family: "PolySans", "PolySans Median", system-ui;
     font-weight: 500;
     line-height: 1.3;
+    letter-spacing: 0.01em;
 `;
