@@ -2,10 +2,14 @@
   "name": "foodlab",
   "version": "0.1.0",
   "private": true,
+  "main": "electron/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "electron": "electron .",
+    "electron:local": "FOODLAB_URL=http://localhost:3000/?kiosk=1 electron .",
+    "electron:build": "electron-builder --win"
   },
   "dependencies": {
     "@vercel/blob": "^2.3.3",
@@ -18,5 +22,41 @@
     "react-intersection-observer": "^10.0.3",
     "sharp": "^0.34.5",
     "styled-components": "^6.4.0"
+  },
+  "devDependencies": {
+    "electron": "^41.5.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "pt.foodlab.app",
+    "productName": "Foodlab",
+    "files": [
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist-electron"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Foodlab"
+    }
   }
 }
