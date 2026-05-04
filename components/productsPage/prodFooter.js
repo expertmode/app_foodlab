@@ -29,9 +29,11 @@ const MainBox = styled.div`
 `;
 
 const AnimBox = styled(motion.div)`
-    width: 100%;
+    width: 1080px;
     position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
 `;
 
