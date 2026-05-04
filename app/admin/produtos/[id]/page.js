@@ -251,6 +251,30 @@ export default function ProductAdmin({ params }) {
                                 placeholder="Deixa vazio para usar o prompt automático baseado no texto"
                                 onChange={(e) => updateCard(c.id, 'customPrompt', e.target.value)}
                             />
+                            {Array.isArray(c.versions) && c.versions.length > 0 && (
+                                <>
+                                    <label style={{ marginTop: 8 }}>Versões anteriores ({c.versions.length}) — clica para restaurar</label>
+                                    <InlineVersions>
+                                        {c.versions.slice(0, 8).map((v) => (
+                                            <InlineVer
+                                                key={v.url}
+                                                style={{ backgroundImage: `url(${v.url})` }}
+                                                title={`Restaurar ${new Date(v.ts).toLocaleString()}`}
+                                                onClick={async () => {
+                                                    if (!confirm('Restaurar esta versão?')) return;
+                                                    await fetch('/api/admin/restore', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({ productId: p.id, kind: 'card', cardId: c.id, url: v.url }),
+                                                    });
+                                                    setBump((b) => b + 1);
+                                                    await reload();
+                                                }}
+                                            />
+                                        ))}
+                                    </InlineVersions>
+                                </>
+                            )}
                             <RemoveItemBtn onClick={() => removeCard(c.id)}>Remover card</RemoveItemBtn>
                         </Field>
                     </CardEdit>
@@ -674,6 +698,26 @@ const AddItemBtn = styled.button`
     cursor: pointer;
 
     &:hover { background: #f0f8fb; }
+`;
+
+const InlineVersions = styled.div`
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+`;
+
+const InlineVer = styled.div`
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.1s;
+
+    &:hover { border-color: #005E81; transform: scale(1.05); }
 `;
 
 const RemoveItemBtn = styled.button`
