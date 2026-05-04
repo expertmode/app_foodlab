@@ -15,7 +15,7 @@ export async function GET(req) {
     if (kind === 'card') {
         const card = (product.infoCards || []).find((c) => c.id === Number(cardId));
         if (!card) return NextResponse.json({ error: 'card not found' }, { status: 404 });
-        prompt = cardPrompt(
+        prompt = (card.customPrompt && card.customPrompt.trim()) || cardPrompt(
             clean(card.desc),
             clean(product.title).replace(/\n/g, ' '),
             clean(product.subTitle).replace(/\n/g, ' '),

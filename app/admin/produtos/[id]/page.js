@@ -240,9 +240,16 @@ export default function ProductAdmin({ params }) {
                         <Field $flex={1}>
                             <label>Texto do card</label>
                             <textarea
-                                rows={4}
+                                rows={3}
                                 value={c.desc || ''}
                                 onChange={(e) => updateCard(c.id, 'desc', e.target.value)}
+                            />
+                            <label style={{ marginTop: 8 }}>Prompt custom (opcional — usado em vez do automático na geração)</label>
+                            <textarea
+                                rows={3}
+                                value={c.customPrompt || ''}
+                                placeholder="Deixa vazio para usar o prompt automático baseado no texto"
+                                onChange={(e) => updateCard(c.id, 'customPrompt', e.target.value)}
                             />
                             <RemoveItemBtn onClick={() => removeCard(c.id)}>Remover card</RemoveItemBtn>
                         </Field>
@@ -442,6 +449,8 @@ function HistoryModal({ label, productId, kind, cardId, onClose, onRestored }) {
 
 function GenerateModal({ label, fetchPrompt, currentImagePath, cb, onClose, onConfirm }) {
     const [prompt, setPrompt] = useState('');
+    const [extra, setExtra] = useState('');
+    const [autoPrompt, setAutoPrompt] = useState('');
     const [loading, setLoading] = useState(true);
     const [refs, setRefs] = useState([]); // array of data URLs
     const [strength, setStrength] = useState(0.7);
@@ -449,9 +458,13 @@ function GenerateModal({ label, fetchPrompt, currentImagePath, cb, onClose, onCo
     useEffect(() => {
         fetchPrompt().then((p) => {
             setPrompt(p);
+            setAutoPrompt(p);
             setLoading(false);
         });
     }, []);
+
+    const resetPrompt = () => setPrompt(autoPrompt);
+    const finalPrompt = extra.trim() ? `${prompt} ${extra.trim()}` : prompt;
 
     const addRefs = (files) => {
         if (!files || !files.length) return;
@@ -486,12 +499,23 @@ function GenerateModal({ label, fetchPrompt, currentImagePath, cb, onClose, onCo
                 </ModalHeader>
 
                 <ModalSection>
-                    <SectionTitle>Prompt</SectionTitle>
+                    <SectionTitle>Prompt automático <button type="button" onClick={resetPrompt} style={{ marginLeft: 8, fontSize: 11, padding: '2px 8px', border: '1px solid #005E81', background: '#fff', color: '#005E81', borderRadius: 4, cursor: 'pointer' }}>↺ Repor</button></SectionTitle>
                     <PromptBox
-                        rows={8}
+                        rows={6}
                         value={loading ? 'A carregar prompt…' : prompt}
                         onChange={(e) => setPrompt(e.target.value)}
                         disabled={loading}
+                    />
+                </ModalSection>
+
+                <ModalSection>
+                    <SectionTitle>Adicionar ao prompt (opcional)</SectionTitle>
+                    <small>Texto extra a anexar ao prompt acima — para teus ajustes sem mexer no automático.</small>
+                    <PromptBox
+                        rows={3}
+                        value={extra}
+                        onChange={(e) => setExtra(e.target.value)}
+                        placeholder="Ex: usa tons mais quentes, foco no detalhe central, etc."
                     />
                 </ModalSection>
 
@@ -540,7 +564,7 @@ function GenerateModal({ label, fetchPrompt, currentImagePath, cb, onClose, onCo
                     <CancelBtn onClick={onClose}>Cancelar</CancelBtn>
                     <ConfirmBtn
                         disabled={loading}
-                        onClick={() => onConfirm(prompt, refs, strength)}
+                        onClick={() => onConfirm(finalPrompt, refs, strength)}
                     >
                         Gerar agora
                     </ConfirmBtn>
