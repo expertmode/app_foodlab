@@ -6,6 +6,7 @@ import PwaRegister from "@/components/global/pwaRegister";
 import WarmupCache from "@/components/global/warmupCache";
 import AutoRefresh from "@/components/global/autoRefresh";
 import VersionPoller from "@/components/global/versionPoller";
+import StyledComponentsRegistry from "@/components/global/styledComponentsRegistry";
 import ProdFooter from "@/components/productsPage/prodFooter";
 
 const dm_sans = DM_Sans({
@@ -30,15 +31,17 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <KioskGuard />
-        <PwaRegister />
-        <WarmupCache />
-        <AutoRefresh />
-        <VersionPoller />
-        <MainLayoutComp>
-          {children}
-        </MainLayoutComp>
-        <ProdFooter />
+        <StyledComponentsRegistry>
+          <KioskGuard />
+          <PwaRegister />
+          <WarmupCache />
+          <AutoRefresh />
+          <VersionPoller />
+          <MainLayoutComp>
+            {children}
+          </MainLayoutComp>
+          <ProdFooter />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

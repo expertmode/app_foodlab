@@ -15,7 +15,19 @@ html, body {
   font-size: 16px;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
   /* scroll-behavior: smooth; */
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
   
 a {
