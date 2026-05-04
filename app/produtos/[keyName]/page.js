@@ -7,6 +7,7 @@ import ProdPictos from "@/components/productDetail/prodPictos";
 import ProdSliderMain from "@/components/productDetail/prodSliderMain";
 import ProdDescription from "@/components/productDetail/prodDescription";
 import ButtonBack from "@/components/productDetail/buttonBack";
+import EventTracker from "@/components/global/eventTracker";
 
 export const dynamic = 'force-dynamic';
 
@@ -25,6 +26,7 @@ export default async function ProductDetail({ params }) {
 
     return (
         <MainBox>
+            <EventTracker type="product_view" ref={String(product.id)} />
             <ButtonBackWrapper>
                 <ButtonBack link="/produtos" title="Voltar" />
             </ButtonBackWrapper>

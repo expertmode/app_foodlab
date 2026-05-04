@@ -75,6 +75,7 @@ export default function AdminIndex() {
                 <Link href="/admin/home"><MiniLink>Banners</MiniLink></Link>
                 <Link href="/admin/filtros"><MiniLink>Filtros</MiniLink></Link>
                 <Link href="/admin/icons"><MiniLink>Ícones</MiniLink></Link>
+                <Link href="/admin/analytics"><MiniLink>Analytics</MiniLink></Link>
                 <a href="/api/admin/download-all"><MiniDownload>↓ .zip</MiniDownload></a>
                 <MiniLink onClick={async () => {
                     const r = await fetch('/api/admin/bump-version', { method: 'POST' });

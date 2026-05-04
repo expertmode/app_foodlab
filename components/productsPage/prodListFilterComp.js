@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import ProdListFilterCard from "./prodListFilterCard";
 import { useFilter } from "@/contexts/FilterContext";
+import { trackEvent } from "@/components/global/eventTracker";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,6 +29,7 @@ export default function ProdListFilterComp({ isOpen, filters = [] }) {
 
     const handleCardClick = (id) => {
         setSelectedFilterId(id);
+        trackEvent('filter_click', String(id));
     };
 
     return (
