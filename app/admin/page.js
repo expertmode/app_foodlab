@@ -195,21 +195,6 @@ export default function AdminIndex() {
                                 <li>Workflow recomendado para iterar: Geras imagem <b>A</b> → não gostas → no novo "Gerar" clicas <b>⟳ Usar actual</b> e ajustas o prompt → a nova <b>B</b> é uma variação refinada de A.</li>
                                 <li>Se a B for pior, abre o histórico (⟲) e restaura a A.</li>
                             </ul>
-                            <h4>Limitações actuais</h4>
-                            <ul>
-                                <li>Só faz <i>image-to-image</i> simples (uma referência inteira + prompt). Não suporta:
-                                    <ul>
-                                        <li><b>Inpainting</b>: pintar máscara sobre a parte a mudar e regenerar só essa área (ex.: trocar só o fundo, manter o produto).</li>
-                                        <li><b>ControlNet</b>: condicionar a geração por edges, profundidade ou pose da imagem original (manter a forma exacta, variar texturas).</li>
-                                    </ul>
-                                    Ambos são possíveis via Replicate (~$0.05–0.10/imagem) mas exigem UI de máscara/upload extra. Pode ser adicionado quando precisares.
-                                </li>
-                            </ul>
-                            <h4>Custos</h4>
-                            <ul>
-                                <li>Cada geração custa ~$0.025 (flux-dev, default) ou ~$0.003 (flux-schnell — não suporta imagens de referência).</li>
-                                <li>O saldo gere-se em <a href="https://replicate.com/account/billing" target="_blank" rel="noreferrer">replicate.com/account/billing</a>.</li>
-                            </ul>
                         </Help>
                     </ModalCard>
                 </ModalBackdrop>
