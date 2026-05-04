@@ -104,7 +104,7 @@ export default function AdminIndex() {
                         >
                             {p.hidden ? 'Escondido' : 'Visível'}
                         </VisToggle>
-                        <Thumb style={{ backgroundImage: `url(${p.imgProd}?t=${Date.now()})` }} />
+                        <Thumb style={{ backgroundImage: `url(${p.imgProd})` }} loading="lazy" />
                         <Info>
                             <Pid>#{p.id}</Pid>
                             <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
