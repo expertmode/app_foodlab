@@ -36,6 +36,19 @@ export default function KioskGuard() {
             e.returnValue = '';
         });
 
+        // Pedir fullscreen no primeiro toque/click (necessário gesto do utilizador)
+        const tryFullscreen = () => {
+            const el = document.documentElement;
+            const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+            if (req && !document.fullscreenElement) {
+                req.call(el).catch(() => {});
+            }
+            document.removeEventListener('touchstart', tryFullscreen);
+            document.removeEventListener('click', tryFullscreen);
+        };
+        document.addEventListener('touchstart', tryFullscreen, { once: true });
+        document.addEventListener('click', tryFullscreen, { once: true });
+
         return () => {
             document.removeEventListener('contextmenu', blockEvent);
             document.removeEventListener('selectstart', blockEvent);
