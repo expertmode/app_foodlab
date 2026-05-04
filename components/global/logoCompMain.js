@@ -43,6 +43,8 @@ const HeaderBox = styled(motion.div)`
     background-color: white;
     overflow: hidden;
     gap: 48px;
+    padding: 0 48px;
+    box-sizing: border-box;
     z-index: 20;
 `;
 
