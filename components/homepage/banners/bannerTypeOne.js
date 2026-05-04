@@ -65,6 +65,16 @@ export default function BannerTypeOne({ data }) {
                         >
                             {data.text3}
                         </TextThree>
+                        {data.text4 && (
+                            <TextFour
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 1.1 }}
+                            >
+                                {data.text4}
+                            </TextFour>
+                        )}
                     </TextContainer>
                 </div>
             </AnimatePresence>
@@ -143,4 +153,16 @@ const TextThree = styled(motion.p)`
     font-weight: 400;
     line-height: 1.4;
     text-transform: uppercase;
+`;
+
+const TextFour = styled(motion.p)`
+    margin: 32px 0 0 0;
+    font-size: 60px;
+    color: #FFFFFF;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    font-family: "PolySans Media", "Boldonse", system-ui;
+    font-weight: 500;
+    line-height: 1.3;
 `;

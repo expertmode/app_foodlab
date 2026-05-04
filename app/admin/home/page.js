@@ -238,6 +238,13 @@ export default function HomeAdmin() {
                                 />
                             </Field>
                             <Field>
+                                <label>Texto 4 (subtítulo, ex: "Saiba mais sobre o futuro da alimentação")</label>
+                                <input
+                                    defaultValue={b.text4 || ''}
+                                    onBlur={(e) => e.target.value !== b.text4 && update(b.id, { text4: e.target.value })}
+                                />
+                            </Field>
+                            <Field>
                                 <label>Ordem</label>
                                 <input
                                     type="number"
