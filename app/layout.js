@@ -8,6 +8,7 @@ import AutoRefresh from "@/components/global/autoRefresh";
 import VersionPoller from "@/components/global/versionPoller";
 import StyledComponentsRegistry from "@/components/global/styledComponentsRegistry";
 import TouchHint from "@/components/global/touchHint";
+import IdleRedirect from "@/components/global/idleRedirect";
 import ProdFooter from "@/components/productsPage/prodFooter";
 
 const dm_sans = DM_Sans({
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
           <WarmupCache />
           <AutoRefresh />
           <VersionPoller />
+          <IdleRedirect />
           <MainLayoutComp>
             {children}
           </MainLayoutComp>
