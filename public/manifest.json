@@ -3,6 +3,8 @@
     "short_name": "Foodlab",
     "description": "Foodlab — quiosque interativo",
     "start_url": "/",
+    "scope": "/",
+    "id": "/",
     "display": "fullscreen",
     "orientation": "any",
     "background_color": "#f0f0eb",
