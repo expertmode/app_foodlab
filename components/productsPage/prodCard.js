@@ -42,7 +42,7 @@ const CardImgArea = styled.div`
 const ImageBox = styled.img`
     position: absolute;
     bottom: 0;
-    width: 55%;
+    width: 80%;
     height: auto;
     z-index: 10;
     object-fit: contain;
@@ -51,7 +51,7 @@ const ImageBox = styled.img`
 const CircleBox = styled.div`
     position: absolute;
     bottom: 0;
-    width: 250px;
+    width: 320px;
     aspect-ratio: 1 / 1;
     border-radius: 1000px;
     background-color: #fff;

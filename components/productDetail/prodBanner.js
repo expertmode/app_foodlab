@@ -62,7 +62,7 @@ const Image = styled(motion.div)`
 
 const ProdImgBox = styled(motion.div)`
     display: flex;
-    width: ${props => props.$imgSize || '288px'};
+    width: ${props => props.$imgSize || '420px'};
     position: absolute;
     bottom: 24px;
     left: 64px;
