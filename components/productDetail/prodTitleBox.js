@@ -1,7 +1,6 @@
 'use client';
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import ButtonBack from "./buttonBack";
 
 export default function ProdTitleBox({ data }) {
     return (
@@ -20,15 +19,15 @@ export default function ProdTitleBox({ data }) {
             >
                 {data.subTitle}
             </SubTitleText>
-            <PpsText
+            <PpsBox
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
             >
-                {data.pps}
-            </PpsText>
-            {/* <ButtonBack link="/produtos" title="Voltar" /> */}
-
+                <PpsText>
+                    {data.pps}
+                </PpsText>
+            </PpsBox>
         </MainBox>
     )
 };
@@ -61,7 +60,15 @@ const SubTitleText = styled(motion.p)`
     color: #005E81;
 `;
 
-const PpsText = styled(motion.p)`
+const PpsBox = styled(motion.div)`
+    display: flex;
+    width: fit-content;
+    padding: 8px 24px;
+    border:  2px solid #005E81;
+    border-radius: 500px;
+`;
+
+const PpsText = styled.p`
     font-weight: 600;
     font-size: 24px;
     margin: 0;
