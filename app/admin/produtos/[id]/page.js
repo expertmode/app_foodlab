@@ -180,18 +180,42 @@ export default function ProductAdmin({ params }) {
 
             <Section>
                 <h2>Imagens principais</h2>
-                <Field>
-                    <label>Escala do img_main (banner do detalhe + cartão da listagem): {(p.imgScale ?? 1).toFixed(2)}×</label>
-                    <input
-                        type="range"
-                        min="0.5"
-                        max="2"
-                        step="0.05"
-                        value={p.imgScale ?? 1}
-                        onChange={(e) => updateField('imgScale', parseFloat(e.target.value))}
-                    />
-                    <small style={{ color: '#999' }}>Carrega "Guardar alterações" no fim para aplicar.</small>
-                </Field>
+                <Row>
+                    <Field $flex={1}>
+                        <label>Escala: {(p.imgScale ?? 1).toFixed(2)}×</label>
+                        <input
+                            type="range"
+                            min="0.5"
+                            max="2"
+                            step="0.05"
+                            value={p.imgScale ?? 1}
+                            onChange={(e) => updateField('imgScale', parseFloat(e.target.value))}
+                        />
+                    </Field>
+                    <Field $flex={1}>
+                        <label>Deslocar X: {p.imgOffsetX ?? 0}%</label>
+                        <input
+                            type="range"
+                            min="-50"
+                            max="50"
+                            step="1"
+                            value={p.imgOffsetX ?? 0}
+                            onChange={(e) => updateField('imgOffsetX', parseInt(e.target.value, 10))}
+                        />
+                    </Field>
+                    <Field $flex={1}>
+                        <label>Deslocar Y: {p.imgOffsetY ?? 0}% {(p.imgOffsetY ?? 0) > 0 ? '(↑)' : (p.imgOffsetY ?? 0) < 0 ? '(↓)' : ''}</label>
+                        <input
+                            type="range"
+                            min="-50"
+                            max="50"
+                            step="1"
+                            value={p.imgOffsetY ?? 0}
+                            onChange={(e) => updateField('imgOffsetY', parseInt(e.target.value, 10))}
+                        />
+                    </Field>
+                </Row>
+                <small style={{ color: '#999' }}>Aplica-se ao img_main no detalhe e na listagem. Carrega "Guardar alterações".</small>
                 <Row>
                     <ImageBlock
                         label="img_main (PNG transparente)"

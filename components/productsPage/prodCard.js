@@ -15,6 +15,8 @@ export default function ProdCard({ product }) {
                         alt={product.title || "produto"}
                         onError={() => setHidden(true)}
                         $scale={product.imgScale ?? 1}
+                        $offsetX={product.imgOffsetX ?? 0}
+                        $offsetY={product.imgOffsetY ?? 0}
                     />
                 )}
             </CardImgArea>
@@ -47,7 +49,7 @@ const ImageBox = styled.img`
     height: auto;
     z-index: 10;
     object-fit: contain;
-    transform: scale(${(p) => p.$scale ?? 1});
+    transform: translate(${(p) => p.$offsetX ?? 0}%, ${(p) => -(p.$offsetY ?? 0)}%) scale(${(p) => p.$scale ?? 1});
     transform-origin: bottom center;
 `;
 
