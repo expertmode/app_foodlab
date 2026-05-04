@@ -122,6 +122,9 @@ const TextOne = styled(motion.p)`
     text-align: center;
     z-index: 10;
     position: relative;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
     line-height: 1.4;
@@ -135,6 +138,9 @@ const TextTwo = styled(motion.p)`
     text-align: center;
     z-index: 10;
     position: relative;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
     line-height: 1.4;
@@ -149,6 +155,9 @@ const TextThree = styled(motion.p)`
     text-align: center;
     z-index: 10;
     position: relative;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
     line-height: 1.4;
@@ -162,6 +171,9 @@ const TextFour = styled(motion.p)`
     text-align: center;
     z-index: 10;
     position: relative;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     font-family: "PolySans Media", "Boldonse", system-ui;
     font-weight: 500;
     line-height: 1.3;
