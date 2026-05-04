@@ -31,6 +31,24 @@ export default function KioskGuard() {
         document.addEventListener('selectstart', blockEvent);
         document.addEventListener('dragstart', blockEvent);
         document.addEventListener('keydown', blockKey, true);
+
+        // Bloquear multi-touch (zoom/pinch)
+        const blockMultiTouch = (e) => {
+            if (e.touches && e.touches.length > 1) e.preventDefault();
+        };
+        document.addEventListener('touchstart', blockMultiTouch, { passive: false });
+        document.addEventListener('touchmove', blockMultiTouch, { passive: false });
+        // Safari/iOS: bloquear gesture events (pinch-zoom)
+        document.addEventListener('gesturestart', blockEvent);
+        document.addEventListener('gesturechange', blockEvent);
+        document.addEventListener('gestureend', blockEvent);
+        // Bloquear double-tap zoom
+        let lastTap = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTap < 350) e.preventDefault();
+            lastTap = now;
+        }, { passive: false });
         window.addEventListener('beforeunload', (e) => {
             e.preventDefault();
             e.returnValue = '';
