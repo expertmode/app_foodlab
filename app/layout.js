@@ -6,6 +6,7 @@ import PwaRegister from "@/components/global/pwaRegister";
 import WarmupCache from "@/components/global/warmupCache";
 import AutoRefresh from "@/components/global/autoRefresh";
 import VersionPoller from "@/components/global/versionPoller";
+import ProdFooter from "@/components/productsPage/prodFooter";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <MainLayoutComp>
           {children}
         </MainLayoutComp>
+        <ProdFooter />
       </body>
     </html>
   );

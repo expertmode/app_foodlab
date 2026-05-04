@@ -1,9 +1,12 @@
 'use client';
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 import ImageComp from "../global/imageComp";
 import { motion } from "framer-motion";
 
 export default function ProdFooter() {
+    const pathname = usePathname();
+    if (pathname?.startsWith('/admin')) return null;
     return (
         <AnimBox
             initial={{ opacity: 0 }}
