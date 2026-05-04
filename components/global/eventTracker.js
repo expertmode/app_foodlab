@@ -20,9 +20,9 @@ export function trackEvent(type, ref, meta) {
 }
 
 // Wrapper component to fire on mount
-export default function EventTracker({ type, ref: refValue, meta }) {
+export default function EventTracker({ type, refId, meta }) {
     useEffect(() => {
-        trackEvent(type, refValue, meta);
-    }, [type, refValue]);
+        trackEvent(type, refId, meta);
+    }, [type, refId]);
     return null;
 }

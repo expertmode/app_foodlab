@@ -26,7 +26,7 @@ export default async function ProductDetail({ params }) {
 
     return (
         <MainBox>
-            <EventTracker type="product_view" ref={String(product.id)} />
+            <EventTracker type="product_view" refId={String(product.id)} />
             <ButtonBackWrapper>
                 <ButtonBack link="/produtos" title="Voltar" />
             </ButtonBackWrapper>
