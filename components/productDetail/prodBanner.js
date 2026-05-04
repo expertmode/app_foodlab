@@ -18,7 +18,7 @@ export default function ProdBanner({ data }) {
             </BannerImageBox>
             <ProdImgBox
                 $imgSize={data.imgSize}
-                $imgScale={data.imgScale}
+                $imgScale={data.imgScaleDetail ?? data.imgScale}
                 $offsetX={data.imgOffsetX}
                 $offsetY={data.imgOffsetY}
                 initial={{ scale: 1.1, opacity: 0 }}

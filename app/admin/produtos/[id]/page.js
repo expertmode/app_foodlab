@@ -194,10 +194,14 @@ export default function ProductAdmin({ params }) {
                         />
                     </Field>
                     <Field $flex={1}>
-                        <label>Escala: {(p.imgScale ?? 1).toFixed(2)}×</label>
+                        <label>Escala (listagem): {(p.imgScale ?? 1).toFixed(2)}×</label>
                         <input type="range" min="0.5" max="2" step="0.05"
                             value={p.imgScale ?? 1}
                             onChange={(e) => updateField('imgScale', parseFloat(e.target.value))} />
+                        <label style={{ marginTop: 12 }}>Escala (detalhe): {(p.imgScaleDetail ?? 1).toFixed(2)}×</label>
+                        <input type="range" min="0.5" max="2.5" step="0.05"
+                            value={p.imgScaleDetail ?? 1}
+                            onChange={(e) => updateField('imgScaleDetail', parseFloat(e.target.value))} />
                         <label style={{ marginTop: 12 }}>Deslocar X: {p.imgOffsetX ?? 0}%</label>
                         <input type="range" min="-50" max="50" step="1"
                             value={p.imgOffsetX ?? 0}
