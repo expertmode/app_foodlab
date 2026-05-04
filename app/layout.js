@@ -7,6 +7,7 @@ import WarmupCache from "@/components/global/warmupCache";
 import AutoRefresh from "@/components/global/autoRefresh";
 import VersionPoller from "@/components/global/versionPoller";
 import StyledComponentsRegistry from "@/components/global/styledComponentsRegistry";
+import TouchHint from "@/components/global/touchHint";
 import ProdFooter from "@/components/productsPage/prodFooter";
 
 const dm_sans = DM_Sans({
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
             {children}
           </MainLayoutComp>
           <ProdFooter />
+          <TouchHint />
         </StyledComponentsRegistry>
       </body>
     </html>
