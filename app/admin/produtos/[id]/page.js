@@ -202,6 +202,14 @@ export default function ProductAdmin({ params }) {
                         <input type="range" min="0.5" max="2.5" step="0.05"
                             value={p.imgScaleDetail ?? 1}
                             onChange={(e) => updateField('imgScaleDetail', parseFloat(e.target.value))} />
+                        <label style={{ marginTop: 12 }}>Deslocar X (detalhe): {p.imgOffsetXDetail ?? 0}%</label>
+                        <input type="range" min="-100" max="100" step="1"
+                            value={p.imgOffsetXDetail ?? 0}
+                            onChange={(e) => updateField('imgOffsetXDetail', parseInt(e.target.value, 10))} />
+                        <label style={{ marginTop: 12 }}>Deslocar Y (detalhe): {p.imgOffsetYDetail ?? 0}%</label>
+                        <input type="range" min="-100" max="100" step="1"
+                            value={p.imgOffsetYDetail ?? 0}
+                            onChange={(e) => updateField('imgOffsetYDetail', parseInt(e.target.value, 10))} />
                         <label style={{ marginTop: 12 }}>Deslocar X: {p.imgOffsetX ?? 0}%</label>
                         <input type="range" min="-50" max="50" step="1"
                             value={p.imgOffsetX ?? 0}

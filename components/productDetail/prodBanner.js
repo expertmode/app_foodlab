@@ -19,8 +19,8 @@ export default function ProdBanner({ data }) {
             <ProdImgBox
                 $imgSize={data.imgSize}
                 $imgScale={data.imgScaleDetail ?? data.imgScale}
-                $offsetX={data.imgOffsetX}
-                $offsetY={data.imgOffsetY}
+                $offsetX={data.imgOffsetXDetail ?? data.imgOffsetX}
+                $offsetY={data.imgOffsetYDetail ?? data.imgOffsetY}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 12, duration: 0.15, delay: 0.2 }}
