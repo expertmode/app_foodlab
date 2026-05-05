@@ -174,7 +174,7 @@ const TextFour = styled(motion.p)`
     max-width: 90%;
     overflow-wrap: anywhere;
     word-break: break-word;
-    font-family: "PolySans", "PolySans Median", system-ui;
+    /* font-family: "PolySans", "PolySans Median", system-ui; */
     font-weight: 500;
     line-height: 1.3;
     letter-spacing: 0.01em;
