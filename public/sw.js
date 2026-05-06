@@ -1,5 +1,5 @@
 // Service Worker — cache para modo quiosque/offline
-const VERSION = 'foodlab-v3';
+const VERSION = 'foodlab-v4';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const STATIC_CACHE = `${VERSION}-static`;
 const IMAGE_CACHE = `${VERSION}-images`;
@@ -9,6 +9,8 @@ const APP_SHELL_URLS = [
     '/produtos',
     '/manifest.json',
 ];
+
+const WARMUP_CONCURRENCY = 4;
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -28,16 +30,35 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Mensagens vindas das páginas
-self.addEventListener('message', async (event) => {
+self.addEventListener('message', (event) => {
     if (event.data?.type === 'FORCE_REFRESH_ALL') {
-        // Limpar todas as caches e mandar todos os clientes recarregar
-        const keys = await caches.keys();
-        await Promise.all(keys.map((k) => caches.delete(k)));
-        const clients = await self.clients.matchAll({ type: 'window' });
-        for (const c of clients) c.postMessage({ type: 'FORCE_RELOAD' });
+        event.waitUntil((async () => {
+            const keys = await caches.keys();
+            await Promise.all(keys.map((k) => caches.delete(k)));
+            const clients = await self.clients.matchAll({ type: 'window' });
+            for (const c of clients) c.postMessage({ type: 'FORCE_RELOAD' });
+        })());
+        return;
+    }
+    if (event.data?.type === 'WARMUP_PAGES') {
+        const urls = Array.isArray(event.data.urls) ? event.data.urls : [];
+        if (urls.length) event.waitUntil(warmupPages(urls));
     }
 });
+
+async function warmupPages(urls) {
+    const cache = await caches.open(APP_SHELL_CACHE);
+    const queue = [...urls];
+    await Promise.all(Array.from({ length: WARMUP_CONCURRENCY }, async () => {
+        while (queue.length) {
+            const url = queue.shift();
+            try {
+                const res = await fetch(url, { credentials: 'same-origin' });
+                if (res && res.ok) await cache.put(url, res.clone());
+            } catch { /* ignore */ }
+        }
+    }));
+}
 
 self.addEventListener('fetch', (event) => {
     const { request } = event;
@@ -45,18 +66,18 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(request.url);
 
-    // Skip admin and API routes — always go to network
+    // Admin e API: sempre rede, sem cache
     if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) {
         return;
     }
 
-    // Images: stale-while-revalidate — serve cache instantly but refresh in background
+    // Imagens: stale-while-revalidate
     if (request.destination === 'image' || url.pathname.startsWith('/images/')) {
         event.respondWith(staleWhileRevalidate(request, IMAGE_CACHE));
         return;
     }
 
-    // Static assets (Next chunks, fonts, css): cache-first
+    // Estáticos do Next, fontes, css, js: cache-first
     if (
         url.pathname.startsWith('/_next/static/') ||
         request.destination === 'style' ||
@@ -67,15 +88,27 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // HTML / navigation: network-first com fallback ao cache
+    // HTML / navegação: stale-while-revalidate (serve do cache instantâneo, refresca atrás)
     if (request.mode === 'navigate' || request.destination === 'document') {
-        event.respondWith(networkFirst(request, APP_SHELL_CACHE));
+        event.respondWith(navigationHandler(request));
         return;
     }
 
-    // Default: stale-while-revalidate
+    // Default
     event.respondWith(staleWhileRevalidate(request, STATIC_CACHE));
 });
+
+async function navigationHandler(request) {
+    const cache = await caches.open(APP_SHELL_CACHE);
+    const cached = await cache.match(request, { ignoreSearch: true });
+    const fetchPromise = fetch(request)
+        .then((res) => {
+            if (res && res.ok) cache.put(request, res.clone());
+            return res;
+        })
+        .catch(async () => cached || (await cache.match('/', { ignoreSearch: true })) || new Response('offline', { status: 503 }));
+    return cached || fetchPromise;
+}
 
 async function cacheFirst(request, cacheName) {
     const cache = await caches.open(cacheName);
@@ -86,18 +119,6 @@ async function cacheFirst(request, cacheName) {
         if (res && res.ok) cache.put(request, res.clone());
         return res;
     } catch {
-        return cached || new Response('offline', { status: 503 });
-    }
-}
-
-async function networkFirst(request, cacheName) {
-    const cache = await caches.open(cacheName);
-    try {
-        const res = await fetch(request);
-        if (res && res.ok) cache.put(request, res.clone());
-        return res;
-    } catch {
-        const cached = await cache.match(request) || await cache.match('/');
         return cached || new Response('offline', { status: 503 });
     }
 }

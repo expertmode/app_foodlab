@@ -2,14 +2,12 @@
 import { useEffect } from 'react';
 
 const CONCURRENCY = 4;
-const STORAGE_KEY = 'foodlab_warmup_v1';
+const STORAGE_KEY = 'foodlab_warmup_v2';
 
 export default function WarmupCache() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        // Skip in admin
         if (window.location.pathname.startsWith('/admin')) return;
-        // Run only once per browser/session combo
         if (sessionStorage.getItem(STORAGE_KEY) === 'done') return;
 
         const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
@@ -17,21 +15,40 @@ export default function WarmupCache() {
             try {
                 const res = await fetch('/api/precache');
                 if (!res.ok) return;
-                const { urls } = await res.json();
-                if (!Array.isArray(urls) || urls.length === 0) return;
+                const { images = [], pages = [] } = await res.json();
 
-                // Fetch em paralelo limitado
-                const queue = [...urls];
-                const workers = Array.from({ length: CONCURRENCY }, async () => {
-                    while (queue.length) {
-                        const url = queue.shift();
-                        try {
-                            await fetch(url, { cache: 'force-cache', mode: 'no-cors' });
-                        } catch { /* ignore */ }
+                if (Array.isArray(images) && images.length) {
+                    const queue = [...images];
+                    const workers = Array.from({ length: CONCURRENCY }, async () => {
+                        while (queue.length) {
+                            const url = queue.shift();
+                            try {
+                                await fetch(url, { cache: 'force-cache', mode: 'no-cors' });
+                            } catch { /* ignore */ }
+                        }
+                    });
+                    await Promise.all(workers);
+                }
+
+                let pagesWarmed = true;
+                if (Array.isArray(pages) && pages.length && 'serviceWorker' in navigator) {
+                    try {
+                        await navigator.serviceWorker.ready;
+                        if (navigator.serviceWorker.controller) {
+                            navigator.serviceWorker.controller.postMessage({
+                                type: 'WARMUP_PAGES',
+                                urls: pages,
+                            });
+                        } else {
+                            // SW ainda não controla esta página; tentamos no próximo carregamento
+                            pagesWarmed = false;
+                        }
+                    } catch {
+                        pagesWarmed = false;
                     }
-                });
-                await Promise.all(workers);
-                sessionStorage.setItem(STORAGE_KEY, 'done');
+                }
+
+                if (pagesWarmed) sessionStorage.setItem(STORAGE_KEY, 'done');
             } catch { /* ignore */ }
         });
     }, []);

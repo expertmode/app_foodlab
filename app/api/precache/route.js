@@ -4,28 +4,35 @@ import { readBanners } from '@/lib/banners';
 
 export async function GET() {
     const [products, banners] = await Promise.all([readProducts(), readBanners()]);
-    const urls = new Set();
+    const images = new Set();
+    const pages = new Set(['/', '/produtos']);
 
-    // Banner images
-    for (const b of banners) if (b.image) urls.add(b.image);
+    for (const b of banners) if (b.image) images.add(b.image);
 
-    // Per product
     for (const p of products) {
-        if (p.imgProd) urls.add(p.imgProd);
-        if (p.imgBg) urls.add(p.imgBg);
-        if (p.bottomImg) urls.add(p.bottomImg);
-        for (const c of p.infoCards || []) if (c.image) urls.add(c.image);
+        if (p.imgProd) images.add(p.imgProd);
+        if (p.imgBg) images.add(p.imgBg);
+        if (p.bottomImg) images.add(p.bottomImg);
+        for (const c of p.infoCards || []) if (c.image) images.add(c.image);
+        if (!p.hidden && p.keyName) pages.add(`/produtos/${p.keyName}`);
     }
 
-    // Static assets do site
-    urls.add('/images/logo.png');
-    urls.add('/images/logoSmall.png');
-    urls.add('/images/barralogos.png');
-    urls.add('/images/triangleInv.png');
-    urls.add('/images/triangleWhite.png');
-    urls.add('/images/via_food_logo.png');
-    urls.add('/images/produtos/triangle.png');
-    urls.add('/images/produtos/geral.png');
+    images.add('/images/logo.png');
+    images.add('/images/logoSmall.png');
+    images.add('/images/barralogos.png');
+    images.add('/images/triangleInv.png');
+    images.add('/images/triangleWhite.png');
+    images.add('/images/via_food_logo.png');
+    images.add('/images/produtos/triangle.png');
+    images.add('/images/produtos/geral.png');
 
-    return NextResponse.json({ urls: Array.from(urls) });
+    const imagesArr = Array.from(images);
+    const pagesArr = Array.from(pages);
+
+    return NextResponse.json({
+        images: imagesArr,
+        pages: pagesArr,
+        // backward-compat: clientes antigos liam só `urls` (eram imagens)
+        urls: imagesArr,
+    });
 }

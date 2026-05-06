@@ -26,9 +26,12 @@ export default function PwaRegister() {
             })
             .catch(() => {});
 
-        // Mensagens enviadas pelo SW (ex: forçar reload de admin)
+        // Mensagens enviadas pelo SW (ex: forçar reload após version bump)
         navigator.serviceWorker.addEventListener('message', (e) => {
-            if (e.data?.type === 'FORCE_RELOAD') window.location.reload();
+            if (e.data?.type === 'FORCE_RELOAD') {
+                try { sessionStorage.removeItem('foodlab_warmup_v2'); } catch {}
+                window.location.reload();
+            }
         });
     }, []);
     return null;
