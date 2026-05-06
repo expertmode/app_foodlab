@@ -1,5 +1,5 @@
 // Service Worker — cache para modo quiosque/offline
-const VERSION = 'foodlab-v4';
+const VERSION = 'foodlab-v5';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const STATIC_CACHE = `${VERSION}-static`;
 const IMAGE_CACHE = `${VERSION}-images`;
@@ -53,11 +53,23 @@ async function warmupPages(urls) {
         while (queue.length) {
             const url = queue.shift();
             try {
-                const res = await fetch(url, { credentials: 'same-origin' });
-                if (res && res.ok) await cache.put(url, res.clone());
+                const res = await fetch(url, { credentials: 'same-origin', cache: 'no-store' });
+                if (res && res.ok) await cache.put(url, await stripNoStore(res));
             } catch { /* ignore */ }
         }
     }));
+}
+
+// Páginas force-dynamic do Next vêm com Cache-Control: no-store.
+// O Cache.put deveria aceitar segundo a spec, mas alguns browsers rejeitam
+// silenciosamente. Reescrevemos a Response sem esse header.
+async function stripNoStore(res) {
+    const headers = new Headers(res.headers);
+    headers.delete('cache-control');
+    headers.delete('pragma');
+    headers.delete('expires');
+    const body = await res.clone().arrayBuffer();
+    return new Response(body, { status: res.status, statusText: res.statusText, headers });
 }
 
 self.addEventListener('fetch', (event) => {
@@ -102,8 +114,11 @@ async function navigationHandler(request) {
     const cache = await caches.open(APP_SHELL_CACHE);
     const cached = await cache.match(request, { ignoreSearch: true });
     const fetchPromise = fetch(request)
-        .then((res) => {
-            if (res && res.ok) cache.put(request, res.clone());
+        .then(async (res) => {
+            if (res && res.ok) {
+                const cacheable = await stripNoStore(res.clone());
+                cache.put(request, cacheable);
+            }
             return res;
         })
         .catch(async () => cached || (await cache.match('/', { ignoreSearch: true })) || new Response('offline', { status: 503 }));
