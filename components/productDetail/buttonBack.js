@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
@@ -9,7 +10,7 @@ export default function ButtonBack(props) {
 
     return (
         <CenterBox ref={containerRef}>
-            <LinkAnchor href={props.link}>
+            <Link href={props.link}>
                 <ButtonBox
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -19,15 +20,10 @@ export default function ButtonBack(props) {
                 >
                     {props.title}
                 </ButtonBox>
-            </LinkAnchor>
+            </Link>
         </CenterBox>
     )
 };
-
-const LinkAnchor = styled.a`
-    text-decoration: none;
-    color: inherit;
-`;
 
 const CenterBox = styled.div`
     display: flex;

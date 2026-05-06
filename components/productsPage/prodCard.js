@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function ProdCard({ product }) {
     const [hidden, setHidden] = useState(!product.imgProd);
@@ -24,7 +25,7 @@ export default function ProdCard({ product }) {
     )
 };
 
-const CardMainBox = styled.a`
+const CardMainBox = styled(Link)`
     display: flex;
     flex-direction: column;
     width: 100%;
