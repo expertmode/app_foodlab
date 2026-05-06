@@ -7,6 +7,14 @@ export default function PwaRegister() {
         if (!('serviceWorker' in navigator)) return;
         if (window.location.hostname === 'localhost' && !window.location.search.includes('sw=1')) return;
 
+        // Pede ao browser para marcar o storage como persistente (Chrome/Edge não fazem eviction).
+        // Sem prompt: o browser concede com base em heurísticas (bookmark, engagement, PWA instalada).
+        if (navigator.storage?.persist) {
+            navigator.storage.persisted().then((already) => {
+                if (!already) navigator.storage.persist().catch(() => {});
+            }).catch(() => {});
+        }
+
         navigator.serviceWorker
             .register('/sw.js', { scope: '/' })
             .then((reg) => {
