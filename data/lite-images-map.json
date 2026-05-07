@@ -3258,6 +3258,195 @@
       "sizeBefore": 4565072,
       "sizeAfter": 495260,
       "at": "2026-05-06T22:31:26.885Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/img_main-dJw6uAK743mONB0YBO80omnS9fK7qO.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/img_main-xTsivWJJcGC0h7DTMUax4rNMpK2YOS.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "imgProd",
+      "sizeBefore": 4370673,
+      "sizeAfter": 141650,
+      "at": "2026-05-07T08:38:41.655Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/img_bg-Moxs8U4mfRmKeDQWQVUG18Puu7YoJy.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/img_bg-RLrLhpriaSRpRJCCaWJAVWR2S1qJHN.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "imgBg",
+      "sizeBefore": 1591017,
+      "sizeAfter": 227796,
+      "at": "2026-05-07T08:38:42.531Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/bottom_img-R4JF9Vaaz4tkuae0F9usnvoFPZvd11.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/bottom_img-I5l9yEsciv88suWie4jN6ybOWRM7kO.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "bottomImg",
+      "sizeBefore": 1202232,
+      "sizeAfter": 34642,
+      "at": "2026-05-07T08:38:43.213Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/cards/card1-1ttmuoxdtP9cMuGADqiZ7Vqro6FGO3.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/cards/card1-44df8azT7WQqD7V3R029ZfTRZOEk42.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "infoCards",
+      "infoCardIdx": 0,
+      "sizeBefore": 176601,
+      "sizeAfter": 140608,
+      "at": "2026-05-07T08:38:43.764Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/cards/card2-xskHjyVAij1EBS6BuAJrx5zgQ3E5gz.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/cards/card2-lW0bkipbp6UrSS85MWvVbzEvn7fcT1.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "infoCards",
+      "infoCardIdx": 1,
+      "sizeBefore": 106410,
+      "sizeAfter": 60348,
+      "at": "2026-05-07T08:38:44.323Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod56/cards/card3-lTKZAqfVTybBAAVbjtTJbH6Rdn9H36.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod56/cards/card3-aoZFOZgjYiXGxffBGmYCzmrNUHv2s8.webp",
+      "ownerType": "product",
+      "ownerId": 56,
+      "field": "infoCards",
+      "infoCardIdx": 2,
+      "sizeBefore": 2599686,
+      "sizeAfter": 130960,
+      "at": "2026-05-07T08:38:45.088Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/img_main-7ufhYfvSMJvYUKXT7TRRyinXaaQG0b.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/img_main-WXEh7uHvMOy0Ha0vLzRzxWEZEy4LyA.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "imgProd",
+      "sizeBefore": 6094335,
+      "sizeAfter": 183356,
+      "at": "2026-05-07T08:38:46.377Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/img_bg-Jswwbz9WPmm5k1Y7NUJ3UWKItHhny4.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/img_bg-CvF0TytHNdwA5i4giUmSIeR1Ewf7kx.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "imgBg",
+      "sizeBefore": 1591017,
+      "sizeAfter": 227796,
+      "at": "2026-05-07T08:38:47.232Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/bottom_img-fWP25QKs4GgkA0tPYFzJye4zTxLiEo.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/bottom_img-RdhZuNPAXvwViEDS92ZGGR21ApoTfR.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "bottomImg",
+      "sizeBefore": 1561045,
+      "sizeAfter": 43032,
+      "at": "2026-05-07T08:38:47.651Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/cards/card1-MtHXCWlUuwYxZaB6wq30UnXJQSTA8M.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/cards/card1-p5Ws6KHc75FS4NoPzimF2QjIEcHDxC.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "infoCards",
+      "infoCardIdx": 0,
+      "sizeBefore": 101785,
+      "sizeAfter": 72228,
+      "at": "2026-05-07T08:38:48.174Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/cards/card2-LO9VOBjXFWCfNWLOxqSOFAWf74mDRy.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/cards/card2-22fxTuqGof4ptfy3GGxBZnyqE0eXf8.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "infoCards",
+      "infoCardIdx": 1,
+      "sizeBefore": 117766,
+      "sizeAfter": 80154,
+      "at": "2026-05-07T08:38:48.696Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod57/cards/card3-6gtEdpdCXUHVgT30uF7Vjh1ldpYSSH.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod57/cards/card3-pjfdD008txBSP9thCXO83Aux0Laq4o.webp",
+      "ownerType": "product",
+      "ownerId": 57,
+      "field": "infoCards",
+      "infoCardIdx": 2,
+      "sizeBefore": 6094335,
+      "sizeAfter": 183356,
+      "at": "2026-05-07T08:38:49.956Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/img_main-fiIfUqg0ImfTNCkSx716RVp7ZuiurW.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/img_main-gOBYlciLu18lrpmAvbSySmxdai4AwA.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "imgProd",
+      "sizeBefore": 496526,
+      "sizeAfter": 41772,
+      "at": "2026-05-07T08:38:50.389Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/img_bg-lz0bo31Eu8ht6BJaDoizEjurWPfSAa.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/img_bg-COVeLoj81OfwxIVVHfUyK0y2QS5QsB.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "imgBg",
+      "sizeBefore": 1591017,
+      "sizeAfter": 227796,
+      "at": "2026-05-07T08:38:51.072Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/bottom_img-0FqBvUAY9Cp3cb4JhSCPdeLwkCyrbh.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/bottom_img-JnYuMH6Ssxa5zIaWnQ8n7xysD9RSOg.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "bottomImg",
+      "sizeBefore": 710848,
+      "sizeAfter": 36492,
+      "at": "2026-05-07T08:38:51.619Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/cards/card1-1TRZAGKTK4CuyBSkA1a51Ro9udUs1z.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/cards/card1-cPcaeX9n6O2YMbnxBg2vu4r0XENaPz.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "infoCards",
+      "infoCardIdx": 0,
+      "sizeBefore": 162591,
+      "sizeAfter": 120682,
+      "at": "2026-05-07T08:38:52.170Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/cards/card2-L2420Sn7iVK3tcOEPJO6YR0pFjNW6J.png",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/cards/card2-XzYGH0tXxZs3726ss0cBzwFgwYNobd.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "infoCards",
+      "infoCardIdx": 1,
+      "sizeBefore": 496526,
+      "sizeAfter": 41772,
+      "at": "2026-05-07T08:38:52.632Z"
+    },
+    {
+      "original": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/produtos/prod58/cards/card3-vKxMskD2kmnyifga5trCAf4ZbGOaIM.jpg",
+      "lite": "https://xxy20lcowbpinn1q.public.blob.vercel-storage.com/lite/produtos/prod58/cards/card3-EWZdGveB1T8dY0wbEYoRPzGZ1GcIls.webp",
+      "ownerType": "product",
+      "ownerId": 58,
+      "field": "infoCards",
+      "infoCardIdx": 2,
+      "sizeBefore": 106137,
+      "sizeAfter": 67314,
+      "at": "2026-05-07T08:38:53.048Z"
     }
   ]
 }
