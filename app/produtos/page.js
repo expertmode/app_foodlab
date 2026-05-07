@@ -1,6 +1,6 @@
 import ProdutosContent from "./content";
 import { readProducts } from "@/lib/products";
-import { readFilters } from "@/lib/filters";
+import { computePictoFilters } from "@/lib/pictos";
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +10,8 @@ export const metadata = {
 }
 
 export default async function Produtos() {
-    const [allProducts, filters] = await Promise.all([readProducts(), readFilters()]);
+    const allProducts = await readProducts();
     const products = allProducts.filter((p) => !p.hidden);
-    return <ProdutosContent products={products} filters={filters} />;
+    const pictoFilters = computePictoFilters(products);
+    return <ProdutosContent products={products} pictoFilters={pictoFilters} />;
 }

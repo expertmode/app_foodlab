@@ -4,8 +4,8 @@ import ImageComp from "../global/imageComp";
 import { useFilter } from "../../contexts/FilterContext";
 
 export default function ProdListFilterCard(props) {
-    const { selectedFilterId } = useFilter();
-    const isSelected = selectedFilterId === props.id;
+    const { selectedPicto } = useFilter();
+    const isSelected = selectedPicto === props.pictoKey;
 
     return (
         <CardBox>

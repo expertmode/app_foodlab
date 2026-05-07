@@ -24,12 +24,12 @@ const itemVariants = {
     },
 };
 
-export default function ProdListFilterComp({ isOpen, filters = [] }) {
-    const { setSelectedFilterId } = useFilter();
+export default function ProdListFilterComp({ isOpen, pictoFilters = [] }) {
+    const { setSelectedPicto } = useFilter();
 
-    const handleCardClick = (id) => {
-        setSelectedFilterId(id);
-        trackEvent('filter_click', String(id));
+    const handleCardClick = (key) => {
+        setSelectedPicto(key);
+        trackEvent('filter_click', key);
     };
 
     return (
@@ -38,14 +38,22 @@ export default function ProdListFilterComp({ isOpen, filters = [] }) {
             initial="hidden"
             animate={isOpen ? "visible" : "hidden"}
         >
-            {filters.map((item) => (
+            <CardCont
+                key="__all"
+                variants={itemVariants}
+                onClick={() => handleCardClick('')}
+                style={{ cursor: 'pointer' }}
+            >
+                <ProdListFilterCard pictoKey="" icon="/images/pictos/default.svg" title="Tudo" />
+            </CardCont>
+            {pictoFilters.map((item) => (
                 <CardCont
-                    key={item.id}
+                    key={item.key}
                     variants={itemVariants}
-                    onClick={() => handleCardClick(item.id)}
+                    onClick={() => handleCardClick(item.key)}
                     style={{ cursor: 'pointer' }}
                 >
-                    <ProdListFilterCard id={item.id} icon={item.icon} title={item.name} />
+                    <ProdListFilterCard pictoKey={item.key} icon={item.icon} title={item.label} />
                 </CardCont>
             ))}
         </FilterScrollContainer>

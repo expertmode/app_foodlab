@@ -7,7 +7,7 @@ import ButtonFilter from "./buttonFilter";
 import ImageComp from "../global/imageComp";
 import ProdListFilterComp from "./prodListFilterComp";
 
-export default function ProdListBanner({ filters = [] }) {
+export default function ProdListBanner({ pictoFilters = [] }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleDrawer = () => {
@@ -27,7 +27,7 @@ export default function ProdListBanner({ filters = [] }) {
                     animate={{ y: isDrawerOpen ? 0 : -900 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
-                    <ProdListFilterComp isOpen={isDrawerOpen} filters={filters} />
+                    <ProdListFilterComp isOpen={isDrawerOpen} pictoFilters={pictoFilters} />
                     <ImageBox>
                         <ImageComp image={"/images/triangleInv.png"} />
                     </ImageBox>

@@ -4,10 +4,10 @@ import { createContext, useContext, useState } from 'react';
 const FilterContext = createContext();
 
 export function FilterProvider({ children }) {
-    const [selectedFilterId, setSelectedFilterId] = useState(0);
+    const [selectedPicto, setSelectedPicto] = useState('');
 
     return (
-        <FilterContext.Provider value={{ selectedFilterId, setSelectedFilterId }}>
+        <FilterContext.Provider value={{ selectedPicto, setSelectedPicto }}>
             {children}
         </FilterContext.Provider>
     );

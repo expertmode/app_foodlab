@@ -3,13 +3,14 @@ import styled from "styled-components";
 import Link from "next/link";
 import ProdCard from "./prodCard";
 import { useFilter } from "@/contexts/FilterContext";
+import { productHasPicto } from "@/lib/pictos";
 
 export default function ProdList({ products = [] }) {
-    const { selectedFilterId } = useFilter();
+    const { selectedPicto } = useFilter();
 
-    const filteredProducts = selectedFilterId === 0
+    const filteredProducts = !selectedPicto
         ? products
-        : products.filter((p) => Array.isArray(p.filter) && p.filter.includes(selectedFilterId));
+        : products.filter((p) => productHasPicto(p, selectedPicto));
 
     return (
         <ProdListContainer>
