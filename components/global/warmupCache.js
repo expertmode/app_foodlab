@@ -9,8 +9,10 @@ export default function WarmupCache() {
         if (typeof window === 'undefined') return;
         // Skip in admin
         if (window.location.pathname.startsWith('/admin')) return;
-        // Run only once per browser/session combo
-        if (sessionStorage.getItem(STORAGE_KEY) === 'done') return;
+        // ?warmup=1 força nova ronda mesmo que já esteja done — útil para preparar quiosques
+        const force = new URLSearchParams(window.location.search).get('warmup') === '1';
+        if (!force && sessionStorage.getItem(STORAGE_KEY) === 'done') return;
+        if (force) sessionStorage.removeItem(STORAGE_KEY);
 
         const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
         idle(async () => {
