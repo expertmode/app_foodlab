@@ -9,8 +9,10 @@ export async function GET() {
     // Banner images
     for (const b of banners) if (b.image) urls.add(b.image);
 
-    // Per product
+    // Per product: detail page HTML + all images
     for (const p of products) {
+        if (p.hidden) continue;
+        if (p.keyName) urls.add(`/produtos/${p.keyName}`);
         if (p.imgProd) urls.add(p.imgProd);
         if (p.imgBg) urls.add(p.imgBg);
         if (p.bottomImg) urls.add(p.bottomImg);

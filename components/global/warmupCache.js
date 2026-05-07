@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 
 const CONCURRENCY = 4;
-const STORAGE_KEY = 'foodlab_warmup_v1';
+const STORAGE_KEY = 'foodlab_warmup_v2';
 
 export default function WarmupCache() {
     useEffect(() => {
@@ -20,14 +20,21 @@ export default function WarmupCache() {
                 const { urls } = await res.json();
                 if (!Array.isArray(urls) || urls.length === 0) return;
 
-                // Fetch em paralelo limitado
+                // Fetch em paralelo limitado.
+                // Same-origin (HTML de produtos) precisa de fetch normal — com no-cors a
+                // resposta vem opaca e o SW não a consegue servir depois ao navegar offline.
+                const isSameOrigin = (u) => {
+                    try { return new URL(u, location.href).origin === location.origin; }
+                    catch { return false; }
+                };
                 const queue = [...urls];
                 const workers = Array.from({ length: CONCURRENCY }, async () => {
                     while (queue.length) {
                         const url = queue.shift();
-                        try {
-                            await fetch(url, { cache: 'force-cache', mode: 'no-cors' });
-                        } catch { /* ignore */ }
+                        const opts = isSameOrigin(url)
+                            ? { cache: 'force-cache' }
+                            : { cache: 'force-cache', mode: 'no-cors' };
+                        try { await fetch(url, opts); } catch { /* ignore */ }
                     }
                 });
                 await Promise.all(workers);
