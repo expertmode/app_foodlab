@@ -1,13 +1,22 @@
 'use client';
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function KioskGuard() {
+    const pathname = usePathname();
+
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         if (params.get('kiosk') === '1') localStorage.setItem('kiosk', '1');
         if (params.get('kiosk') === '0') localStorage.removeItem('kiosk');
         const isKiosk = localStorage.getItem('kiosk') === '1';
-        if (!isKiosk) return;
+        const inAdmin = pathname?.startsWith('/admin');
+
+        // Admin needs cursor, F-keys, devtools, refresh — never apply kiosk lockdown there.
+        if (!isKiosk || inAdmin) {
+            document.documentElement.classList.remove('kiosk');
+            return;
+        }
 
         document.documentElement.classList.add('kiosk');
 
@@ -68,7 +77,7 @@ export default function KioskGuard() {
             document.removeEventListener('dragstart', blockEvent);
             document.removeEventListener('keydown', blockKey, true);
         };
-    }, []);
+    }, [pathname]);
 
     return null;
 }
