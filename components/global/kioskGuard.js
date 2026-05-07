@@ -49,11 +49,6 @@ export default function KioskGuard() {
             if (now - lastTap < 350) e.preventDefault();
             lastTap = now;
         }, { passive: false });
-        window.addEventListener('beforeunload', (e) => {
-            e.preventDefault();
-            e.returnValue = '';
-        });
-
         // Pedir fullscreen no primeiro toque/click (necessário gesto do utilizador)
         const tryFullscreen = () => {
             const el = document.documentElement;
