@@ -1,5 +1,5 @@
 // Service Worker — cache para modo quiosque/offline
-const VERSION = 'foodlab-v3';
+const VERSION = 'foodlab-v4';
 const APP_SHELL_CACHE = `${VERSION}-shell`;
 const STATIC_CACHE = `${VERSION}-static`;
 const IMAGE_CACHE = `${VERSION}-images`;
