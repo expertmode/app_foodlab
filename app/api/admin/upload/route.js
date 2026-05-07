@@ -4,13 +4,25 @@ import { putBlob, contentTypeFor } from '@/lib/blob';
 import { getProduct, updateProduct } from '@/lib/products';
 import { bumpVersion } from '@/lib/version';
 
+const RASTER_EXTS = ['jpg', 'jpeg', 'png', 'webp'];
+
 async function optimizeBuffer(buffer, ext) {
-    if (!['jpg','jpeg','png','webp'].includes(ext)) return buffer;
+    if (!RASTER_EXTS.includes(ext)) return buffer;
     let pipeline = sharp(buffer).rotate().resize({ width: 2048, withoutEnlargement: true });
     if (ext === 'jpg' || ext === 'jpeg') return pipeline.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
     if (ext === 'png') return pipeline.png({ compressionLevel: 9 }).toBuffer();
     if (ext === 'webp') return pipeline.webp({ quality: 88 }).toBuffer();
     return buffer;
+}
+
+// 1080px WebP q85 — same recipe as scripts/compress-blob-images.mjs.
+// Used for product images (imgProd/imgBg/bottomImg/cards) so kiosk loads stay fast.
+async function optimizeToLiteWebp(buffer) {
+    return sharp(buffer)
+        .rotate()
+        .resize({ width: 1080, withoutEnlargement: true, fit: 'inside' })
+        .webp({ quality: 85 })
+        .toBuffer();
 }
 
 export async function POST(req) {
@@ -24,14 +36,19 @@ export async function POST(req) {
 
         if (!file) return NextResponse.json({ error: 'file required' }, { status: 400 });
 
-        const ext = (file.name || 'image.jpg').split('.').pop().toLowerCase();
+        const origExt = (file.name || 'image.jpg').split('.').pop().toLowerCase();
         const rawBuf = Buffer.from(await file.arrayBuffer());
-        const buf = ext === 'svg' ? rawBuf : await optimizeBuffer(rawBuf, ext);
+
+        const useLite = !!(productId && kind) && RASTER_EXTS.includes(origExt);
+        const buf = useLite
+            ? await optimizeToLiteWebp(rawBuf)
+            : (origExt === 'svg' ? rawBuf : await optimizeBuffer(rawBuf, origExt));
+        const ext = useLite ? 'webp' : origExt;
 
         // Build blob key
         let key;
         if (productId && kind) {
-            const baseFolder = `produtos/prod${productId}`;
+            const baseFolder = `${useLite ? 'lite/' : ''}produtos/prod${productId}`;
             if (kind === 'card') key = `${baseFolder}/cards/card${cardId}.${ext}`;
             else if (kind === 'img_main') key = `${baseFolder}/img_main.${ext}`;
             else if (kind === 'img_bg') key = `${baseFolder}/img_bg.${ext}`;
