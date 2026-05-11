@@ -1,7 +1,7 @@
 import { readProducts } from '@/lib/products';
+import { readBanners } from '@/lib/banners';
 import SiteShell from '@/components/site/SiteShell';
-import HomeHero from '@/components/site/HomeHero';
-import HomeIntro from '@/components/site/HomeIntro';
+import HomeBannersHero from '@/components/site/HomeBannersHero';
 import HomeProductsTeaser from '@/components/site/HomeProductsTeaser';
 
 export const dynamic = 'force-dynamic';
@@ -12,13 +12,13 @@ export const metadata = {
 };
 
 export default async function SiteHome() {
-    const all = await readProducts();
-    const products = all.filter((p) => !p.hidden);
+    const [allProducts, banners] = await Promise.all([readProducts(), readBanners()]);
+    const products = allProducts.filter((p) => !p.hidden);
+    const sortedBanners = (banners || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
 
     return (
-        <SiteShell>
-            <HomeHero />
-            <HomeIntro />
+        <SiteShell $heroOverlap>
+            <HomeBannersHero banners={sortedBanners} />
             <HomeProductsTeaser products={products} />
         </SiteShell>
     );

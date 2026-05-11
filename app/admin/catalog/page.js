@@ -2,16 +2,34 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import AdminHeader from '@/components/admin/adminHeader';
+import PrintCover from '@/components/print/PrintCover';
 
 export default function AdminCatalog() {
     const [cfg, setCfg] = useState(null);
     const [busy, setBusy] = useState(false);
     const [savedAt, setSavedAt] = useState(0);
     const fileRef = useRef(null);
+    const previewBoxRef = useRef(null);
+    const [previewScale, setPreviewScale] = useState(0.4);
 
     useEffect(() => {
         fetch('/api/admin/catalog').then((r) => r.json()).then(setCfg);
     }, []);
+
+    // Recompute preview scale whenever the preview box changes size — 794px is the
+    // pixel width of A4 portrait at 96dpi, so scale = boxWidth / 794.
+    useEffect(() => {
+        const el = previewBoxRef.current;
+        if (!el || typeof ResizeObserver === 'undefined') return;
+        const update = () => {
+            const w = el.clientWidth;
+            if (w > 0) setPreviewScale(w / 794);
+        };
+        update();
+        const ro = new ResizeObserver(update);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, [cfg]);
 
     if (!cfg) {
         return <Wrap><AdminHeader current="catalog" /><PageTitle>Catálogo PDF</PageTitle><Loading>A carregar…</Loading></Wrap>;
@@ -67,6 +85,8 @@ export default function AdminCatalog() {
                 A ordem do PDF: <b>Capa</b> → <b>Página em branco</b> (opcional) → <b>Índice</b> → uma página por produto selecionado.
             </Intro>
 
+            <SplitLayout>
+                <FormCol>
             <Section>
                 <SectionTitle>Capa</SectionTitle>
                 <FieldRow>
@@ -161,16 +181,91 @@ export default function AdminCatalog() {
                 {savedAt > 0 && <Saved>Guardado às {new Date(savedAt).toLocaleTimeString()}</Saved>}
                 <SaveBtn disabled={busy} onClick={save}>{busy ? 'A guardar…' : 'Guardar alterações'}</SaveBtn>
             </SaveBar>
+                </FormCol>
+
+                <PreviewCol>
+                    <PreviewLabel>Pré-visualização da capa</PreviewLabel>
+                    <PreviewBox ref={previewBoxRef}>
+                        <PreviewScale style={{ transform: `scale(${previewScale})` }}>
+                            <PrintCover cover={cfg.cover} />
+                        </PreviewScale>
+                    </PreviewBox>
+                    <PreviewHint>Atualiza automaticamente a cada alteração.</PreviewHint>
+                </PreviewCol>
+            </SplitLayout>
         </Wrap>
     );
 }
 
 const Wrap = styled.div`
     width: 100%;
-    max-width: 900px;
-    padding: 32px;
+    max-width: 1400px;
+    padding: 24px 32px 32px 32px;
     box-sizing: border-box;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
+`;
+
+const SplitLayout = styled.div`
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 32px;
+    align-items: start;
+
+    @media (max-width: 980px) {
+        grid-template-columns: 1fr;
+    }
+`;
+
+const FormCol = styled.div`
+    min-width: 0;
+`;
+
+const PreviewCol = styled.aside`
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`;
+
+const PreviewLabel = styled.div`
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #9bafb8;
+    font-weight: 700;
+`;
+
+const PreviewBox = styled.div`
+    width: 100%;
+    aspect-ratio: 210 / 297;
+    background: #f5f5f0;
+    border: 1px solid #e0ebf0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 24px rgba(0, 94, 129, 0.10);
+
+    /* Render the real PrintCover (210mm × 297mm) at a scaled size to fit the box.
+       The inner element uses the actual print dimensions; CSS scale shrinks it visually. */
+`;
+
+const PreviewScale = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210mm;
+    height: 297mm;
+    transform-origin: top left;
+    /* transform is set inline based on the container width (see ResizeObserver above) */
+`;
+
+const PreviewHint = styled.p`
+    margin: 0;
+    font-size: 11px;
+    color: #88a8b5;
+    line-height: 1.4;
 `;
 
 const PageTitle = styled.h1`

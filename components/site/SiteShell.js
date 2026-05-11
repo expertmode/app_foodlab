@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 
-export default function SiteShell({ children }) {
+export default function SiteShell({ children, $heroOverlap = false }) {
     return (
         <Shell>
             <SiteHeader />
-            <Main>{children}</Main>
+            <Main $heroOverlap={$heroOverlap}>{children}</Main>
             <SiteFooter />
         </Shell>
     );
@@ -24,4 +24,5 @@ const Shell = styled.div`
 const Main = styled.main`
     flex: 1;
     width: 100%;
+    ${(p) => p.$heroOverlap && 'margin-top: -88px;'}
 `;

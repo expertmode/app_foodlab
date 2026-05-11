@@ -1,23 +1,27 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 
 const STORAGE_KEY = 'foodlab_touch_hint_shown';
 
 export default function TouchHint() {
     const [show, setShow] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
         // Apenas em modo quiosque
         if (localStorage.getItem('kiosk') !== '1') return;
+        // Não mostra no admin, no site público responsive, ou no /print
+        if (pathname?.startsWith('/admin') || pathname?.startsWith('/site') || pathname?.startsWith('/print')) return;
         // Mostra uma vez por sessão
         if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
         setShow(true);
         sessionStorage.setItem(STORAGE_KEY, '1');
         const t = setTimeout(() => setShow(false), 5000);
         return () => clearTimeout(t);
-    }, []);
+    }, [pathname]);
 
     if (!show) return null;
 
