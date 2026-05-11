@@ -1,7 +1,15 @@
 'use client';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { getPictoIcon } from '@/lib/pictos';
+
+// Reusable scroll-triggered fade-up that runs once.
+const fadeUp = {
+    hidden: { opacity: 0, y: 28 },
+    visible: { opacity: 1, y: 0 },
+};
+const viewportOnce = { once: true, amount: 0.25 };
 
 export default function ProductDetailView({ product }) {
     const pictos = product.pictos || [];
@@ -16,16 +24,55 @@ export default function ProductDetailView({ product }) {
             </BackBar>
 
             <Hero>
-                {product.imgBg && <HeroBg $img={product.imgBg} />}
+                {product.imgBg && (
+                    <HeroBg
+                        $img={product.imgBg}
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.0, ease: 'easeOut' }}
+                    />
+                )}
                 <HeroInner>
                     <HeroText>
-                        <Eyebrow>{product.partner}</Eyebrow>
-                        <Title>{(product.title || '').replace(/\n/g, ' ')}</Title>
-                        {product.subTitle && <Subtitle>{product.subTitle}</Subtitle>}
-                        {product.pps && <PpsBox>{product.pps}</PpsBox>}
+                        <Eyebrow
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.15 }}
+                        >
+                            {product.partner}
+                        </Eyebrow>
+                        <Title
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.55, delay: 0.25, ease: 'easeOut' }}
+                        >
+                            {(product.title || '').replace(/\n/g, ' ')}
+                        </Title>
+                        {product.subTitle && (
+                            <Subtitle
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.55, delay: 0.40 }}
+                            >
+                                {product.subTitle}
+                            </Subtitle>
+                        )}
+                        {product.pps && (
+                            <PpsBox
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.55 }}
+                            >
+                                {product.pps}
+                            </PpsBox>
+                        )}
                     </HeroText>
                     {product.imgProd && (
-                        <HeroImg>
+                        <HeroImg
+                            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        >
                             <img src={product.imgProd} alt="" />
                         </HeroImg>
                     )}
@@ -35,12 +82,34 @@ export default function ProductDetailView({ product }) {
             {pictos.length > 0 && (
                 <Section>
                     <SectionInner>
-                        <SectionLabel>Características</SectionLabel>
-                        <PictoGrid>
+                        <SectionLabel
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Características
+                        </SectionLabel>
+                        <PictoGrid
+                            variants={{
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+                            }}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                        >
                             {pictos.map((p, i) => {
                                 const icon = getPictoIcon(p.text);
                                 return (
-                                    <PictoCard key={i}>
+                                    <PictoCard
+                                        key={i}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 24, scale: 0.96 },
+                                            visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+                                        }}
+                                    >
                                         <PictoCircle>{icon && <img src={icon} alt="" />}</PictoCircle>
                                         <PictoText>{p.text}</PictoText>
                                     </PictoCard>
@@ -54,10 +123,32 @@ export default function ProductDetailView({ product }) {
             {cards.length > 0 && (
                 <Section $alt>
                     <SectionInner>
-                        <SectionLabel>{product.sliderTitle || 'Sobre o produto'}</SectionLabel>
-                        <CardsGrid>
+                        <SectionLabel
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                            transition={{ duration: 0.5 }}
+                        >
+                            {product.sliderTitle || 'Sobre o produto'}
+                        </SectionLabel>
+                        <CardsGrid
+                            variants={{
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+                            }}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                        >
                             {cards.map((c, i) => (
-                                <InfoCard key={i}>
+                                <InfoCard
+                                    key={i}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 32 },
+                                        visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+                                    }}
+                                >
                                     <InfoImg $img={c.image} />
                                     {c.desc && <InfoDesc>{c.desc}</InfoDesc>}
                                 </InfoCard>
@@ -70,10 +161,28 @@ export default function ProductDetailView({ product }) {
             {product.description && (
                 <Section>
                     <SectionInner>
-                        <DescriptionRow>
-                            <DescriptionText>{product.description}</DescriptionText>
+                        <DescriptionRow
+                            variants={{
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.15 } },
+                            }}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewportOnce}
+                        >
+                            <DescriptionText
+                                variants={fadeUp}
+                                transition={{ duration: 0.6 }}
+                            >
+                                {product.description}
+                            </DescriptionText>
                             {product.bottomImg && (
-                                <DescriptionImage>
+                                <DescriptionImage
+                                    variants={{
+                                        hidden: { opacity: 0, scale: 0.9 },
+                                        visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: 'easeOut' } },
+                                    }}
+                                >
                                     <img src={product.bottomImg} alt="" />
                                 </DescriptionImage>
                             )}
@@ -117,7 +226,7 @@ const Hero = styled.section`
     padding: clamp(40px, 8vw, 80px) 24px clamp(40px, 8vw, 80px);
 `;
 
-const HeroBg = styled.div`
+const HeroBg = styled(motion.div)`
     position: absolute;
     top: -10%;
     left: -10%;
@@ -163,7 +272,7 @@ const HeroText = styled.div`
     }
 `;
 
-const Eyebrow = styled.span`
+const Eyebrow = styled(motion.span)`
     text-transform: uppercase;
     color: #005E81;
     letter-spacing: 2px;
@@ -172,7 +281,7 @@ const Eyebrow = styled.span`
     opacity: 0.7;
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
     font-family: "Boldonse", system-ui;
     font-weight: 400;
     color: #005E81;
@@ -183,7 +292,7 @@ const Title = styled.h1`
     white-space: pre-line;
 `;
 
-const Subtitle = styled.p`
+const Subtitle = styled(motion.p)`
     color: #005E81;
     font-size: clamp(16px, 1.7vw, 20px);
     font-weight: 600;
@@ -192,7 +301,7 @@ const Subtitle = styled.p`
     white-space: pre-line;
 `;
 
-const PpsBox = styled.div`
+const PpsBox = styled(motion.div)`
     display: inline-block;
     align-self: flex-start;
     border: 1.5px solid #005E81;
@@ -203,7 +312,7 @@ const PpsBox = styled.div`
     color: #005E81;
 `;
 
-const HeroImg = styled.div`
+const HeroImg = styled(motion.div)`
     order: 1;
     width: 100%;
     aspect-ratio: 1;
@@ -238,7 +347,7 @@ const SectionInner = styled.div`
     margin: 0 auto;
 `;
 
-const SectionLabel = styled.h2`
+const SectionLabel = styled(motion.h2)`
     font-family: "Boldonse", system-ui;
     font-weight: 400;
     font-size: clamp(24px, 3.5vw, 36px);
@@ -248,13 +357,13 @@ const SectionLabel = styled.h2`
     letter-spacing: -0.5px;
 `;
 
-const PictoGrid = styled.div`
+const PictoGrid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 24px;
 `;
 
-const PictoCard = styled.div`
+const PictoCard = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,13 +400,13 @@ const PictoText = styled.p`
     white-space: pre-line;
 `;
 
-const CardsGrid = styled.div`
+const CardsGrid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 18px;
 `;
 
-const InfoCard = styled.div`
+const InfoCard = styled(motion.div)`
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -325,7 +434,7 @@ const InfoDesc = styled.p`
     white-space: pre-line;
 `;
 
-const DescriptionRow = styled.div`
+const DescriptionRow = styled(motion.div)`
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
@@ -337,7 +446,7 @@ const DescriptionRow = styled.div`
     }
 `;
 
-const DescriptionText = styled.p`
+const DescriptionText = styled(motion.p)`
     color: #005E81;
     font-size: clamp(18px, 2.2vw, 26px);
     font-weight: 600;
@@ -346,7 +455,7 @@ const DescriptionText = styled.p`
     white-space: pre-line;
 `;
 
-const DescriptionImage = styled.div`
+const DescriptionImage = styled(motion.div)`
     width: 100%;
     max-width: 360px;
     aspect-ratio: 1;

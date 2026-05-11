@@ -135,16 +135,15 @@ const Inner = styled.div`
     max-width: 1240px;
     height: 100%;
     margin: 0 auto;
-    /* Text + CTA grouped in the lower-middle. Big bottom padding lifts the
-       whole block off the banner's bottom edge so it doesn't bleed into the
-       white about-section that follows. */
-    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(120px, 18vw, 200px);
+    /* Text + CTA grouped around the vertical middle, biased upward —
+       well clear of the bottom edge / partner band. */
+    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(180px, 26vw, 280px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     color: #fff;
-    gap: clamp(18px, 2.4vw, 28px);
+    gap: clamp(14px, 2vw, 24px);
 `;
 
 const TextStack = styled.div`
@@ -159,10 +158,10 @@ const Line1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    /* Small minimum so phrases stay on 1-2 lines on phones; larger max for desktop impact. */
-    font-size: clamp(22px, 5vw, 72px);
-    line-height: 1.05;
-    letter-spacing: -1.5px;
+    /* Smaller scale overall — keeps things readable without dominating the banner. */
+    font-size: clamp(20px, 3.6vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1px;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0, 0, 0, 0.55);
@@ -174,9 +173,9 @@ const Line2 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(22px, 5vw, 72px);
-    line-height: 1.05;
-    letter-spacing: -1.5px;
+    font-size: clamp(20px, 3.6vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1px;
     color: #FFB40F;
     text-transform: uppercase;
     text-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
