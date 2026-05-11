@@ -8,7 +8,7 @@ export default function HomeAbout() {
                 <Eyebrow>O que é o Foodlab?</Eyebrow>
                 <Lead>
                     Produtos únicos e inovadores, de alto teor nutricional e orientados
-                    para a <Highlight>sustentabilidade do planeta</Highlight>.
+                    para a sustentabilidade do planeta.
                 </Lead>
                 <Body>
                     O Foodlab é um espaço pioneiro do Continente onde é possível experimentar
@@ -68,11 +68,6 @@ const Lead = styled.h2`
     margin: 0 0 24px 0;
     letter-spacing: -0.3px;
     max-width: 22ch;
-`;
-
-const Highlight = styled.span`
-    background: linear-gradient(120deg, transparent 0% 55%, rgba(255, 180, 15, 0.55) 55% 100%);
-    padding: 0 4px;
 `;
 
 const Body = styled.p`

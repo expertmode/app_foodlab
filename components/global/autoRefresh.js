@@ -8,8 +8,9 @@ const REFRESH_MIN = 0;
 export default function AutoRefresh() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        // Só corre no site público, não no admin
-        if (window.location.pathname.startsWith('/admin')) return;
+        // Só corre no quiosque — não em /admin, /print, /site
+        const p = window.location.pathname;
+        if (p.startsWith('/admin') || p.startsWith('/print') || p.startsWith('/site')) return;
 
         function scheduleNext() {
             const now = new Date();

@@ -15,7 +15,8 @@ async function send(type, ref, meta) {
 
 export function trackEvent(type, ref, meta) {
     if (typeof window === 'undefined') return;
-    if (window.location.pathname.startsWith('/admin')) return;
+    const p = window.location.pathname;
+    if (p.startsWith('/admin') || p.startsWith('/print') || p.startsWith('/site')) return;
     send(type, ref, meta);
 }
 

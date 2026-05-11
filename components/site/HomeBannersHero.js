@@ -39,40 +39,22 @@ export default function HomeBannersHero({ banners }) {
             <Inner>
                 <AnimatePresence mode="wait">
                     <TextStack key={`txt-${current.id}`}>
-                        <Text1
+                        <Line1
                             initial={{ opacity: 0, y: 22 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
                         >
-                            {current.text1}
-                        </Text1>
-                        <Text2
+                            {[current.text1, current.text2].filter(Boolean).join(' ')}
+                        </Line1>
+                        <Line2
                             initial={{ opacity: 0, y: 22 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.30 }}
                         >
-                            {current.text2}
-                        </Text2>
-                        <Text3
-                            initial={{ opacity: 0, y: 22 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -16 }}
-                            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.45 }}
-                        >
                             {current.text3}
-                        </Text3>
-                        {current.text4 && (
-                            <Text4
-                                initial={{ opacity: 0, y: 22 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -16 }}
-                                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.65 }}
-                            >
-                                {current.text4}
-                            </Text4>
-                        )}
+                        </Line2>
                     </TextStack>
                 </AnimatePresence>
 
@@ -169,50 +151,28 @@ const TextStack = styled.div`
     max-width: 22ch;
 `;
 
-const Text1 = styled(motion.p)`
+const Line1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(18px, 2.6vw, 32px);
-    line-height: 1.35;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    color: #fff;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-`;
-
-const Text2 = styled(motion.p)`
-    margin: 0;
-    font-family: "Boldonse", system-ui;
-    font-weight: 400;
-    font-size: clamp(30px, 5.8vw, 76px);
-    line-height: 1.18;
+    font-size: clamp(30px, 5.8vw, 72px);
+    line-height: 1.15;
     letter-spacing: 0;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
 `;
 
-const Text3 = styled(motion.p)`
+const Line2 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(22px, 3.6vw, 48px);
-    line-height: 1.25;
+    font-size: clamp(30px, 5.8vw, 72px);
+    line-height: 1.15;
     letter-spacing: 0;
     color: #FFB40F;
     text-transform: uppercase;
     text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
-`;
-
-const Text4 = styled(motion.p)`
-    margin: 18px 0 0 0;
-    font-size: clamp(13px, 1.4vw, 17px);
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.94);
-    line-height: 1.4;
-    max-width: 42ch;
-    letter-spacing: 0.2px;
 `;
 
 const CtaRow = styled(motion.div)`

@@ -7,8 +7,9 @@ const STORAGE_KEY = 'foodlab_v';
 export default function VersionPoller() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        // Não corre em /admin
-        if (window.location.pathname.startsWith('/admin')) return;
+        // Não corre em /admin, /print, /site — só o quiosque precisa de auto-reload de versão
+        const p = window.location.pathname;
+        if (p.startsWith('/admin') || p.startsWith('/print') || p.startsWith('/site')) return;
 
         async function check() {
             try {

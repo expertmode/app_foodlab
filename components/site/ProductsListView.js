@@ -203,11 +203,10 @@ const Card = styled(Link)`
     flex-direction: column;
     text-decoration: none;
     color: inherit;
+    height: 100%;
     transition: transform 0.18s ease;
 
-    &:hover {
-        transform: translateY(-6px);
-    }
+    &:hover { transform: translateY(-6px); }
 `;
 
 const ImageFrame = styled.div`
@@ -220,6 +219,7 @@ const ImageFrame = styled.div`
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    flex-shrink: 0;
 
     img {
         max-width: 100%;
@@ -236,11 +236,14 @@ const Body = styled.div`
     box-shadow: 0 6px 18px rgba(0, 94, 129, 0.06);
     /* Pull body up so the PNG image overlaps its top edge as a layer. */
     margin-top: -26%;
-    padding: calc(26% + 18px) 18px 22px 18px;
+    padding: calc(26% + 22px) 20px 30px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    min-height: 200px;
     transition: box-shadow 0.18s ease;
 
     ${Card}:hover & {
@@ -261,7 +264,12 @@ const Title = styled.h3`
     color: #005E81;
     font-size: 16px;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.3;
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 `;
 
 const Subtitle = styled.p`
@@ -269,6 +277,7 @@ const Subtitle = styled.p`
     color: #4a6976;
     font-size: 13px;
     line-height: 1.45;
+    min-height: 2.6em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

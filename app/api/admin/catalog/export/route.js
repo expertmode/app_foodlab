@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer-core';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 60;
+export const maxDuration = 90;
 
 const DEV_CHROME_PATHS = [
     process.env.CHROME_PATH,
@@ -55,13 +55,30 @@ async function generatePdf(req, ids) {
     const browser = await launchBrowser();
     try {
         const page = await browser.newPage();
-        // Larger viewport so images / styles load at full quality before PDF render
         // Match A4 at 96dpi (210mm × 297mm ≈ 794 × 1123). Scale 1.5× for crisp text/images without blowing up file size.
         await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1.5 });
-        await page.goto(printUrl, { waitUntil: 'networkidle0', timeout: 50000 });
-        // Wait a touch more for fonts (Boldonse from Google Fonts) and images to settle
-        await page.evaluateHandle('document.fonts.ready');
-        await new Promise((r) => setTimeout(r, 300));
+
+        // 'load' fires once DOM + initial resources are ready. We don't use 'networkidle0'
+        // because that requires zero network activity for 500ms — Vercel Blob can take a
+        // while to settle, and any stray client poller would prevent it from ever firing.
+        await page.goto(printUrl, { waitUntil: 'load', timeout: 75000 });
+
+        // Wait for webfonts to be ready (Boldonse from Google Fonts).
+        try { await page.evaluate(() => document.fonts && document.fonts.ready); } catch {}
+
+        // Wait for every <img> on the page to actually have decoded a frame. PDF rendering
+        // happens before the network is idle otherwise, leaving images blank.
+        await page.evaluate(async () => {
+            const imgs = Array.from(document.images);
+            await Promise.all(imgs.map((img) => {
+                if (img.complete && img.naturalHeight > 0) return Promise.resolve();
+                return new Promise((res) => {
+                    img.addEventListener('load', res, { once: true });
+                    img.addEventListener('error', res, { once: true });
+                    setTimeout(res, 8000); // hard cap per image
+                });
+            }));
+        });
 
         const buf = await page.pdf({
             format: 'A4',

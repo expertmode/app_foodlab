@@ -189,7 +189,7 @@ export default function AdminIndex() {
                     <SelBtn onClick={() => setReordering(true)}>Reordenar</SelBtn>
                     <SelBtn $danger onClick={clearSelection}>Limpar</SelBtn>
                     <SelBtnPrimary disabled={exporting} onClick={exportPdf}>
-                        {exporting ? 'A gerar PDF…' : '↓ Exportar PDF'}
+                        {exporting ? 'A criar PDF…' : '↓ Criar PDF'}
                     </SelBtnPrimary>
                 </SelectionBar>
             )}

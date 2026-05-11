@@ -11,6 +11,8 @@ export default function IdleRedirect() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
         if (pathname.startsWith('/admin')) return;
+        if (pathname.startsWith('/site')) return;
+        if (pathname.startsWith('/print')) return;
         if (pathname === '/') return; // já está na home
 
         let timer = null;

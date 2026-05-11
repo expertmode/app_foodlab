@@ -7,8 +7,9 @@ const STORAGE_KEY = 'foodlab_warmup_v2';
 export default function WarmupCache() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        // Skip in admin
-        if (window.location.pathname.startsWith('/admin')) return;
+        // Skip in admin / print / public site — only the kiosk needs precaching for offline use
+        const p = window.location.pathname;
+        if (p.startsWith('/admin') || p.startsWith('/print') || p.startsWith('/site')) return;
         // ?warmup=1 força nova ronda mesmo que já esteja done — útil para preparar quiosques
         const force = new URLSearchParams(window.location.search).get('warmup') === '1';
         if (!force && sessionStorage.getItem(STORAGE_KEY) === 'done') return;
