@@ -147,34 +147,39 @@ const Inner = styled.div`
 const TextStack = styled.div`
     display: flex;
     flex-direction: column;
-    gap: clamp(4px, 0.8vw, 12px);
-    max-width: min(900px, 92vw);
+    gap: clamp(2px, 0.6vw, 10px);
+    max-width: min(820px, 90vw);
 `;
 
 const Line1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(28px, 5vw, 62px);
-    line-height: 1.1;
-    letter-spacing: 0;
+    /* Smaller minimum so 4-5 word phrases fit in two lines on narrow viewports,
+       instead of each word landing on its own line. */
+    font-size: clamp(20px, 4.4vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
-    word-spacing: 0.05em;
+    /* Balance line breaks so each line gets a similar word count. */
+    text-wrap: balance;
+    overflow-wrap: break-word;
 `;
 
 const Line2 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(28px, 5vw, 62px);
-    line-height: 1.1;
-    letter-spacing: 0;
+    font-size: clamp(20px, 4.4vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
     color: #FFB40F;
     text-transform: uppercase;
     text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
-    word-spacing: 0.05em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
 `;
 
 const CtaRow = styled(motion.div)`
