@@ -15,7 +15,9 @@ export default function HomeProductsTeaser({ products }) {
                 <Grid>
                     {featured.map((p) => (
                         <Card key={p.id} href={`/site/produtos/${p.keyName}`}>
-                            <Thumb style={{ backgroundImage: `url(${p.imgProd})` }} />
+                            <ImageFrame>
+                                <img src={p.imgProd} alt="" loading="lazy" />
+                            </ImageFrame>
                             <CardBody>
                                 <Partner>{p.partner}</Partner>
                                 <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
@@ -72,41 +74,60 @@ const ViewAll = styled(Link)`
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 32px 20px;
+    padding-top: 24px;
 `;
 
 const Card = styled(Link)`
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid #e0ebf0;
-    text-decoration: none;
-    color: inherit;
     display: flex;
     flex-direction: column;
-    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s ease;
 
     &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 14px 28px rgba(0, 94, 129, 0.12);
+        transform: translateY(-6px);
     }
 `;
 
-const Thumb = styled.div`
-    width: 100%;
+const ImageFrame = styled.div`
+    width: 72%;
+    margin: 0 auto;
     aspect-ratio: 1;
-    background-color: #f5f5f0;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 28px rgba(0, 94, 129, 0.22));
+    }
 `;
 
 const CardBody = styled.div`
-    padding: 16px 18px 20px 18px;
+    background: #fff;
+    border-radius: 22px;
+    border: 1px solid rgba(0, 94, 129, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 94, 129, 0.06);
+    /* Pull body upward so the image overlaps its top edge as a layer.
+       margin-top % is relative to parent width — gives consistent overlap across breakpoints. */
+    margin-top: -26%;
+    padding: calc(26% + 18px) 18px 22px 18px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
+    transition: box-shadow 0.18s ease;
+
+    ${Card}:hover & {
+        box-shadow: 0 16px 36px rgba(0, 94, 129, 0.16);
+    }
 `;
 
 const Partner = styled.span`

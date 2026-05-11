@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,13 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function HomeBannersHero({ banners }) {
     const [index, setIndex] = useState(0);
 
-    useEffect(() => {
-        if (!banners || banners.length < 2) return;
-        const t = setInterval(() => {
-            setIndex((i) => (i + 1) % banners.length);
-        }, 7000);
-        return () => clearInterval(t);
-    }, [banners]);
+    // Auto-rotation is intentionally NOT applied here — that's a kiosk-only behaviour.
+    // The site only flips when the user clicks a dot below.
 
     if (!banners || !banners.length) {
         return (
