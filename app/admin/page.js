@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styled from 'styled-components';
 import AdminHeader from '@/components/admin/adminHeader';
-import { computePictoFilters, productHasPicto } from '@/lib/pictos';
+import { computePictoFilters, productHasPicto, getPictoIcon, getPictoKey } from '@/lib/pictos';
 
 const SELECTION_KEY = 'catalog_selection';
 
@@ -220,6 +220,32 @@ export default function AdminIndex() {
                                 <Pid>#{p.id}</Pid>
                                 <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
                                 <Partner>{p.partner}</Partner>
+                                <PictoBadges>
+                                    {(() => {
+                                        const seen = new Set();
+                                        return (p.pictos || []).flatMap((pic) => {
+                                            const key = getPictoKey(pic.text || '');
+                                            if (key === 'default' || seen.has(key)) return [];
+                                            seen.add(key);
+                                            const icon = getPictoIcon(pic.text || '');
+                                            if (!icon) return [];
+                                            const isActive = activePicto === key;
+                                            return [
+                                                <PictoBadge
+                                                    key={key}
+                                                    $active={isActive}
+                                                    title={pic.text}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        setActivePicto((cur) => (cur === key ? null : key));
+                                                    }}
+                                                >
+                                                    <img src={icon} alt={pic.text} />
+                                                </PictoBadge>,
+                                            ];
+                                        });
+                                    })()}
+                                </PictoBadges>
                                 <Stats>
                                     {p.pictos?.length || 0} pictos · {p.infoCards?.length || 0} cards
                                 </Stats>
@@ -511,6 +537,36 @@ const Stats = styled.div`
     color: #999;
     font-size: 11px;
     margin-top: 4px;
+`;
+
+const PictoBadges = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 6px 0 2px;
+`;
+
+const PictoBadge = styled.button`
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid ${(p) => (p.$active ? '#FFB40F' : '#005E81')};
+    background: ${(p) => (p.$active ? '#FFB40F' : '#005E81')};
+    padding: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s, background 0.15s;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
+
+    &:hover { transform: scale(1.1); }
 `;
 
 const NewCard = styled.button`
