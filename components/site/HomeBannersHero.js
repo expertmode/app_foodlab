@@ -135,9 +135,10 @@ const Inner = styled.div`
     max-width: 1240px;
     height: 100%;
     margin: 0 auto;
-    /* Text + CTA grouped near the bottom but with enough bottom padding
-       that wrapped lines stay clear of the banner's bottom edge / dots. */
-    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(64px, 8vw, 96px);
+    /* Text + CTA grouped in the lower-middle. Big bottom padding lifts the
+       whole block off the banner's bottom edge so it doesn't bleed into the
+       white about-section that follows. */
+    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(120px, 18vw, 200px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
