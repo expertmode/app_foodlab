@@ -1,12 +1,16 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export default function SiteHeader() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [overHero, setOverHero] = useState(false);
+    const pathname = usePathname() || '';
+    const isHome = pathname === '/site' || pathname === '/site/';
+    const isProdutos = pathname === '/site/produtos' || pathname.startsWith('/site/produtos/');
 
     // Watch any `[data-site-hero]` element on the page (e.g. HomeBannersHero)
     // and flip the header into a transparent / white-text mode while it's in view.
@@ -43,8 +47,22 @@ export default function SiteHeader() {
                 </Link>
 
                 <Nav $open={menuOpen} $overHero={overHero}>
-                    <NavItem href="/site" onClick={() => setMenuOpen(false)} $overHero={overHero}>Início</NavItem>
-                    <NavItem href="/site/produtos" onClick={() => setMenuOpen(false)} $overHero={overHero}>Produtos</NavItem>
+                    <NavItem
+                        href="/site"
+                        onClick={() => setMenuOpen(false)}
+                        $overHero={overHero}
+                        $active={isHome}
+                    >
+                        Início
+                    </NavItem>
+                    <NavItem
+                        href="/site/produtos"
+                        onClick={() => setMenuOpen(false)}
+                        $overHero={overHero}
+                        $active={isProdutos}
+                    >
+                        Produtos
+                    </NavItem>
                 </Nav>
 
                 <Burger
@@ -158,9 +176,18 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(Link)`
-    color: ${(p) => (p.$overHero ? '#fff' : '#005E81')};
-    background: ${(p) => (p.$overHero ? 'transparent' : 'transparent')};
-    border: 1.5px solid ${(p) => (p.$overHero ? 'rgba(255, 255, 255, 0.55)' : 'transparent')};
+    color: ${(p) => {
+        if (p.$active) return p.$overHero ? '#1a1a1a' : '#fff';
+        return p.$overHero ? '#fff' : '#005E81';
+    }};
+    background: ${(p) => {
+        if (p.$active) return p.$overHero ? '#fff' : '#005E81';
+        return 'transparent';
+    }};
+    border: 1.5px solid ${(p) => {
+        if (p.$active) return p.$overHero ? '#fff' : '#005E81';
+        return p.$overHero ? 'rgba(255, 255, 255, 0.55)' : 'transparent';
+    }};
     font-weight: 700;
     font-size: 14px;
     padding: 8px 18px;
@@ -168,11 +195,17 @@ const NavItem = styled(Link)`
     text-decoration: none;
     transition: background 0.25s, color 0.25s, border-color 0.25s;
     letter-spacing: 0.2px;
-    text-shadow: ${(p) => (p.$overHero ? '0 2px 12px rgba(0, 0, 0, 0.35)' : 'none')};
+    text-shadow: ${(p) => (p.$overHero && !p.$active ? '0 2px 12px rgba(0, 0, 0, 0.35)' : 'none')};
 
     &:hover {
-        background: ${(p) => (p.$overHero ? 'rgba(255, 255, 255, 0.18)' : '#005E81')};
-        color: #fff;
+        background: ${(p) => {
+            if (p.$active) return p.$overHero ? '#fff' : '#005E81';
+            return p.$overHero ? 'rgba(255, 255, 255, 0.18)' : '#005E81';
+        }};
+        color: ${(p) => {
+            if (p.$active) return p.$overHero ? '#1a1a1a' : '#fff';
+            return '#fff';
+        }};
         border-color: ${(p) => (p.$overHero ? '#fff' : '#005E81')};
         text-shadow: none;
     }
@@ -181,9 +214,10 @@ const NavItem = styled(Link)`
         text-align: left;
         border-radius: 10px;
         padding: 12px 16px;
-        /* Inside the mobile dropdown the header is on white — always use the normal style there. */
-        color: #005E81;
-        border-color: transparent;
+        /* Inside the mobile dropdown the header is on white — always use the normal style. */
+        color: ${(p) => (p.$active ? '#fff' : '#005E81')};
+        background: ${(p) => (p.$active ? '#005E81' : 'transparent')};
+        border-color: ${(p) => (p.$active ? '#005E81' : 'transparent')};
         text-shadow: none;
     }
 `;

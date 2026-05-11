@@ -135,35 +135,36 @@ const Inner = styled.div`
     max-width: 1240px;
     height: 100%;
     margin: 0 auto;
-    padding: clamp(32px, 6vw, 56px) clamp(24px, 4vw, 40px);
+    /* Text + CTA grouped near the bottom but with enough bottom padding
+       that wrapped lines stay clear of the banner's bottom edge / dots. */
+    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(64px, 8vw, 96px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     color: #fff;
-    gap: 28px;
+    gap: clamp(18px, 2.4vw, 28px);
 `;
 
 const TextStack = styled.div`
     display: flex;
     flex-direction: column;
     gap: clamp(2px, 0.6vw, 10px);
-    max-width: min(820px, 90vw);
+    max-width: 100%;
+    width: 100%;
 `;
 
 const Line1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    /* Smaller minimum so 4-5 word phrases fit in two lines on narrow viewports,
-       instead of each word landing on its own line. */
-    font-size: clamp(20px, 4.4vw, 54px);
-    line-height: 1.08;
-    letter-spacing: -0.5px;
+    /* Small minimum so phrases stay on 1-2 lines on phones; larger max for desktop impact. */
+    font-size: clamp(22px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
     color: #fff;
     text-transform: uppercase;
-    text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
-    /* Balance line breaks so each line gets a similar word count. */
+    text-shadow: 0 6px 30px rgba(0, 0, 0, 0.55);
     text-wrap: balance;
     overflow-wrap: break-word;
 `;
@@ -172,12 +173,12 @@ const Line2 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(20px, 4.4vw, 54px);
-    line-height: 1.08;
-    letter-spacing: -0.5px;
+    font-size: clamp(22px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
     color: #FFB40F;
     text-transform: uppercase;
-    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
     text-wrap: balance;
     overflow-wrap: break-word;
 `;
