@@ -24,5 +24,5 @@ const Shell = styled.div`
 const Main = styled.main`
     flex: 1;
     width: 100%;
-    ${(p) => p.$heroOverlap && 'margin-top: -88px;'}
+    ${(p) => p.$heroOverlap && 'margin-top: -120px;'}
 `;

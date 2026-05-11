@@ -100,10 +100,10 @@ const Wrap = styled.section`
     min-height: clamp(420px, 60vh, 720px);
     overflow: hidden;
     background: ${(p) => p.$bg || '#0c0c10'};
-    /* SiteShell already shifts Main up 88px via margin (when $heroOverlap),
-       so the Wrap inherits that overlap. We only pad the content so it
-       starts below the sticky header. */
-    padding-top: 88px;
+    /* SiteShell shifts Main up by 120px (header-height upper bound). The
+       Wrap inherits that overlap; padding-top puts content back below the
+       sticky header. Must match SiteShell's margin to keep alignment. */
+    padding-top: 120px;
 
     @media (max-width: 720px) {
         aspect-ratio: 4 / 5;

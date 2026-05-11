@@ -21,7 +21,7 @@ export default function SiteHeader() {
         // Threshold based on header height — switch when most of the hero is gone.
         const obs = new IntersectionObserver(
             (entries) => setOverHero(entries[0].isIntersecting),
-            { rootMargin: '-72px 0px 0px 0px', threshold: 0 },
+            { rootMargin: '-100px 0px 0px 0px', threshold: 0 },
         );
         obs.observe(hero);
         return () => obs.disconnect();
