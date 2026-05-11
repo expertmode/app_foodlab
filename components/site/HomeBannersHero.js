@@ -139,10 +139,10 @@ const Inner = styled.div`
     margin: 0 auto;
     /* Text + CTA grouped around the vertical middle, biased upward —
        well clear of the bottom edge / partner band. */
-    padding: clamp(72px, 10vw, 100px) clamp(24px, 4vw, 40px) clamp(180px, 26vw, 280px);
+    padding: clamp(48px, 8vw, 80px) clamp(24px, 4vw, 40px) clamp(80px, 12vw, 120px);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
     color: #fff;
     gap: clamp(14px, 2vw, 24px);
