@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import AdminHeader from '@/components/admin/adminHeader';
 
 export default function FiltersAdmin() {
     const [filters, setFilters] = useState([]);
@@ -64,11 +64,11 @@ export default function FiltersAdmin() {
 
     return (
         <Wrap>
-            <Header>
-                <Link href="/admin">← Admin</Link>
-                <h1>Filtros</h1>
+            <AdminHeader current="filtros" />
+            <TitleRow>
+                <PageTitle>Filtros</PageTitle>
                 <NewBtn onClick={create}>+ Novo filtro</NewBtn>
-            </Header>
+            </TitleRow>
             <Note>
                 Os filtros aparecem na página `/produtos`. Cada produto pode estar em vários filtros (define-se na página do produto).
                 Para alterar o ícone, sobe um SVG ou PNG (recomendado: SVG branco/azul, 64×64).
@@ -129,14 +129,19 @@ const Wrap = styled.div`
     font-family: var(--font-dm-sans), system-ui, sans-serif;
 `;
 
-const Header = styled.div`
+const TitleRow = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
     margin-bottom: 16px;
+`;
 
-    a { color: #005E81; text-decoration: none; }
-    h1 { margin: 0; flex: 1; color: #005E81; }
+const PageTitle = styled.h1`
+    margin: 0;
+    flex: 1;
+    color: #005E81;
+    font-size: 24px;
+    font-weight: 700;
 `;
 
 const NewBtn = styled.button`

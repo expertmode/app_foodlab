@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import AdminHeader from '@/components/admin/adminHeader';
 
 function BannerGenerator({ bannerId, initialPrompt, onClose, onDone }) {
     const [prompt, setPrompt] = useState(
@@ -182,11 +182,11 @@ export default function HomeAdmin() {
 
     return (
         <Wrap>
-            <Header>
-                <Link href="/admin">← Admin</Link>
-                <h1>Banners da Home</h1>
+            <AdminHeader current="banners" />
+            <TitleRow>
+                <PageTitle>Banners da Home</PageTitle>
                 <NewBtn onClick={create}>+ Novo banner</NewBtn>
-            </Header>
+            </TitleRow>
             <Note>
                 Os banners rodam automaticamente na home a cada 10 segundos. Recomendado: 5–6 banners.
                 Cada um tem 3 linhas de texto (texto1 menor, texto2 grande, texto3 médio).
@@ -327,14 +327,19 @@ const Wrap = styled.div`
     font-family: var(--font-dm-sans), system-ui, sans-serif;
 `;
 
-const Header = styled.div`
+const TitleRow = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
     margin-bottom: 16px;
+`;
 
-    a { color: #005E81; text-decoration: none; }
-    h1 { margin: 0; flex: 1; color: #005E81; }
+const PageTitle = styled.h1`
+    margin: 0;
+    flex: 1;
+    color: #005E81;
+    font-size: 24px;
+    font-weight: 700;
 `;
 
 const NewBtn = styled.button`

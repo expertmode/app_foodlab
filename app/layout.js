@@ -20,8 +20,17 @@ const dm_sans = DM_Sans({
 export const metadata = {
   title: "Foodlab",
   manifest: "/manifest.json",
+};
+
+// Default viewport — server-rendered. The inline script in <head> may override it
+// at parse time for non-kiosk visits on screens narrower than 1080px (the kiosk's
+// design width) so the existing layout auto-fits the device instead of overflowing.
+export const viewport = {
   themeColor: "#005E81",
-  viewport: { width: "device-width", initialScale: 1, maximumScale: 1, userScalable: false },
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({ children }) {
@@ -32,6 +41,27 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet" />
+        {/* Auto-fit the kiosk 1080px design onto narrower public-site viewports (e.g. phones).
+            Skipped on /admin, /print, and when the kiosk flag is active. Runs before paint
+            to avoid layout flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{
+              var path = location.pathname || '';
+              if (path.indexOf('/admin') === 0 || path.indexOf('/print') === 0) return;
+              var qs = new URLSearchParams(location.search);
+              if (qs.get('kiosk') === '0') localStorage.removeItem('kiosk');
+              if (qs.get('kiosk') === '1') localStorage.setItem('kiosk', '1');
+              var isKiosk = localStorage.getItem('kiosk') === '1';
+              if (isKiosk) return;
+              if (window.innerWidth >= 1080) return;
+              var scale = window.innerWidth / 1080;
+              var meta = document.querySelector('meta[name="viewport"]');
+              if (!meta) { meta = document.createElement('meta'); meta.name='viewport'; document.head.appendChild(meta); }
+              meta.setAttribute('content', 'width=1080, initial-scale=' + scale.toFixed(4) + ', minimum-scale=' + scale.toFixed(4) + ', maximum-scale=5, user-scalable=yes');
+            }catch(e){}})();`,
+          }}
+        />
       </head>
       <body>
         <StyledComponentsRegistry>

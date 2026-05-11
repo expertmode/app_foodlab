@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import AdminHeader from '@/components/admin/adminHeader';
 
 export default function IconsAdmin() {
     const [icons, setIcons] = useState([]);
@@ -41,10 +41,8 @@ export default function IconsAdmin() {
 
     return (
         <Wrap>
-            <Header>
-                <Link href="/admin">← Admin</Link>
-                <h1>Ícones (pictos)</h1>
-            </Header>
+            <AdminHeader current="icons" />
+            <PageTitle>Ícones (pictos)</PageTitle>
             <Note>
                 Os pictos são SVGs partilhados que aparecem nos pictos do detalhe de cada produto.
                 Brancos sobre fundo azul. O texto do picto é mapeado a um destes SVGs por palavras-chave (ver <code>components/productDetail/pictoIcons.js</code>).
@@ -95,14 +93,11 @@ const Wrap = styled.div`
     font-family: var(--font-dm-sans), system-ui, sans-serif;
 `;
 
-const Header = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-
-    a { color: #005E81; text-decoration: none; }
-    h1 { margin: 0; flex: 1; color: #005E81; }
+const PageTitle = styled.h1`
+    margin: 0 0 16px 0;
+    color: #005E81;
+    font-size: 24px;
+    font-weight: 700;
 `;
 
 const Note = styled.p`

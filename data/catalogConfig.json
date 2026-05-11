@@ -1,0 +1,19 @@
+{
+    "cover": {
+        "title": "Catálogo",
+        "subtitle": "Foodlab",
+        "date": "",
+        "image": "",
+        "showLogo": true
+    },
+    "blankPage": {
+        "enabled": true,
+        "note": ""
+    },
+    "index": {
+        "title": "Índice"
+    },
+    "footer": {
+        "text": "foodlab.pt"
+    }
+}

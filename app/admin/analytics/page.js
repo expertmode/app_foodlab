@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import AdminHeader from '@/components/admin/adminHeader';
 import {
     LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
     Tooltip, ResponsiveContainer, Legend,
@@ -37,10 +37,9 @@ export default function AnalyticsAdmin() {
 
     return (
         <Wrap>
-            <Header>
-                <Link href="/admin">← Admin</Link>
-                <h1>Analytics</h1>
-                <Spacer />
+            <AdminHeader current="analytics" />
+            <TitleRow>
+                <PageTitle>Analytics</PageTitle>
                 <select value={days} onChange={(e) => setDays(parseInt(e.target.value, 10))}>
                     <option value={7}>Últimos 7 dias</option>
                     <option value={30}>Últimos 30 dias</option>
@@ -48,7 +47,7 @@ export default function AnalyticsAdmin() {
                     <option value={365}>Último ano</option>
                 </select>
                 <PrintBtn onClick={() => window.print()}>↓ Imprimir / PDF</PrintBtn>
-            </Header>
+            </TitleRow>
 
             <KPIs>
                 <KPI><KPILabel>Total de eventos</KPILabel><KPIValue>{stats.total}</KPIValue></KPI>
@@ -129,15 +128,13 @@ const Wrap = styled.div`
     }
 `;
 
-const Header = styled.div`
+const TitleRow = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
     flex-wrap: wrap;
 
-    a { color: #005E81; text-decoration: none; }
-    h1 { margin: 0; color: #005E81; font-size: 24px; }
     select {
         padding: 8px 12px;
         border: 1px solid #ccc;
@@ -146,12 +143,16 @@ const Header = styled.div`
     }
 
     @media print {
-        a, select, button { display: none; }
+        select, button { display: none; }
     }
 `;
 
-const Spacer = styled.div`
+const PageTitle = styled.h1`
+    margin: 0;
     flex: 1;
+    color: #005E81;
+    font-size: 24px;
+    font-weight: 700;
 `;
 
 const PrintBtn = styled.button`

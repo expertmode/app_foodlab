@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 export default function ProdFooter() {
     const pathname = usePathname();
     if (pathname?.startsWith('/admin')) return null;
+    if (pathname?.startsWith('/print')) return null;
     return (
         <AnimBox
             initial={{ opacity: 0 }}

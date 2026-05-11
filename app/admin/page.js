@@ -1,23 +1,84 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styled from 'styled-components';
-import InstallButton from '@/components/global/installButton';
+import AdminHeader from '@/components/admin/adminHeader';
+
+const SELECTION_KEY = 'catalog_selection';
 
 export default function AdminIndex() {
     const router = useRouter();
     const [products, setProducts] = useState([]);
     const [filter, setFilter] = useState('');
-    const [showHelp, setShowHelp] = useState(false);
     const [creating, setCreating] = useState(false);
     const [newTitle, setNewTitle] = useState('');
     const [newPartner, setNewPartner] = useState('');
     const [busy, setBusy] = useState(false);
+    const [selection, setSelection] = useState([]);
+    const [reordering, setReordering] = useState(false);
+    const [exporting, setExporting] = useState(false);
 
     useEffect(() => {
         fetch('/api/admin/products').then((r) => r.json()).then(setProducts);
+        try {
+            const raw = localStorage.getItem(SELECTION_KEY);
+            if (raw) setSelection(JSON.parse(raw));
+        } catch {}
     }, []);
+
+    useEffect(() => {
+        try {
+            localStorage.setItem(SELECTION_KEY, JSON.stringify(selection));
+        } catch {}
+    }, [selection]);
+
+    const selectedSet = useMemo(() => new Set(selection), [selection]);
+
+    const toggleSelected = (e, p) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setSelection((arr) => (arr.includes(p.id) ? arr.filter((x) => x !== p.id) : [...arr, p.id]));
+    };
+
+    const selectAllVisible = () => {
+        setSelection((arr) => {
+            const set = new Set(arr);
+            const next = [...arr];
+            for (const p of visible) {
+                if (!set.has(p.id)) next.push(p.id);
+            }
+            return next;
+        });
+    };
+
+    const clearSelection = () => setSelection([]);
+
+    const exportPdf = async () => {
+        if (!selection.length) return;
+        setExporting(true);
+        try {
+            const ids = selection.join(',');
+            const r = await fetch(`/api/admin/catalog/export?ids=${ids}`, { method: 'POST' });
+            if (!r.ok) {
+                const data = await r.json().catch(() => ({}));
+                throw new Error(data.error || `HTTP ${r.status}`);
+            }
+            const blob = await r.blob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `catalogo-foodlab-${new Date().toISOString().slice(0, 10)}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        } catch (e) {
+            alert('Erro ao exportar PDF: ' + e.message);
+        } finally {
+            setExporting(false);
+        }
+    };
 
     const visible = products.filter((p) => {
         if (!filter) return true;
@@ -68,22 +129,8 @@ export default function AdminIndex() {
 
     return (
         <Wrap>
-            <Header>
-                <h1>Admin — Produtos</h1>
-                <Spacer />
-                <Link href="/" target="_blank"><MiniLink>Ver site ↗</MiniLink></Link>
-                <Link href="/admin/home"><MiniLink>Banners</MiniLink></Link>
-                <Link href="/admin/filtros"><MiniLink>Filtros</MiniLink></Link>
-                <Link href="/admin/icons"><MiniLink>Ícones</MiniLink></Link>
-                <Link href="/admin/analytics"><MiniLink>Analytics</MiniLink></Link>
-                <a href="/api/admin/download-all"><MiniDownload>↓ .zip</MiniDownload></a>
-                <MiniLink onClick={async () => {
-                    const r = await fetch('/api/admin/bump-version', { method: 'POST' });
-                    if (r.ok) alert('Quiosques vão recarregar nos próximos 30s');
-                }}>↻ Refrescar quiosques</MiniLink>
-                <InstallButton label="Instalar" />
-                <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
-            </Header>
+            <AdminHeader current="produtos" />
+            <PageTitle>Produtos</PageTitle>
             <FilterRow>
                 <input
                     type="text"
@@ -95,31 +142,66 @@ export default function AdminIndex() {
             </FilterRow>
 
             <Grid>
-                {visible.map((p) => (
-                    <Card key={p.id} href={`/admin/produtos/${p.id}`} $hidden={p.hidden}>
-                        <VisToggle
-                            onClick={(e) => toggleHidden(e, p)}
-                            $on={!p.hidden}
-                            title={p.hidden ? 'Escondido — clica para publicar' : 'Visível — clica para esconder'}
-                        >
-                            {p.hidden ? 'Escondido' : 'Visível'}
-                        </VisToggle>
-                        <Thumb style={{ backgroundImage: `url(${p.imgProd})` }} loading="lazy" />
-                        <Info>
-                            <Pid>#{p.id}</Pid>
-                            <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
-                            <Partner>{p.partner}</Partner>
-                            <Stats>
-                                {p.pictos?.length || 0} pictos · {p.infoCards?.length || 0} cards
-                            </Stats>
-                        </Info>
-                    </Card>
-                ))}
+                {visible.map((p) => {
+                    const isSelected = selectedSet.has(p.id);
+                    const orderIdx = isSelected ? selection.indexOf(p.id) + 1 : 0;
+                    return (
+                        <Card key={p.id} href={`/admin/produtos/${p.id}`} $hidden={p.hidden} $selected={isSelected}>
+                            <SelToggle
+                                onClick={(e) => toggleSelected(e, p)}
+                                $on={isSelected}
+                                title={isSelected ? `Selecionado (#${orderIdx}) — clica para remover` : 'Adicionar ao PDF'}
+                            >
+                                {isSelected ? `✓ ${orderIdx}` : '+'}
+                            </SelToggle>
+                            <VisToggle
+                                onClick={(e) => toggleHidden(e, p)}
+                                $on={!p.hidden}
+                                title={p.hidden ? 'Escondido — clica para publicar' : 'Visível — clica para esconder'}
+                            >
+                                {p.hidden ? 'Escondido' : 'Visível'}
+                            </VisToggle>
+                            <Thumb style={{ backgroundImage: `url(${p.imgProd})` }} loading="lazy" />
+                            <Info>
+                                <Pid>#{p.id}</Pid>
+                                <Title>{(p.title || '').replace(/\n/g, ' ')}</Title>
+                                <Partner>{p.partner}</Partner>
+                                <Stats>
+                                    {p.pictos?.length || 0} pictos · {p.infoCards?.length || 0} cards
+                                </Stats>
+                            </Info>
+                        </Card>
+                    );
+                })}
                 <NewCard onClick={() => setCreating(true)}>
                     <Plus>+</Plus>
                     <NewLabel>Novo produto</NewLabel>
                 </NewCard>
             </Grid>
+
+            {selection.length > 0 && (
+                <SelectionBar>
+                    <SelCount>
+                        <strong>{selection.length}</strong> selecionado{selection.length === 1 ? '' : 's'} para o PDF
+                    </SelCount>
+                    <SelSpacer />
+                    <SelBtn onClick={selectAllVisible}>Selecionar todos visíveis</SelBtn>
+                    <SelBtn onClick={() => setReordering(true)}>Reordenar</SelBtn>
+                    <SelBtn $danger onClick={clearSelection}>Limpar</SelBtn>
+                    <SelBtnPrimary disabled={exporting} onClick={exportPdf}>
+                        {exporting ? 'A gerar PDF…' : '↓ Exportar PDF'}
+                    </SelBtnPrimary>
+                </SelectionBar>
+            )}
+
+            {reordering && (
+                <ReorderModal
+                    products={products}
+                    order={selection}
+                    onClose={() => setReordering(false)}
+                    onSave={(next) => { setSelection(next); setReordering(false); }}
+                />
+            )}
 
             {creating && (
                 <ModalBackdrop onClick={() => !busy && setCreating(false)}>
@@ -156,50 +238,6 @@ export default function AdminIndex() {
                 </ModalBackdrop>
             )}
 
-            {showHelp && (
-                <ModalBackdrop onClick={() => setShowHelp(false)}>
-                    <ModalCard onClick={(e) => e.stopPropagation()}>
-                        <HeaderRow>
-                            <h3>Como usar este admin</h3>
-                            <CloseBtn onClick={() => setShowHelp(false)}>×</CloseBtn>
-                        </HeaderRow>
-                        <Help>
-                            <h4>Lista de produtos</h4>
-                            <ul>
-                                <li><b>Filtro</b>: filtra por id, título ou parceiro.</li>
-                                <li><b>Clicar num cartão</b>: abre a página de edição completa.</li>
-                                <li><b>Cartão "+"</b>: cria um produto novo com todos os campos vazios prontos a preencher.</li>
-                            </ul>
-                            <h4>Página de edição</h4>
-                            <ul>
-                                <li><b>Texto</b>: editas título, subtítulo, descrição, PPS, parceiro, frase destaque. Carrega <i>Guardar alterações</i> no fim.</li>
-                                <li><b>Imagens principais</b> (img_main, img_bg, bottom_img):
-                                    <ul>
-                                        <li><b>Gerar</b> — abre popup com o prompt automático (editável) + área para arrastar imagens de referência. Apenas a 1ª referência é usada (limite Flux Dev).</li>
-                                        <li><b>Upload</b> — escolhes ficheiro local (substitui a imagem actual).</li>
-                                        <li><b>Drag & Drop</b> — arrasta uma imagem para cima da preview.</li>
-                                    </ul>
-                                </li>
-                                <li><b>Cards (slider)</b>: o mesmo, mais o texto editável.</li>
-                                <li><b>Pictos</b>: só texto editável — o ícone SVG é mapeado automaticamente conforme as palavras-chave do texto.</li>
-                            </ul>
-                            <h4>Gerar com referência</h4>
-                            <ul>
-                                <li>No popup, adicionas 1+ imagens com <b>+ Adicionar</b>. Só a primeira é usada como base.</li>
-                                <li><b>⟳ Usar actual</b>: usa a imagem actualmente publicada como referência — útil para refinar.</li>
-                                <li><b>Fidelidade</b>: 0.30 = ignora bastante a referência / 0.95 = quase cópia. Recomendo 0.6–0.8.</li>
-                            </ul>
-                            <h4>Versões e iteração</h4>
-                            <ul>
-                                <li>Cada vez que geras ou fazes upload, a imagem anterior fica guardada automaticamente.</li>
-                                <li>O botão <b>⟲</b> em cada imagem mostra o histórico — clica numa versão antiga para a restaurar.</li>
-                                <li>Workflow recomendado para iterar: Geras imagem <b>A</b> → não gostas → no novo "Gerar" clicas <b>⟳ Usar actual</b> e ajustas o prompt → a nova <b>B</b> é uma variação refinada de A.</li>
-                                <li>Se a B for pior, abre o histórico (⟲) e restaura a A.</li>
-                            </ul>
-                        </Help>
-                    </ModalCard>
-                </ModalBackdrop>
-            )}
         </Wrap>
     );
 }
@@ -207,23 +245,16 @@ export default function AdminIndex() {
 const Wrap = styled.div`
     width: 100%;
     max-width: 1400px;
-    padding: 32px;
+    padding: 24px 32px 32px 32px;
     box-sizing: border-box;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
 `;
 
-const Header = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-
-    h1 { margin: 0; color: #005E81; flex: 0 0 auto; font-size: 22px; }
-`;
-
-const Spacer = styled.div`
-    flex: 1;
+const PageTitle = styled.h1`
+    margin: 0 0 16px 0;
+    color: #005E81;
+    font-size: 24px;
+    font-weight: 700;
 `;
 
 const FilterRow = styled.div`
@@ -247,48 +278,6 @@ const Count = styled.span`
     white-space: nowrap;
 `;
 
-const HelpBtn = styled.button`
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1.5px solid #005E81;
-    background: #fff;
-    color: #005E81;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-
-    &:hover { background: #005E81; color: #fff; }
-`;
-
-const MiniLink = styled.span`
-    display: inline-block;
-    padding: 6px 10px;
-    border: 1.5px solid #005E81;
-    background: #fff;
-    color: #005E81;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 11px;
-    cursor: pointer;
-
-    &:hover { background: #005E81; color: #fff; }
-`;
-
-const MiniDownload = styled.span`
-    display: inline-block;
-    padding: 6px 10px;
-    border: 1.5px solid #FFB40F;
-    background: #fff;
-    color: #b88200;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 11px;
-    cursor: pointer;
-
-    &:hover { background: #FFB40F; color: #fff; }
-`;
-
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -299,7 +288,7 @@ const Card = styled(Link)`
     display: flex;
     flex-direction: column;
     background: #fff;
-    border: 1px solid #e0e0e0;
+    border: ${(p) => (p.$selected ? '2px solid #005E81' : '1px solid #e0e0e0')};
     border-radius: 12px;
     overflow: hidden;
     text-decoration: none;
@@ -307,11 +296,35 @@ const Card = styled(Link)`
     transition: transform 0.15s, box-shadow 0.15s;
     position: relative;
     opacity: ${(p) => (p.$hidden ? 0.45 : 1)};
+    box-shadow: ${(p) => (p.$selected ? '0 0 0 3px rgba(0, 94, 129, 0.15)' : 'none')};
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        box-shadow: ${(p) => (p.$selected ? '0 0 0 3px rgba(0, 94, 129, 0.2), 0 8px 16px rgba(0,0,0,0.08)' : '0 8px 16px rgba(0,0,0,0.08)')};
     }
+`;
+
+const SelToggle = styled.button`
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 5;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 14px;
+    border: 1.5px solid #005E81;
+    background: ${(p) => (p.$on ? '#005E81' : '#fff')};
+    color: ${(p) => (p.$on ? '#fff' : '#005E81')};
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+
+    &:hover { background: ${(p) => (p.$on ? '#004a66' : '#f0f8fb')}; }
 `;
 
 const VisToggle = styled.button`
@@ -489,13 +502,249 @@ const ConfirmBtn = styled.button`
     &:disabled { opacity: 0.5; cursor: wait; }
 `;
 
-const Help = styled.div`
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
+// === Selection bar (sticky bottom, shown when 1+ produtos selected for PDF) ===
+const SelectionBar = styled.div`
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #005E81;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 900;
+    max-width: 95vw;
+    flex-wrap: wrap;
+`;
 
-    h4 { color: #005E81; margin: 16px 0 8px 0; }
-    ul { margin: 0; padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    a { color: #005E81; }
+const SelCount = styled.div`
+    font-size: 14px;
+    color: #005E81;
+
+    strong { font-size: 18px; }
+`;
+
+const SelSpacer = styled.div`
+    width: 12px;
+`;
+
+const SelBtn = styled.button`
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid ${(p) => (p.$danger ? '#c0392b' : '#005E81')};
+    background: #fff;
+    color: ${(p) => (p.$danger ? '#c0392b' : '#005E81')};
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    &:hover { background: ${(p) => (p.$danger ? '#fff5f5' : '#f0f8fb')}; }
+`;
+
+const SelBtnPrimary = styled.button`
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #005E81;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    &:hover:not(:disabled) { background: #004a66; }
+    &:disabled { opacity: 0.6; cursor: wait; }
+`;
+
+// === Reorder modal ===
+function ReorderModal({ products, order, onClose, onSave }) {
+    const [items, setItems] = useState(order);
+    const [dragIdx, setDragIdx] = useState(null);
+
+    const productMap = useMemo(() => {
+        const m = new Map();
+        for (const p of products) m.set(p.id, p);
+        return m;
+    }, [products]);
+
+    const move = (from, to) => {
+        if (from === to || from < 0 || to < 0 || from >= items.length || to >= items.length) return;
+        const next = [...items];
+        const [moved] = next.splice(from, 1);
+        next.splice(to, 0, moved);
+        setItems(next);
+    };
+
+    const handleDragStart = (e, idx) => {
+        setDragIdx(idx);
+        e.dataTransfer.effectAllowed = 'move';
+    };
+    const handleDragOver = (e, idx) => {
+        e.preventDefault();
+        if (dragIdx === null || dragIdx === idx) return;
+        move(dragIdx, idx);
+        setDragIdx(idx);
+    };
+    const handleDragEnd = () => setDragIdx(null);
+
+    const remove = (id) => setItems((arr) => arr.filter((x) => x !== id));
+
+    return (
+        <ModalBackdrop onClick={onClose}>
+            <ReorderCard onClick={(e) => e.stopPropagation()}>
+                <HeaderRow>
+                    <h3>Reordenar produtos no PDF</h3>
+                    <CloseBtn onClick={onClose}>×</CloseBtn>
+                </HeaderRow>
+                <ReorderNote>
+                    Arrasta para reordenar. A 1ª página do PDF será o primeiro produto desta lista.
+                </ReorderNote>
+                <ReorderList>
+                    {items.map((id, idx) => {
+                        const p = productMap.get(id);
+                        if (!p) return null;
+                        return (
+                            <ReorderRow
+                                key={id}
+                                draggable
+                                onDragStart={(e) => handleDragStart(e, idx)}
+                                onDragOver={(e) => handleDragOver(e, idx)}
+                                onDragEnd={handleDragEnd}
+                                $dragging={dragIdx === idx}
+                            >
+                                <DragHandle>⋮⋮</DragHandle>
+                                <RowIdx>{idx + 1}</RowIdx>
+                                <RowThumb style={{ backgroundImage: `url(${p.imgProd})` }} />
+                                <RowInfo>
+                                    <RowTitle>{(p.title || '').replace(/\n/g, ' ')}</RowTitle>
+                                    <RowSub>#{p.id} · {p.partner}</RowSub>
+                                </RowInfo>
+                                <RowActions>
+                                    <ArrowBtn onClick={() => move(idx, idx - 1)} disabled={idx === 0} title="Subir">↑</ArrowBtn>
+                                    <ArrowBtn onClick={() => move(idx, idx + 1)} disabled={idx === items.length - 1} title="Descer">↓</ArrowBtn>
+                                    <ArrowBtn $danger onClick={() => remove(id)} title="Remover da seleção">×</ArrowBtn>
+                                </RowActions>
+                            </ReorderRow>
+                        );
+                    })}
+                </ReorderList>
+                <ModalActions>
+                    <CancelBtn onClick={onClose}>Cancelar</CancelBtn>
+                    <ConfirmBtn onClick={() => onSave(items)}>Aplicar ordem</ConfirmBtn>
+                </ModalActions>
+            </ReorderCard>
+        </ModalBackdrop>
+    );
+}
+
+const ReorderCard = styled.div`
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h3 { margin: 0; color: #005E81; font-size: 18px; }
+`;
+
+const ReorderNote = styled.p`
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+`;
+
+const ReorderList = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+`;
+
+const ReorderRow = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: ${(p) => (p.$dragging ? '#e8f3f7' : '#f8f9fa')};
+    border: 1px solid ${(p) => (p.$dragging ? '#005E81' : '#e0e0e0')};
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+
+    &:active { cursor: grabbing; }
+`;
+
+const DragHandle = styled.span`
+    color: #999;
+    font-size: 16px;
+    letter-spacing: -2px;
+    font-weight: 700;
+`;
+
+const RowIdx = styled.div`
+    min-width: 24px;
+    text-align: center;
+    color: #005E81;
+    font-weight: 700;
+    font-size: 14px;
+`;
+
+const RowThumb = styled.div`
+    width: 40px;
+    height: 40px;
+    background-color: #f5f5f0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    flex-shrink: 0;
+`;
+
+const RowInfo = styled.div`
+    flex: 1;
+    min-width: 0;
+`;
+
+const RowTitle = styled.div`
+    color: #333;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+`;
+
+const RowSub = styled.div`
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+`;
+
+const RowActions = styled.div`
+    display: flex;
+    gap: 4px;
+`;
+
+const ArrowBtn = styled.button`
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid ${(p) => (p.$danger ? '#c0392b' : '#ccc')};
+    background: #fff;
+    color: ${(p) => (p.$danger ? '#c0392b' : '#444')};
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover:not(:disabled) { background: ${(p) => (p.$danger ? '#fff5f5' : '#f0f0f0')}; }
+    &:disabled { opacity: 0.3; cursor: not-allowed; }
 `;
