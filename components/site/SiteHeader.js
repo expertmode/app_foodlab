@@ -1,14 +1,30 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export default function SiteHeader() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [overHero, setOverHero] = useState(false);
+
+    // Watch any `[data-site-hero]` element on the page (e.g. HomeBannersHero)
+    // and flip the header into a transparent / white-text mode while it's in view.
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const hero = document.querySelector('[data-site-hero]');
+        if (!hero) { setOverHero(false); return; }
+        // Threshold based on header height — switch when most of the hero is gone.
+        const obs = new IntersectionObserver(
+            (entries) => setOverHero(entries[0].isIntersecting),
+            { rootMargin: '-72px 0px 0px 0px', threshold: 0 },
+        );
+        obs.observe(hero);
+        return () => obs.disconnect();
+    }, []);
 
     return (
-        <Header>
+        <Header $overHero={overHero}>
             <Inner>
                 <Link href="/site" onClick={() => setMenuOpen(false)} style={{ flex: 1, minWidth: 0 }}>
                     <LogoPill
@@ -26,15 +42,16 @@ export default function SiteHeader() {
                     </LogoPill>
                 </Link>
 
-                <Nav $open={menuOpen}>
-                    <NavItem href="/site" onClick={() => setMenuOpen(false)}>Início</NavItem>
-                    <NavItem href="/site/produtos" onClick={() => setMenuOpen(false)}>Produtos</NavItem>
+                <Nav $open={menuOpen} $overHero={overHero}>
+                    <NavItem href="/site" onClick={() => setMenuOpen(false)} $overHero={overHero}>Início</NavItem>
+                    <NavItem href="/site/produtos" onClick={() => setMenuOpen(false)} $overHero={overHero}>Produtos</NavItem>
                 </Nav>
 
                 <Burger
                     aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
                     onClick={() => setMenuOpen((x) => !x)}
                     $open={menuOpen}
+                    $overHero={overHero}
                 >
                     <span /><span /><span />
                 </Burger>
@@ -141,34 +158,47 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(Link)`
-    color: #005E81;
+    color: ${(p) => (p.$overHero ? '#fff' : '#005E81')};
+    background: ${(p) => (p.$overHero ? 'transparent' : 'transparent')};
+    border: 1.5px solid ${(p) => (p.$overHero ? 'rgba(255, 255, 255, 0.55)' : 'transparent')};
     font-weight: 700;
     font-size: 14px;
-    padding: 10px 18px;
+    padding: 8px 18px;
     border-radius: 1000px;
     text-decoration: none;
-    transition: background 0.15s, color 0.15s;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
     letter-spacing: 0.2px;
+    text-shadow: ${(p) => (p.$overHero ? '0 2px 12px rgba(0, 0, 0, 0.35)' : 'none')};
 
-    &:hover { background: #005E81; color: #fff; }
+    &:hover {
+        background: ${(p) => (p.$overHero ? 'rgba(255, 255, 255, 0.18)' : '#005E81')};
+        color: #fff;
+        border-color: ${(p) => (p.$overHero ? '#fff' : '#005E81')};
+        text-shadow: none;
+    }
 
     @media (max-width: 720px) {
         text-align: left;
         border-radius: 10px;
         padding: 12px 16px;
+        /* Inside the mobile dropdown the header is on white — always use the normal style there. */
+        color: #005E81;
+        border-color: transparent;
+        text-shadow: none;
     }
 `;
 
 const Burger = styled.button`
     display: none;
-    background: #fff;
-    border: 1.5px solid #005E81;
+    background: ${(p) => (p.$overHero ? 'transparent' : '#fff')};
+    border: 1.5px solid ${(p) => (p.$overHero ? '#fff' : '#005E81')};
     width: 44px;
     height: 44px;
     border-radius: 1000px;
     cursor: pointer;
     position: relative;
     flex-shrink: 0;
+    transition: background 0.25s, border-color 0.25s;
 
     span {
         position: absolute;
@@ -176,10 +206,10 @@ const Burger = styled.button`
         top: 50%;
         width: 18px;
         height: 2px;
-        background: #005E81;
+        background: ${(p) => (p.$overHero ? '#fff' : '#005E81')};
         border-radius: 2px;
         transform: translate(-50%, -50%);
-        transition: transform 0.2s, opacity 0.2s;
+        transition: transform 0.2s, opacity 0.2s, background 0.25s;
     }
     span:nth-child(1) {
         transform: translate(-50%, calc(-50% - 6px));

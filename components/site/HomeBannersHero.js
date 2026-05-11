@@ -23,7 +23,7 @@ export default function HomeBannersHero({ banners }) {
     const current = banners[index];
 
     return (
-        <Wrap>
+        <Wrap data-site-hero>
             <AnimatePresence mode="sync">
                 <BgImage
                     key={`bg-${current.id}`}
@@ -45,7 +45,7 @@ export default function HomeBannersHero({ banners }) {
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
                         >
-                            {[current.text1, current.text2].filter(Boolean).join(' ')}
+                            {[current.text1, current.text2].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim()}
                         </Line1>
                         <Line2
                             initial={{ opacity: 0, y: 22 }}
@@ -53,7 +53,7 @@ export default function HomeBannersHero({ banners }) {
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.30 }}
                         >
-                            {current.text3}
+                            {(current.text3 || '').replace(/\s+/g, ' ').trim()}
                         </Line2>
                     </TextStack>
                 </AnimatePresence>
@@ -147,32 +147,34 @@ const Inner = styled.div`
 const TextStack = styled.div`
     display: flex;
     flex-direction: column;
-    gap: clamp(8px, 1.4vw, 18px);
-    max-width: 22ch;
+    gap: clamp(4px, 0.8vw, 12px);
+    max-width: min(900px, 92vw);
 `;
 
 const Line1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(30px, 5.8vw, 72px);
-    line-height: 1.15;
+    font-size: clamp(28px, 5vw, 62px);
+    line-height: 1.1;
     letter-spacing: 0;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+    word-spacing: 0.05em;
 `;
 
 const Line2 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(30px, 5.8vw, 72px);
-    line-height: 1.15;
+    font-size: clamp(28px, 5vw, 62px);
+    line-height: 1.1;
     letter-spacing: 0;
     color: #FFB40F;
     text-transform: uppercase;
     text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+    word-spacing: 0.05em;
 `;
 
 const CtaRow = styled(motion.div)`

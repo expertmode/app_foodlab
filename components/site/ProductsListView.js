@@ -210,13 +210,14 @@ const Card = styled(Link)`
 `;
 
 const ImageFrame = styled.div`
-    width: 72%;
+    width: 64%;
     margin: 0 auto;
     aspect-ratio: 1;
     position: relative;
     z-index: 2;
+    /* Anchor PNGs to the bottom — same look as the homepage teaser. */
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     pointer-events: none;
     flex-shrink: 0;
@@ -225,7 +226,8 @@ const ImageFrame = styled.div`
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        filter: drop-shadow(0 18px 28px rgba(0, 94, 129, 0.22));
+        object-position: center bottom;
+        filter: drop-shadow(0 14px 22px rgba(0, 94, 129, 0.22));
     }
 `;
 
@@ -234,9 +236,9 @@ const Body = styled.div`
     border-radius: 22px;
     border: 1px solid rgba(0, 94, 129, 0.06);
     box-shadow: 0 6px 18px rgba(0, 94, 129, 0.06);
-    /* Pull body up so the PNG image overlaps its top edge as a layer. */
-    margin-top: -26%;
-    padding: calc(26% + 22px) 20px 30px 20px;
+    /* Bottom of PNG overlaps top edge of body — less overhang for a grounded look. */
+    margin-top: -16%;
+    padding: calc(16% + 22px) 20px 30px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
