@@ -170,7 +170,7 @@ const Inner = styled.div`
 const TextStack = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: clamp(8px, 1.4vw, 18px);
     max-width: 22ch;
 `;
 
@@ -178,33 +178,33 @@ const Text1 = styled(motion.p)`
     margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(20px, 3vw, 38px);
-    line-height: 1.05;
+    font-size: clamp(18px, 2.6vw, 32px);
+    line-height: 1.35;
     text-transform: uppercase;
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
     color: #fff;
     text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 `;
 
 const Text2 = styled(motion.p)`
-    margin: 4px 0;
+    margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(34px, 7vw, 92px);
-    line-height: 1;
-    letter-spacing: -2px;
+    font-size: clamp(30px, 5.8vw, 76px);
+    line-height: 1.18;
+    letter-spacing: 0;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
 `;
 
 const Text3 = styled(motion.p)`
-    margin: 4px 0 0 0;
+    margin: 0;
     font-family: "Boldonse", system-ui;
     font-weight: 400;
-    font-size: clamp(24px, 4vw, 56px);
-    line-height: 1.05;
-    letter-spacing: -1px;
+    font-size: clamp(22px, 3.6vw, 48px);
+    line-height: 1.25;
+    letter-spacing: 0;
     color: #FFB40F;
     text-transform: uppercase;
     text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
