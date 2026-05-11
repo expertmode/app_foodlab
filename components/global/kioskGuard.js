@@ -11,9 +11,12 @@ export default function KioskGuard() {
         if (params.get('kiosk') === '0') localStorage.removeItem('kiosk');
         const isKiosk = localStorage.getItem('kiosk') === '1';
         const inAdmin = pathname?.startsWith('/admin');
+        const inSite = pathname?.startsWith('/site');
+        const inPrint = pathname?.startsWith('/print');
 
-        // Admin needs cursor, F-keys, devtools, refresh — never apply kiosk lockdown there.
-        if (!isKiosk || inAdmin) {
+        // Admin / /site (public responsive) / /print need cursor + scroll + interaction;
+        // never apply kiosk lockdown there.
+        if (!isKiosk || inAdmin || inSite || inPrint) {
             document.documentElement.classList.remove('kiosk');
             return;
         }

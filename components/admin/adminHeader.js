@@ -41,13 +41,11 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                 <Group>
                     <GroupLabel>Ver</GroupLabel>
                     <GroupItems>
-                        <NavLink href="/?kiosk=0" target="_blank" $tone="site">
-                            <NavIcon>🌐</NavIcon>
-                            <NavLabel>Site online <span>↗</span></NavLabel>
+                        <NavLink href="/site" target="_blank" $tone="site">
+                            Site online <Arrow>↗</Arrow>
                         </NavLink>
                         <NavLink href="/?kiosk=1" target="_blank" $tone="kiosk">
-                            <NavIcon>📺</NavIcon>
-                            <NavLabel>Quiosque <span>↗</span></NavLabel>
+                            Quiosque <Arrow>↗</Arrow>
                         </NavLink>
                     </GroupItems>
                 </Group>
@@ -56,12 +54,10 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                     <GroupLabel>Catálogo PDF</GroupLabel>
                     <GroupItems>
                         <NavLink href="/admin/catalog" $active={active === 'catalog'}>
-                            <NavIcon>📋</NavIcon>
-                            <NavLabel>Configurar capa / índice</NavLabel>
+                            Configurar capa / índice
                         </NavLink>
                         <NavLink href="/admin" $active={active === 'produtos'}>
-                            <NavIcon>✓</NavIcon>
-                            <NavLabel>Escolher produtos do catálogo</NavLabel>
+                            Escolher produtos
                         </NavLink>
                     </GroupItems>
                 </Group>
@@ -70,16 +66,16 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                     <GroupLabel>Conteúdo</GroupLabel>
                     <GroupItems>
                         <NavLink href="/admin" $active={active === 'produtos' || active === 'edit'}>
-                            <NavLabel>Produtos</NavLabel>
+                            Produtos
                         </NavLink>
                         <NavLink href="/admin/home" $active={active === 'banners'}>
-                            <NavLabel>Banners</NavLabel>
+                            Banners
                         </NavLink>
                         <NavLink href="/admin/filtros" $active={active === 'filtros'}>
-                            <NavLabel>Filtros</NavLabel>
+                            Filtros
                         </NavLink>
                         <NavLink href="/admin/icons" $active={active === 'icons'}>
-                            <NavLabel>Ícones</NavLabel>
+                            Ícones
                         </NavLink>
                     </GroupItems>
                 </Group>
@@ -88,13 +84,13 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                     <GroupLabel>Sistema</GroupLabel>
                     <GroupItems>
                         <NavLink href="/admin/analytics" $active={active === 'analytics'}>
-                            <NavLabel>Analytics</NavLabel>
+                            Analytics
                         </NavLink>
                         <NavLink as="a" href="/api/admin/download-all" $tone="warning">
-                            <NavLabel>↓ Backup .zip</NavLabel>
+                            Backup
                         </NavLink>
                         <NavLink as="button" onClick={refreshKiosks} $tone="warning">
-                            <NavLabel>↻ Refrescar quiosques</NavLabel>
+                            Refrescar quiosques
                         </NavLink>
                     </GroupItems>
                 </Group>
@@ -140,23 +136,20 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
 }
 
 const Wrap = styled.div`
-    background: linear-gradient(180deg, #f8fafc 0%, #eef4f7 100%);
-    border: 1px solid #d6e7ee;
-    border-radius: 14px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
+    background: transparent;
+    border-bottom: 1px solid #e5edf0;
+    padding: 14px 0 18px 0;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 `;
 
 const TopBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #d6e7ee;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 `;
 
 const Brand = styled.div`
@@ -174,16 +167,17 @@ const TopActions = styled.div`
 `;
 
 const HelpBtn = styled.button`
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 1000px;
     border: 1.5px solid #005E81;
-    background: #fff;
+    background: transparent;
     color: #005E81;
     font-weight: 700;
     font-size: 13px;
     cursor: pointer;
     line-height: 1;
+    transition: background 0.15s, color 0.15s;
 
     &:hover { background: #005E81; color: #fff; }
 `;
@@ -200,8 +194,8 @@ const GroupLabel = styled.div`
     text-transform: uppercase;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.2px;
-    color: #88a8b5;
+    letter-spacing: 1.4px;
+    color: #9bafb8;
 `;
 
 const GroupItems = styled.div`
@@ -212,44 +206,41 @@ const GroupItems = styled.div`
 `;
 
 const TONE = {
-    site: { bd: '#2a7', fg: '#1f6a52', bg: '#e6f7ec' },
-    kiosk: { bd: '#FFB40F', fg: '#a16b00', bg: '#fff5d9' },
-    warning: { bd: '#FFB40F', fg: '#a16b00', bg: '#fff' },
-    default: { bd: '#005E81', fg: '#005E81', bg: '#fff' },
+    site: { bd: '#2a7', fg: '#1f6a52' },
+    kiosk: { bd: '#FFB40F', fg: '#a16b00' },
+    warning: { bd: '#c79100', fg: '#7a5500' },
+    default: { bd: '#005E81', fg: '#005E81' },
 };
 
 const NavLink = styled(Link)`
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 8px;
+    gap: 4px;
+    padding: 7px 16px;
+    border-radius: 1000px;
     border: 1.5px solid ${(p) => (TONE[p.$tone] || TONE.default).bd};
-    background: ${(p) => p.$active ? (TONE[p.$tone] || TONE.default).bd : (TONE[p.$tone] || TONE.default).bg};
+    background: ${(p) => p.$active ? (TONE[p.$tone] || TONE.default).bd : 'transparent'};
     color: ${(p) => p.$active ? '#fff' : (TONE[p.$tone] || TONE.default).fg};
     font-weight: 600;
-    font-size: 12px;
+    font-size: 12.5px;
     cursor: pointer;
     text-decoration: none;
     font-family: inherit;
     line-height: 1.3;
-    transition: transform 0.1s, box-shadow 0.15s;
+    letter-spacing: 0.1px;
+    transition: background 0.15s, color 0.15s, transform 0.1s;
 
     &:hover {
+        background: ${(p) => (TONE[p.$tone] || TONE.default).bd};
+        color: #fff;
         transform: translateY(-1px);
-        box-shadow: 0 4px 10px rgba(0, 94, 129, 0.12);
     }
-
-    span { font-size: 10px; opacity: 0.7; }
 `;
 
-const NavIcon = styled.span`
-    font-size: 13px;
-    line-height: 1;
-`;
-
-const NavLabel = styled.span`
-    line-height: 1.2;
+const Arrow = styled.span`
+    font-size: 11px;
+    opacity: 0.7;
+    margin-left: 2px;
 `;
 
 // === Help modal ===

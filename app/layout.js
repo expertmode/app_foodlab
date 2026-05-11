@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `(function(){try{
               var path = location.pathname || '';
-              if (path.indexOf('/admin') === 0 || path.indexOf('/print') === 0) return;
+              if (path.indexOf('/admin') === 0 || path.indexOf('/print') === 0 || path.indexOf('/site') === 0) return;
               var qs = new URLSearchParams(location.search);
               if (qs.get('kiosk') === '0') localStorage.removeItem('kiosk');
               if (qs.get('kiosk') === '1') localStorage.setItem('kiosk', '1');

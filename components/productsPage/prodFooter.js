@@ -8,6 +8,7 @@ export default function ProdFooter() {
     const pathname = usePathname();
     if (pathname?.startsWith('/admin')) return null;
     if (pathname?.startsWith('/print')) return null;
+    if (pathname?.startsWith('/site')) return null;
     return (
         <AnimBox
             initial={{ opacity: 0 }}

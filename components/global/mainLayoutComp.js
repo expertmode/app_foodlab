@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 
 export default function MainLayoutComp({ children }) {
     const pathname = usePathname();
-    // /print routes are A4 layouts rendered by puppeteer — they need to escape the fixed kiosk width
-    if (pathname?.startsWith('/print')) return <>{children}</>;
+    // /print routes are A4 layouts rendered by puppeteer — they need to escape the fixed kiosk width.
+    // /site is the public responsive site — also owns the full viewport (its own SiteShell).
+    if (pathname?.startsWith('/print') || pathname?.startsWith('/site')) return <>{children}</>;
     return (
         <MainBox>
             {children}
