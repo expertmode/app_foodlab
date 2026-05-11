@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styled from 'styled-components';
 import AdminHeader from '@/components/admin/adminHeader';
+import { computePictoFilters, productHasPicto } from '@/lib/pictos';
 
 const SELECTION_KEY = 'catalog_selection';
 
@@ -11,6 +12,8 @@ export default function AdminIndex() {
     const router = useRouter();
     const [products, setProducts] = useState([]);
     const [filter, setFilter] = useState('');
+    const [activePicto, setActivePicto] = useState(null);
+    const [showHidden, setShowHidden] = useState(true);
     const [creating, setCreating] = useState(false);
     const [newTitle, setNewTitle] = useState('');
     const [newPartner, setNewPartner] = useState('');
@@ -80,14 +83,27 @@ export default function AdminIndex() {
         }
     };
 
+    // Picto filters are computed only from visible (non-hidden) products so the
+    // counts match what a kiosk visitor would see; the admin still gets the
+    // option to include hidden products via the toggle.
+    const pictoFilters = useMemo(
+        () => computePictoFilters(products.filter((p) => !p.hidden)),
+        [products],
+    );
+
     const visible = products.filter((p) => {
-        if (!filter) return true;
-        const q = filter.toLowerCase();
-        return (
-            String(p.id).includes(q) ||
-            (p.title || '').toLowerCase().includes(q) ||
-            (p.partner || '').toLowerCase().includes(q)
-        );
+        if (!showHidden && p.hidden) return false;
+        if (activePicto && !productHasPicto(p, activePicto)) return false;
+        if (filter) {
+            const q = filter.toLowerCase();
+            const hit = (
+                String(p.id).includes(q) ||
+                (p.title || '').toLowerCase().includes(q) ||
+                (p.partner || '').toLowerCase().includes(q)
+            );
+            if (!hit) return false;
+        }
+        return true;
     });
 
     const toggleHidden = async (e, p) => {
@@ -138,8 +154,46 @@ export default function AdminIndex() {
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                 />
+                <ToggleHidden onClick={() => setShowHidden((x) => !x)} $on={showHidden}>
+                    {showHidden ? '👁  Mostra escondidos' : '🚫 Esconde escondidos'}
+                </ToggleHidden>
                 <Count>{visible.length} / {products.length}</Count>
             </FilterRow>
+
+            {pictoFilters.length > 0 && (
+                <PictoFilterRow>
+                    <PictoChip $on={!activePicto} onClick={() => setActivePicto(null)}>
+                        Todos
+                    </PictoChip>
+                    {pictoFilters.map((f) => (
+                        <PictoChip
+                            key={f.key}
+                            $on={activePicto === f.key}
+                            onClick={() => setActivePicto((k) => (k === f.key ? null : f.key))}
+                            title={`${f.count} produto${f.count === 1 ? '' : 's'} com "${f.label}"`}
+                        >
+                            {f.icon && <PictoIcon src={f.icon} alt="" />}
+                            {f.label}
+                            <PictoCount>{f.count}</PictoCount>
+                        </PictoChip>
+                    ))}
+                    {activePicto && (
+                        <SelectAllInPicto onClick={() => {
+                            // Add every product matching the current filters to the selection.
+                            setSelection((arr) => {
+                                const set = new Set(arr);
+                                const next = [...arr];
+                                for (const p of visible) {
+                                    if (!set.has(p.id)) next.push(p.id);
+                                }
+                                return next;
+                            });
+                        }}>
+                            + Selecionar {visible.length} produto{visible.length === 1 ? '' : 's'} para PDF
+                        </SelectAllInPicto>
+                    )}
+                </PictoFilterRow>
+            )}
 
             <Grid>
                 {visible.map((p) => {
@@ -276,6 +330,82 @@ const Count = styled.span`
     color: #666;
     font-size: 14px;
     white-space: nowrap;
+`;
+
+const ToggleHidden = styled.button`
+    padding: 8px 14px;
+    border: 1.5px solid ${(p) => (p.$on ? '#005E81' : '#ccc')};
+    background: ${(p) => (p.$on ? '#fff' : '#f8f9fa')};
+    color: ${(p) => (p.$on ? '#005E81' : '#666')};
+    border-radius: 1000px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    &:hover { background: ${(p) => (p.$on ? '#f0f8fb' : '#fff')}; }
+`;
+
+const PictoFilterRow = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+    align-items: center;
+`;
+
+const PictoChip = styled.button.attrs((p) => ({
+    'data-on': p.$on ? 'true' : 'false',
+}))`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px 6px 10px;
+    border: 1.5px solid ${(p) => (p.$on ? '#005E81' : '#d6e7ee')};
+    background: ${(p) => (p.$on ? '#005E81' : '#fff')};
+    color: ${(p) => (p.$on ? '#fff' : '#005E81')};
+    border-radius: 1000px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+
+    &:hover { border-color: #005E81; }
+`;
+
+const PictoIcon = styled.img`
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    ${PictoChip}[data-on='true'] & { filter: brightness(0) invert(1); }
+`;
+
+const PictoCount = styled.span`
+    background: rgba(0, 94, 129, 0.08);
+    padding: 2px 8px;
+    border-radius: 1000px;
+    font-size: 10px;
+    font-weight: 700;
+    ${PictoChip}[data-on='true'] & {
+        background: rgba(255, 255, 255, 0.2);
+    }
+`;
+
+const SelectAllInPicto = styled.button`
+    margin-left: 8px;
+    padding: 6px 14px;
+    border: 1.5px solid #FFB40F;
+    background: #fff;
+    color: #b88200;
+    border-radius: 1000px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: inherit;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background: #FFB40F; color: #fff; }
 `;
 
 const Grid = styled.div`
