@@ -347,7 +347,14 @@ export default function AdminHelp() {
 
                     {active.tip && (
                         <TipBlock>
-                            <TipLabel>💡 Dica</TipLabel>
+                            <TipLabel>
+                                <TipIcon viewBox="0 0 24 24" aria-hidden>
+                                    <path d="M9 18h6" />
+                                    <path d="M10 22h4" />
+                                    <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2v.3h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z" />
+                                </TipIcon>
+                                Dica
+                            </TipLabel>
                             <Para>{active.tip}</Para>
                         </TipBlock>
                     )}
@@ -542,16 +549,29 @@ const StepText = styled.span`
 `;
 
 const TipBlock = styled.div`
-    background: #fff8e6;
-    border-left: 4px solid #FFB40F;
-    padding: 14px 18px;
-    border-radius: 8px;
-    margin-top: 8px;
+    border-left: 1px solid #005E81;
+    padding: 4px 0 4px 16px;
+    margin-top: 24px;
 `;
 
 const TipLabel = styled.div`
-    color: #a16b00;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #005E81;
     font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+`;
+
+const TipIcon = styled.svg`
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 `;
