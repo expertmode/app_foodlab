@@ -58,7 +58,10 @@ export default function CatalogHistory() {
                                 </RowMeta>
                             </RowMain>
                             <RowActions>
-                                <DownloadLink href={p.url} download={p.filename} target="_blank" rel="noopener">
+                                <ViewLink href={p.url} target="_blank" rel="noopener">
+                                    ↗ Ver
+                                </ViewLink>
+                                <DownloadLink href={p.url} download={p.filename}>
                                     ↓ Descarregar
                                 </DownloadLink>
                                 <DelBtn disabled={busy === p.id} onClick={() => del(p.id)}>
@@ -176,6 +179,19 @@ const RowActions = styled.div`
     gap: 8px;
     align-items: center;
     flex-shrink: 0;
+`;
+
+const ViewLink = styled.a`
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1.5px solid #005E81;
+    color: #005E81;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+    &:hover { background: #f0f8fb; }
 `;
 
 const DownloadLink = styled.a`
