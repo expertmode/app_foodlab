@@ -134,6 +134,53 @@ export default function ProductAdmin({ params }) {
         } finally { setBusy((b) => ({ ...b, [key]: false })); }
     };
 
+    const uploadVideo = async (file) => {
+        if (!file) return;
+        const MAX = 50 * 1024 * 1024;
+        if (file.size > MAX) {
+            alert(`Vídeo demasiado grande (${(file.size / 1024 / 1024).toFixed(1)} MB). Limite: 50 MB.`);
+            return;
+        }
+        setBusy((b) => ({ ...b, video: true }));
+        try {
+            const fd = new FormData();
+            fd.append('file', file);
+            fd.append('productId', String(p.id));
+            fd.append('kind', 'video');
+            const r = await fetch('/api/admin/upload', { method: 'POST', body: fd });
+            const data = await r.json();
+            if (!r.ok) throw new Error(data.error || 'erro');
+            await reload();
+        } catch (e) {
+            alert('Erro upload do vídeo: ' + e.message);
+        } finally { setBusy((b) => ({ ...b, video: false })); }
+    };
+
+    const removeVideo = async (videoId) => {
+        if (!confirm('Remover este vídeo? O ficheiro é apagado definitivamente.')) return;
+        setBusy((b) => ({ ...b, [`video-${videoId}`]: true }));
+        try {
+            const r = await fetch(`/api/admin/upload?productId=${p.id}&videoId=${videoId}`, { method: 'DELETE' });
+            if (!r.ok) {
+                const data = await r.json().catch(() => ({}));
+                throw new Error(data.error || `HTTP ${r.status}`);
+            }
+            await reload();
+        } catch (e) {
+            alert('Erro a remover: ' + e.message);
+        } finally { setBusy((b) => ({ ...b, [`video-${videoId}`]: false })); }
+    };
+
+    const moveVideo = (videoId, direction) => {
+        const videos = [...(p.videos || [])];
+        const idx = videos.findIndex((v) => v.id === videoId);
+        if (idx < 0) return;
+        const newIdx = idx + direction;
+        if (newIdx < 0 || newIdx >= videos.length) return;
+        [videos[idx], videos[newIdx]] = [videos[newIdx], videos[idx]];
+        setP({ ...p, videos });
+    };
+
     const cb = (path) => `${path}?t=${bump}`;
 
     return (
@@ -321,6 +368,60 @@ export default function ProductAdmin({ params }) {
                     </CardEdit>
                 ))}
                 <AddItemBtn onClick={addCard}>+ Adicionar card</AddItemBtn>
+            </Section>
+
+            <Section>
+                <h2>Vídeos ({p.videos?.length || 0})</h2>
+                <Note>
+                    Aparecem no fim da página do produto no quiosque, a tocar em sequência (o utilizador carrega play).
+                    Recomendado: <b>720p H.264, ≤15 MB, ≤30 segundos</b>. Limite duro: 50 MB. Formatos: mp4, webm, mov.
+                </Note>
+                {(p.videos || []).map((v, i) => (
+                    <VideoRow key={v.id}>
+                        <VideoPreview>
+                            <video src={`${v.url}#t=0.5`} controls preload="metadata" />
+                        </VideoPreview>
+                        <VideoInfo>
+                            <VideoTitle>Vídeo {i + 1} <small>#{v.id}</small></VideoTitle>
+                            <VideoMeta>
+                                <span title={v.filename}>{v.filename || '—'}</span>
+                                {v.size ? <span>{(v.size / 1024 / 1024).toFixed(1)} MB</span> : null}
+                                {v.ts ? <span>{new Date(v.ts).toLocaleString()}</span> : null}
+                            </VideoMeta>
+                            <VideoActions>
+                                <SmallArrow
+                                    disabled={i === 0}
+                                    onClick={() => moveVideo(v.id, -1)}
+                                    title="Mover para cima"
+                                >↑</SmallArrow>
+                                <SmallArrow
+                                    disabled={i === (p.videos.length - 1)}
+                                    onClick={() => moveVideo(v.id, 1)}
+                                    title="Mover para baixo"
+                                >↓</SmallArrow>
+                                <RemoveItemBtn
+                                    disabled={busy[`video-${v.id}`]}
+                                    onClick={() => removeVideo(v.id)}
+                                >
+                                    {busy[`video-${v.id}`] ? 'A remover…' : 'Remover'}
+                                </RemoveItemBtn>
+                            </VideoActions>
+                            <small style={{ color: '#888', fontSize: 11 }}>
+                                Após reordenar, carrega <b>Guardar alterações</b> em cima.
+                            </small>
+                        </VideoInfo>
+                    </VideoRow>
+                ))}
+                <VideoUploadLabel $busy={busy.video}>
+                    <input
+                        type="file"
+                        accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov"
+                        style={{ display: 'none' }}
+                        disabled={busy.video}
+                        onChange={(e) => { uploadVideo(e.target.files?.[0]); e.target.value = ''; }}
+                    />
+                    <span>{busy.video ? 'A enviar vídeo…' : '+ Adicionar vídeo'}</span>
+                </VideoUploadLabel>
             </Section>
 
             <Section>
@@ -770,6 +871,101 @@ const PictoRow = styled.div`
     align-items: flex-end;
     gap: 12px;
     padding: 8px 0;
+`;
+
+const VideoRow = styled.div`
+    display: flex;
+    gap: 16px;
+    padding: 12px;
+    background: #f9f9f7;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    align-items: stretch;
+`;
+
+const VideoPreview = styled.div`
+    flex: 0 0 320px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        background: #000;
+    }
+`;
+
+const VideoInfo = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+`;
+
+const VideoTitle = styled.div`
+    font-weight: 700;
+    color: #005E81;
+    font-size: 15px;
+
+    small { color: #999; font-weight: 500; margin-left: 6px; font-size: 12px; }
+`;
+
+const VideoMeta = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #666;
+    font-size: 12px;
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 280px;
+    }
+`;
+
+const VideoActions = styled.div`
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 4px;
+`;
+
+const SmallArrow = styled.button`
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid #005E81;
+    background: #fff;
+    color: #005E81;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover:not(:disabled) { background: #f0f8fb; }
+    &:disabled { opacity: 0.3; cursor: not-allowed; }
+`;
+
+const VideoUploadLabel = styled.label`
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    border: 2px dashed #005E81;
+    background: #fff;
+    color: #005E81;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: ${(p) => (p.$busy ? 'wait' : 'pointer')};
+    opacity: ${(p) => (p.$busy ? 0.6 : 1)};
+
+    &:hover { background: ${(p) => (p.$busy ? '#fff' : '#f0f8fb')}; }
+
+    span { pointer-events: none; }
 `;
 
 const AddItemBtn = styled.button`

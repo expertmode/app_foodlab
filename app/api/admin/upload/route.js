@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
 import sharp from 'sharp';
-import { putBlob, contentTypeFor } from '@/lib/blob';
+import { putBlob, contentTypeFor, deleteBlob } from '@/lib/blob';
 import { getProduct, updateProduct } from '@/lib/products';
 import { bumpVersion } from '@/lib/version';
 
+export const runtime = 'nodejs';
+// Allow large request bodies for video upload. Without this Next/Vercel caps at ~4.5MB.
+export const maxDuration = 60;
+
 const RASTER_EXTS = ['jpg', 'jpeg', 'png', 'webp'];
+const VIDEO_EXTS = ['mp4', 'webm', 'mov', 'm4v'];
+const VIDEO_MAX_BYTES = 50 * 1024 * 1024; // 50MB hard cap per video
 
 async function optimizeBuffer(buffer, ext) {
     if (!RASTER_EXTS.includes(ext)) return buffer;
@@ -37,8 +43,42 @@ export async function POST(req) {
         if (!file) return NextResponse.json({ error: 'file required' }, { status: 400 });
 
         const origExt = (file.name || 'image.jpg').split('.').pop().toLowerCase();
-        const rawBuf = Buffer.from(await file.arrayBuffer());
+        const isVideo = kind === 'video' || VIDEO_EXTS.includes(origExt);
 
+        if (isVideo) {
+            if (!VIDEO_EXTS.includes(origExt)) {
+                return NextResponse.json({ error: `Formato não suportado: .${origExt}. Usa mp4, webm ou mov.` }, { status: 400 });
+            }
+            if (file.size > VIDEO_MAX_BYTES) {
+                const mb = (file.size / 1024 / 1024).toFixed(1);
+                return NextResponse.json({ error: `Vídeo demasiado grande (${mb} MB). Limite: 50 MB.` }, { status: 413 });
+            }
+            if (!productId) {
+                return NextResponse.json({ error: 'productId required for video upload' }, { status: 400 });
+            }
+
+            const rawBuf = Buffer.from(await file.arrayBuffer());
+            const p = await getProduct(productId);
+            if (!p) return NextResponse.json({ error: 'product not found' }, { status: 404 });
+
+            const videos = Array.isArray(p.videos) ? p.videos : [];
+            const nextId = (videos.reduce((m, v) => Math.max(m, v.id || 0), 0)) + 1;
+            const key = `produtos/prod${productId}/videos/video${nextId}-${Date.now()}.${origExt}`;
+            const url = await putBlob(key, rawBuf, contentTypeFor(key));
+
+            const newVideo = {
+                id: nextId,
+                url,
+                filename: file.name || `video${nextId}.${origExt}`,
+                size: file.size,
+                ts: Date.now(),
+            };
+            await updateProduct(p.id, { videos: [...videos, newVideo] });
+            await bumpVersion();
+            return NextResponse.json({ ok: true, url, video: newVideo, ts: Date.now() });
+        }
+
+        const rawBuf = Buffer.from(await file.arrayBuffer());
         const useLite = !!(productId && kind) && RASTER_EXTS.includes(origExt);
         const buf = useLite
             ? await optimizeToLiteWebp(rawBuf)
@@ -85,6 +125,34 @@ export async function POST(req) {
 
         await bumpVersion();
         return NextResponse.json({ ok: true, url, path: url, ts: Date.now() });
+    } catch (e) {
+        return NextResponse.json({ error: e.message }, { status: 500 });
+    }
+}
+
+// Delete a video from a product: removes the blob and drops the entry from videos[].
+// Other media kinds use the versioning flow; videos are a flat list, so this is the
+// only way to remove them.
+export async function DELETE(req) {
+    try {
+        const { searchParams } = req.nextUrl;
+        const productId = searchParams.get('productId');
+        const videoId = searchParams.get('videoId');
+        if (!productId || !videoId) {
+            return NextResponse.json({ error: 'productId and videoId required' }, { status: 400 });
+        }
+        const p = await getProduct(productId);
+        if (!p) return NextResponse.json({ error: 'product not found' }, { status: 404 });
+
+        const videos = Array.isArray(p.videos) ? p.videos : [];
+        const target = videos.find((v) => String(v.id) === String(videoId));
+        if (!target) return NextResponse.json({ error: 'video not found' }, { status: 404 });
+
+        const nextVideos = videos.filter((v) => String(v.id) !== String(videoId));
+        await updateProduct(p.id, { videos: nextVideos });
+        if (target.url) await deleteBlob(target.url);
+        await bumpVersion();
+        return NextResponse.json({ ok: true });
     } catch (e) {
         return NextResponse.json({ error: e.message }, { status: 500 });
     }
