@@ -6,13 +6,14 @@ import styled from 'styled-components';
 import InstallButton from '@/components/global/installButton';
 
 // Shared admin header with grouped navigation.
-// Pages pass `current` ('produtos' | 'catalog' | 'banners' | 'filtros' | 'icons' | 'analytics' | 'edit')
+// Pages pass `current` ('produtos' | 'catalog' | 'historico' | 'banners' | 'filtros' | 'icons' | 'analytics' | 'edit')
 // so the active item can be highlighted without route-string matching.
 export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
     const [showHelp, setShowHelp] = useState(false);
     const pathname = usePathname();
 
     const active = current || (
+        pathname?.includes('/admin/catalog/historico') ? 'historico' :
         pathname?.includes('/admin/catalog') ? 'catalog' :
         pathname?.includes('/admin/home') ? 'banners' :
         pathname?.includes('/admin/filtros') ? 'filtros' :
@@ -58,6 +59,9 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                         </NavLink>
                         <NavLink href="/admin" $active={active === 'produtos'}>
                             Escolher produtos
+                        </NavLink>
+                        <NavLink href="/admin/catalog/historico" $active={active === 'historico'}>
+                            Histórico de PDFs
                         </NavLink>
                     </GroupItems>
                 </Group>
@@ -113,6 +117,7 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                             <ul>
                                 <li><b>Configurar</b> — capa, página em branco, título do índice, rodapé.</li>
                                 <li><b>Escolher produtos</b> — vai a Produtos, carrega no <b>+</b> dos cards para os juntar à seleção. Em baixo aparece a barra com "Exportar PDF".</li>
+                                <li><b>Histórico</b> — todos os PDFs criados ficam guardados aqui para voltares a descarregar sem regenerar.</li>
                             </ul>
                             <h4>Conteúdo</h4>
                             <ul>

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
+import { putBlob } from '@/lib/blob';
+import { addPdf } from '@/lib/catalogPdfs';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -104,11 +106,33 @@ export async function POST(req) {
 
         const buf = await generatePdf(req, ids);
 
+        const now = new Date();
+        const filename = `catalogo-foodlab-${now.toISOString().slice(0, 10)}.pdf`;
+
+        // Archive the PDF so it stays downloadable from the admin "histórico" page
+        // without re-running Puppeteer. Don't fail the response if archiving fails —
+        // the user still gets the download.
+        try {
+            const id = String(now.getTime());
+            const url = await putBlob(`pdfs/catalog-${id}.pdf`, Buffer.from(buf), 'application/pdf');
+            const productIds = ids.split(',').map((s) => s.trim()).filter(Boolean);
+            await addPdf({
+                id,
+                url,
+                filename,
+                createdAt: now.toISOString(),
+                productIds,
+                productCount: productIds.length,
+            });
+        } catch (archiveErr) {
+            console.error('[catalog/export] failed to archive PDF', archiveErr);
+        }
+
         return new NextResponse(buf, {
             status: 200,
             headers: {
                 'Content-Type': 'application/pdf',
-                'Content-Disposition': `attachment; filename="catalogo-foodlab-${new Date().toISOString().slice(0, 10)}.pdf"`,
+                'Content-Disposition': `attachment; filename="${filename}"`,
                 'Content-Length': String(buf.length),
                 'Cache-Control': 'no-store',
             },
