@@ -1,18 +1,17 @@
 'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styled from 'styled-components';
 import InstallButton from '@/components/global/installButton';
 
 // Shared admin header with grouped navigation.
-// Pages pass `current` ('produtos' | 'catalog' | 'historico' | 'banners' | 'filtros' | 'icons' | 'analytics' | 'edit')
+// Pages pass `current` ('produtos' | 'catalog' | 'historico' | 'banners' | 'filtros' | 'icons' | 'analytics' | 'edit' | 'help')
 // so the active item can be highlighted without route-string matching.
 export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
-    const [showHelp, setShowHelp] = useState(false);
     const pathname = usePathname();
 
     const active = current || (
+        pathname?.includes('/admin/help') ? 'help' :
         pathname?.includes('/admin/catalog/historico') ? 'historico' :
         pathname?.includes('/admin/catalog') ? 'catalog' :
         pathname?.includes('/admin/home') ? 'banners' :
@@ -35,7 +34,7 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                     <Brand>{title}</Brand>
                     <TopActions>
                         <InstallButton label="Instalar" />
-                        <HelpBtn onClick={() => setShowHelp(true)} title="Ajuda">?</HelpBtn>
+                        <HelpLink href="/admin/help" title="Ajuda" $active={active === 'help'}>?</HelpLink>
                     </TopActions>
                 </TopBar>
 
@@ -96,46 +95,12 @@ export default function AdminHeader({ current, title = 'Foodlab Admin' }) {
                         <NavLink as="button" onClick={refreshKiosks} $tone="warning">
                             Refrescar quiosques
                         </NavLink>
+                        <NavLink href="/admin/help" $active={active === 'help'}>
+                            Ajuda
+                        </NavLink>
                     </GroupItems>
                 </Group>
             </Wrap>
-
-            {showHelp && (
-                <HelpBackdrop onClick={() => setShowHelp(false)}>
-                    <HelpCard onClick={(e) => e.stopPropagation()}>
-                        <HelpHeader>
-                            <h3>Como navegar no admin</h3>
-                            <CloseBtn onClick={() => setShowHelp(false)}>×</CloseBtn>
-                        </HelpHeader>
-                        <HelpBody>
-                            <h4>Ver</h4>
-                            <ul>
-                                <li><b>Site online</b> — abre a versão pública (responsive). Limpa o flag de quiosque do browser.</li>
-                                <li><b>Quiosque</b> — abre como se fosses o quiosque (com lockdown, sem cursor, fullscreen).</li>
-                            </ul>
-                            <h4>Catálogo PDF</h4>
-                            <ul>
-                                <li><b>Configurar</b> — capa, página em branco, título do índice, rodapé.</li>
-                                <li><b>Escolher produtos</b> — vai a Produtos, carrega no <b>+</b> dos cards para os juntar à seleção. Em baixo aparece a barra com "Exportar PDF".</li>
-                                <li><b>Histórico</b> — todos os PDFs criados ficam guardados aqui para voltares a descarregar sem regenerar.</li>
-                            </ul>
-                            <h4>Conteúdo</h4>
-                            <ul>
-                                <li><b>Produtos</b> — lista + edição (imagens, pictos, cards, texto).</li>
-                                <li><b>Banners</b> — banners da homepage do quiosque.</li>
-                                <li><b>Filtros</b> — categorias da página /produtos.</li>
-                                <li><b>Ícones</b> — SVGs dos pictos (vegan, etc.).</li>
-                            </ul>
-                            <h4>Sistema</h4>
-                            <ul>
-                                <li><b>Analytics</b> — métricas de uso (eventos, vistas, filtros).</li>
-                                <li><b>Backup .zip</b> — exporta toda a config e imagens.</li>
-                                <li><b>Refrescar quiosques</b> — força os quiosques abertos a recarregar nos próximos 30s.</li>
-                            </ul>
-                        </HelpBody>
-                    </HelpCard>
-                </HelpBackdrop>
-            )}
         </>
     );
 }
@@ -171,17 +136,21 @@ const TopActions = styled.div`
     align-items: center;
 `;
 
-const HelpBtn = styled.button`
+const HelpLink = styled(Link)`
     width: 30px;
     height: 30px;
     border-radius: 1000px;
     border: 1.5px solid #005E81;
-    background: transparent;
-    color: #005E81;
+    background: ${(p) => (p.$active ? '#005E81' : 'transparent')};
+    color: ${(p) => (p.$active ? '#fff' : '#005E81')};
     font-weight: 700;
     font-size: 13px;
-    cursor: pointer;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: inherit;
     transition: background 0.15s, color 0.15s;
 
     &:hover { background: #005E81; color: #fff; }
@@ -248,54 +217,3 @@ const Arrow = styled.span`
     margin-left: 2px;
 `;
 
-// === Help modal ===
-const HelpBackdrop = styled.div`
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 24px;
-`;
-
-const HelpCard = styled.div`
-    background: #fff;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-`;
-
-const HelpHeader = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    h3 { margin: 0; color: #005E81; }
-`;
-
-const CloseBtn = styled.button`
-    background: none;
-    border: none;
-    font-size: 28px;
-    line-height: 1;
-    color: #999;
-    cursor: pointer;
-    &:hover { color: #333; }
-`;
-
-const HelpBody = styled.div`
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
-    h4 { color: #005E81; margin: 14px 0 6px 0; }
-    ul { margin: 0; padding-left: 20px; }
-    li { margin-bottom: 4px; }
-    b { color: #005E81; }
-`;
